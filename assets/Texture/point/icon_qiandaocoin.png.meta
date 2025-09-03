@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "5b0c13fd-73b1-402a-8bca-1a2298535ebf",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 64,
+  "height": 64,
+  "platformSettings": {},
+  "subMetas": {
+    "icon_qiandaocoin": {
+      "ver": "1.0.4",
+      "uuid": "05d0445d-0771-4f44-8418-b4c350d60dc6",
+      "rawTextureUuid": "5b0c13fd-73b1-402a-8bca-1a2298535ebf",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 3,
+      "trimY": 2,
+      "width": 58,
+      "height": 60,
+      "rawWidth": 64,
+      "rawHeight": 64,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

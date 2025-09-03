@@ -1,0 +1,76 @@
+
+chiyanshenpao.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+guangyun
+  rotate: false
+  xy: 145, 55
+  size: 73, 73
+  orig: 75, 75
+  offset: 2, 1
+  index: -1
+rs_000
+  rotate: true
+  xy: 0, 139
+  size: 58, 76
+  orig: 85, 85
+  offset: 14, 5
+  index: -1
+rs_001
+  rotate: true
+  xy: 0, 75
+  size: 61, 78
+  orig: 85, 85
+  offset: 13, 6
+  index: -1
+rs_002
+  rotate: true
+  xy: 78, 138
+  size: 59, 77
+  orig: 85, 85
+  offset: 18, 7
+  index: -1
+rs_003
+  rotate: true
+  xy: 63, 199
+  size: 55, 64
+  orig: 85, 85
+  offset: 15, 9
+  index: -1
+rs_004
+  rotate: true
+  xy: 0, 203
+  size: 51, 61
+  orig: 85, 85
+  offset: 14, 10
+  index: -1
+rs_005
+  rotate: true
+  xy: 157, 130
+  size: 59, 65
+  orig: 85, 85
+  offset: 10, 11
+  index: -1
+rs_006
+  rotate: false
+  xy: 80, 73
+  size: 63, 63
+  orig: 85, 85
+  offset: 9, 11
+  index: -1
+rs_007
+  rotate: false
+  xy: 195, 191
+  size: 59, 63
+  orig: 85, 85
+  offset: 15, 9
+  index: -1
+rs_008
+  rotate: true
+  xy: 129, 199
+  size: 55, 64
+  orig: 85, 85
+  offset: 19, 10
+  index: -1

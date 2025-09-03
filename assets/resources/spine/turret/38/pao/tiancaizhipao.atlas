@@ -1,0 +1,27 @@
+
+tiancaizhipao.png
+size: 154,152
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 83, 36
+  size: 116, 42
+  orig: 116, 42
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 34
+  size: 74, 118
+  orig: 74, 118
+  offset: 0, 0
+  index: -1
+qjp-shen2
+  rotate: false
+  xy: 0, 0
+  size: 61, 23
+  orig: 61, 23
+  offset: 0, 0
+  index: -1

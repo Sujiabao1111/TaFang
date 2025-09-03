@@ -1,0 +1,20 @@
+
+hanshapao.png
+size: 173,171
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: false
+  xy: 0, 0
+  size: 97, 42
+  orig: 99, 44
+  offset: 1, 1
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 53
+  size: 113, 118
+  orig: 115, 120
+  offset: 1, 1
+  index: -1

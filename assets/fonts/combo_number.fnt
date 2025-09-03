@@ -1,0 +1,14 @@
+info face="face" size=82
+common lineHeight=82 scaleW=278 scaleH=166 pages=1
+page id=0 file="combo_number.png"
+chars count=10
+char id=48 x=0 y=0 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15
+char id=49 x=56 y=0 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15
+char id=50 x=112 y=0 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15
+char id=51 x=0 y=84 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15
+char id=52 x=56 y=84 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15
+char id=53 x=112 y=84 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15
+char id=54 x=168 y=0 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15
+char id=55 x=168 y=84 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15
+char id=56 x=224 y=0 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15
+char id=57 x=224 y=84 width=54 height=82 xoffset=0 yoffset=0 xadvance=54 page=0 chnl=15

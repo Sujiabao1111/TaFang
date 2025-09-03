@@ -1,0 +1,48 @@
+
+diancipao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+E_01
+  rotate: false
+  xy: 2, 273
+  size: 196, 221
+  orig: 200, 230
+  offset: 0, 6
+  index: -1
+E_02
+  rotate: false
+  xy: 2, 51
+  size: 193, 220
+  orig: 200, 230
+  offset: 1, 7
+  index: -1
+E_03
+  rotate: false
+  xy: 200, 274
+  size: 186, 220
+  orig: 200, 230
+  offset: 5, 7
+  index: -1
+E_04
+  rotate: false
+  xy: 197, 59
+  size: 162, 212
+  orig: 200, 230
+  offset: 19, 12
+  index: -1
+E_05
+  rotate: false
+  xy: 361, 121
+  size: 133, 151
+  orig: 200, 230
+  offset: 38, 39
+  index: -1
+E_06
+  rotate: false
+  xy: 388, 392
+  size: 77, 102
+  orig: 200, 230
+  offset: 63, 68
+  index: -1

@@ -1,0 +1,13 @@
+
+junenghongyinpao.png
+size: 57,57
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pd03
+  rotate: false
+  xy: 2, 2
+  size: 50, 53
+  orig: 52, 54
+  offset: 1, 1
+  index: -1

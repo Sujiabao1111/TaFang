@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "1ca4633a-755c-4df5-a6f3-c1d8632446d3",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 104,
+  "height": 104,
+  "platformSettings": {},
+  "subMetas": {
+    "icon_fenhong_paowang": {
+      "ver": "1.0.4",
+      "uuid": "5ba831ec-db1d-413f-824c-30efeec140f8",
+      "rawTextureUuid": "1ca4633a-755c-4df5-a6f3-c1d8632446d3",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 104,
+      "height": 104,
+      "rawWidth": 104,
+      "rawHeight": 104,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

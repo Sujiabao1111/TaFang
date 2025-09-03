@@ -1,0 +1,62 @@
+
+tiancaipao.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Scx01
+  rotate: true
+  xy: 104, 161
+  size: 46, 93
+  orig: 60, 130
+  offset: 9, 15
+  index: -1
+Scx02
+  rotate: false
+  xy: 204, 156
+  size: 47, 95
+  orig: 60, 130
+  offset: 10, 15
+  index: -1
+Scx03
+  rotate: true
+  xy: 2, 209
+  size: 42, 102
+  orig: 60, 130
+  offset: 9, 13
+  index: -1
+Scx04
+  rotate: true
+  xy: 2, 54
+  size: 51, 101
+  orig: 60, 130
+  offset: 1, 13
+  index: -1
+Scx05
+  rotate: true
+  xy: 106, 209
+  size: 42, 96
+  orig: 60, 130
+  offset: 10, 21
+  index: -1
+Scx06
+  rotate: true
+  xy: 2, 163
+  size: 44, 100
+  orig: 60, 130
+  offset: 10, 14
+  index: -1
+Scx07
+  rotate: true
+  xy: 2, 114
+  size: 47, 99
+  orig: 60, 130
+  offset: 6, 15
+  index: -1
+Scx08
+  rotate: true
+  xy: 103, 107
+  size: 52, 99
+  orig: 60, 130
+  offset: 2, 14
+  index: -1

@@ -1,0 +1,8 @@
+[
+    {"type":"1","name":"冰冻","explain":"冷却怪物","time":"60","level":"1"},
+    {"type":"2","name":"电击","explain":"怪物额外伤害+20","time":"60","level":"1"},
+    {"type":"3","name":"护罩","explain":"使水晶塔阻碍怪物入侵","time":"30","level":"1"},
+    {"type":"4","name":"清屏","explain":"游戏中这一波怪兽全部消失","time":"0","level":"10"},
+    {"type":"5","name":"自动合成","explain":"炮塔自动合成","time":"60","level":"10"},
+    {"type":"6","name":"增能","explain":"炮塔攻击力X2","time":"60","level":"10"}
+]

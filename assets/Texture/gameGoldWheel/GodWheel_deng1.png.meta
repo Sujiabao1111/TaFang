@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "4d1a7f02-d10c-4023-bb31-62e114f9a773",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 624,
+  "height": 624,
+  "platformSettings": {},
+  "subMetas": {
+    "GodWheel_deng1": {
+      "ver": "1.0.4",
+      "uuid": "48bcf3a1-b591-4c52-97f6-f48d42b8397a",
+      "rawTextureUuid": "4d1a7f02-d10c-4023-bb31-62e114f9a773",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 8,
+      "trimY": 1,
+      "width": 608,
+      "height": 622,
+      "rawWidth": 624,
+      "rawHeight": 624,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

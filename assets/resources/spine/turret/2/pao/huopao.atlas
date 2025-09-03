@@ -1,0 +1,20 @@
+
+huopao.png
+size: 109,107
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 68, 10
+  size: 97, 37
+  orig: 97, 37
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 0
+  size: 59, 107
+  orig: 59, 107
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,62 @@
+
+daoyinpao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bz_0000
+  rotate: true
+  xy: 77, 360
+  size: 78, 97
+  orig: 128, 128
+  offset: 27, 15
+  index: -1
+bz_0002
+  rotate: false
+  xy: 2, 366
+  size: 73, 72
+  orig: 128, 128
+  offset: 26, 27
+  index: -1
+bz_0004
+  rotate: true
+  xy: 176, 359
+  size: 79, 80
+  orig: 128, 128
+  offset: 23, 23
+  index: -1
+bz_0006
+  rotate: false
+  xy: 258, 358
+  size: 88, 80
+  orig: 128, 128
+  offset: 18, 25
+  index: -1
+bz_0008
+  rotate: false
+  xy: 348, 354
+  size: 90, 84
+  orig: 128, 128
+  offset: 18, 24
+  index: -1
+bz_0010
+  rotate: false
+  xy: 2, 263
+  size: 95, 95
+  orig: 128, 128
+  offset: 16, 20
+  index: -1
+bz_0012
+  rotate: false
+  xy: 99, 256
+  size: 101, 101
+  orig: 128, 128
+  offset: 14, 16
+  index: -1
+bz_0014
+  rotate: false
+  xy: 202, 250
+  size: 107, 106
+  orig: 128, 128
+  offset: 11, 12
+  index: -1

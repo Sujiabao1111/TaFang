@@ -1,0 +1,1 @@
+{"version":3,"sources":["assets\\Script\\server\\xmsdk_cocos\\Adapter\\Type\\CommonSettingType.ts"],"names":[],"mappings":"","file":"","sourceRoot":"/","sourcesContent":["/**\n * 一些通用的设置开关类型\n */\ntype CommonSettingType = {\n    enable: boolean\n}\n\nexport default CommonSettingType;"]}

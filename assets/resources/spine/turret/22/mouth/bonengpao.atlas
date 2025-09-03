@@ -1,0 +1,146 @@
+
+bonengpao.png
+size: 348,348
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A10
+  rotate: true
+  xy: 305, 266
+  size: 80, 39
+  orig: 82, 41
+  offset: 1, 1
+  index: -1
+A11
+  rotate: false
+  xy: 96, 149
+  size: 108, 38
+  orig: 110, 40
+  offset: 1, 1
+  index: -1
+A110
+  rotate: true
+  xy: 296, 118
+  size: 82, 37
+  orig: 84, 39
+  offset: 1, 1
+  index: -1
+A111
+  rotate: false
+  xy: 95, 27
+  size: 69, 34
+  orig: 71, 36
+  offset: 1, 1
+  index: -1
+A112
+  rotate: false
+  xy: 284, 16
+  size: 57, 26
+  orig: 59, 28
+  offset: 1, 1
+  index: -1
+A113
+  rotate: true
+  xy: 181, 91
+  size: 56, 19
+  orig: 58, 21
+  offset: 1, 1
+  index: -1
+A114
+  rotate: true
+  xy: 96, 189
+  size: 56, 11
+  orig: 58, 13
+  offset: 1, 1
+  index: -1
+A12
+  rotate: false
+  xy: 207, 199
+  size: 70, 40
+  orig: 72, 42
+  offset: 1, 1
+  index: -1
+A13
+  rotate: false
+  xy: 279, 240
+  size: 65, 18
+  orig: 67, 20
+  offset: 1, 1
+  index: -1
+A19
+  rotate: false
+  xy: 109, 199
+  size: 96, 40
+  orig: 98, 42
+  offset: 1, 1
+  index: -1
+AD03
+  rotate: false
+  xy: 279, 202
+  size: 36, 36
+  orig: 38, 38
+  offset: 1, 1
+  index: -1
+AD04
+  rotate: false
+  xy: 284, 44
+  size: 62, 62
+  orig: 64, 64
+  offset: 1, 1
+  index: -1
+AD05
+  rotate: false
+  xy: 202, 26
+  size: 80, 80
+  orig: 82, 82
+  offset: 1, 1
+  index: -1
+AD06
+  rotate: false
+  xy: 95, 63
+  size: 84, 84
+  orig: 86, 86
+  offset: 1, 1
+  index: -1
+AD07
+  rotate: false
+  xy: 215, 260
+  size: 88, 86
+  orig: 90, 88
+  offset: 1, 1
+  index: -1
+AD08
+  rotate: true
+  xy: 2, 150
+  size: 95, 92
+  orig: 97, 94
+  offset: 1, 1
+  index: -1
+AD09
+  rotate: true
+  xy: 112, 241
+  size: 105, 101
+  orig: 107, 103
+  offset: 1, 1
+  index: -1
+AD10
+  rotate: false
+  xy: 2, 247
+  size: 108, 99
+  orig: 110, 101
+  offset: 1, 1
+  index: -1
+AD11
+  rotate: false
+  xy: 2, 56
+  size: 91, 92
+  orig: 93, 94
+  offset: 1, 1
+  index: -1
+AD12
+  rotate: false
+  xy: 206, 108
+  size: 88, 89
+  orig: 90, 91
+  offset: 1, 1
+  index: -1

@@ -1,0 +1,20 @@
+
+shengyipao.png
+size: 232,230
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 0, 0
+  size: 104, 58
+  orig: 104, 58
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 115
+  size: 63, 115
+  orig: 63, 115
+  offset: 0, 0
+  index: -1

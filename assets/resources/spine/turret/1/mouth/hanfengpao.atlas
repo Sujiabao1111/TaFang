@@ -1,0 +1,48 @@
+
+hanfengpao.png
+size: 136,136
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+790000
+  rotate: true
+  xy: 69, 14
+  size: 33, 17
+  orig: 93, 45
+  offset: 28, 14
+  index: -1
+790001
+  rotate: false
+  xy: 88, 22
+  size: 46, 24
+  orig: 93, 45
+  offset: 21, 10
+  index: -1
+790002
+  rotate: false
+  xy: 2, 14
+  size: 65, 33
+  orig: 93, 45
+  offset: 11, 6
+  index: -1
+790003
+  rotate: false
+  xy: 2, 49
+  size: 80, 40
+  orig: 93, 45
+  offset: 4, 2
+  index: -1
+790004
+  rotate: false
+  xy: 2, 91
+  size: 88, 43
+  orig: 93, 45
+  offset: 0, 1
+  index: -1
+790013
+  rotate: true
+  xy: 92, 48
+  size: 86, 42
+  orig: 93, 45
+  offset: 1, 1
+  index: -1

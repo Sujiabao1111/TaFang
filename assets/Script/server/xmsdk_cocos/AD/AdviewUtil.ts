@@ -1,0 +1,263 @@
+import PxTransUtils from "./../Utils/PxTransUtils";
+import { ShowAdViewConfigType } from "./../Adapter/Type/AdViewConfig";
+import PlatformFactory from '../Adapter/PlatformFactory';
+import { FeedAdStatus } from "../Adapter/Type/AdStatus";
+import NameTs from "../../../common/NameTs";
+import { AssistCtr } from "../../../Assist/AssistCtr";
+export namespace AdviewUtil {
+    export let hasInit: Boolean = false;
+
+    export let retry = 3;
+
+    export let defHeight = 220;              // 应客户端要求，广点通广告获取不到高度，给默认值，小的90，大的220
+
+    export let adBoxSet: object = {};        // 存放对应广告的容器的组
+
+    export let adBoxWidthSet: object = {};   // 存放对应广告位的容器的宽度
+
+    export let adSet: object = {};           // 存放对应广告返回值RES
+
+    export let adHideSet: object = {};       // 存放是否点击隐藏信息流
+
+    export let adStatusSet: object = {};      //存放状态码
+
+    export let adloadPre: object = {};        //存放是否广告缓存
+    export let StatusCode = {
+        loading: 1,//没有好
+        loadSucc: 2,//加载成功
+        loadFail: 3,//加载失败
+        confirmHeight: 4,//高度确定了
+    }
+    export interface RES {
+        position: any,    //返回的广告位
+        status: number,   //返回的广告状态
+        width: number,    //返回的广告宽度，客户端原生
+        height: number,   //返回的广告高度，客户端原生
+    };
+
+    export function init() {
+        if (AdviewUtil.hasInit) {
+            return;
+        }
+        window["adViewListener"] = (res: AdviewUtil.RES) => {
+            console.info('adViewUtil:' + JSON.stringify(res));
+            //广告加载成功了--1,加载失败了--2,广告点击了--3,广告展示--4,广告关闭了--6,高度确认了--9
+            switch (res.status) {
+                case 1:
+                    console.log("信息流加载成功", res.position)
+                    AdviewUtil.retry = 3;
+                    AdviewUtil.adStatusSet[res.position] = StatusCode.loadSucc
+                    break;
+                case 2:
+                    console.log("信息流加载失败", res.position)
+                    AdviewUtil.adStatusSet[res.position] = StatusCode.loadFail
+                    if (!AdviewUtil.adloadPre[res.position] && AdviewUtil.retry >= 0) {
+                        setTimeout(() => {
+                            AdviewUtil.loadAd(res.position, AdviewUtil.adBoxWidthSet[res.position], AdviewUtil.adBoxSet[res.position]);
+                            --AdviewUtil.retry;
+                        }, 1000);
+                    }
+                    break;
+                case 6:
+                    // MessageCenter.sendMessage('FAD_CLOSE_RES', res);
+                    AdviewUtil.hideAd(res.position);
+                    break;
+                case 9:
+                    console.log("信息流高度确定", res.position, AdviewUtil.adBoxSet)
+                    //信息流的高度确定了
+                    AdviewUtil.adSet[res.position] = res;
+                    AdviewUtil.adStatusSet[res.position] = StatusCode.confirmHeight
+                    //这里先发出一个通知吧
+                    // MessageCenter.sendMessage('FAD_HEIGHT_OK', res);
+                    if (!AdviewUtil.adloadPre[res.position]) {
+                        AdviewUtil.showAd(res.position, AdviewUtil.adBoxSet[res.position]);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            cc.game.emit(NameTs.Close_AdLoading);
+        }
+
+
+
+        if (cc.sys.isNative) {
+            window["SystemInterface"].adViewListener = (res) => {
+                window["adViewListener"](JSON.parse(res));
+            }
+        }
+
+        AdviewUtil.hasInit = true;
+    }
+
+    export function adViewEnable() {
+        return true;
+        // const adHead = getAdHead() ? typeof getAdHead() == 'string' ? JSON.parse(getAdHead()) : getAdHead() : {};
+        // return (utils.bIsAndroid() && adHead.versionCode >= 222) || (utils.bIsIOS() && adHead.versionCode >= 15);
+    }
+
+    export function adViewHeight(position: number) {
+        // 应客户端要求，广点通广告获取不到高度，给默认值，小的90，大的220
+        let defHeight = AdviewUtil.defHeight;
+        return AdviewUtil.adSet[position] && AdviewUtil.adSet[position].show ? (AdviewUtil.adSet[position].height || defHeight) : 0;
+    }
+
+    /**
+     * @msg: 加载信息流
+     * @param {number} position 信息流广告位id
+     * @param {number} adBoxWidth 广告位容器的宽度
+     * @param {cc.Node} adBox 广告位容器
+     * @param {boolean} isGdtMinAd 是否为广点通广告（true为大的220，false为小的90）
+     */
+    export function loadAd(position: number, adBoxWidth: number, adBox: cc.Node, isGdtMinAd = false) {
+        
+        if (true) {
+            return
+        }
+        if (isGdtMinAd) {
+            AdviewUtil.defHeight = 90;
+        }
+
+        if (position > 0) {
+            AdviewUtil.adBoxWidthSet[position] = adBoxWidth;
+            AdviewUtil.adBoxSet[position] = adBox;
+            AdviewUtil.adHideSet[position] = false;
+            console.log("宽度", position, adBoxWidth)
+            if (AdviewUtil.adloadPre[position]) {
+                AdviewUtil.adloadPre[position] = false
+                if (AdviewUtil.adStatusSet[position] == StatusCode.loading || AdviewUtil.adStatusSet[position] == StatusCode.loadSucc) {
+                    console.log("预加载信息流，未确定高度", position)
+                } else if (AdviewUtil.adStatusSet[position] == StatusCode.loadFail) {
+                    console.log("预加载信息流失败转普通加载", position)
+                    AdviewUtil.adStatusSet[position] = StatusCode.loading
+                    adBoxWidth && PlatformFactory.Ins.loadAdView({
+                        position: position,
+                        width: PxTransUtils.localToNative(adBoxWidth),
+                    });
+                } else if (AdviewUtil.adStatusSet[position] == StatusCode.confirmHeight) {
+                    console.log("预加载信息流，已确定高度，直接播放", position)
+                    AdviewUtil.showAd(position, AdviewUtil.adBoxSet[position], true);
+                }
+            } else {
+                console.log("普通加载信息流", position)
+                AdviewUtil.adStatusSet[position] = StatusCode.loading
+                adBoxWidth && PlatformFactory.Ins.loadAdView({
+                    position: position,
+                    width: PxTransUtils.localToNative(adBoxWidth),
+                });
+            }
+        }
+    }
+    export function loadPreAd(position: number, adBoxWidth: number) {
+        console.log("开始预加载信息流", position)
+        if(AdviewUtil.adloadPre[position]){
+            console.log("已经有预加载好的信息流")
+            return
+        }
+        if(AdviewUtil.adStatusSet[position] == StatusCode.loading){
+            console.log("提前调用了加载信息流方法")
+            return
+        }
+        AdviewUtil.adloadPre[position] = true
+        AdviewUtil.adStatusSet[position] == StatusCode.loading
+        adBoxWidth && PlatformFactory.Ins.loadAdView({
+            position: position,
+            width: PxTransUtils.localToNative(adBoxWidth),
+        });
+    }
+    export function preShowAd(position: number) {
+        let res = AdviewUtil.adSet[position];
+        res && (res.show = true);
+    }
+
+    /**
+     *  改进了
+     * @param position 广告位
+     * @param adBox 广告的容器
+     * @returns {boolean}
+     */
+    export function showAd(position: number, adBox: any, isPre: boolean = false): boolean {
+        console.log("展现信息流1"+position);
+        if (AdviewUtil.adHideSet[position]) {
+            AdviewUtil.adSet[position] = null;
+            return false;
+        }
+        console.log("展现信息流2"+position);
+        let defHeight = AdviewUtil.defHeight;
+        let res = AdviewUtil.adSet[position];
+
+        if (res && adBox) {
+            let height = res.height ? res.height : defHeight;
+            let localHeight = PxTransUtils.nativeToLocal(height);
+
+            try {
+                //这里延迟一下，有可能有的节点上面修改了高度，还没反应过来
+                let delayTime = isPre ? 800 : 200 // 预加载延迟久点
+                adBox && (adBox.height = localHeight);
+                adBox && adBox.parent && adBox.parent.getComponent(cc.Layout) && (adBox.parent.getComponent(cc.Layout).updateLayout())
+                console.log("信息流高度，适配前" + adBox.y, position)
+                setTimeout(() => {
+                    try {
+                        adBox && adBox.parent && adBox.parent.getComponent(cc.Layout) && (adBox.parent.getComponent(cc.Layout).updateLayout())
+                        let vec2 = adBox.convertToWorldSpace(cc.v2(0, 0));
+                        let nativeY = cc.view.getFrameSize().height - height - PxTransUtils.localToNative(vec2.y);
+                        console.log("信息流高度，适配后" + adBox.y, position)
+                        let param: ShowAdViewConfigType = {
+                            position: res.position,
+                            width: res.width,
+                            x: (AdviewUtil.getDeviceWidth() - res.width) / 2,
+                            y: nativeY
+                        };
+
+                        console.info('adViewUtil:showAd_param:' + JSON.stringify(param));
+                        PlatformFactory.Ins.showAdView(param);
+                        res.show = true;
+                    } catch (error) {
+                        console.log("转盘世界坐标", JSON.stringify(error))
+                    }
+
+                }, delayTime);
+
+            } catch (e) {
+
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @msg: 隐藏信息流
+     */
+    export function hideAd(position: number) {
+        if (position > 0) {
+            if (AdviewUtil.adBoxSet[position]) {
+                AdviewUtil.adBoxSet[position].height = 0;
+            }
+            AdviewUtil.adHideSet[position] = true;
+            AdviewUtil.adSet[position] = null;
+            AdviewUtil.adBoxSet[position] = null;
+            PlatformFactory.Ins.hideAdView({ position: position, status: FeedAdStatus.ON_CLOSE })
+        }
+        
+    }
+
+    export function updateElementHeight(node, height) {
+        try {
+            if (cc.sys.isNative) {
+                node && (node.height = height);
+            } else {
+                node && (node.height = height * 2);
+            }
+        } catch (ignore) { }
+    }
+
+    export function getDeviceWidth() {
+        return cc.view.getFrameSize().width || window.innerWidth || window.outerWidth || 360;
+    }
+
+    export function getDeviceHeight() {
+        return cc.view.getFrameSize().height || window.innerHeight || window.outerHeight || 677;
+    }
+}

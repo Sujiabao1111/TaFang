@@ -1,0 +1,20 @@
+
+diancipao.png
+size: 113,111
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 73, 13
+  size: 98, 40
+  orig: 98, 44
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 12
+  size: 64, 99
+  orig: 64, 100
+  offset: 0, 1
+  index: -1

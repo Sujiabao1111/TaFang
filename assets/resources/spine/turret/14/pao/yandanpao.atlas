@@ -1,0 +1,20 @@
+
+yandanpao.png
+size: 112,110
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 71, 7
+  size: 103, 41
+  orig: 103, 41
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 8
+  size: 62, 102
+  orig: 62, 102
+  offset: 0, 0
+  index: -1

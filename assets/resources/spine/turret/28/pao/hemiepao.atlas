@@ -1,0 +1,20 @@
+
+hemiepao.png
+size: 172,170
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: false
+  xy: 0, 83
+  size: 117, 87
+  orig: 117, 87
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: true
+  xy: 0, 0
+  size: 72, 111
+  orig: 72, 111
+  offset: 0, 0
+  index: -1

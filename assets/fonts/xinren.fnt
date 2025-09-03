@@ -1,0 +1,14 @@
+info face="face" size=160
+common lineHeight=160 scaleW=568 scaleH=322 pages=1
+page id=0 file="xinren.png"
+chars count=10
+char id=48 x=0 y=0 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15
+char id=49 x=114 y=0 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15
+char id=50 x=228 y=0 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15
+char id=51 x=0 y=162 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15
+char id=52 x=114 y=162 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15
+char id=53 x=228 y=162 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15
+char id=54 x=342 y=0 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15
+char id=55 x=342 y=162 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15
+char id=56 x=456 y=0 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15
+char id=57 x=456 y=162 width=112 height=160 xoffset=0 yoffset=0 xadvance=112 page=0 chnl=15

@@ -1,0 +1,13 @@
+
+honghuopao.png
+size: 144,144
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+paodan
+  rotate: false
+  xy: 2, 2
+  size: 55, 140
+  orig: 64, 142
+  offset: 4, 2
+  index: -1

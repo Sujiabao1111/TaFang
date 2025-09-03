@@ -1,0 +1,167 @@
+
+zhendangpao.png
+size: 304,304
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect_c01_01
+  rotate: true
+  xy: 277, 110
+  size: 46, 25
+  orig: 49, 28
+  offset: 1, 1
+  index: -1
+effect_c01_02
+  rotate: false
+  xy: 231, 158
+  size: 49, 26
+  orig: 52, 29
+  offset: 2, 2
+  index: -1
+effect_c01_03
+  rotate: true
+  xy: 226, 36
+  size: 48, 26
+  orig: 52, 29
+  offset: 2, 2
+  index: -1
+effect_c01_04
+  rotate: false
+  xy: 226, 8
+  size: 48, 26
+  orig: 50, 29
+  offset: 1, 2
+  index: -1
+effect_c01_05
+  rotate: false
+  xy: 254, 58
+  size: 48, 26
+  orig: 52, 30
+  offset: 2, 2
+  index: -1
+effect_c01_06
+  rotate: true
+  xy: 260, 187
+  size: 49, 27
+  orig: 52, 30
+  offset: 2, 1
+  index: -1
+effect_c01_07
+  rotate: true
+  xy: 231, 186
+  size: 50, 27
+  orig: 52, 30
+  offset: 1, 1
+  index: -1
+effect_c01_08
+  rotate: false
+  xy: 215, 86
+  size: 50, 28
+  orig: 52, 30
+  offset: 1, 1
+  index: -1
+effect_c01_09
+  rotate: true
+  xy: 276, 9
+  size: 47, 26
+  orig: 52, 30
+  offset: 3, 2
+  index: -1
+was10
+  rotate: true
+  xy: 2, 147
+  size: 75, 77
+  orig: 77, 80
+  offset: 1, 2
+  index: -1
+was11
+  rotate: true
+  xy: 153, 158
+  size: 69, 76
+  orig: 71, 78
+  offset: 1, 1
+  index: -1
+was12
+  rotate: false
+  xy: 154, 232
+  size: 71, 70
+  orig: 73, 72
+  offset: 1, 1
+  index: -1
+was13
+  rotate: false
+  xy: 156, 26
+  size: 68, 58
+  orig: 70, 60
+  offset: 1, 1
+  index: -1
+was14
+  rotate: false
+  xy: 75, 17
+  size: 65, 58
+  orig: 67, 60
+  offset: 1, 1
+  index: -1
+was15
+  rotate: false
+  xy: 215, 116
+  size: 60, 40
+  orig: 62, 42
+  offset: 1, 1
+  index: -1
+was2
+  rotate: false
+  xy: 2, 12
+  size: 64, 56
+  orig: 68, 58
+  offset: 3, 1
+  index: -1
+was3
+  rotate: true
+  xy: 156, 86
+  size: 70, 57
+  orig: 72, 59
+  offset: 1, 1
+  index: -1
+was4
+  rotate: true
+  xy: 81, 77
+  size: 72, 73
+  orig: 74, 76
+  offset: 1, 2
+  index: -1
+was5
+  rotate: true
+  xy: 76, 229
+  size: 73, 76
+  orig: 75, 78
+  offset: 1, 1
+  index: -1
+was6
+  rotate: false
+  xy: 81, 151
+  size: 70, 76
+  orig: 72, 78
+  offset: 1, 1
+  index: -1
+was7
+  rotate: false
+  xy: 2, 70
+  size: 71, 75
+  orig: 73, 77
+  offset: 1, 1
+  index: -1
+was8
+  rotate: false
+  xy: 227, 238
+  size: 71, 64
+  orig: 73, 66
+  offset: 1, 1
+  index: -1
+was9
+  rotate: false
+  xy: 2, 224
+  size: 72, 78
+  orig: 74, 80
+  offset: 1, 1
+  index: -1

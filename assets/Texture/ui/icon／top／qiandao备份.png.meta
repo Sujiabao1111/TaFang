@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "0a1cf9a9-fe84-41ba-bf29-436102759960",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 104,
+  "height": 104,
+  "platformSettings": {},
+  "subMetas": {
+    "icon／top／qiandao备份": {
+      "ver": "1.0.4",
+      "uuid": "3a228b41-808b-4185-a074-96da87431d86",
+      "rawTextureUuid": "0a1cf9a9-fe84-41ba-bf29-436102759960",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 102,
+      "height": 103,
+      "rawWidth": 104,
+      "rawHeight": 104,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

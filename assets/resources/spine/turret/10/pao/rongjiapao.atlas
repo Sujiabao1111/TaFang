@@ -1,0 +1,20 @@
+
+rongjiapao.png
+size: 118,116
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 79, 0
+  size: 116, 39
+  orig: 116, 39
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 6
+  size: 70, 110
+  orig: 70, 110
+  offset: 0, 0
+  index: -1

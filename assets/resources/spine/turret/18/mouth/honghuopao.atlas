@@ -1,0 +1,55 @@
+
+honghuopao.png
+size: 292,292
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A_01
+  rotate: false
+  xy: 146, 27
+  size: 144, 93
+  orig: 150, 105
+  offset: 3, 3
+  index: -1
+A_02
+  rotate: false
+  xy: 87, 122
+  size: 144, 91
+  orig: 150, 105
+  offset: 3, 4
+  index: -1
+A_03
+  rotate: false
+  xy: 2, 29
+  size: 142, 91
+  orig: 150, 105
+  offset: 4, 4
+  index: -1
+A_04
+  rotate: false
+  xy: 78, 217
+  size: 79, 73
+  orig: 150, 105
+  offset: 38, 24
+  index: -1
+A_05
+  rotate: false
+  xy: 159, 215
+  size: 81, 75
+  orig: 150, 105
+  offset: 37, 25
+  index: -1
+A_06
+  rotate: false
+  xy: 2, 139
+  size: 83, 76
+  orig: 150, 105
+  offset: 36, 26
+  index: -1
+jn
+  rotate: false
+  xy: 2, 220
+  size: 74, 70
+  orig: 74, 70
+  offset: 0, 0
+  index: -1

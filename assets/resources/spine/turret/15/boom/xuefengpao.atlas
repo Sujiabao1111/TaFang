@@ -1,0 +1,48 @@
+
+xuefengpao.png
+size: 342,340
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bk_001
+  rotate: false
+  xy: 119, 34
+  size: 94, 92
+  orig: 108, 108
+  offset: 8, 6
+  index: -1
+bk_002
+  rotate: false
+  xy: 114, 243
+  size: 97, 97
+  orig: 108, 108
+  offset: 7, 3
+  index: -1
+bk_003
+  rotate: false
+  xy: 119, 137
+  size: 92, 95
+  orig: 108, 108
+  offset: 8, 3
+  index: -1
+bk_005
+  rotate: false
+  xy: 0, 226
+  size: 105, 114
+  orig: 121, 121
+  offset: 12, 6
+  index: -1
+bk_007
+  rotate: true
+  xy: 0, 110
+  size: 105, 110
+  orig: 121, 121
+  offset: 12, 7
+  index: -1
+bk_009
+  rotate: true
+  xy: 0, 0
+  size: 99, 91
+  orig: 121, 121
+  offset: 13, 15
+  index: -1

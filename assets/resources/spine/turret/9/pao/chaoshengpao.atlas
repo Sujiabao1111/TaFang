@@ -1,0 +1,20 @@
+
+chaoshengpao.png
+size: 150,150
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+paodi
+  rotate: false
+  xy: 64, 71
+  size: 84, 77
+  orig: 84, 77
+  offset: 0, 0
+  index: -1
+paoshen
+  rotate: false
+  xy: 2, 88
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,1 @@
+{"version":3,"sources":["assets\\Script\\server\\xmsdk_cocos\\Adapter\\Type\\LaunchSdkPageType.ts"],"names":[],"mappings":"","file":"","sourceRoot":"/","sourcesContent":["/**\n * 跳转协议类型\n */\ntype LaunchSdkPageType = {\n    type: string,\n    param?: object\n}\n\nexport default LaunchSdkPageType;"]}

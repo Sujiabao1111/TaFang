@@ -1,0 +1,83 @@
+
+tuishanpao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+PVPSkill_7_10
+  rotate: false
+  xy: 388, 303
+  size: 93, 177
+  orig: 93, 177
+  offset: 0, 0
+  index: -1
+PVPSkill_7_11
+  rotate: false
+  xy: 282, 322
+  size: 104, 177
+  orig: 104, 177
+  offset: 0, 0
+  index: -1
+PVPSkill_7_12
+  rotate: false
+  xy: 171, 322
+  size: 109, 177
+  orig: 109, 177
+  offset: 0, 0
+  index: -1
+PVPSkill_7_13
+  rotate: false
+  xy: 164, 141
+  size: 124, 178
+  orig: 124, 178
+  offset: 0, 0
+  index: -1
+PVPSkill_7_14
+  rotate: true
+  xy: 2, 2
+  size: 137, 178
+  orig: 137, 178
+  offset: 0, 0
+  index: -1
+PVPSkill_7_15
+  rotate: false
+  xy: 2, 141
+  size: 160, 178
+  orig: 160, 178
+  offset: 0, 0
+  index: -1
+PVPSkill_7_16
+  rotate: false
+  xy: 2, 321
+  size: 167, 178
+  orig: 167, 178
+  offset: 0, 0
+  index: -1
+PVPSkill_7_6
+  rotate: true
+  xy: 388, 482
+  size: 17, 98
+  orig: 17, 98
+  offset: 0, 0
+  index: -1
+PVPSkill_7_7
+  rotate: false
+  xy: 182, 2
+  size: 57, 137
+  orig: 57, 137
+  offset: 0, 0
+  index: -1
+PVPSkill_7_8
+  rotate: true
+  xy: 290, 63
+  size: 78, 177
+  orig: 78, 177
+  offset: 0, 0
+  index: -1
+PVPSkill_7_9
+  rotate: false
+  xy: 290, 143
+  size: 90, 177
+  orig: 90, 177
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,34 @@
+
+fanwuzhipao.png
+size: 403,403
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fs1
+  rotate: false
+  xy: 2, 136
+  size: 131, 265
+  orig: 131, 265
+  offset: 0, 0
+  index: -1
+fs2
+  rotate: true
+  xy: 2, 2
+  size: 132, 264
+  orig: 132, 273
+  offset: 0, 0
+  index: -1
+fs3
+  rotate: false
+  xy: 260, 139
+  size: 124, 262
+  orig: 124, 265
+  offset: 0, 0
+  index: -1
+fs4
+  rotate: false
+  xy: 135, 138
+  size: 123, 263
+  orig: 123, 266
+  offset: 0, 0
+  index: -1

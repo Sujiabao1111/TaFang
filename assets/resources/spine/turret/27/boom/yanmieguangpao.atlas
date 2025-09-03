@@ -1,0 +1,48 @@
+
+yanmieguangpao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+001
+  rotate: false
+  xy: 2, 2
+  size: 45, 35
+  orig: 95, 96
+  offset: 24, 28
+  index: -1
+002
+  rotate: false
+  xy: 2, 411
+  size: 95, 95
+  orig: 95, 96
+  offset: 0, 1
+  index: -1
+003
+  rotate: false
+  xy: 2, 314
+  size: 95, 95
+  orig: 95, 96
+  offset: 0, 1
+  index: -1
+004
+  rotate: false
+  xy: 2, 218
+  size: 90, 94
+  orig: 95, 96
+  offset: 3, 0
+  index: -1
+005
+  rotate: false
+  xy: 2, 126
+  size: 86, 90
+  orig: 95, 96
+  offset: 5, 4
+  index: -1
+006
+  rotate: false
+  xy: 2, 39
+  size: 84, 85
+  orig: 95, 96
+  offset: 4, 7
+  index: -1

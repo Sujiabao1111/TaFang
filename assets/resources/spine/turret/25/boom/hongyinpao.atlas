@@ -1,0 +1,125 @@
+
+hongyinpao.png
+size: 409,409
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+F01
+  rotate: false
+  xy: 130, 158
+  size: 108, 108
+  orig: 109, 110
+  offset: 1, 1
+  index: -1
+F02
+  rotate: false
+  xy: 2, 137
+  size: 126, 129
+  orig: 128, 131
+  offset: 1, 2
+  index: -1
+F03
+  rotate: false
+  xy: 2, 268
+  size: 135, 139
+  orig: 136, 141
+  offset: 1, 1
+  index: -1
+F4
+  rotate: true
+  xy: 2, 4
+  size: 131, 124
+  orig: 133, 126
+  offset: 1, 1
+  index: -1
+F5
+  rotate: true
+  xy: 322, 8
+  size: 78, 77
+  orig: 78, 78
+  offset: 0, 1
+  index: -1
+x001
+  rotate: true
+  xy: 308, 276
+  size: 45, 41
+  orig: 47, 43
+  offset: 1, 1
+  index: -1
+x002
+  rotate: true
+  xy: 128, 8
+  size: 127, 116
+  orig: 129, 118
+  offset: 1, 1
+  index: -1
+x003
+  rotate: true
+  xy: 139, 309
+  size: 98, 91
+  orig: 105, 94
+  offset: 3, 2
+  index: -1
+x004
+  rotate: false
+  xy: 232, 323
+  size: 81, 84
+  orig: 83, 86
+  offset: 1, 1
+  index: -1
+x005
+  rotate: false
+  xy: 322, 88
+  size: 82, 77
+  orig: 82, 78
+  offset: 0, 1
+  index: -1
+x006
+  rotate: false
+  xy: 324, 167
+  size: 82, 79
+  orig: 84, 80
+  offset: 1, 1
+  index: -1
+x007
+  rotate: true
+  xy: 315, 324
+  size: 83, 81
+  orig: 83, 82
+  offset: 0, 1
+  index: -1
+x008
+  rotate: false
+  xy: 240, 187
+  size: 82, 82
+  orig: 84, 82
+  offset: 1, 0
+  index: -1
+x012
+  rotate: false
+  xy: 246, 73
+  size: 74, 54
+  orig: 74, 56
+  offset: 0, 1
+  index: -1
+x013
+  rotate: true
+  xy: 351, 248
+  size: 74, 56
+  orig: 74, 58
+  offset: 0, 1
+  index: -1
+x014
+  rotate: false
+  xy: 246, 129
+  size: 74, 56
+  orig: 74, 58
+  offset: 0, 1
+  index: -1
+x015
+  rotate: false
+  xy: 232, 271
+  size: 74, 50
+  orig: 74, 51
+  offset: 0, 1
+  index: -1

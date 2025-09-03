@@ -1,0 +1,34 @@
+
+zhendangpao.png
+size: 424,424
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Hero_Skill_Lightning_Blue_1
+  rotate: false
+  xy: 221, 2
+  size: 96, 420
+  orig: 98, 422
+  offset: 1, 1
+  index: -1
+Hero_Skill_Lightning_Blue_2
+  rotate: false
+  xy: 319, 11
+  size: 99, 411
+  orig: 101, 413
+  offset: 1, 1
+  index: -1
+Hero_Skill_Lightning_Blue_3
+  rotate: false
+  xy: 2, 6
+  size: 109, 416
+  orig: 111, 418
+  offset: 1, 1
+  index: -1
+Hero_Skill_Lightning_Blue_4
+  rotate: false
+  xy: 113, 5
+  size: 106, 417
+  orig: 108, 419
+  offset: 1, 1
+  index: -1

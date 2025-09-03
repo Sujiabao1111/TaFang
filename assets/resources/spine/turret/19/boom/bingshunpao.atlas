@@ -1,0 +1,48 @@
+
+bingshunpao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bk_001
+  rotate: true
+  xy: 2, 184
+  size: 136, 138
+  orig: 171, 171
+  offset: 11, 16
+  index: -1
+bk_002
+  rotate: false
+  xy: 328, 329
+  size: 154, 153
+  orig: 171, 171
+  offset: 4, 10
+  index: -1
+bk_003
+  rotate: false
+  xy: 2, 322
+  size: 161, 160
+  orig: 171, 171
+  offset: 2, 7
+  index: -1
+bk_005
+  rotate: true
+  xy: 165, 334
+  size: 148, 161
+  orig: 171, 171
+  offset: 17, 8
+  index: -1
+bk_007
+  rotate: true
+  xy: 165, 184
+  size: 148, 155
+  orig: 171, 171
+  offset: 17, 10
+  index: -1
+bk_009
+  rotate: false
+  xy: 322, 198
+  size: 140, 129
+  orig: 171, 171
+  offset: 19, 21
+  index: -1

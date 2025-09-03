@@ -1,0 +1,48 @@
+
+yanshapao.png
+size: 230,228
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+knfn_000
+  rotate: false
+  xy: 0, 0
+  size: 35, 36
+  orig: 85, 85
+  offset: 24, 26
+  index: -1
+knfn_001
+  rotate: true
+  xy: 93, 3
+  size: 51, 54
+  orig: 85, 85
+  offset: 16, 17
+  index: -1
+knfn_002
+  rotate: false
+  xy: 94, 65
+  size: 84, 72
+  orig: 85, 85
+  offset: 1, 9
+  index: -1
+knfn_003
+  rotate: false
+  xy: 94, 148
+  size: 85, 80
+  orig: 85, 85
+  offset: 0, 4
+  index: -1
+knfn_004
+  rotate: false
+  xy: 0, 143
+  size: 85, 85
+  orig: 85, 85
+  offset: 0, 0
+  index: -1
+knfn_005
+  rotate: false
+  xy: 0, 47
+  size: 84, 85
+  orig: 85, 85
+  offset: 1, 0
+  index: -1

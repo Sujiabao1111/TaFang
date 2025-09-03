@@ -1,0 +1,27 @@
+
+bingshunpao.png
+size: 289,287
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+deng
+  rotate: false
+  xy: 249, 189
+  size: 27, 27
+  orig: 31, 31
+  offset: 2, 2
+  index: -1
+light
+  rotate: false
+  xy: 0, 47
+  size: 240, 240
+  orig: 283, 285
+  offset: 21, 22
+  index: -1
+paodan
+  rotate: false
+  xy: 249, 227
+  size: 40, 60
+  orig: 40, 60
+  offset: 0, 0
+  index: -1

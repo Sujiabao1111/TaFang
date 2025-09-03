@@ -1,0 +1,90 @@
+
+hongxingpao.png
+size: 383,383
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+HT01
+  rotate: true
+  xy: 152, 4
+  size: 69, 145
+  orig: 80, 163
+  offset: 4, 16
+  index: -1
+HT02
+  rotate: false
+  xy: 210, 76
+  size: 68, 151
+  orig: 80, 163
+  offset: 5, 10
+  index: -1
+HT03
+  rotate: true
+  xy: 2, 2
+  size: 69, 148
+  orig: 80, 163
+  offset: 4, 13
+  index: -1
+HT04
+  rotate: false
+  xy: 282, 232
+  size: 68, 149
+  orig: 80, 163
+  offset: 5, 12
+  index: -1
+HT05
+  rotate: false
+  xy: 73, 229
+  size: 68, 152
+  orig: 80, 163
+  offset: 7, 9
+  index: -1
+HT06
+  rotate: false
+  xy: 72, 73
+  size: 66, 153
+  orig: 80, 163
+  offset: 11, 8
+  index: -1
+HT07
+  rotate: false
+  xy: 2, 73
+  size: 68, 153
+  orig: 80, 163
+  offset: 8, 8
+  index: -1
+HT08
+  rotate: false
+  xy: 143, 229
+  size: 67, 152
+  orig: 80, 163
+  offset: 6, 9
+  index: -1
+HT09
+  rotate: false
+  xy: 2, 228
+  size: 69, 153
+  orig: 80, 163
+  offset: 4, 8
+  index: -1
+HT10
+  rotate: false
+  xy: 140, 75
+  size: 68, 152
+  orig: 80, 163
+  offset: 5, 9
+  index: -1
+HT11
+  rotate: false
+  xy: 280, 78
+  size: 68, 150
+  orig: 80, 163
+  offset: 6, 11
+  index: -1
+HT12
+  rotate: false
+  xy: 212, 230
+  size: 68, 151
+  orig: 80, 163
+  offset: 7, 10
+  index: -1

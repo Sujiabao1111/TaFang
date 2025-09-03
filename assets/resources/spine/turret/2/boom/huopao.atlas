@@ -1,0 +1,55 @@
+
+huopao.png
+size: 158,156
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+sj0
+  rotate: false
+  xy: 0, 138
+  size: 18, 18
+  orig: 19, 19
+  offset: 0, 1
+  index: -1
+sj1
+  rotate: true
+  xy: 55, 0
+  size: 48, 51
+  orig: 48, 51
+  offset: 0, 0
+  index: -1
+sj2
+  rotate: true
+  xy: 0, 69
+  size: 45, 52
+  orig: 47, 54
+  offset: 1, 1
+  index: -1
+sj3
+  rotate: true
+  xy: 61, 59
+  size: 45, 51
+  orig: 47, 51
+  offset: 1, 0
+  index: -1
+sj4
+  rotate: true
+  xy: 27, 125
+  size: 31, 32
+  orig: 32, 33
+  offset: 0, 0
+  index: -1
+sj5
+  rotate: true
+  xy: 68, 115
+  size: 41, 44
+  orig: 43, 45
+  offset: 1, 0
+  index: -1
+sj6
+  rotate: true
+  xy: 0, 13
+  size: 45, 46
+  orig: 46, 48
+  offset: 1, 1
+  index: -1

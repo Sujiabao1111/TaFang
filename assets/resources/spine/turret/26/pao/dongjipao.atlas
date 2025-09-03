@@ -1,0 +1,13 @@
+
+dongjipao.png
+size: 119,117
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-shen
+  rotate: false
+  xy: 0, 0
+  size: 106, 117
+  orig: 108, 119
+  offset: 1, 1
+  index: -1

@@ -1,0 +1,62 @@
+
+hanshapao.png
+size: 288,288
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+S0
+  rotate: false
+  xy: 2, 127
+  size: 91, 76
+  orig: 94, 78
+  offset: 1, 1
+  index: -1
+S1
+  rotate: false
+  xy: 2, 205
+  size: 102, 81
+  orig: 104, 84
+  offset: 1, 2
+  index: -1
+S2
+  rotate: false
+  xy: 106, 206
+  size: 100, 80
+  orig: 103, 83
+  offset: 1, 2
+  index: -1
+S3
+  rotate: false
+  xy: 106, 125
+  size: 92, 79
+  orig: 94, 81
+  offset: 1, 1
+  index: -1
+S4
+  rotate: true
+  xy: 208, 192
+  size: 94, 78
+  orig: 96, 80
+  offset: 1, 1
+  index: -1
+S5
+  rotate: true
+  xy: 200, 96
+  size: 94, 75
+  orig: 96, 77
+  offset: 1, 1
+  index: -1
+S6
+  rotate: false
+  xy: 2, 53
+  size: 93, 72
+  orig: 95, 75
+  offset: 1, 2
+  index: -1
+S7
+  rotate: false
+  xy: 97, 55
+  size: 86, 68
+  orig: 88, 70
+  offset: 1, 1
+  index: -1

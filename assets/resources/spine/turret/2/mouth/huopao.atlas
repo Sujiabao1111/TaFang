@@ -1,0 +1,34 @@
+
+huopao.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fs1
+  rotate: false
+  xy: 45, 58
+  size: 26, 26
+  orig: 26, 27
+  offset: 0, 1
+  index: -1
+fs2
+  rotate: false
+  xy: 2, 2
+  size: 40, 39
+  orig: 41, 41
+  offset: 0, 1
+  index: -1
+fs3
+  rotate: false
+  xy: 44, 8
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+fs4
+  rotate: false
+  xy: 2, 43
+  size: 41, 41
+  orig: 43, 43
+  offset: 1, 1
+  index: -1

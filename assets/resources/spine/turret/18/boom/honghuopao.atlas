@@ -1,0 +1,125 @@
+
+honghuopao.png
+size: 311,309
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bz_000
+  rotate: false
+  xy: 259, 258
+  size: 49, 51
+  orig: 64, 64
+  offset: 9, 1
+  index: -1
+bz_002
+  rotate: false
+  xy: 226, 114
+  size: 55, 56
+  orig: 64, 64
+  offset: 6, 2
+  index: -1
+bz_003
+  rotate: true
+  xy: 94, 161
+  size: 57, 59
+  orig: 64, 64
+  offset: 5, 1
+  index: -1
+bz_004
+  rotate: true
+  xy: 93, 22
+  size: 58, 59
+  orig: 64, 64
+  offset: 4, 2
+  index: -1
+bz_005
+  rotate: false
+  xy: 93, 91
+  size: 59, 59
+  orig: 64, 64
+  offset: 4, 2
+  index: -1
+bz_006
+  rotate: false
+  xy: 188, 181
+  size: 60, 58
+  orig: 64, 64
+  offset: 3, 3
+  index: -1
+bz_007
+  rotate: false
+  xy: 188, 250
+  size: 62, 59
+  orig: 64, 64
+  offset: 2, 3
+  index: -1
+bz_008
+  rotate: false
+  xy: 161, 91
+  size: 56, 59
+  orig: 64, 64
+  offset: 1, 4
+  index: -1
+bz_009
+  rotate: false
+  xy: 161, 22
+  size: 56, 58
+  orig: 64, 64
+  offset: 1, 5
+  index: -1
+bz_011
+  rotate: false
+  xy: 0, 0
+  size: 54, 34
+  orig: 64, 64
+  offset: 2, 15
+  index: -1
+bz_013
+  rotate: false
+  xy: 226, 12
+  size: 44, 26
+  orig: 64, 64
+  offset: 11, 21
+  index: -1
+knfn_000
+  rotate: true
+  xy: 259, 212
+  size: 35, 36
+  orig: 85, 85
+  offset: 24, 26
+  index: -1
+knfn_001
+  rotate: false
+  xy: 226, 49
+  size: 51, 54
+  orig: 85, 85
+  offset: 16, 17
+  index: -1
+knfn_002
+  rotate: false
+  xy: 0, 45
+  size: 84, 72
+  orig: 85, 85
+  offset: 1, 9
+  index: -1
+knfn_003
+  rotate: false
+  xy: 94, 229
+  size: 85, 80
+  orig: 85, 85
+  offset: 0, 4
+  index: -1
+knfn_004
+  rotate: false
+  xy: 0, 224
+  size: 85, 85
+  orig: 85, 85
+  offset: 0, 0
+  index: -1
+knfn_005
+  rotate: false
+  xy: 0, 128
+  size: 84, 85
+  orig: 85, 85
+  offset: 1, 0
+  index: -1

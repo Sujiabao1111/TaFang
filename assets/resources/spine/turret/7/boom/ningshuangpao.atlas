@@ -1,0 +1,34 @@
+
+ningshuangpao.png
+size: 225,225
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bao02
+  rotate: false
+  xy: 102, 30
+  size: 104, 86
+  orig: 106, 88
+  offset: 1, 1
+  index: -1
+bao03
+  rotate: false
+  xy: 2, 135
+  size: 114, 88
+  orig: 117, 90
+  offset: 2, 1
+  index: -1
+bao04
+  rotate: true
+  xy: 2, 29
+  size: 104, 98
+  orig: 107, 101
+  offset: 2, 1
+  index: -1
+bao05
+  rotate: false
+  xy: 118, 118
+  size: 105, 105
+  orig: 107, 108
+  offset: 1, 1
+  index: -1

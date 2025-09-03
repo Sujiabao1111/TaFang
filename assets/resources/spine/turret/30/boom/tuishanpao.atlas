@@ -1,0 +1,76 @@
+
+tuishanpao.png
+size: 374,374
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ybp-07_002
+  rotate: false
+  xy: 2, 304
+  size: 70, 68
+  orig: 75, 70
+  offset: 3, 1
+  index: -1
+ybp-07_003
+  rotate: false
+  xy: 74, 304
+  size: 77, 68
+  orig: 84, 70
+  offset: 4, 1
+  index: -1
+ybp-07_004
+  rotate: false
+  xy: 153, 304
+  size: 74, 68
+  orig: 84, 70
+  offset: 6, 1
+  index: -1
+ybp-07_005
+  rotate: false
+  xy: 301, 301
+  size: 71, 71
+  orig: 82, 74
+  offset: 4, 1
+  index: -1
+ybp-07_006
+  rotate: true
+  xy: 229, 304
+  size: 68, 70
+  orig: 70, 75
+  offset: 1, 1
+  index: -1
+z10
+  rotate: false
+  xy: 236, 185
+  size: 125, 114
+  orig: 127, 116
+  offset: 1, 1
+  index: -1
+z11
+  rotate: false
+  xy: 2, 191
+  size: 111, 111
+  orig: 113, 113
+  offset: 1, 1
+  index: -1
+z7
+  rotate: false
+  xy: 115, 190
+  size: 119, 112
+  orig: 121, 114
+  offset: 1, 1
+  index: -1
+z8
+  rotate: false
+  xy: 2, 73
+  size: 128, 115
+  orig: 130, 117
+  offset: 1, 1
+  index: -1
+z9
+  rotate: false
+  xy: 132, 68
+  size: 128, 115
+  orig: 130, 117
+  offset: 1, 1
+  index: -1
