@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_qiandaocoin",
+    "texture": "5b0c13fd-73b1-402a-8bca-1a2298535ebf",
+    "atlas": "",
+    "rect": [
+      3,
+      2,
+      58,
+      60
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      64,
+      64
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "daoyinpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "BKtUs/45XSZpKmp7Z5g2ZhOhkWE",
+      "spine": "3.8.99",
+      "x": -52.5,
+      "y": -29.05,
+      "width": 105,
+      "height": 154.4,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽nb.app"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "1",
+        "parent": "root"
+      },
+      {
+        "name": "sj2",
+        "parent": "1",
+        "y": 360,
+        "scaleX": 0.7,
+        "scaleY": 0.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "sj2",
+        "bone": "sj2",
+        "color": "79c838ff"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "sj2": {
+            "bz_0000": {
+              "y": 0.5,
+              "width": 128,
+              "height": 128
+            },
+            "bz_0002": {
+              "x": 0.99,
+              "y": -0.49,
+              "width": 128,
+              "height": 128
+            },
+            "bz_0004": {
+              "y": 0.5,
+              "width": 128,
+              "height": 128
+            },
+            "bz_0006": {
+              "y": 0.5,
+              "width": 128,
+              "height": 128
+            },
+            "bz_0008": {
+              "y": 0.5,
+              "width": 128,
+              "height": 128
+            },
+            "bz_0010": {
+              "y": 0.5,
+              "width": 128,
+              "height": 128
+            },
+            "bz_0012": {
+              "y": 0.5,
+              "width": 128,
+              "height": 128
+            },
+            "bz_0014": {
+              "y": 0.5,
+              "width": 128,
+              "height": 128
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "sj2": {
+            "attachment": [
+              {
+                "time": 0.0667,
+                "name": "bz_0000"
+              },
+              {
+                "time": 0.1,
+                "name": "bz_0004"
+              },
+              {
+                "time": 0.1333,
+                "name": "bz_0006"
+              },
+              {
+                "time": 0.1667,
+                "name": "bz_0008"
+              },
+              {
+                "time": 0.2,
+                "name": "bz_0010"
+              },
+              {
+                "time": 0.2333,
+                "name": "bz_0012"
+              },
+              {
+                "time": 0.2667,
+                "name": "bz_0014"
+              },
+              {
+                "time": 0.3,
+                "name": null
+              }
+            ]
+          }
+        },
+        "bones": {
+          "sj2": {
+            "translate": [
+              {
+                "y": -360
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\ndaoyinpao.png\nsize: 512,512\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nbz_0000\n  rotate: true\n  xy: 77, 360\n  size: 78, 97\n  orig: 128, 128\n  offset: 27, 15\n  index: -1\nbz_0002\n  rotate: false\n  xy: 2, 366\n  size: 73, 72\n  orig: 128, 128\n  offset: 26, 27\n  index: -1\nbz_0004\n  rotate: true\n  xy: 176, 359\n  size: 79, 80\n  orig: 128, 128\n  offset: 23, 23\n  index: -1\nbz_0006\n  rotate: false\n  xy: 258, 358\n  size: 88, 80\n  orig: 128, 128\n  offset: 18, 25\n  index: -1\nbz_0008\n  rotate: false\n  xy: 348, 354\n  size: 90, 84\n  orig: 128, 128\n  offset: 18, 24\n  index: -1\nbz_0010\n  rotate: false\n  xy: 2, 263\n  size: 95, 95\n  orig: 128, 128\n  offset: 16, 20\n  index: -1\nbz_0012\n  rotate: false\n  xy: 99, 256\n  size: 101, 101\n  orig: 128, 128\n  offset: 14, 16\n  index: -1\nbz_0014\n  rotate: false\n  xy: 202, 250\n  size: 107, 106\n  orig: 128, 128\n  offset: 11, 12\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "401a3d2a-4323-4f47-a98a-4c167a128f58"
+    }
+  ],
+  "textureNames": [
+    "daoyinpao.png"
+  ],
+  "scale": 1
+}

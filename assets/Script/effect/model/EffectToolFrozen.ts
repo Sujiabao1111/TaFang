@@ -11,7 +11,6 @@ export default class EffectToolFrozen extends cc.Component {
     private dragon:dragonBones.ArmatureDisplay = null;
 
     onLoad(){
-
         this.dragon.node.scaleX = cc.winSize.width/this.dragon.node.width*1.2;
         this.dragon.node.scaleY = cc.winSize.height/this.dragon.node.height*1.33;
         console.log(this.dragon.node.scaleX,cc.winSize.width,this.dragon.node.width,cc.winSize.height,'this.dragon.node.scaleX')

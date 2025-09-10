@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg_daojuqipao",
+    "texture": "2e2bf0ea-3360-4401-b7ba-61bfa0887350",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      253,
+      88
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      254,
+      90
+    ],
+    "capInsets": [
+      54.5,
+      43,
+      41.5,
+      32
+    ]
+  }
+}

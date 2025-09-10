@@ -1,0 +1,20 @@
+
+honghuopao.png
+size: 128,126
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 63, 7
+  size: 119, 65
+  orig: 119, 65
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 4
+  size: 54, 122
+  orig: 54, 122
+  offset: 0, 0
+  index: -1

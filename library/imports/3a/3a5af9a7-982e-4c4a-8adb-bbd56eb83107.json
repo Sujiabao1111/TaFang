@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_bottomicon_sign",
+    "texture": "30d37a0f-81c8-4b26-ab98-8e97fcb771b5",
+    "atlas": "",
+    "rect": [
+      8,
+      14,
+      98,
+      87
+    ],
+    "offset": [
+      1,
+      -1.5
+    ],
+    "originalSize": [
+      112,
+      112
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "d606d6be-5906-4802-bb91-8faaf343bb96",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "newBigWheel_taskFrame": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "276bdccd-78f7-41ce-9623-aa0920b8b2d3",
+      "importer": "sprite-frame",
       "rawTextureUuid": "d606d6be-5906-4802-bb91-8faaf343bb96",
       "trimType": "auto",
       "trimThreshold": 1,

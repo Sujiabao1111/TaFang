@@ -1,0 +1,1032 @@
+{
+  "projectPath": "D:\\AGame\\TaFang",
+  "actualPlatform": "web-mobile",
+  "mtimes": {
+    "efdd5321-6bf4-440f-b068-5a721ef23629": {
+      "assetMtime": 1756886304963,
+      "metaMtime": 1756886315859
+    },
+    "00e053cb-3d16-4d4f-acf1-773b448b9d77": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200232
+    },
+    "9f19e98d-9dc9-4fd5-b079-17bfd6825b32": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200232
+    },
+    "06d44930-e592-4657-bc1c-7a072805618c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200270
+    },
+    "54e10d86-835b-4f35-b90c-064d76d362c7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200270
+    },
+    "10525226-dc94-4c10-9717-529da9041700": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200196
+    },
+    "d14382fd-62f9-4a45-97b2-c4772c49b6f4": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200196
+    },
+    "1e54cfe9-725d-4948-86b2-3eb3d14fdb2b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200181
+    },
+    "6ef4e49f-8c14-4f2b-9a9b-477a9dba092c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200181
+    },
+    "2db3f6bf-1893-453c-97ce-8de6332df32d": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200273
+    },
+    "a4648a0e-dac1-40d9-97d5-aff8f4ada835": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200273
+    },
+    "320344f9-fac6-44f0-8814-d77f2f3fbed7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200283
+    },
+    "818be4a5-0fd1-472c-a2b0-643c814ae55d": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200283
+    },
+    "3b4fe6e0-688c-46e6-9de4-680122de51cf": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200268
+    },
+    "535a27d6-6b03-4b75-97fd-5af181add650": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200268
+    },
+    "3dfd997d-5f04-4ad4-bf1e-b583b508be33": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200218
+    },
+    "02c80731-cd99-4692-a0c2-99a3e1e26d93": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200218
+    },
+    "3e46d947-5f0c-4066-9642-489b8dbaac5b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200280
+    },
+    "25181132-3089-4711-a396-1fd58a840785": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200280
+    },
+    "409700c5-2c53-4ea2-b8f5-848d346b3db3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200212
+    },
+    "03d1d309-0f85-48d2-a951-0c71dc264b9c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200212
+    },
+    "41ce304d-2ab0-459f-8acf-6266a0577ce9": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200219
+    },
+    "72c48acd-2756-4f60-86d7-2091cb80cf83": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200219
+    },
+    "4d7d2c30-0b94-4432-9e68-cab12c30b0d2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200238
+    },
+    "b0b4845e-75cb-494d-981f-bb89de3ea79f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200238
+    },
+    "652547b0-1ff3-4d64-a948-4c8042adef95": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200229
+    },
+    "61cdc0f3-05b5-447a-87b0-65492dc040a7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200229
+    },
+    "7192ea38-cc05-4db5-846e-f865e5acadb9": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200235
+    },
+    "efaaee3d-bcf7-45eb-b55e-3bd6e59501b0": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200235
+    },
+    "7f66d6f0-3961-4af8-9fab-42d762f11e5f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200254
+    },
+    "036bdbdb-c8d0-42a1-a1b4-d534d548ac32": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200254
+    },
+    "81a0e526-1e20-4704-aaef-2a4a3be3316a": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200189
+    },
+    "06cb40a4-f543-4b91-850d-1b1afa39820f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200189
+    },
+    "86605502-5406-4e3c-8a86-97f5e2ee0cb7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200222
+    },
+    "0fe1710a-60ab-4268-8f67-e8d5841effb5": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200222
+    },
+    "884d42a5-6b79-44d6-baf2-d8845f7293a1": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200187
+    },
+    "5316f48b-debe-4ab9-99c2-d8fa5e7647e0": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200187
+    },
+    "90101162-2067-41c3-b223-48a8d0c596f2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200263
+    },
+    "518d1807-c67b-4724-a5e6-d34f69d3b463": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200263
+    },
+    "9055c201-3c97-4dd7-ac9e-79c69622479b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200184
+    },
+    "0b963166-558f-43cd-92a6-529742a2a47f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200184
+    },
+    "93c1d134-5259-4ba4-b82f-244e28d81a48": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200262
+    },
+    "bb86b7a7-0560-4b47-9e27-e9ed8de5b660": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200262
+    },
+    "b7352235-b471-400f-9e2d-89198bbb7692": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200216
+    },
+    "d79cd1f0-2d1a-48e5-8b37-09a6d114900a": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200216
+    },
+    "c3818f22-6b12-4afb-ad50-fd61d5da8a65": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200224
+    },
+    "7fda0bcf-0b9b-4fb2-9464-72ec25967000": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200224
+    },
+    "cbcb1e43-fc27-4b15-b2de-030acf0b28d3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200234
+    },
+    "e2eefa68-70fe-4bb1-b5f0-6628866163b3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200234
+    },
+    "e0cc32e6-b5f3-46f7-98fb-8fc70cc8779e": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200200
+    },
+    "538b0464-df31-4d4a-a27a-4601a6852e04": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200200
+    },
+    "ea152422-d836-4d63-ae24-54d6eedf312c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200192
+    },
+    "dfb9826d-0f85-4ea3-a4d5-2060b230c1a6": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200192
+    },
+    "ee779551-a74a-4c49-950b-f3d5beb5ef36": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200266
+    },
+    "04da0474-460b-43c3-be5a-5ce71f76859e": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200266
+    },
+    "f3d03525-24e4-4f9b-91f6-367b3cf3bdcf": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200195
+    },
+    "49af754b-176a-4eda-8457-f29a986d4f1b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200195
+    },
+    "f64e274f-8535-4bb6-b518-33584d5935d0": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200198
+    },
+    "23f4e4f8-d2d3-4bea-9d89-af275d76a735": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200198
+    },
+    "f66c9477-8239-486e-8575-cbf6d0f3d2f3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200252
+    },
+    "d0e7dabe-83fd-4614-add9-7e23045da8c6": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200252
+    },
+    "fede0ffa-ab64-4815-8ae2-2ecdda5bab90": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200278
+    },
+    "3fe4d7ff-e638-4dd9-bcf3-276ce3a1371b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200278
+    }
+  },
+  "result": {
+    "name": "AutoAtlas",
+    "width": 2048,
+    "height": 2048,
+    "ver": "1.2.5",
+    "uuid": "efdd5321-6bf4-440f-b068-5a721ef23629",
+    "importer": "auto-atlas",
+    "maxWidth": 2048,
+    "maxHeight": 2048,
+    "padding": 2,
+    "compressionLevel": 6,
+    "allowRotation": true,
+    "forceSquared": false,
+    "powerOfTwo": false,
+    "algorithm": "MaxRects",
+    "format": "png",
+    "quality": 80,
+    "contourBleed": true,
+    "paddingBleed": true,
+    "filterUnused": true,
+    "packable": false,
+    "premultiplyAlpha": false,
+    "filterMode": "bilinear",
+    "platformSettings": {},
+    "subMetas": {},
+    "bleed": 1,
+    "atlases": [
+      {
+        "files": [
+          {
+            "name": "monster24",
+            "uuid": "652547b0-1ff3-4d64-a948-4c8042adef95",
+            "textureUuid": "61cdc0f3-05b5-447a-87b0-65492dc040a7",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376024_image_12.png",
+            "trim": {
+              "x": 3,
+              "y": 3,
+              "width": 298,
+              "height": 308,
+              "rotatedWidth": 308,
+              "rotatedHeight": 298
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 304,
+            "height": 314,
+            "originalPath": "D:/AGame/TaFang/library/imports/61/61cdc0f3-05b5-447a-87b0-65492dc040a7.png",
+            "x": 0,
+            "y": 0,
+            "rotated": true,
+            "rotatedWidth": 314,
+            "rotatedHeight": 304
+          },
+          {
+            "name": "monster23",
+            "uuid": "7192ea38-cc05-4db5-846e-f865e5acadb9",
+            "textureUuid": "efaaee3d-bcf7-45eb-b55e-3bd6e59501b0",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376024_image_13.png",
+            "trim": {
+              "x": 317,
+              "y": 3,
+              "width": 308,
+              "height": 293,
+              "rotatedWidth": 308,
+              "rotatedHeight": 293
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 314,
+            "height": 299,
+            "originalPath": "D:/AGame/TaFang/library/imports/ef/efaaee3d-bcf7-45eb-b55e-3bd6e59501b0.png",
+            "x": 314,
+            "y": 0,
+            "rotatedWidth": 314,
+            "rotatedHeight": 299
+          },
+          {
+            "name": "monster18",
+            "uuid": "409700c5-2c53-4ea2-b8f5-848d346b3db3",
+            "textureUuid": "03d1d309-0f85-48d2-a951-0c71dc264b9c",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376024_image_9.png",
+            "trim": {
+              "x": 631,
+              "y": 3,
+              "width": 304,
+              "height": 280,
+              "rotatedWidth": 304,
+              "rotatedHeight": 280
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 310,
+            "height": 286,
+            "originalPath": "D:/AGame/TaFang/library/imports/03/03d1d309-0f85-48d2-a951-0c71dc264b9c.png",
+            "x": 628,
+            "y": 0,
+            "rotatedWidth": 310,
+            "rotatedHeight": 286
+          },
+          {
+            "name": "monster20",
+            "uuid": "41ce304d-2ab0-459f-8acf-6266a0577ce9",
+            "textureUuid": "72c48acd-2756-4f60-86d7-2091cb80cf83",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376024_image_10.png",
+            "trim": {
+              "x": 941,
+              "y": 3,
+              "width": 308,
+              "height": 192,
+              "rotatedWidth": 192,
+              "rotatedHeight": 308
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 314,
+            "height": 198,
+            "originalPath": "D:/AGame/TaFang/library/imports/72/72c48acd-2756-4f60-86d7-2091cb80cf83.png",
+            "x": 938,
+            "y": 0,
+            "rotated": true,
+            "rotatedWidth": 198,
+            "rotatedHeight": 314
+          },
+          {
+            "name": "monster19",
+            "uuid": "b7352235-b471-400f-9e2d-89198bbb7692",
+            "textureUuid": "d79cd1f0-2d1a-48e5-8b37-09a6d114900a",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376025_image_21.png",
+            "trim": {
+              "x": 631,
+              "y": 289,
+              "width": 281,
+              "height": 284,
+              "rotatedWidth": 284,
+              "rotatedHeight": 281
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 287,
+            "height": 290,
+            "originalPath": "D:/AGame/TaFang/library/imports/d7/d79cd1f0-2d1a-48e5-8b37-09a6d114900a.png",
+            "x": 628,
+            "y": 286,
+            "rotated": true,
+            "rotatedWidth": 290,
+            "rotatedHeight": 287
+          },
+          {
+            "name": "monster7",
+            "uuid": "fede0ffa-ab64-4815-8ae2-2ecdda5bab90",
+            "textureUuid": "3fe4d7ff-e638-4dd9-bcf3-276ce3a1371b",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376026_image_30.png",
+            "trim": {
+              "x": 921,
+              "y": 317,
+              "width": 193,
+              "height": 264,
+              "rotatedWidth": 193,
+              "rotatedHeight": 264
+            },
+            "rawWidth": 310,
+            "rawHeight": 310,
+            "width": 199,
+            "height": 270,
+            "originalPath": "D:/AGame/TaFang/library/imports/3f/3fe4d7ff-e638-4dd9-bcf3-276ce3a1371b.png",
+            "x": 918,
+            "y": 314,
+            "rotatedWidth": 199,
+            "rotatedHeight": 270
+          },
+          {
+            "name": "monster17",
+            "uuid": "e0cc32e6-b5f3-46f7-98fb-8fc70cc8779e",
+            "textureUuid": "538b0464-df31-4d4a-a27a-4601a6852e04",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376025_image_24.png",
+            "trim": {
+              "x": 317,
+              "y": 302,
+              "width": 302,
+              "height": 264,
+              "rotatedWidth": 302,
+              "rotatedHeight": 264
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 308,
+            "height": 270,
+            "originalPath": "D:/AGame/TaFang/library/imports/53/538b0464-df31-4d4a-a27a-4601a6852e04.png",
+            "x": 314,
+            "y": 299,
+            "rotatedWidth": 308,
+            "rotatedHeight": 270
+          },
+          {
+            "name": "monster29",
+            "uuid": "06d44930-e592-4657-bc1c-7a072805618c",
+            "textureUuid": "54e10d86-835b-4f35-b90c-064d76d362c7",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376023_image_1.png",
+            "trim": {
+              "x": 3,
+              "y": 307,
+              "width": 288,
+              "height": 273,
+              "rotatedWidth": 288,
+              "rotatedHeight": 273
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 294,
+            "height": 279,
+            "originalPath": "D:/AGame/TaFang/library/imports/54/54e10d86-835b-4f35-b90c-064d76d362c7.png",
+            "x": 0,
+            "y": 304,
+            "rotatedWidth": 294,
+            "rotatedHeight": 279
+          },
+          {
+            "name": "monster30",
+            "uuid": "93c1d134-5259-4ba4-b82f-244e28d81a48",
+            "textureUuid": "bb86b7a7-0560-4b47-9e27-e9ed8de5b660",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376025_image_20.png",
+            "trim": {
+              "x": 297,
+              "y": 572,
+              "width": 253,
+              "height": 308,
+              "rotatedWidth": 308,
+              "rotatedHeight": 253
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 259,
+            "height": 314,
+            "originalPath": "D:/AGame/TaFang/library/imports/bb/bb86b7a7-0560-4b47-9e27-e9ed8de5b660.png",
+            "x": 294,
+            "y": 569,
+            "rotated": true,
+            "rotatedWidth": 314,
+            "rotatedHeight": 259
+          },
+          {
+            "name": "monster14",
+            "uuid": "10525226-dc94-4c10-9717-529da9041700",
+            "textureUuid": "d14382fd-62f9-4a45-97b2-c4772c49b6f4",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376023_image_2.png",
+            "trim": {
+              "x": 3,
+              "y": 586,
+              "width": 304,
+              "height": 251,
+              "rotatedWidth": 251,
+              "rotatedHeight": 304
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 310,
+            "height": 257,
+            "originalPath": "D:/AGame/TaFang/library/imports/d1/d14382fd-62f9-4a45-97b2-c4772c49b6f4.png",
+            "x": 0,
+            "y": 583,
+            "rotated": true,
+            "rotatedWidth": 257,
+            "rotatedHeight": 310
+          },
+          {
+            "name": "monster31",
+            "uuid": "ee779551-a74a-4c49-950b-f3d5beb5ef36",
+            "textureUuid": "04da0474-460b-43c3-be5a-5ce71f76859e",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376026_image_26.png",
+            "trim": {
+              "x": 611,
+              "y": 576,
+              "width": 308,
+              "height": 246,
+              "rotatedWidth": 246,
+              "rotatedHeight": 308
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 314,
+            "height": 252,
+            "originalPath": "D:/AGame/TaFang/library/imports/04/04da0474-460b-43c3-be5a-5ce71f76859e.png",
+            "x": 608,
+            "y": 573,
+            "rotated": true,
+            "rotatedWidth": 252,
+            "rotatedHeight": 314
+          },
+          {
+            "name": "monster22",
+            "uuid": "86605502-5406-4e3c-8a86-97f5e2ee0cb7",
+            "textureUuid": "0fe1710a-60ab-4268-8f67-e8d5841effb5",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376024_image_16.png",
+            "trim": {
+              "x": 863,
+              "y": 587,
+              "width": 308,
+              "height": 239,
+              "rotatedWidth": 239,
+              "rotatedHeight": 308
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 314,
+            "height": 245,
+            "originalPath": "D:/AGame/TaFang/library/imports/0f/0fe1710a-60ab-4268-8f67-e8d5841effb5.png",
+            "x": 860,
+            "y": 584,
+            "rotated": true,
+            "rotatedWidth": 245,
+            "rotatedHeight": 314
+          },
+          {
+            "name": "monster16",
+            "uuid": "f64e274f-8535-4bb6-b518-33584d5935d0",
+            "textureUuid": "23f4e4f8-d2d3-4bea-9d89-af275d76a735",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376026_image_28.png",
+            "trim": {
+              "x": 260,
+              "y": 831,
+              "width": 272,
+              "height": 265,
+              "rotatedWidth": 272,
+              "rotatedHeight": 265
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 278,
+            "height": 271,
+            "originalPath": "D:/AGame/TaFang/library/imports/23/23f4e4f8-d2d3-4bea-9d89-af275d76a735.png",
+            "x": 257,
+            "y": 828,
+            "rotatedWidth": 278,
+            "rotatedHeight": 271
+          },
+          {
+            "name": "monster9",
+            "uuid": "320344f9-fac6-44f0-8814-d77f2f3fbed7",
+            "textureUuid": "818be4a5-0fd1-472c-a2b0-643c814ae55d",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376023_image_5.png",
+            "trim": {
+              "x": 3,
+              "y": 896,
+              "width": 238,
+              "height": 296,
+              "rotatedWidth": 238,
+              "rotatedHeight": 296
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 244,
+            "height": 302,
+            "originalPath": "D:/AGame/TaFang/library/imports/81/818be4a5-0fd1-472c-a2b0-643c814ae55d.png",
+            "x": 0,
+            "y": 893,
+            "rotatedWidth": 244,
+            "rotatedHeight": 302
+          },
+          {
+            "name": "monster27",
+            "uuid": "4d7d2c30-0b94-4432-9e68-cab12c30b0d2",
+            "textureUuid": "b0b4845e-75cb-494d-981f-bb89de3ea79f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376024_image_11.png",
+            "trim": {
+              "x": 538,
+              "y": 890,
+              "width": 265,
+              "height": 268,
+              "rotatedWidth": 268,
+              "rotatedHeight": 265
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 271,
+            "height": 274,
+            "originalPath": "D:/AGame/TaFang/library/imports/b0/b0b4845e-75cb-494d-981f-bb89de3ea79f.png",
+            "x": 535,
+            "y": 887,
+            "rotated": true,
+            "rotatedWidth": 274,
+            "rotatedHeight": 271
+          },
+          {
+            "name": "monster26",
+            "uuid": "00e053cb-3d16-4d4f-acf1-773b448b9d77",
+            "textureUuid": "9f19e98d-9dc9-4fd5-b079-17bfd6825b32",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376023_image_0.png",
+            "trim": {
+              "x": 247,
+              "y": 1102,
+              "width": 249,
+              "height": 276,
+              "rotatedWidth": 276,
+              "rotatedHeight": 249
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 255,
+            "height": 282,
+            "originalPath": "D:/AGame/TaFang/library/imports/9f/9f19e98d-9dc9-4fd5-b079-17bfd6825b32.png",
+            "x": 244,
+            "y": 1099,
+            "rotated": true,
+            "rotatedWidth": 282,
+            "rotatedHeight": 255
+          },
+          {
+            "name": "monster28",
+            "uuid": "7f66d6f0-3961-4af8-9fab-42d762f11e5f",
+            "textureUuid": "036bdbdb-c8d0-42a1-a1b4-d534d548ac32",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376024_image_14.png",
+            "trim": {
+              "x": 3,
+              "y": 1198,
+              "width": 232,
+              "height": 296,
+              "rotatedWidth": 232,
+              "rotatedHeight": 296
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 238,
+            "height": 302,
+            "originalPath": "D:/AGame/TaFang/library/imports/03/036bdbdb-c8d0-42a1-a1b4-d534d548ac32.png",
+            "x": 0,
+            "y": 1195,
+            "rotatedWidth": 238,
+            "rotatedHeight": 302
+          },
+          {
+            "name": "monster12",
+            "uuid": "9055c201-3c97-4dd7-ac9e-79c69622479b",
+            "textureUuid": "0b963166-558f-43cd-92a6-529742a2a47f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376025_image_19.png",
+            "trim": {
+              "x": 812,
+              "y": 901,
+              "width": 276,
+              "height": 248,
+              "rotatedWidth": 276,
+              "rotatedHeight": 248
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 282,
+            "height": 254,
+            "originalPath": "D:/AGame/TaFang/library/imports/0b/0b963166-558f-43cd-92a6-529742a2a47f.png",
+            "x": 809,
+            "y": 898,
+            "rotatedWidth": 282,
+            "rotatedHeight": 254
+          },
+          {
+            "name": "monster21",
+            "uuid": "c3818f22-6b12-4afb-ad50-fd61d5da8a65",
+            "textureUuid": "7fda0bcf-0b9b-4fb2-9464-72ec25967000",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376025_image_22.png",
+            "trim": {
+              "x": 812,
+              "y": 1155,
+              "width": 232,
+              "height": 292,
+              "rotatedWidth": 292,
+              "rotatedHeight": 232
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 238,
+            "height": 298,
+            "originalPath": "D:/AGame/TaFang/library/imports/7f/7fda0bcf-0b9b-4fb2-9464-72ec25967000.png",
+            "x": 809,
+            "y": 1152,
+            "rotated": true,
+            "rotatedWidth": 298,
+            "rotatedHeight": 238
+          },
+          {
+            "name": "monster25",
+            "uuid": "cbcb1e43-fc27-4b15-b2de-030acf0b28d3",
+            "textureUuid": "e2eefa68-70fe-4bb1-b5f0-6628866163b3",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376025_image_23.png",
+            "trim": {
+              "x": 529,
+              "y": 1161,
+              "width": 260,
+              "height": 253,
+              "rotatedWidth": 260,
+              "rotatedHeight": 253
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 266,
+            "height": 259,
+            "originalPath": "D:/AGame/TaFang/library/imports/e2/e2eefa68-70fe-4bb1-b5f0-6628866163b3.png",
+            "x": 526,
+            "y": 1158,
+            "rotatedWidth": 266,
+            "rotatedHeight": 259
+          },
+          {
+            "name": "monster8",
+            "uuid": "3e46d947-5f0c-4066-9642-489b8dbaac5b",
+            "textureUuid": "25181132-3089-4711-a396-1fd58a840785",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376023_image_8.png",
+            "trim": {
+              "x": 241,
+              "y": 1357,
+              "width": 251,
+              "height": 257,
+              "rotatedWidth": 257,
+              "rotatedHeight": 251
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 257,
+            "height": 263,
+            "originalPath": "D:/AGame/TaFang/library/imports/25/25181132-3089-4711-a396-1fd58a840785.png",
+            "x": 238,
+            "y": 1354,
+            "rotated": true,
+            "rotatedWidth": 263,
+            "rotatedHeight": 257
+          },
+          {
+            "name": "monster15",
+            "uuid": "ea152422-d836-4d63-ae24-54d6eedf312c",
+            "textureUuid": "dfb9826d-0f85-4ea3-a4d5-2060b230c1a6",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376025_image_25.png",
+            "trim": {
+              "x": 3,
+              "y": 1500,
+              "width": 260,
+              "height": 232,
+              "rotatedWidth": 232,
+              "rotatedHeight": 260
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 266,
+            "height": 238,
+            "originalPath": "D:/AGame/TaFang/library/imports/df/dfb9826d-0f85-4ea3-a4d5-2060b230c1a6.png",
+            "x": 0,
+            "y": 1497,
+            "rotated": true,
+            "rotatedWidth": 238,
+            "rotatedHeight": 266
+          },
+          {
+            "name": "monster13",
+            "uuid": "81a0e526-1e20-4704-aaef-2a4a3be3316a",
+            "textureUuid": "06cb40a4-f543-4b91-850d-1b1afa39820f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376024_image_15.png",
+            "trim": {
+              "x": 795,
+              "y": 1393,
+              "width": 233,
+              "height": 276,
+              "rotatedWidth": 276,
+              "rotatedHeight": 233
+            },
+            "rawWidth": 308,
+            "rawHeight": 308,
+            "width": 239,
+            "height": 282,
+            "originalPath": "D:/AGame/TaFang/library/imports/06/06cb40a4-f543-4b91-850d-1b1afa39820f.png",
+            "x": 792,
+            "y": 1390,
+            "rotated": true,
+            "rotatedWidth": 282,
+            "rotatedHeight": 239
+          },
+          {
+            "name": "monster11",
+            "uuid": "884d42a5-6b79-44d6-baf2-d8845f7293a1",
+            "textureUuid": "5316f48b-debe-4ab9-99c2-d8fa5e7647e0",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376024_image_17.png",
+            "trim": {
+              "x": 504,
+              "y": 1420,
+              "width": 257,
+              "height": 244,
+              "rotatedWidth": 257,
+              "rotatedHeight": 244
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 263,
+            "height": 250,
+            "originalPath": "D:/AGame/TaFang/library/imports/53/5316f48b-debe-4ab9-99c2-d8fa5e7647e0.png",
+            "x": 501,
+            "y": 1417,
+            "rotatedWidth": 263,
+            "rotatedHeight": 250
+          },
+          {
+            "name": "monster5",
+            "uuid": "2db3f6bf-1893-453c-97ce-8de6332df32d",
+            "textureUuid": "a4648a0e-dac1-40d9-97d5-aff8f4ada835",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376023_image_4.png",
+            "trim": {
+              "x": 241,
+              "y": 1614,
+              "width": 245,
+              "height": 226,
+              "rotatedWidth": 245,
+              "rotatedHeight": 226
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 251,
+            "height": 232,
+            "originalPath": "D:/AGame/TaFang/library/imports/a4/a4648a0e-dac1-40d9-97d5-aff8f4ada835.png",
+            "x": 238,
+            "y": 1611,
+            "rotatedWidth": 251,
+            "rotatedHeight": 232
+          },
+          {
+            "name": "monster6",
+            "uuid": "3b4fe6e0-688c-46e6-9de4-680122de51cf",
+            "textureUuid": "535a27d6-6b03-4b75-97fd-5af181add650",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376023_image_6.png",
+            "trim": {
+              "x": 3,
+              "y": 1766,
+              "width": 193,
+              "height": 244,
+              "rotatedWidth": 193,
+              "rotatedHeight": 244
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 199,
+            "height": 250,
+            "originalPath": "D:/AGame/TaFang/library/imports/53/535a27d6-6b03-4b75-97fd-5af181add650.png",
+            "x": 0,
+            "y": 1763,
+            "rotatedWidth": 199,
+            "rotatedHeight": 250
+          },
+          {
+            "name": "monster1",
+            "uuid": "1e54cfe9-725d-4948-86b2-3eb3d14fdb2b",
+            "textureUuid": "6ef4e49f-8c14-4f2b-9a9b-477a9dba092c",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376023_image_3.png",
+            "trim": {
+              "x": 767,
+              "y": 1632,
+              "width": 213,
+              "height": 221,
+              "rotatedWidth": 221,
+              "rotatedHeight": 213
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 219,
+            "height": 227,
+            "originalPath": "D:/AGame/TaFang/library/imports/6e/6ef4e49f-8c14-4f2b-9a9b-477a9dba092c.png",
+            "x": 764,
+            "y": 1629,
+            "rotated": true,
+            "rotatedWidth": 227,
+            "rotatedHeight": 219
+          },
+          {
+            "name": "monster3",
+            "uuid": "f66c9477-8239-486e-8575-cbf6d0f3d2f3",
+            "textureUuid": "d0e7dabe-83fd-4614-add9-7e23045da8c6",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376026_image_29.png",
+            "trim": {
+              "x": 492,
+              "y": 1670,
+              "width": 187,
+              "height": 251,
+              "rotatedWidth": 251,
+              "rotatedHeight": 187
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 193,
+            "height": 257,
+            "originalPath": "D:/AGame/TaFang/library/imports/d0/d0e7dabe-83fd-4614-add9-7e23045da8c6.png",
+            "x": 489,
+            "y": 1667,
+            "rotated": true,
+            "rotatedWidth": 257,
+            "rotatedHeight": 193
+          },
+          {
+            "name": "monster10",
+            "uuid": "f3d03525-24e4-4f9b-91f6-367b3cf3bdcf",
+            "textureUuid": "49af754b-176a-4eda-8457-f29a986d4f1b",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376026_image_27.png",
+            "trim": {
+              "x": 202,
+              "y": 1846,
+              "width": 168,
+              "height": 264,
+              "rotatedWidth": 264,
+              "rotatedHeight": 168
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 174,
+            "height": 270,
+            "originalPath": "D:/AGame/TaFang/library/imports/49/49af754b-176a-4eda-8457-f29a986d4f1b.png",
+            "x": 199,
+            "y": 1843,
+            "rotated": true,
+            "rotatedWidth": 270,
+            "rotatedHeight": 174
+          },
+          {
+            "name": "monster2",
+            "uuid": "3dfd997d-5f04-4ad4-bf1e-b583b508be33",
+            "textureUuid": "02c80731-cd99-4692-a0c2-99a3e1e26d93",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376023_image_7.png",
+            "trim": {
+              "x": 749,
+              "y": 1851,
+              "width": 225,
+              "height": 187,
+              "rotatedWidth": 225,
+              "rotatedHeight": 187
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 231,
+            "height": 193,
+            "originalPath": "D:/AGame/TaFang/library/imports/02/02c80731-cd99-4692-a0c2-99a3e1e26d93.png",
+            "x": 746,
+            "y": 1848,
+            "rotatedWidth": 231,
+            "rotatedHeight": 193
+          },
+          {
+            "name": "monster4",
+            "uuid": "90101162-2067-41c3-b223-48a8d0c596f2",
+            "textureUuid": "518d1807-c67b-4724-a5e6-d34f69d3b463",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886376025_image_18.png",
+            "trim": {
+              "x": 472,
+              "y": 1863,
+              "width": 148,
+              "height": 264,
+              "rotatedWidth": 264,
+              "rotatedHeight": 148
+            },
+            "rawWidth": 308,
+            "rawHeight": 310,
+            "width": 154,
+            "height": 270,
+            "originalPath": "D:/AGame/TaFang/library/imports/51/518d1807-c67b-4724-a5e6-d34f69d3b463.png",
+            "x": 469,
+            "y": 1860,
+            "rotated": true,
+            "rotatedWidth": 270,
+            "rotatedHeight": 154
+          }
+        ],
+        "width": 1136,
+        "height": 2041,
+        "name": "AutoAtlas-1",
+        "imagePath": "D:\\AGame\\TaFang\\temp\\TexturePacker\\build\\native\\assets\\resources\\texture\\monster\\AutoAtlas.pac\\AutoAtlas-1.png",
+        "compressd": {
+          "suffix": [
+            ".png"
+          ],
+          "imagePathNoExt": "D:\\AGame\\TaFang\\temp\\TexturePacker\\build\\native\\assets\\resources\\texture\\monster\\AutoAtlas.pac\\compressed\\AutoAtlas-1"
+        }
+      }
+    ],
+    "unpackedTextures": []
+  }
+}

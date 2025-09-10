@@ -63,7 +63,7 @@ export default class NewBigWheelController extends baseTs {
     @property(cc.Node)
     bigWheelMarquee: cc.Node = null
     @property(cc.Label)
-    lable_currentPhoneFragments: cc.Label
+    lable_currentPhoneFragments: cc.Label = null
     @property(cc.Node)
     progressBar: cc.Node = null
     @property(cc.Node)
@@ -71,7 +71,7 @@ export default class NewBigWheelController extends baseTs {
 
     //活动规则
     @property(cc.Prefab)
-    BigWheelRuleModalPrefab: cc.Prefab
+    BigWheelRuleModalPrefab: cc.Prefab = null
 
     @property(NewBigWheelPrize)
     newBigWheelPrize: NewBigWheelPrize = null
@@ -144,7 +144,7 @@ export default class NewBigWheelController extends baseTs {
             url: UrlConst.newBigWheel_index,
             onSuccess: res => {
                 if (res.code === 0) {
-                    if(!this.isValid){
+                    if (!this.isValid) {
                         return;
                     }
 
@@ -404,7 +404,7 @@ export default class NewBigWheelController extends baseTs {
                             is_sign_suc: true,
                             sign_day: this.maiDianSignDay
                         })
-                        
+
 
                     } else {
                         TrackMgr.lotto_sign_chip({
@@ -412,14 +412,14 @@ export default class NewBigWheelController extends baseTs {
                             is_sign_suc: false,
                             sign_day: this.maiDianSignDay
                         })
-                      
+
 
                         XMSDK.toast('网络请求错误，请重试', 1.5, 2);
                     }
                 },
                 onFail: res => {
                     AssistCtr.showToastTip("加载视频失败，请稍后！");
-                    
+
                 }
             })
         }, () => {

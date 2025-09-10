@@ -1,0 +1,20 @@
+
+xuefengpao.png
+size: 114,112
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 67, 5
+  size: 107, 47
+  orig: 107, 47
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 7
+  size: 58, 105
+  orig: 58, 105
+  offset: 0, 0
+  index: -1

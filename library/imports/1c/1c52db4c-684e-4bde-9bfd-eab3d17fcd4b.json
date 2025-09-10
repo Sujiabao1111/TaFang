@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hanfengpao",
+    "texture": "a62d0382-a9f1-41d9-9ecd-0921143a450f",
+    "atlas": "",
+    "rect": [
+      0,
+      7,
+      105,
+      96
+    ],
+    "offset": [
+      0,
+      -3.5
+    ],
+    "originalSize": [
+      105,
+      103
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

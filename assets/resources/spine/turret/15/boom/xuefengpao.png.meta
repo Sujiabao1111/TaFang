@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "b6f1e21d-be58-474e-8bbd-e07abaaf2a3c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "xuefengpao": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "c045d21c-5639-4b49-8b24-2cc50363c4a9",
+      "importer": "sprite-frame",
       "rawTextureUuid": "b6f1e21d-be58-474e-8bbd-e07abaaf2a3c",
       "trimType": "auto",
       "trimThreshold": 1,

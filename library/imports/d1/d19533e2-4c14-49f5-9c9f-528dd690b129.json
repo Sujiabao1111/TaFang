@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "monsterblood_tex",
+    "texture": "0fc2c4b0-c868-435e-9259-d75e5399df83",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      44,
+      18
+    ],
+    "offset": [
+      -9,
+      6
+    ],
+    "originalSize": [
+      64,
+      32
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

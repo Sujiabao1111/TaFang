@@ -1,0 +1,312 @@
+// 繁中文件 zhHant.ts
+const win = window as any;
+
+export const languages = {
+    // Data
+    'home': {
+        'initLanguage': '',
+        'Loading': '加載中...',
+
+        'startGame': '開始游戲',
+        'ranking': '排行榜',
+        'weeklyCard': '周卡',
+        'invite': '邀請',
+        'mining': '挖礦',
+        'sfx': '音效',
+        'language': '語言',
+        'settings': '設置',
+        'exchange': '兌換',
+        'withdrawal': '提现',
+        'open': '開啟',
+        'synthesis': '合成',
+        'Decomposition': '分解',
+        'sell': '出售',
+        'withdrawableBalance': '可提現餘額',
+        'withdrawalMin': '满${0}TON可提現',
+        'withdrawalMinAZEN': '满${0}AZEN可提現',
+        'walletBinding': '錢包綁定',
+        'unlinkWallet': '你沒有任何與錢包的連接',
+        'connect': '連接錢包',
+        'ok': '確定',
+        'off': 'OFF',
+        'on': 'ON',
+        'auto': '自動',
+        'en': 'English',
+        'zh': '简体中文',
+        'zhHant': '繁體中文',
+        'ru': 'Русский язык',
+        'id': 'Bahasa Indonesia',
+        'ar': 'لغة عربية',
+        'th': 'ภาษาไทย',
+
+
+
+        '7day': '7日簽到',
+        'weeklyCardPrivileges': '周卡特權',
+        'weeklyCardPrivileges1': '每日領取',
+        'weeklyCardPrivileges2': '購買周卡',
+        'weeklyCardPrivileges2-1': '立刻獲得青銅、白銀、黃金寶箱 X ${0}',
+        'weeklyCardPrivileges3': '寶箱出現概率提升',
+        'weeklyCardPrivileges4': '每日20次，免廣告權力',
+        'randomChest': '隨機寶箱',
+        'mysteryGift': '神秘大禮',
+        'box': '寶箱',
+        'goldBox': '黃金寶箱',
+        'silverBox': '白銀寶箱',
+        'bronzeBox': '青銅寶箱',
+        'key': '鑰匙',
+        'goldKey': '黃金鑰匙',
+        'silverKey': '白銀鑰匙',
+        'bronzeKey': '青銅鑰匙',
+        'screw': '螺絲',
+        'diamond': '鑽石',
+        'bronze': '青銅',
+        'silver': '白銀',
+        'gold': '黃金',
+        'remainingWeeklyCard': '周卡剩餘時間：',
+        'buyWeeklyCard': '購買周卡',
+
+        'progress': '進度',
+        'taskTips': '完成獎勵直接發送至帳號內',
+        'cost': '花費',
+        'ScrewList': '鑽石榜',
+        'lvList': '關卡榜',
+        'invitationsList': '邀請榜',
+        'myRank': '我的排名',
+        'dailyTasks': '每日任務',
+        'communityTasks': '社群任務',
+        'mail': '郵件',
+        'shop': '商城',
+        'delete': '刪除',
+        'partnerTask': '夥伴任務',
+        'NoData': '暫無數據',
+        'comingSoon': '敬请期待',
+
+
+        'completeProgressReward': '完成100%進度以領取TON獎勵',
+        'mineTon': 'TON挖礦',
+        'ad': '廣告',
+        'rule': '規則',
+
+        'ruleDesc': '1.只能通過此界面的廣告入口累積進度獲得獎勵\n\n2.通過完整觀看廣告可以積累進度\n\n3.每增加一次進度，可以積攢隨機數量的獎勵\n\n4.進度完成後，獎勵將進入錢包餘額\n\n5. 只有成功邀請新玩家加入遊戲，才可以獲得超級加倍機會\n\n6. 每天僅有1次超級加倍機會',
+
+        'CardBag': '卡包',
+        'Card': '卡片',
+        'Series': '系列',
+        'CardSeries': '卡包系列',
+        'Collect': '收藏',
+        'Owned': '持有:${0}',
+
+        'OrdinaryPack': '普通包',
+        'RarePack': '稀有包',
+        'EpicPack': '史詩包',
+        'LegendaryPack': '傳奇包',
+
+        'Ordinaryfragments': '普通碎片x${0}',
+        'Rarefragments': '稀有碎片x${0}',
+        'Epicfragments': '史詩碎片x${0}',
+        'Legendaryfragments': '傳奇碎片x${0}',
+
+        'Ordinaryfragments2': '普通碎片',
+        'Rarefragments2': '稀有碎片',
+        'Epicfragments2': '史詩碎片',
+        'Legendaryfragments2': '傳奇碎片',
+
+        'Seasonlimited': '第${0}賽季限定',
+        'PassUnlock': '通過第${0}關後解鎖',
+
+
+
+    },
+
+    'main': {
+        'level': '關卡',
+        'Got_turrets': '獲得${0}個炮塔！',
+        '暴击': '暴擊',
+        '合成奖励': '合成獎勵',
+        '快速提现': '快速提現',
+        '提现金额': '提現金額',
+        '炮台': '炮台',
+        '解锁新炮台': '解鎖新炮台',
+        '等级': '等級',
+        '攻击力': '攻擊力',
+        '领取奖励': '領取獎勵',
+        '放弃': '放棄領取',
+        '领取': '領取',
+        '普通领取': '普通領取',
+
+        '奖励': '獎勵',
+        '金币': '金幣',
+        '红包': '紅包',
+        '每日任务': '每日任務',
+        '成就任务': '成就任務',
+        '购买': '購買',
+        '前往': '前往',
+        '明日再来': '明日再來',
+        '已完成': '已完成',
+        '签到奖励': '簽到獎勵',
+        '立即签到': '立即簽到',
+        '在线奖励': '在線獎勵',
+        '已领取': '已領取',
+        '恭喜过关': '恭喜過關',
+        '钱包': '錢包',
+        '任务': '任務',
+        '抽奖': '抽獎',
+        '签到': '签到',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        'notEnough': '數量不夠',
+        'continue': '繼續遊戲',
+        'back': '返回',
+        'replay': '再來一次',
+        'backToFirstLevel': '回到第1關',
+        'nextLevel': '下一關',
+        'highestRecord': '歷史最高紀錄',
+        'get': '獲取',
+        'add': '添加',
+        'hole': '空位',
+        'backHome': '回到主界面',
+        'change': '轉換',
+        'color': '顏色',
+        'clear': '清除',
+
+        'unlock': '解鎖',
+        'box': '盒子',
+        'changeColor': '轉換顏色',
+        'addHole': '添加孔位',
+        'clearSpareArea': '清除備用區',
+        'no_': '第',
+        'lv': '關',
+        'tips': '提示',
+        'tipsDesc': '出現寶箱的概率大幅提升',
+        'totalObtained': '總共獲得',
+        'received': '恭喜獲得',
+        'selectReward': '選擇一個獎勵',
+        'pause': '暫停',
+        'levelSkip': '關卡跳過',
+        'skipDesc1': '可以跳過關卡並獲得對應的獎勵',
+        'skipDesc2': 'tips:最高只能抵達上次結算的關卡',
+        'magnet': '磁鐵',
+        'Remainingdiamonds': '剩餘鑽石',
+        'revive': '復活',
+        'rewardRule': '獎勵規則:每週日24點結算並發放獎勵',
+        'no_rank': '第${0}名',
+        'openWallet': '打開錢包',
+        'noCar': "当前停车位没有车辆",
+        'unlockPark': "解鎖停車位",
+        'refreshColor': "刷新車的顏色",
+        'fillCar': "填滿第一輪車",
+
+        'boost': '加倍',
+        'normalBoost': '普通加倍',
+        'superBoost': '超级加倍',
+        'invitedPlayers': '邀請玩家',
+        'status': '狀態',
+        'list': '列表',
+        'watchAdReward': '每次觀看廣告\n可以獲得AZEN幣獎勵',
+        'shareWhere': '要分享到哪裡?',
+        'share': '分享',
+        'shareget': '分享成功獲得50顆鑽石',
+        'firstpass': '你是第1個通過此關卡的人',
+        'passlevel': '恭喜通過第${0}關',
+
+    },
+    'tips': {
+        'null': '',
+        "ErrorParseErrorStr": "數據解析錯誤",
+        "ErrorSQLErrorStr": "數據庫錯誤",
+        "ErrorOpenidErrorStr": "錯誤的openid",
+        "ErrorCreateUserStr": "創建用戶失敗",
+        "ErrorUserNotExistStr": "用戶不存在",
+        "ErrorCreateTokenStr": "創建角色token失敗",
+        "ErrorValidateErrorStr": "簽名驗證失敗",
+        "ErrorUserNotLoginStr": "用戶未登錄",
+        "ErrorConfigNotExistStr": "配置不存在",
+        "ErrorResourceNotEnoughStr": "資源不足",
+        "ErrorCoinNotEnoughStr": "餘額未達到提現門檻",
+        "ErrorRankNotEnoughStr": "周卡等級不足",
+        "ErrorNotImpletedStr": "尚未實現",
+        "ErrorAlreadyTakeStr": "今日已領取",
+        "ErrorAlreadyHaveRankStr": "已經購買該卡",
+        "ErrorNotfoundStr": "未找到記錄",
+        "ErrorOrderStatuWrongStr": "訂單狀態錯誤",
+        "ErrorTodaySharedStr": "今日已分享",
+        "ErrorClaimRewardStr": "無法領取獎勵",
+        "ErrorRepeatPurchaseStr": "不可重複購買",
+        "ErrorUsePropStr": "無法使用道具",
+        "ErrorAdExitsMidway": "廣告中途退出",
+
+        'bind_wallet_success': '綁定錢包成功',
+        'bind_wallet_fail': '綁定錢包失敗',
+        'copy': '複製',
+        'copy_success': '複製成功',
+        'copy_fail': '複製失敗',
+        'receive_success': '領取成功',
+        'buy_success': '購買成功',
+        'confirm': '確認',
+        'cancel': '取消',
+        'skipMin': '最少跳過1関',
+        'unclaimedItemsWillBeDeleted': '未领取的物品也会被删除',
+        'confirmDelete': '確認刪除',
+
+        'no_nails_to_clean': '沒有可清理的釘子',
+        'level_attempts_exhausted': '當前關卡次數已經用完',
+        'reward_obtain_failed': '獲取廣告失敗，請稍後再試',
+        'return_fail_video_required': '返回失敗,需要看完影片',
+        'no_available_slots': '沒有空位了',
+        'developing': '將在後續開放',
+        'unknownError': '未知錯誤',
+
+        "insufficientPropsConfirm": "道具不足，是否立即購買？",
+        "orderCreateFailed": "訂單創建失敗",
+        "purchaseSuccess": "購買成功！",
+        "paymentPending": "支付未完成",
+        "networkError": "網絡異常，請重試",
+        "top500_registered": "恭喜成為前500名註冊遊戲的玩家",
+
+        'withdrawal_success': '提現成功',
+        'login_fail': '登入失敗',
+        'retry': '重試',
+        'connectWalletFirst': '請先連接錢包',
+        'cooling': '冷卻中',
+        'rewardFail': '獲取獎勵失敗',
+        'shareMessage': '輕輕鬆鬆又通關，擰螺絲太令人上頭了！對我來說很輕鬆，對你來說可就不一定了，不信你來試試看！',
+        'shareTo': '分享到${0}',
+        'propsuccess': '道具使用成功',
+        'InsufficientEnergy': '能量不足',
+        'noEmptySpace': '沒有空位了',
+        'noEmptySpace2': '先把炮塔合成或回收吧！',
+
+    },
+    'guide': {
+        'tips_1': '獲得了箱子和鑰匙!',
+        'btn_1': '前往開啟',
+        'tips_2': '點擊箱子可以獲得獎勵!綁定錢包之後可以提現!',
+        'btn_2': '知道了',
+        "gameGuide": "根據鑽石顏色點擊同色的車輛",
+    },
+};
+
+declare global {
+    type languagesData = typeof languages;
+}
+
+if (!win.languages) {
+    win.languages = {};
+}
+
+win.languages.zhHant = languages;

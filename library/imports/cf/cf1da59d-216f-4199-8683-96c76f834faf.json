@@ -1,0 +1,182 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "xuefengpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "sY1xSrTXOWi7v2C8o+tbqMMd4Cs",
+      "spine": "3.8.99",
+      "x": -53.5,
+      "y": -36.63,
+      "width": 107,
+      "height": 105,
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qingjipao/qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "x": -0.65,
+        "y": -29.08
+      },
+      {
+        "name": "qingjipao/qjp-shen2",
+        "parent": "qingjipao/qjp-shen",
+        "x": 94.33
+      }
+    ],
+    "slots": [
+      {
+        "name": "fs",
+        "bone": "qingjipao/qjp-shen2"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "fs": {
+            "A_01": {
+              "x": 0.5,
+              "rotation": -90,
+              "width": 160,
+              "height": 124
+            },
+            "A_02": {
+              "x": 0.5,
+              "rotation": -90,
+              "width": 160,
+              "height": 124
+            },
+            "A_03": {
+              "x": 0.5,
+              "rotation": -90,
+              "width": 160,
+              "height": 124
+            },
+            "A_04": {
+              "x": 0.5,
+              "rotation": -90,
+              "width": 160,
+              "height": 124
+            },
+            "A_05": {
+              "x": 0.5,
+              "rotation": -90,
+              "width": 160,
+              "height": 124
+            },
+            "A_06": {
+              "x": 0.5,
+              "rotation": -90,
+              "width": 160,
+              "height": 124
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "fs": {
+            "attachment": [
+              {
+                "time": 0.0333,
+                "name": "A_01"
+              },
+              {
+                "time": 0.0667,
+                "name": "A_02"
+              },
+              {
+                "time": 0.1,
+                "name": "A_03"
+              },
+              {
+                "time": 0.1333,
+                "name": "A_04"
+              },
+              {
+                "time": 0.1667,
+                "name": "A_05"
+              },
+              {
+                "time": 0.2,
+                "name": "A_06"
+              },
+              {
+                "time": 0.2333,
+                "name": null
+              }
+            ]
+          }
+        },
+        "bones": {
+          "qingjipao/qjp-shen2": {
+            "translate": [
+              {
+                "x": -79.46
+              }
+            ],
+            "scale": [
+              {
+                "x": 0.798,
+                "y": 0.798
+              }
+            ]
+          },
+          "qingjipao/qjp-shen": {
+            "translate": [
+              {
+                "x": 0.65,
+                "y": 29.08
+              }
+            ],
+            "scale": [
+              {},
+              {
+                "time": 0.1,
+                "x": 0.918,
+                "y": 1.052,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2,
+                "x": 1.015,
+                "y": 0.978,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.3,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nxuefengpao.png\nsize: 512,512\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nA_01\n  rotate: false\n  xy: 2, 200\n  size: 151, 118\n  orig: 160, 124\n  offset: 6, 3\n  index: -1\nA_02\n  rotate: true\n  xy: 155, 167\n  size: 151, 116\n  orig: 160, 124\n  offset: 6, 5\n  index: -1\nA_03\n  rotate: true\n  xy: 2, 54\n  size: 144, 111\n  orig: 160, 124\n  offset: 9, 9\n  index: -1\nA_04\n  rotate: true\n  xy: 115, 2\n  size: 90, 68\n  orig: 160, 124\n  offset: 35, 39\n  index: -1\nA_05\n  rotate: true\n  xy: 194, 90\n  size: 75, 70\n  orig: 160, 124\n  offset: 45, 40\n  index: -1\nA_06\n  rotate: false\n  xy: 115, 94\n  size: 77, 71\n  orig: 160, 124\n  offset: 44, 41\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "0c6197ff-1a35-4134-9bde-6b2b1eb09eef"
+    }
+  ],
+  "textureNames": [
+    "xuefengpao.png"
+  ],
+  "scale": 1
+}

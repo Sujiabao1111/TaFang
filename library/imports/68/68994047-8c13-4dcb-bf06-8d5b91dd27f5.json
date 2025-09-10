@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dialog_title_gongxi",
+    "texture": "69943a26-b3d1-44d7-81e6-2cc0b1257498",
+    "atlas": "",
+    "rect": [
+      13,
+      1,
+      514,
+      179
+    ],
+    "offset": [
+      -8,
+      3.5
+    ],
+    "originalSize": [
+      556,
+      188
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

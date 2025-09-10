@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tuowei",
+    "texture": "3386efe8-b084-4d8f-8de5-e27315976226",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      51,
+      128
+    ],
+    "offset": [
+      -1.5,
+      0
+    ],
+    "originalSize": [
+      54,
+      128
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

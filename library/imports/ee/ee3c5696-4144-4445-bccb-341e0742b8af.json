@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_guaishou@2x",
+    "texture": "047f1bc5-5605-418c-8f14-6999a379bdfa",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      144,
+      40
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      144,
+      40
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

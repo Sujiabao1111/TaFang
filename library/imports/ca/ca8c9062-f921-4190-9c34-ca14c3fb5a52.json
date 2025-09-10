@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_bottomicon_daoju@2x",
+    "texture": "94f945d2-00e8-4f55-972c-ee62ae204094",
+    "atlas": "",
+    "rect": [
+      10,
+      10,
+      94,
+      93
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      114,
+      112
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dongjipao",
+    "texture": "88981586-a1cd-49b1-9c58-2b00d61634eb",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      106,
+      117
+    ],
+    "offset": [
+      -6.5,
+      0
+    ],
+    "originalSize": [
+      119,
+      117
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

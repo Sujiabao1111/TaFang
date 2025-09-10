@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "碎片",
+    "texture": "f2357f79-92c6-44ca-9229-766524680958",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      720,
+      1360
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      720,
+      1360
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

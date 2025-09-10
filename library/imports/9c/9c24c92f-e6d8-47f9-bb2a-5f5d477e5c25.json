@@ -1,0 +1,170 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "rongjiapao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "dFRnp1xXSM3Azo5SoV5IXxijV5A",
+      "spine": "3.8.99",
+      "x": -58,
+      "y": -27.38,
+      "width": 116,
+      "height": 110,
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qingjipao/qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "x": -0.65,
+        "y": -29.08
+      },
+      {
+        "name": "qingjipao/qjp-shen2",
+        "parent": "qingjipao/qjp-shen",
+        "rotation": -90,
+        "x": 94.33
+      }
+    ],
+    "slots": [
+      {
+        "name": "fs",
+        "bone": "qingjipao/qjp-shen2"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "fs": {
+            "fs1": {
+              "x": 1.46,
+              "y": 33.35,
+              "width": 94,
+              "height": 75
+            },
+            "fs2": {
+              "x": 0.86,
+              "y": 36.63,
+              "width": 105,
+              "height": 81
+            },
+            "fs3": {
+              "x": 0.73,
+              "y": 38.46,
+              "width": 112,
+              "height": 85
+            },
+            "fs4": {
+              "x": 10.22,
+              "y": 30.66,
+              "width": 102,
+              "height": 70
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "fs": {
+            "color": [
+              {
+                "time": 0.1667,
+                "color": "ffffffff",
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.3,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.1,
+                "name": "fs4"
+              },
+              {
+                "time": 0.1333,
+                "name": "fs1"
+              },
+              {
+                "time": 0.1667,
+                "name": "fs2"
+              },
+              {
+                "time": 0.2,
+                "name": "fs3"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "qingjipao/qjp-shen2": {
+            "translate": [
+              {
+                "x": -94.33
+              }
+            ],
+            "scale": [
+              {
+                "x": 0.798,
+                "y": 0.798
+              }
+            ]
+          },
+          "qingjipao/qjp-shen": {
+            "translate": [
+              {
+                "y": 31.06
+              }
+            ],
+            "scale": [
+              {},
+              {
+                "time": 0.1,
+                "x": 0.918,
+                "y": 1.052,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2,
+                "x": 1.015,
+                "y": 0.978,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.3,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nrongjiapao.png\nsize: 256,256\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nfs1\n  rotate: false\n  xy: 112, 56\n  size: 94, 75\n  orig: 94, 75\n  offset: 0, 0\n  index: -1\nfs2\n  rotate: false\n  xy: 112, 133\n  size: 101, 80\n  orig: 105, 81\n  offset: 2, 0\n  index: -1\nfs3\n  rotate: false\n  xy: 2, 128\n  size: 108, 85\n  orig: 112, 85\n  offset: 1, 0\n  index: -1\nfs4\n  rotate: false\n  xy: 2, 57\n  size: 101, 69\n  orig: 102, 70\n  offset: 1, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "9bf4d647-d2d7-48ab-a6d8-a6fab6581827"
+    }
+  ],
+  "textureNames": [
+    "rongjiapao.png"
+  ],
+  "scale": 1
+}

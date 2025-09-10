@@ -1,0 +1,41 @@
+
+guangshepao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+08
+  rotate: true
+  xy: 227, 96
+  size: 103, 92
+  orig: 160, 160
+  offset: 32, 37
+  index: -1
+09
+  rotate: true
+  xy: 2, 95
+  size: 112, 105
+  orig: 160, 160
+  offset: 27, 33
+  index: -1
+10
+  rotate: false
+  xy: 109, 95
+  size: 116, 104
+  orig: 160, 160
+  offset: 25, 30
+  index: -1
+11
+  rotate: true
+  xy: 125, 201
+  size: 118, 107
+  orig: 160, 160
+  offset: 23, 28
+  index: -1
+12
+  rotate: false
+  xy: 2, 209
+  size: 121, 110
+  orig: 160, 160
+  offset: 22, 27
+  index: -1

@@ -31,7 +31,7 @@ export default class NewBigWheelChou extends cc.Component {
     @property(cc.Label)
     lable_remainChou: cc.Label = null
     @property(cc.Node)
-    controller: cc.Node
+    controller: cc.Node = null
     @property([cc.SpriteFrame])
     selectImg: Array<cc.SpriteFrame> = []
 
@@ -315,7 +315,7 @@ export default class NewBigWheelChou extends cc.Component {
         let self = this;
         let turnIdArray = self.turnIdArray;
         self.prizeData = null;
-        if(turnIdArray&&turnIdArray.length){
+        if (turnIdArray && turnIdArray.length) {
             for (let i = 0; i < turnIdArray.length; i++) {
                 if (turnIdArray[i].id == id) {
                     self.prizeData = turnIdArray[i];
@@ -323,7 +323,7 @@ export default class NewBigWheelChou extends cc.Component {
                 }
             }
         }
-        
+
         return null;
     }
 

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lujing43@2x",
+    "texture": "33a27ce8-8e63-46e0-b17a-c255f040ea27",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      138,
+      144
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      140,
+      146
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

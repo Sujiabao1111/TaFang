@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "69b55b61-5f72-4533-9966-ca6d2bcef7e1",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "bg_tujian_msg2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "9daa2e8e-9f92-4ea7-bebb-1c118cc8faf0",
+      "importer": "sprite-frame",
       "rawTextureUuid": "69b55b61-5f72-4533-9966-ca6d2bcef7e1",
       "trimType": "auto",
       "trimThreshold": 1,

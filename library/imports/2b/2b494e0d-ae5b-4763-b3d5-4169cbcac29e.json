@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tiancaipao",
+    "texture": "2be184b9-07c3-4032-9c55-bf3f533735d9",
+    "atlas": "",
+    "rect": [
+      2,
+      54,
+      249,
+      197
+    ],
+    "offset": [
+      -1.5,
+      -24.5
+    ],
+    "originalSize": [
+      256,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "yuzhouleishepao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "U+UiCqBEr2J8IpKXB8UOezEddhc",
+      "spine": "3.8.99",
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽/炮更新/jiguangpao/jiguangpao8"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "bone3",
+        "parent": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "zk",
+        "bone": "bone3"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "zk": {
+            "001": {
+              "x": 0.5,
+              "width": 96,
+              "height": 93
+            },
+            "002": {
+              "x": 0.5,
+              "width": 96,
+              "height": 94
+            },
+            "003": {
+              "x": 0.5,
+              "width": 96,
+              "height": 96
+            },
+            "004": {
+              "x": 0.5,
+              "width": 96,
+              "height": 96
+            },
+            "005": {
+              "x": 0.5,
+              "width": 96,
+              "height": 96
+            },
+            "006": {
+              "x": 0.5,
+              "width": 96,
+              "height": 96
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "zk": {
+            "color": [
+              {
+                "color": "ffffffd6",
+                "curve": "stepped"
+              },
+              {
+                "time": 0.3,
+                "color": "ffffffd6"
+              },
+              {
+                "time": 0.4,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.1333,
+                "name": "001"
+              },
+              {
+                "time": 0.1667,
+                "name": "002"
+              },
+              {
+                "time": 0.2,
+                "name": "003"
+              },
+              {
+                "time": 0.2333,
+                "name": "004"
+              },
+              {
+                "time": 0.2667,
+                "name": "005"
+              },
+              {
+                "time": 0.3,
+                "name": "006"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone3": {
+            "scale": [
+              {
+                "x": 1.2,
+                "y": 1.2
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nyuzhouleishepao.png\nsize: 296,296\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n001\n  rotate: false\n  xy: 2, 202\n  size: 94, 92\n  orig: 96, 93\n  offset: 2, 1\n  index: -1\n002\n  rotate: false\n  xy: 98, 202\n  size: 96, 92\n  orig: 96, 94\n  offset: 0, 0\n  index: -1\n003\n  rotate: false\n  xy: 100, 101\n  size: 96, 96\n  orig: 96, 96\n  offset: 0, 0\n  index: -1\n004\n  rotate: false\n  xy: 198, 101\n  size: 96, 96\n  orig: 96, 96\n  offset: 0, 0\n  index: -1\n005\n  rotate: false\n  xy: 196, 199\n  size: 96, 95\n  orig: 96, 96\n  offset: 0, 0\n  index: -1\n006\n  rotate: false\n  xy: 2, 105\n  size: 96, 95\n  orig: 96, 96\n  offset: 0, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "a29d8802-97b5-4ec5-a3da-abdbce8e4012"
+    }
+  ],
+  "textureNames": [
+    "yuzhouleishepao.png"
+  ],
+  "scale": 1
+}

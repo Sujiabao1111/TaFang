@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "2486f58b-7b0d-46a3-898e-351e1216c013",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "pig-allPic": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "5bfd0107-6f3b-4e44-8904-e0979f6b7a4a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "2486f58b-7b0d-46a3-898e-351e1216c013",
       "trimType": "auto",
       "trimThreshold": 1,

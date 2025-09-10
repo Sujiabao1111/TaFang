@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "foot_30",
+    "texture": "d0b0e324-b01f-4898-919e-c8e4436c73d3",
+    "atlas": "",
+    "rect": [
+      13,
+      31,
+      237,
+      212
+    ],
+    "offset": [
+      3.5,
+      -9
+    ],
+    "originalSize": [
+      256,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

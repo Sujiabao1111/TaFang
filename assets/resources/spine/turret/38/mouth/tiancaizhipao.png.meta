@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "5feb5140-4aff-4918-95ce-b6cbf07e9186",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "tiancaizhipao": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "c3f63dd7-eaa9-4dcf-9bec-a40cbf5eb190",
+      "importer": "sprite-frame",
       "rawTextureUuid": "5feb5140-4aff-4918-95ce-b6cbf07e9186",
       "trimType": "auto",
       "trimThreshold": 1,

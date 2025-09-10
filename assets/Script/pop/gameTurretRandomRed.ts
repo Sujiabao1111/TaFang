@@ -9,6 +9,7 @@ import { AssistCtr } from "../Assist/AssistCtr";
 import baseTs from "../base/baseTs";
 import { AdPosition } from "../common/AdPosition";
 import NameTs from "../common/NameTs";
+import { t } from "../Language/LanguageData";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
@@ -58,7 +59,7 @@ export default class gameTurretRandomRed extends baseTs {
             } 
         }, () => {
             this.closePage();
-            AssistCtr.showToastTip("加载视频失败，请稍后！");
+            AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
             
         })
     }

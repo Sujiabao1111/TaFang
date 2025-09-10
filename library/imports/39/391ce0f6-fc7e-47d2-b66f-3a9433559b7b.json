@@ -1,0 +1,103 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "yanshapao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "ywqf4g0vdFxPrn0dJoZxVQJuLm8",
+      "spine": "3.8.95",
+      "x": -48.5,
+      "y": -33.74,
+      "width": 97,
+      "height": 107,
+      "images": "../../pao/pao/images/",
+      "audio": "F:/waibao/spine/小鱼/炮/炮更新/huopao"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "y": -20.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "qjp-di",
+        "bone": "qjp-shen",
+        "attachment": "qjp-di"
+      },
+      {
+        "name": "qjp-shen",
+        "bone": "qjp-shen",
+        "attachment": "qjp-shen"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "qjp-di": {
+            "qjp-di": {
+              "x": 20.7,
+              "rotation": -90,
+              "width": 119,
+              "height": 65
+            }
+          },
+          "qjp-shen": {
+            "qjp-shen": {
+              "x": 40.46,
+              "rotation": -90,
+              "width": 56,
+              "height": 108
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "bones": {
+          "qjp-shen": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "x": 0.8,
+                "y": 1.075,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2333,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nyanshapao.png\nsize: 134,132\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nqjp-di\n  rotate: false\n  xy: 0, 67\n  size: 119, 65\n  orig: 119, 65\n  offset: 0, 0\n  index: -1\nqjp-shen\n  rotate: true\n  xy: 0, 0\n  size: 56, 108\n  orig: 56, 108\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "2765f51e-9c0d-4e86-b411-df781d5c5910"
+    }
+  ],
+  "textureNames": [
+    "yanshapao.png"
+  ],
+  "scale": 1
+}

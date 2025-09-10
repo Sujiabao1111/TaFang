@@ -1,0 +1,13 @@
+
+chiyanshenpao.png
+size: 118,116
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-shen
+  rotate: false
+  xy: 0, 2
+  size: 118, 114
+  orig: 118, 114
+  offset: 0, 0
+  index: -1

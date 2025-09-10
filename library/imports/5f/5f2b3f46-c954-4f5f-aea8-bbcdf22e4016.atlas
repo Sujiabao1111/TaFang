@@ -1,0 +1,41 @@
+
+rongjiapao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01
+  rotate: true
+  xy: 190, 79
+  size: 106, 70
+  orig: 200, 200
+  offset: 46, 65
+  index: -1
+02
+  rotate: true
+  xy: 100, 16
+  size: 191, 88
+  orig: 200, 200
+  offset: 4, 56
+  index: -1
+03
+  rotate: true
+  xy: 2, 7
+  size: 200, 96
+  orig: 200, 200
+  offset: 0, 52
+  index: -1
+04
+  rotate: false
+  xy: 2, 209
+  size: 200, 107
+  orig: 200, 200
+  offset: 0, 43
+  index: -1
+05
+  rotate: true
+  xy: 204, 187
+  size: 129, 112
+  orig: 200, 200
+  offset: 34, 24
+  index: -1

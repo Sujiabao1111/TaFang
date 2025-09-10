@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "txt_kelingqu",
+    "texture": "e88adfa0-3334-4e68-96b8-ba01d6f00616",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      82,
+      32
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      82,
+      34
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

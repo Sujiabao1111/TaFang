@@ -1,0 +1,103 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "duoyupao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "hapdXxUaSs0f5eTRhTU9Hev03m4",
+      "spine": "3.8.95",
+      "x": -46,
+      "y": -33.24,
+      "width": 92,
+      "height": 106,
+      "images": "../../../pao/pao/images/",
+      "audio": "F:/waibao/spine/小鱼/炮/炮更新/绿色毒系/daoyinpao"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "y": -20.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "qjp-di",
+        "bone": "qjp-shen",
+        "attachment": "qjp-di"
+      },
+      {
+        "name": "qjp-shen",
+        "bone": "qjp-shen",
+        "attachment": "qjp-shen"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "qjp-di": {
+            "qjp-di": {
+              "x": 20.7,
+              "rotation": -90,
+              "width": 107,
+              "height": 74
+            }
+          },
+          "qjp-shen": {
+            "qjp-shen": {
+              "x": 40.46,
+              "rotation": -90,
+              "width": 78,
+              "height": 114
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "bones": {
+          "qjp-shen": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "x": 0.8,
+                "y": 1.075,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2333,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nduoyupao.png\nsize: 234,232\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nqjp-di\n  rotate: true\n  xy: 0, 0\n  size: 107, 74\n  orig: 107, 74\n  offset: 0, 0\n  index: -1\nqjp-shen\n  rotate: false\n  xy: 0, 118\n  size: 78, 114\n  orig: 78, 114\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "5ba3d6f0-16ab-4100-983d-1adf00fb373b"
+    }
+  ],
+  "textureNames": [
+    "duoyupao.png"
+  ],
+  "scale": 1
+}

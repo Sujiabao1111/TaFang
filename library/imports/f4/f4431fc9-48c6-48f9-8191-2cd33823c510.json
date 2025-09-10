@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_rolllight@2x (2)",
+    "texture": "9607d1cb-471e-4d69-b31d-d2bf4b50ab8a",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      134,
+      124
+    ],
+    "offset": [
+      0,
+      3
+    ],
+    "originalSize": [
+      134,
+      134
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

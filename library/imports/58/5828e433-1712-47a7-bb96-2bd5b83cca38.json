@@ -1,0 +1,151 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "hanshapao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "B4GQ121k0Uosh8PUKzed/oxNlJA",
+      "spine": "3.8.99",
+      "x": -50.12,
+      "y": -35.04,
+      "width": 94,
+      "height": 81,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽nb.app"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "5",
+        "parent": "root"
+      },
+      {
+        "name": "G",
+        "parent": "5",
+        "x": 1.17,
+        "y": 71.85
+      }
+    ],
+    "slots": [
+      {
+        "name": "G01",
+        "bone": "G",
+        "attachment": "G02"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "G01": {
+            "G01": {
+              "x": -0.94,
+              "y": 2.42,
+              "width": 64,
+              "height": 68
+            },
+            "G02": {
+              "x": -1.44,
+              "y": 2.59,
+              "rotation": 90,
+              "width": 60,
+              "height": 75
+            },
+            "G03": {
+              "x": -3.94,
+              "y": 1.59,
+              "rotation": 90,
+              "width": 66,
+              "height": 82
+            },
+            "G04": {
+              "x": -1.94,
+              "y": 1.09,
+              "rotation": 90,
+              "width": 67,
+              "height": 80
+            },
+            "G05": {
+              "x": -0.44,
+              "y": -0.41,
+              "rotation": 90,
+              "width": 68,
+              "height": 77
+            },
+            "G06": {
+              "x": -1.94,
+              "y": 1.59,
+              "rotation": 90,
+              "width": 62,
+              "height": 54
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "G01": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "G01"
+              },
+              {
+                "time": 0.0667,
+                "name": "G02"
+              },
+              {
+                "time": 0.1,
+                "name": "G03"
+              },
+              {
+                "time": 0.1333,
+                "name": "G04"
+              },
+              {
+                "time": 0.1667,
+                "name": "G05"
+              },
+              {
+                "time": 0.2,
+                "name": "G06"
+              },
+              {
+                "time": 0.2333,
+                "name": null
+              }
+            ]
+          }
+        },
+        "bones": {
+          "G": {
+            "translate": [
+              {
+                "x": -1.17,
+                "y": -71.85
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nhanshapao.png\nsize: 256,256\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nG01\n  rotate: true\n  xy: 79, 8\n  size: 62, 66\n  orig: 64, 68\n  offset: 1, 1\n  index: -1\nG02\n  rotate: false\n  xy: 79, 72\n  size: 58, 73\n  orig: 60, 75\n  offset: 1, 1\n  index: -1\nG03\n  rotate: false\n  xy: 2, 132\n  size: 64, 80\n  orig: 66, 82\n  offset: 1, 1\n  index: -1\nG04\n  rotate: true\n  xy: 68, 147\n  size: 65, 78\n  orig: 67, 80\n  offset: 1, 1\n  index: -1\nG05\n  rotate: true\n  xy: 2, 64\n  size: 66, 75\n  orig: 68, 77\n  offset: 1, 1\n  index: -1\nG06\n  rotate: true\n  xy: 2, 2\n  size: 60, 52\n  orig: 62, 54\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "1aa2e210-8a67-405d-af3f-96ea44cc41ad"
+    }
+  ],
+  "textureNames": [
+    "hanshapao.png"
+  ],
+  "scale": 1
+}

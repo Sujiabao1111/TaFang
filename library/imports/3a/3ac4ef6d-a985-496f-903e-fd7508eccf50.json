@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "junenghongyinpao",
+    "texture": "11f36337-1990-4ce9-a3cf-54d461ad5037",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      50,
+      53
+    ],
+    "offset": [
+      -1.5,
+      0
+    ],
+    "originalSize": [
+      57,
+      57
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

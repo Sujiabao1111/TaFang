@@ -1,0 +1,124 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "bonengpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "Hl+u+/qTUeri/a0//PszLEADk2g",
+      "spine": "3.8.95",
+      "x": -51.18,
+      "y": -45.88,
+      "width": 103.5,
+      "height": 415.62,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽/音波炮8"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "04bonengpao",
+        "parent": "root"
+      },
+      {
+        "name": "AC129",
+        "parent": "04bonengpao"
+      }
+    ],
+    "slots": [
+      {
+        "name": "AC129",
+        "bone": "AC129",
+        "attachment": "AC132"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "AC129": {
+            "AC129": {
+              "y": 3.56,
+              "width": 203,
+              "height": 202
+            },
+            "AC130": {
+              "x": 2.04,
+              "width": 201,
+              "height": 206
+            },
+            "AC131": {
+              "x": 4.07,
+              "y": -2.55,
+              "width": 204,
+              "height": 206
+            },
+            "AC132": {
+              "x": 4.52,
+              "y": -3.6,
+              "width": 204,
+              "height": 198
+            },
+            "AC133": {
+              "x": -1.53,
+              "y": 1.53,
+              "width": 189,
+              "height": 180
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "AC129": {
+            "color": [
+              {
+                "time": 0.1333,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.2,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "AC129"
+              },
+              {
+                "time": 0.0333,
+                "name": "AC130"
+              },
+              {
+                "time": 0.0667,
+                "name": "AC131"
+              },
+              {
+                "time": 0.1,
+                "name": "AC132"
+              },
+              {
+                "time": 0.1333,
+                "name": "AC133"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nbonengpao.png\nsize: 233,233\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nAC129\n  rotate: false\n  xy: 154, 154\n  size: 77, 77\n  orig: 81, 81\n  offset: 2, 2\n  index: -1\nAC130\n  rotate: true\n  xy: 2, 77\n  size: 77, 78\n  orig: 80, 82\n  offset: 1, 2\n  index: -1\nAC131\n  rotate: true\n  xy: 82, 75\n  size: 77, 79\n  orig: 82, 82\n  offset: 3, 2\n  index: -1\nAC132\n  rotate: false\n  xy: 76, 156\n  size: 76, 75\n  orig: 82, 79\n  offset: 4, 2\n  index: -1\nAC133\n  rotate: false\n  xy: 2, 159\n  size: 72, 72\n  orig: 76, 72\n  offset: 4, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "87c8562f-2c33-4c6f-ba70-d9c404767a30"
+    }
+  ],
+  "textureNames": [
+    "bonengpao.png"
+  ],
+  "scale": 1
+}

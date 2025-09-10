@@ -1,0 +1,27 @@
+
+ningshuangpao.png
+size: 292,290
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+paokuo01
+  rotate: false
+  xy: 102, 208
+  size: 89, 82
+  orig: 92, 86
+  offset: 2, 2
+  index: -1
+paokuo02
+  rotate: false
+  xy: 200, 207
+  size: 92, 83
+  orig: 96, 86
+  offset: 2, 2
+  index: -1
+paokuo04
+  rotate: false
+  xy: 0, 209
+  size: 93, 81
+  orig: 96, 85
+  offset: 2, 2
+  index: -1

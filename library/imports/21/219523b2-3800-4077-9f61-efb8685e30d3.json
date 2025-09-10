@@ -1,0 +1,266 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "bonengpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "fNaFKq8f9rKbw7l6ZEFK+zA04/A",
+      "spine": "3.8.95",
+      "x": -51.18,
+      "y": 6.05,
+      "width": 103.5,
+      "height": 334.72,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽/音波炮8"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "pao",
+        "parent": "root"
+      },
+      {
+        "name": "AE_000",
+        "parent": "pao",
+        "rotation": 175,
+        "x": -25.24,
+        "y": 32.4,
+        "scaleX": 0.7,
+        "scaleY": 0.7
+      },
+      {
+        "name": "AE_1",
+        "parent": "pao",
+        "rotation": 5,
+        "x": 26.31,
+        "y": 32.67,
+        "scaleX": 0.7,
+        "scaleY": 0.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "AE_000",
+        "bone": "AE_000",
+        "attachment": "AE_002"
+      },
+      {
+        "name": "AE_1",
+        "bone": "AE_1",
+        "attachment": "AE_002"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "AE_000": {
+            "AE_000": {
+              "x": -0.34,
+              "y": -197.22,
+              "width": 57,
+              "height": 506
+            },
+            "AE_001": {
+              "x": 3.66,
+              "y": -196.72,
+              "width": 61,
+              "height": 493
+            },
+            "AE_002": {
+              "x": 3.16,
+              "y": -202.22,
+              "width": 62,
+              "height": 474
+            },
+            "AE_003": {
+              "x": 2.66,
+              "y": -202.22,
+              "width": 55,
+              "height": 484
+            },
+            "AE_004": {
+              "x": 4.16,
+              "y": -196.72,
+              "width": 62,
+              "height": 505
+            },
+            "AE_005": {
+              "x": 4.66,
+              "y": -206.72,
+              "width": 65,
+              "height": 485
+            },
+            "AE_006": {
+              "x": 4.16,
+              "y": -210.72,
+              "width": 66,
+              "height": 477
+            },
+            "AE_007": {
+              "x": 4.16,
+              "y": -173.72,
+              "width": 66,
+              "height": 465
+            }
+          },
+          "AE_1": {
+            "AE_000": {
+              "x": -0.34,
+              "y": 206.26,
+              "width": 57,
+              "height": 506
+            },
+            "AE_001": {
+              "x": 3.66,
+              "y": 206.76,
+              "width": 61,
+              "height": 493
+            },
+            "AE_002": {
+              "x": 3.16,
+              "y": 201.26,
+              "width": 62,
+              "height": 474
+            },
+            "AE_003": {
+              "x": 2.66,
+              "y": 201.26,
+              "width": 55,
+              "height": 484
+            },
+            "AE_004": {
+              "x": 4.16,
+              "y": 206.76,
+              "width": 62,
+              "height": 505
+            },
+            "AE_005": {
+              "x": 4.66,
+              "y": 196.76,
+              "width": 65,
+              "height": 485
+            },
+            "AE_006": {
+              "x": 4.16,
+              "y": 192.76,
+              "width": 66,
+              "height": 477
+            },
+            "AE_007": {
+              "x": 4.16,
+              "y": 229.76,
+              "width": 66,
+              "height": 465
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "AE_000": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "AE_000"
+              },
+              {
+                "time": 0.0667,
+                "name": "AE_001"
+              },
+              {
+                "time": 0.1,
+                "name": "AE_002"
+              },
+              {
+                "time": 0.1333,
+                "name": "AE_003"
+              },
+              {
+                "time": 0.1667,
+                "name": "AE_004"
+              },
+              {
+                "time": 0.2,
+                "name": "AE_005"
+              },
+              {
+                "time": 0.2333,
+                "name": "AE_006"
+              },
+              {
+                "time": 0.2667,
+                "name": "AE_007"
+              },
+              {
+                "time": 0.3,
+                "name": null
+              }
+            ]
+          },
+          "AE_1": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "AE_000"
+              },
+              {
+                "time": 0.0667,
+                "name": "AE_001"
+              },
+              {
+                "time": 0.1,
+                "name": "AE_002"
+              },
+              {
+                "time": 0.1333,
+                "name": "AE_003"
+              },
+              {
+                "time": 0.1667,
+                "name": "AE_004"
+              },
+              {
+                "time": 0.2,
+                "name": "AE_005"
+              },
+              {
+                "time": 0.2333,
+                "name": "AE_006"
+              },
+              {
+                "time": 0.2667,
+                "name": "AE_007"
+              },
+              {
+                "time": 0.3,
+                "name": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nbonengpao.png\nsize: 505,505\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nAE_000\n  rotate: false\n  xy: 61, 2\n  size: 51, 501\n  orig: 57, 506\n  offset: 5, 3\n  index: -1\nAE_001\n  rotate: false\n  xy: 114, 14\n  size: 57, 489\n  orig: 61, 493\n  offset: 2, 2\n  index: -1\nAE_002\n  rotate: false\n  xy: 300, 35\n  size: 58, 468\n  orig: 62, 474\n  offset: 2, 3\n  index: -1\nAE_003\n  rotate: false\n  xy: 425, 29\n  size: 51, 474\n  orig: 55, 484\n  offset: 2, 7\n  index: -1\nAE_004\n  rotate: false\n  xy: 2, 3\n  size: 57, 500\n  orig: 62, 505\n  offset: 3, 2\n  index: -1\nAE_005\n  rotate: false\n  xy: 173, 23\n  size: 62, 480\n  orig: 65, 485\n  offset: 2, 2\n  index: -1\nAE_006\n  rotate: false\n  xy: 237, 30\n  size: 61, 473\n  orig: 66, 477\n  offset: 3, 2\n  index: -1\nAE_007\n  rotate: false\n  xy: 360, 43\n  size: 63, 460\n  orig: 66, 465\n  offset: 1, 3\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "dbd0c8d7-698e-4bce-ac63-8c5478260ce9"
+    }
+  ],
+  "textureNames": [
+    "bonengpao.png"
+  ],
+  "scale": 1
+}

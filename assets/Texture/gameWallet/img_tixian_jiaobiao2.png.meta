@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "598aafdc-24c3-4a31-9661-40fd22772243",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "img_tixian_jiaobiao2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "93693f69-efb1-4a63-8501-7311e530fc00",
+      "importer": "sprite-frame",
       "rawTextureUuid": "598aafdc-24c3-4a31-9661-40fd22772243",
       "trimType": "auto",
       "trimThreshold": 1,

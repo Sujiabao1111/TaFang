@@ -1,0 +1,167 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "hongxingpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "flz+01H/8VeB2U6v9DtvktxZhNw",
+      "spine": "3.8.99",
+      "images": "F:/waibao/spine/小鱼/炮/炮导出/最新版/07轰星炮/boom",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "sj",
+        "parent": "root",
+        "y": 213.52
+      }
+    ],
+    "slots": [
+      {
+        "name": "sj",
+        "bone": "sj"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "sj": {
+            "bz_000": {
+              "y": 0.5,
+              "width": 174,
+              "height": 173
+            },
+            "bz_002": {
+              "y": 0.5,
+              "width": 174,
+              "height": 173
+            },
+            "bz_004": {
+              "y": 0.5,
+              "width": 174,
+              "height": 173
+            },
+            "bz_006": {
+              "y": 0.5,
+              "width": 174,
+              "height": 173
+            },
+            "bz_008": {
+              "y": 0.5,
+              "width": 174,
+              "height": 173
+            },
+            "bz_010": {
+              "y": 0.5,
+              "width": 174,
+              "height": 173
+            },
+            "bz_012": {
+              "y": 0.5,
+              "width": 174,
+              "height": 173
+            },
+            "bz_014": {
+              "y": 0.5,
+              "width": 174,
+              "height": 173
+            },
+            "bz_016": {
+              "y": 0.5,
+              "width": 174,
+              "height": 173
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "sj": {
+            "color": [
+              {
+                "time": 0.2333,
+                "color": "ffffffff",
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.3667,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.0333,
+                "name": "bz_000"
+              },
+              {
+                "time": 0.0667,
+                "name": "bz_002"
+              },
+              {
+                "time": 0.1,
+                "name": "bz_004"
+              },
+              {
+                "time": 0.1333,
+                "name": "bz_006"
+              },
+              {
+                "time": 0.1667,
+                "name": "bz_008"
+              },
+              {
+                "time": 0.2,
+                "name": "bz_010"
+              },
+              {
+                "time": 0.2333,
+                "name": "bz_012"
+              },
+              {
+                "time": 0.2667,
+                "name": "bz_014"
+              },
+              {
+                "time": 0.3,
+                "name": "bz_016"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "sj": {
+            "translate": [
+              {
+                "y": -213.52
+              }
+            ],
+            "scale": [
+              {
+                "x": 1.001,
+                "y": 0.852
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nhongxingpao.png\nsize: 512,510\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nbz_000\n  rotate: true\n  xy: 0, 393\n  size: 117, 121\n  orig: 174, 173\n  offset: 33, 3\n  index: -1\nbz_002\n  rotate: true\n  xy: 130, 378\n  size: 132, 162\n  orig: 174, 173\n  offset: 22, 2\n  index: -1\nbz_004\n  rotate: true\n  xy: 301, 365\n  size: 145, 169\n  orig: 174, 173\n  offset: 14, 2\n  index: -1\nbz_006\n  rotate: true\n  xy: 176, 197\n  size: 157, 162\n  orig: 174, 173\n  offset: 9, 3\n  index: -1\nbz_008\n  rotate: false\n  xy: 347, 194\n  size: 162, 160\n  orig: 174, 173\n  offset: 8, 2\n  index: -1\nbz_010\n  rotate: false\n  xy: 176, 22\n  size: 164, 161\n  orig: 174, 173\n  offset: 8, 2\n  index: -1\nbz_012\n  rotate: true\n  xy: 349, 18\n  size: 165, 163\n  orig: 174, 173\n  offset: 8, 2\n  index: -1\nbz_014\n  rotate: false\n  xy: 0, 212\n  size: 167, 155\n  orig: 174, 173\n  offset: 7, 9\n  index: -1\nbz_016\n  rotate: false\n  xy: 0, 44\n  size: 167, 157\n  orig: 174, 173\n  offset: 7, 8\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "5c6802cc-b70e-440e-87b4-501af6bede22"
+    }
+  ],
+  "textureNames": [
+    "hongxingpao.png"
+  ],
+  "scale": 1
+}

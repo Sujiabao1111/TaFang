@@ -1,0 +1,27 @@
+
+dongjipao.png
+size: 296,294
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+deng
+  rotate: false
+  xy: 0, 267
+  size: 27, 27
+  orig: 31, 31
+  offset: 2, 2
+  index: -1
+hangfengpao
+  rotate: true
+  xy: 36, 251
+  size: 43, 108
+  orig: 43, 110
+  offset: 0, 1
+  index: -1
+light
+  rotate: false
+  xy: 0, 0
+  size: 240, 240
+  orig: 283, 285
+  offset: 21, 22
+  index: -1

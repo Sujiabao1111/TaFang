@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_norpaota@2x",
+    "texture": "82843c32-7ed1-4efb-b700-4629c27703d3",
+    "atlas": "",
+    "rect": [
+      1,
+      2,
+      34,
+      32
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      36,
+      36
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

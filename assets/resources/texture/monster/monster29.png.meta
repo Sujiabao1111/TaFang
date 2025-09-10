@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "54e10d86-835b-4f35-b90c-064d76d362c7",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "monster29": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "06d44930-e592-4657-bc1c-7a072805618c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "54e10d86-835b-4f35-b90c-064d76d362c7",
       "trimType": "auto",
       "trimThreshold": 1,

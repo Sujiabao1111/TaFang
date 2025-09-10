@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "39c7bfc6-0e51-4522-9826-94f3708f3eb3",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "bg_tanchuang2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "89f3d547-57f8-4376-a702-87d22762d58a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "39c7bfc6-0e51-4522-9826-94f3708f3eb3",
       "trimType": "auto",
       "trimThreshold": 1,

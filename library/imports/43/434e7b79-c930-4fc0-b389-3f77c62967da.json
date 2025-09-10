@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_withdrawjilu",
+    "texture": "50ce74e3-81f2-4848-8e70-9d598045f867",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      150,
+      64
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      150,
+      64
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

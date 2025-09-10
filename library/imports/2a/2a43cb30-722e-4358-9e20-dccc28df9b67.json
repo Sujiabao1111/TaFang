@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_rulPopFrame",
+    "texture": "4e054d27-29cb-484b-9a00-505e0a2164a2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      306,
+      487
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      306,
+      487
+    ],
+    "capInsets": [
+      135,
+      192,
+      130,
+      194
+    ]
+  }
+}

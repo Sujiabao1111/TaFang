@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hongyinpao",
+    "texture": "7c6922e1-7fe8-4bac-bc86-97d1653ce8f4",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      79,
+      159
+    ],
+    "offset": [
+      -40,
+      0
+    ],
+    "originalSize": [
+      163,
+      163
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

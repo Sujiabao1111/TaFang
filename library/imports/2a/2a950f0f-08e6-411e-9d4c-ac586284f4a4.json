@@ -1,0 +1,207 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "tuishanpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "EjpMxdtG+E1URnEHmlB9dhLXbQQ",
+      "spine": "3.8.95",
+      "x": -55.05,
+      "y": -46.54,
+      "width": 109.2,
+      "height": 98.28,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽/音波炮8"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "07tuishanpao",
+        "parent": "root"
+      },
+      {
+        "name": "bone2",
+        "parent": "07tuishanpao",
+        "y": 0.39,
+        "scaleX": 1.2,
+        "scaleY": 1.2
+      },
+      {
+        "name": "z7",
+        "parent": "bone2",
+        "y": 1.92,
+        "scaleX": 0.7,
+        "scaleY": 0.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "z7",
+        "bone": "z7",
+        "attachment": "z9"
+      },
+      {
+        "name": "bp",
+        "bone": "bone2",
+        "attachment": "ybp-07_003"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "bp": {
+            "ybp-07_002": {
+              "x": -2.73,
+              "width": 75,
+              "height": 70
+            },
+            "ybp-07_003": {
+              "x": -2.73,
+              "width": 84,
+              "height": 70
+            },
+            "ybp-07_004": {
+              "x": -2.73,
+              "width": 84,
+              "height": 70
+            },
+            "ybp-07_005": {
+              "x": -2.73,
+              "width": 82,
+              "height": 74
+            },
+            "ybp-07_006": {
+              "x": -2.73,
+              "width": 70,
+              "height": 75
+            }
+          },
+          "z7": {
+            "z7": {
+              "x": -0.03,
+              "y": 0.38,
+              "width": 121,
+              "height": 114
+            },
+            "z8": {
+              "x": -1.53,
+              "y": -0.12,
+              "width": 130,
+              "height": 117
+            },
+            "z9": {
+              "x": -0.53,
+              "y": -0.12,
+              "width": 130,
+              "height": 117
+            },
+            "z10": {
+              "x": 0.97,
+              "y": 0.38,
+              "width": 127,
+              "height": 116
+            },
+            "z11": {
+              "x": -1.03,
+              "y": -0.12,
+              "width": 113,
+              "height": 113
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "bp": {
+            "color": [
+              {
+                "time": 0.1333,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.2,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "ybp-07_002"
+              },
+              {
+                "time": 0.0667,
+                "name": "ybp-07_003"
+              },
+              {
+                "time": 0.1,
+                "name": "ybp-07_004"
+              },
+              {
+                "time": 0.1333,
+                "name": "ybp-07_005"
+              },
+              {
+                "time": 0.1667,
+                "name": "ybp-07_006"
+              },
+              {
+                "time": 0.2,
+                "name": null
+              }
+            ]
+          },
+          "z7": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "z7"
+              },
+              {
+                "time": 0.0667,
+                "name": "z8"
+              },
+              {
+                "time": 0.1,
+                "name": "z9"
+              },
+              {
+                "time": 0.1333,
+                "name": "z10"
+              },
+              {
+                "time": 0.1667,
+                "name": "z11"
+              },
+              {
+                "time": 0.2,
+                "name": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\ntuishanpao.png\nsize: 374,374\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nybp-07_002\n  rotate: false\n  xy: 2, 304\n  size: 70, 68\n  orig: 75, 70\n  offset: 3, 1\n  index: -1\nybp-07_003\n  rotate: false\n  xy: 74, 304\n  size: 77, 68\n  orig: 84, 70\n  offset: 4, 1\n  index: -1\nybp-07_004\n  rotate: false\n  xy: 153, 304\n  size: 74, 68\n  orig: 84, 70\n  offset: 6, 1\n  index: -1\nybp-07_005\n  rotate: false\n  xy: 301, 301\n  size: 71, 71\n  orig: 82, 74\n  offset: 4, 1\n  index: -1\nybp-07_006\n  rotate: true\n  xy: 229, 304\n  size: 68, 70\n  orig: 70, 75\n  offset: 1, 1\n  index: -1\nz10\n  rotate: false\n  xy: 236, 185\n  size: 125, 114\n  orig: 127, 116\n  offset: 1, 1\n  index: -1\nz11\n  rotate: false\n  xy: 2, 191\n  size: 111, 111\n  orig: 113, 113\n  offset: 1, 1\n  index: -1\nz7\n  rotate: false\n  xy: 115, 190\n  size: 119, 112\n  orig: 121, 114\n  offset: 1, 1\n  index: -1\nz8\n  rotate: false\n  xy: 2, 73\n  size: 128, 115\n  orig: 130, 117\n  offset: 1, 1\n  index: -1\nz9\n  rotate: false\n  xy: 132, 68\n  size: 128, 115\n  orig: 130, 117\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "23f40fc7-06f0-44a2-b6f3-be8f270718b0"
+    }
+  ],
+  "textureNames": [
+    "tuishanpao.png"
+  ],
+  "scale": 1
+}

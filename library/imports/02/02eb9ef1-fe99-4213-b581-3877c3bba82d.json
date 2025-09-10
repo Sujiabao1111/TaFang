@@ -1,0 +1,90 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "bingheyongdongpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "xQHB5CaQeRaapyx1I0KzSrHUy1U",
+      "spine": "3.8.95",
+      "x": -57.5,
+      "y": -40.24,
+      "width": 115,
+      "height": 120,
+      "images": "../../../pao/pao/images/",
+      "audio": "F:/waibao/spine/小鱼/炮/炮更新/蓝色冰系/hanshapao"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "y": -20.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "qjp-shen",
+        "bone": "qjp-shen",
+        "attachment": "qjp-shen"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "qjp-shen": {
+            "qjp-shen": {
+              "x": 40.46,
+              "rotation": -90,
+              "width": 122,
+              "height": 124
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "bones": {
+          "qjp-shen": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "x": 0.8,
+                "y": 1.075,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2333,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nbingheyongdongpao.png\nsize: 124,122\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nqjp-shen\n  rotate: false\n  xy: 0, 0\n  size: 120, 122\n  orig: 122, 124\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "1ca640dd-760d-454f-9e7c-2d90b52debb9"
+    }
+  ],
+  "textureNames": [
+    "bingheyongdongpao.png"
+  ],
+  "scale": 1
+}

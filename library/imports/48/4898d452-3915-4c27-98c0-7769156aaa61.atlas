@@ -1,0 +1,13 @@
+
+zaoyinpao.png
+size: 136,136
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+games108
+  rotate: false
+  xy: 2, 2
+  size: 132, 132
+  orig: 136, 136
+  offset: 2, 2
+  index: -1

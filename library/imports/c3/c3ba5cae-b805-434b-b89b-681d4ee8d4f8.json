@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_fh_pmd",
+    "texture": "5b1d0913-2bff-4e6a-b947-19b8795c306f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      96,
+      60
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      96,
+      60
+    ],
+    "capInsets": [
+      46,
+      28,
+      46,
+      27
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "1caf432e-bec6-4487-9b7b-5cbb68878d44",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "btn_setgunfront": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "87d9c318-d4a0-4a5f-9a0a-4c31df361fb7",
+      "importer": "sprite-frame",
       "rawTextureUuid": "1caf432e-bec6-4487-9b7b-5cbb68878d44",
       "trimType": "auto",
       "trimThreshold": 1,

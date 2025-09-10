@@ -1,0 +1,240 @@
+{
+  "projectPath": "D:\\AGame\\TaFang",
+  "actualPlatform": "web-mobile",
+  "mtimes": {
+    "e0548e88-2312-4846-ba90-9d7fdafcb367": {
+      "assetMtime": 1756886328564,
+      "metaMtime": 1756886328565
+    },
+    "0184f5c8-08d4-4f55-b7df-a75abeb1a98f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200307
+    },
+    "d10a5785-8146-4fe2-95c5-3d3a4b2f229b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200307
+    },
+    "34deddc0-0ee5-4d7c-b49c-ac42970303d1": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200300
+    },
+    "4776a290-25bd-41c3-9c0b-f2f16a89adf3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200300
+    },
+    "52e11599-9d08-468d-8d63-96e487a7aeea": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200304
+    },
+    "d1d2b351-49fe-4887-8cdd-4e03b13dfa15": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200304
+    },
+    "69a4f1c5-3381-4c05-9440-e2a81ffe621e": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200298
+    },
+    "8d6c7c09-83e4-40c2-a887-181476c3aa02": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200298
+    },
+    "d13cb185-857d-49d3-b318-726b522bae5b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200302
+    },
+    "6c2a9afb-64a4-4105-bcd6-6985e2b76ae7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200302
+    },
+    "d75fcbb4-622d-436f-97b1-87a120fcfd9b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200306
+    },
+    "be959fe8-9756-4893-88b1-993cb3b64f18": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885200306
+    }
+  },
+  "result": {
+    "name": "AutoAtlas",
+    "width": 1024,
+    "height": 1024,
+    "ver": "1.2.5",
+    "uuid": "e0548e88-2312-4846-ba90-9d7fdafcb367",
+    "importer": "auto-atlas",
+    "maxWidth": 1024,
+    "maxHeight": 1024,
+    "padding": 2,
+    "compressionLevel": 6,
+    "allowRotation": true,
+    "forceSquared": false,
+    "powerOfTwo": false,
+    "algorithm": "MaxRects",
+    "format": "png",
+    "quality": 80,
+    "contourBleed": true,
+    "paddingBleed": true,
+    "filterUnused": true,
+    "packable": false,
+    "premultiplyAlpha": false,
+    "filterMode": "bilinear",
+    "platformSettings": {},
+    "subMetas": {},
+    "bleed": 1,
+    "atlases": [
+      {
+        "files": [
+          {
+            "name": "prop2",
+            "uuid": "0184f5c8-08d4-4f55-b7df-a75abeb1a98f",
+            "textureUuid": "d10a5785-8146-4fe2-95c5-3d3a4b2f229b",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886375738_image_0.png",
+            "trim": {
+              "x": 3,
+              "y": 3,
+              "width": 145,
+              "height": 151,
+              "rotatedWidth": 145,
+              "rotatedHeight": 151
+            },
+            "rawWidth": 158,
+            "rawHeight": 158,
+            "width": 151,
+            "height": 157,
+            "originalPath": "D:/AGame/TaFang/library/imports/d1/d10a5785-8146-4fe2-95c5-3d3a4b2f229b.png",
+            "x": 0,
+            "y": 0,
+            "rotatedWidth": 151,
+            "rotatedHeight": 157
+          },
+          {
+            "name": "prop1",
+            "uuid": "34deddc0-0ee5-4d7c-b49c-ac42970303d1",
+            "textureUuid": "4776a290-25bd-41c3-9c0b-f2f16a89adf3",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886375738_image_1.png",
+            "trim": {
+              "x": 3,
+              "y": 160,
+              "width": 145,
+              "height": 145,
+              "rotatedWidth": 145,
+              "rotatedHeight": 145
+            },
+            "rawWidth": 158,
+            "rawHeight": 158,
+            "width": 151,
+            "height": 151,
+            "originalPath": "D:/AGame/TaFang/library/imports/47/4776a290-25bd-41c3-9c0b-f2f16a89adf3.png",
+            "x": 0,
+            "y": 157,
+            "rotatedWidth": 151,
+            "rotatedHeight": 151
+          },
+          {
+            "name": "prop6",
+            "uuid": "52e11599-9d08-468d-8d63-96e487a7aeea",
+            "textureUuid": "d1d2b351-49fe-4887-8cdd-4e03b13dfa15",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886375738_image_2.png",
+            "trim": {
+              "x": 3,
+              "y": 311,
+              "width": 145,
+              "height": 145,
+              "rotatedWidth": 145,
+              "rotatedHeight": 145
+            },
+            "rawWidth": 158,
+            "rawHeight": 158,
+            "width": 151,
+            "height": 151,
+            "originalPath": "D:/AGame/TaFang/library/imports/d1/d1d2b351-49fe-4887-8cdd-4e03b13dfa15.png",
+            "x": 0,
+            "y": 308,
+            "rotatedWidth": 151,
+            "rotatedHeight": 151
+          },
+          {
+            "name": "prop4",
+            "uuid": "69a4f1c5-3381-4c05-9440-e2a81ffe621e",
+            "textureUuid": "8d6c7c09-83e4-40c2-a887-181476c3aa02",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886375738_image_3.png",
+            "trim": {
+              "x": 3,
+              "y": 462,
+              "width": 145,
+              "height": 145,
+              "rotatedWidth": 145,
+              "rotatedHeight": 145
+            },
+            "rawWidth": 158,
+            "rawHeight": 158,
+            "width": 151,
+            "height": 151,
+            "originalPath": "D:/AGame/TaFang/library/imports/8d/8d6c7c09-83e4-40c2-a887-181476c3aa02.png",
+            "x": 0,
+            "y": 459,
+            "rotatedWidth": 151,
+            "rotatedHeight": 151
+          },
+          {
+            "name": "prop5",
+            "uuid": "d13cb185-857d-49d3-b318-726b522bae5b",
+            "textureUuid": "6c2a9afb-64a4-4105-bcd6-6985e2b76ae7",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886375738_image_4.png",
+            "trim": {
+              "x": 3,
+              "y": 613,
+              "width": 145,
+              "height": 145,
+              "rotatedWidth": 145,
+              "rotatedHeight": 145
+            },
+            "rawWidth": 158,
+            "rawHeight": 158,
+            "width": 151,
+            "height": 151,
+            "originalPath": "D:/AGame/TaFang/library/imports/6c/6c2a9afb-64a4-4105-bcd6-6985e2b76ae7.png",
+            "x": 0,
+            "y": 610,
+            "rotatedWidth": 151,
+            "rotatedHeight": 151
+          },
+          {
+            "name": "prop3",
+            "uuid": "d75fcbb4-622d-436f-97b1-87a120fcfd9b",
+            "textureUuid": "be959fe8-9756-4893-88b1-993cb3b64f18",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756886375738_image_5.png",
+            "trim": {
+              "x": 3,
+              "y": 764,
+              "width": 145,
+              "height": 145,
+              "rotatedWidth": 145,
+              "rotatedHeight": 145
+            },
+            "rawWidth": 158,
+            "rawHeight": 158,
+            "width": 151,
+            "height": 151,
+            "originalPath": "D:/AGame/TaFang/library/imports/be/be959fe8-9756-4893-88b1-993cb3b64f18.png",
+            "x": 0,
+            "y": 761,
+            "rotatedWidth": 151,
+            "rotatedHeight": 151
+          }
+        ],
+        "width": 151,
+        "height": 912,
+        "name": "AutoAtlas-1",
+        "imagePath": "D:\\AGame\\TaFang\\temp\\TexturePacker\\build\\native\\assets\\resources\\texture\\prop\\AutoAtlas.pac\\AutoAtlas-1.png",
+        "compressd": {
+          "suffix": [
+            ".png"
+          ],
+          "imagePathNoExt": "D:\\AGame\\TaFang\\temp\\TexturePacker\\build\\native\\assets\\resources\\texture\\prop\\AutoAtlas.pac\\compressed\\AutoAtlas-1"
+        }
+      }
+    ],
+    "unpackedTextures": []
+  }
+}

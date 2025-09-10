@@ -1,0 +1,27 @@
+
+tianshizhiwen.png
+size: 157,155
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: false
+  xy: 0, 78
+  size: 115, 77
+  orig: 115, 77
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: true
+  xy: 0, 0
+  size: 67, 104
+  orig: 67, 104
+  offset: 0, 0
+  index: -1
+qjp-shen2
+  rotate: true
+  xy: 113, 2
+  size: 65, 19
+  orig: 65, 19
+  offset: 0, 0
+  index: -1

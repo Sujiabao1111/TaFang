@@ -186,12 +186,7 @@ export default class gameTreasure extends baseTs {
 
         soundController.singleton.clickAudio();
 
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: "空降宝箱（已砸开）",
-            ck_module:"领取1000红包币",
-            active_ad_hcdg:"激励视频"
-        });
-        
+   
         AdController.loadAd(AdPosition.TreasureBox,()=>{
             
             util.preloadAd(AdPosition.TreasureBox);

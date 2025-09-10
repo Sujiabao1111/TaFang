@@ -1,0 +1,101 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "yanmieguangpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "tApqzoyCp49gBOWdM5fqH2VTn8E",
+      "spine": "3.8.95",
+      "x": -47,
+      "y": -26.85,
+      "width": 94,
+      "height": 102,
+      "images": "../../../pao/pao/images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "y": -20.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "qjp-di",
+        "bone": "root",
+        "attachment": "qjp-di"
+      },
+      {
+        "name": "qjp-shen",
+        "bone": "qjp-shen",
+        "attachment": "qjp-shen"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "qjp-di": {
+            "qjp-di": {
+              "width": 94,
+              "height": 35
+            }
+          },
+          "qjp-shen": {
+            "qjp-shen": {
+              "x": 44.85,
+              "rotation": -90,
+              "width": 65,
+              "height": 102
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "bones": {
+          "qjp-shen": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "x": 0.8,
+                "y": 1.075,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2333,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nyanmieguangpao.png\nsize: 109,107\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nqjp-di\n  rotate: true\n  xy: 74, 13\n  size: 94, 35\n  orig: 94, 35\n  offset: 0, 0\n  index: -1\nqjp-shen\n  rotate: false\n  xy: 0, 5\n  size: 65, 102\n  orig: 65, 102\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "bee62464-8566-4fc9-8119-6f9a5da45705"
+    }
+  ],
+  "textureNames": [
+    "yanmieguangpao.png"
+  ],
+  "scale": 1
+}

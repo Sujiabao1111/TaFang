@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "50ce74e3-81f2-4848-8e70-9d598045f867",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "btn_withdrawjilu": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "434e7b79-c930-4fc0-b389-3f77c62967da",
+      "importer": "sprite-frame",
       "rawTextureUuid": "50ce74e3-81f2-4848-8e70-9d598045f867",
       "trimType": "auto",
       "trimThreshold": 1,

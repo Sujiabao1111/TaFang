@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "zhendangpao",
+    "texture": "ff4c4b97-b8f4-4d0b-a687-93648db6a21f",
+    "atlas": "",
+    "rect": [
+      2,
+      8,
+      300,
+      294
+    ],
+    "offset": [
+      0,
+      -3
+    ],
+    "originalSize": [
+      304,
+      304
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

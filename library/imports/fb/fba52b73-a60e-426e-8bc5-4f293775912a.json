@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg_renwujindu@2x",
+    "texture": "83fa926e-c886-40f2-8db1-ab0e622afdf1",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      36,
+      24
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      36,
+      24
+    ],
+    "capInsets": [
+      11,
+      11,
+      11,
+      11
+    ]
+  }
+}

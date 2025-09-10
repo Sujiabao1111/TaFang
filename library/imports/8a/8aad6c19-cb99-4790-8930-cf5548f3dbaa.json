@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hemiepao",
+    "texture": "82ac9f4c-d2f3-4cc2-be10-5ea3a1f6270d",
+    "atlas": "",
+    "rect": [
+      0,
+      218,
+      763,
+      543
+    ],
+    "offset": [
+      0,
+      -109
+    ],
+    "originalSize": [
+      763,
+      761
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

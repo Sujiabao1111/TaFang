@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "zhongzipao",
+    "texture": "67352c9e-7e3c-4fc0-8ec7-fe32f850acf5",
+    "atlas": "",
+    "rect": [
+      2,
+      126,
+      415,
+      291
+    ],
+    "offset": [
+      0,
+      -62
+    ],
+    "originalSize": [
+      419,
+      419
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

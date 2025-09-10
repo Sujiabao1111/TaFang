@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "93ff37e7-3490-4f7f-8369-c8f410508dd4",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "btn_misson_yellow2": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "4553020f-f648-4ba9-8220-23d32b20e0b4",
+      "importer": "sprite-frame",
       "rawTextureUuid": "93ff37e7-3490-4f7f-8369-c8f410508dd4",
       "trimType": "auto",
       "trimThreshold": 1,

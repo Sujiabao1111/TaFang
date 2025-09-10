@@ -1,0 +1,293 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "bonengpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "zuoH8a3n6ZdStwOHphwmxbMuElk",
+      "spine": "3.8.95",
+      "x": -43.45,
+      "y": -42.45,
+      "width": 86,
+      "height": 86,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽/音波炮8"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "04bonengpao",
+        "parent": "root"
+      },
+      {
+        "name": "AD03",
+        "parent": "04bonengpao",
+        "x": -0.58,
+        "y": 0.38
+      },
+      {
+        "name": "A10",
+        "parent": "AD03",
+        "y": 20.6,
+        "scaleX": 0.7,
+        "scaleY": 0.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "AD03",
+        "bone": "AD03",
+        "attachment": "AD06"
+      },
+      {
+        "name": "A10",
+        "bone": "A10",
+        "attachment": "A11"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "A10": {
+            "A10": {
+              "x": -1.63,
+              "y": 3.61,
+              "width": 82,
+              "height": 41
+            },
+            "A11": {
+              "x": -1.63,
+              "y": 4.11,
+              "width": 110,
+              "height": 40
+            },
+            "A12": {
+              "x": -1.63,
+              "y": 3.11,
+              "width": 72,
+              "height": 42
+            },
+            "A13": {
+              "x": -2.13,
+              "y": 4.11,
+              "width": 67,
+              "height": 20
+            },
+            "A19": {
+              "x": -1.63,
+              "y": 4.11,
+              "width": 98,
+              "height": 42
+            },
+            "A110": {
+              "x": -1.63,
+              "y": 3.61,
+              "width": 84,
+              "height": 39
+            },
+            "A111": {
+              "x": -2.13,
+              "y": 4.11,
+              "width": 71,
+              "height": 36
+            },
+            "A112": {
+              "x": -1.13,
+              "y": 4.11,
+              "width": 59,
+              "height": 28
+            },
+            "A113": {
+              "x": -1.63,
+              "y": 3.61,
+              "width": 58,
+              "height": 21
+            },
+            "A114": {
+              "x": -2.63,
+              "y": 3.61,
+              "width": 58,
+              "height": 13
+            }
+          },
+          "AD03": {
+            "AD03": {
+              "x": 0.13,
+              "y": 0.17,
+              "width": 38,
+              "height": 38
+            },
+            "AD04": {
+              "x": 0.13,
+              "y": 0.17,
+              "width": 64,
+              "height": 64
+            },
+            "AD05": {
+              "x": 0.13,
+              "y": 0.17,
+              "width": 82,
+              "height": 82
+            },
+            "AD06": {
+              "x": 0.13,
+              "y": 0.17,
+              "width": 86,
+              "height": 86
+            },
+            "AD07": {
+              "x": 0.13,
+              "y": 0.17,
+              "width": 90,
+              "height": 88
+            },
+            "AD08": {
+              "x": -1.37,
+              "y": 1.17,
+              "width": 97,
+              "height": 94
+            },
+            "AD09": {
+              "x": -1.37,
+              "y": 0.67,
+              "width": 107,
+              "height": 103
+            },
+            "AD10": {
+              "x": 2.13,
+              "y": 3.67,
+              "width": 110,
+              "height": 101
+            },
+            "AD11": {
+              "x": 0.63,
+              "y": 0.17,
+              "width": 93,
+              "height": 94
+            },
+            "AD12": {
+              "x": 0.13,
+              "y": -0.33,
+              "width": 90,
+              "height": 91
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "A10": {
+            "attachment": [
+              {
+                "name": "A10"
+              },
+              {
+                "time": 0.0333,
+                "name": "A11"
+              },
+              {
+                "time": 0.0667,
+                "name": "A12"
+              },
+              {
+                "time": 0.1,
+                "name": "A13"
+              },
+              {
+                "time": 0.1333,
+                "name": "A19"
+              },
+              {
+                "time": 0.1667,
+                "name": "A110"
+              },
+              {
+                "time": 0.2,
+                "name": "A111"
+              },
+              {
+                "time": 0.2333,
+                "name": "A112"
+              },
+              {
+                "time": 0.2667,
+                "name": "A113"
+              },
+              {
+                "time": 0.3,
+                "name": "A114"
+              },
+              {
+                "time": 0.3333,
+                "name": null
+              }
+            ]
+          },
+          "AD03": {
+            "attachment": [
+              {
+                "name": "AD03"
+              },
+              {
+                "time": 0.0333,
+                "name": "AD04"
+              },
+              {
+                "time": 0.0667,
+                "name": "AD05"
+              },
+              {
+                "time": 0.1,
+                "name": "AD06"
+              },
+              {
+                "time": 0.1333,
+                "name": "AD07"
+              },
+              {
+                "time": 0.1667,
+                "name": "AD08"
+              },
+              {
+                "time": 0.2,
+                "name": "AD09"
+              },
+              {
+                "time": 0.2333,
+                "name": "AD10"
+              },
+              {
+                "time": 0.2667,
+                "name": "AD11"
+              },
+              {
+                "time": 0.3,
+                "name": "AD12"
+              },
+              {
+                "time": 0.3333,
+                "name": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nbonengpao.png\nsize: 348,348\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nA10\n  rotate: true\n  xy: 305, 266\n  size: 80, 39\n  orig: 82, 41\n  offset: 1, 1\n  index: -1\nA11\n  rotate: false\n  xy: 96, 149\n  size: 108, 38\n  orig: 110, 40\n  offset: 1, 1\n  index: -1\nA110\n  rotate: true\n  xy: 296, 118\n  size: 82, 37\n  orig: 84, 39\n  offset: 1, 1\n  index: -1\nA111\n  rotate: false\n  xy: 95, 27\n  size: 69, 34\n  orig: 71, 36\n  offset: 1, 1\n  index: -1\nA112\n  rotate: false\n  xy: 284, 16\n  size: 57, 26\n  orig: 59, 28\n  offset: 1, 1\n  index: -1\nA113\n  rotate: true\n  xy: 181, 91\n  size: 56, 19\n  orig: 58, 21\n  offset: 1, 1\n  index: -1\nA114\n  rotate: true\n  xy: 96, 189\n  size: 56, 11\n  orig: 58, 13\n  offset: 1, 1\n  index: -1\nA12\n  rotate: false\n  xy: 207, 199\n  size: 70, 40\n  orig: 72, 42\n  offset: 1, 1\n  index: -1\nA13\n  rotate: false\n  xy: 279, 240\n  size: 65, 18\n  orig: 67, 20\n  offset: 1, 1\n  index: -1\nA19\n  rotate: false\n  xy: 109, 199\n  size: 96, 40\n  orig: 98, 42\n  offset: 1, 1\n  index: -1\nAD03\n  rotate: false\n  xy: 279, 202\n  size: 36, 36\n  orig: 38, 38\n  offset: 1, 1\n  index: -1\nAD04\n  rotate: false\n  xy: 284, 44\n  size: 62, 62\n  orig: 64, 64\n  offset: 1, 1\n  index: -1\nAD05\n  rotate: false\n  xy: 202, 26\n  size: 80, 80\n  orig: 82, 82\n  offset: 1, 1\n  index: -1\nAD06\n  rotate: false\n  xy: 95, 63\n  size: 84, 84\n  orig: 86, 86\n  offset: 1, 1\n  index: -1\nAD07\n  rotate: false\n  xy: 215, 260\n  size: 88, 86\n  orig: 90, 88\n  offset: 1, 1\n  index: -1\nAD08\n  rotate: true\n  xy: 2, 150\n  size: 95, 92\n  orig: 97, 94\n  offset: 1, 1\n  index: -1\nAD09\n  rotate: true\n  xy: 112, 241\n  size: 105, 101\n  orig: 107, 103\n  offset: 1, 1\n  index: -1\nAD10\n  rotate: false\n  xy: 2, 247\n  size: 108, 99\n  orig: 110, 101\n  offset: 1, 1\n  index: -1\nAD11\n  rotate: false\n  xy: 2, 56\n  size: 91, 92\n  orig: 93, 94\n  offset: 1, 1\n  index: -1\nAD12\n  rotate: false\n  xy: 206, 108\n  size: 88, 89\n  orig: 90, 91\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "850195e9-c3d9-4896-9abe-5df17cb4a892"
+    }
+  ],
+  "textureNames": [
+    "bonengpao.png"
+  ],
+  "scale": 1
+}

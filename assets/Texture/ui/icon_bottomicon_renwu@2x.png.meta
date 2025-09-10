@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "2ec2584d-746f-4a5e-b4bb-0fa4d59850b5",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "icon_bottomicon_renwu@2x": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "e4b346e9-b3aa-47aa-baa8-7ffb77b64dc2",
+      "importer": "sprite-frame",
       "rawTextureUuid": "2ec2584d-746f-4a5e-b4bb-0fa4d59850b5",
       "trimType": "auto",
       "trimThreshold": 1,

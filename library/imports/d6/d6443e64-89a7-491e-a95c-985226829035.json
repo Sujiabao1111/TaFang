@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "daoyinpao",
+    "texture": "401a3d2a-4323-4f47-a98a-4c167a128f58",
+    "atlas": "",
+    "rect": [
+      2,
+      250,
+      436,
+      188
+    ],
+    "offset": [
+      -36,
+      -88
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

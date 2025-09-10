@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bonengpao",
+    "texture": "87c8562f-2c33-4c6f-ba70-d9c404767a30",
+    "atlas": "",
+    "rect": [
+      2,
+      75,
+      229,
+      156
+    ],
+    "offset": [
+      0,
+      -36.5
+    ],
+    "originalSize": [
+      233,
+      233
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

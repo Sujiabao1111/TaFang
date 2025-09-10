@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hongxingpao",
+    "texture": "5c6802cc-b70e-440e-87b4-501af6bede22",
+    "atlas": "",
+    "rect": [
+      0,
+      18,
+      512,
+      492
+    ],
+    "offset": [
+      0,
+      -9
+    ],
+    "originalSize": [
+      512,
+      510
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

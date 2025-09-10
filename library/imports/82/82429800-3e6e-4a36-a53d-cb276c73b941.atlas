@@ -1,0 +1,20 @@
+
+liehuopao.png
+size: 122,120
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 82, 19
+  size: 101, 40
+  orig: 101, 40
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 13
+  size: 73, 107
+  orig: 73, 107
+  offset: 0, 0
+  index: -1

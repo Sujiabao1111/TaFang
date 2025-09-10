@@ -1,0 +1,101 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "ningshuangpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "A/MtHn9RBcdsBa03zEmNZe+vpT4",
+      "spine": "3.8.95",
+      "x": -33.6,
+      "y": -23.3,
+      "width": 67.2,
+      "height": 60.2,
+      "images": "F:/waibao/spine/小鱼/炮/炮导出/最新版(炮塔)04/18凝霜炮/mouth",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽nb.app/qingjipao"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "paokou",
+        "parent": "root",
+        "scaleX": 0.7,
+        "scaleY": 0.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "paokuo01",
+        "bone": "paokou",
+        "attachment": "paokuo02"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "paokuo01": {
+            "paokuo01": {
+              "x": 0.18,
+              "y": 11.22,
+              "width": 92,
+              "height": 86
+            },
+            "paokuo02": {
+              "y": 9.72,
+              "width": 96,
+              "height": 86
+            },
+            "paokuo04": {
+              "x": -0.82,
+              "y": 9.72,
+              "width": 96,
+              "height": 85
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "paokuo01": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "paokuo01"
+              },
+              {
+                "time": 0.0667,
+                "name": "paokuo02"
+              },
+              {
+                "time": 0.1,
+                "name": "paokuo04"
+              },
+              {
+                "time": 0.1333,
+                "name": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nningshuangpao.png\nsize: 292,290\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\npaokuo01\n  rotate: false\n  xy: 102, 208\n  size: 89, 82\n  orig: 92, 86\n  offset: 2, 2\n  index: -1\npaokuo02\n  rotate: false\n  xy: 200, 207\n  size: 92, 83\n  orig: 96, 86\n  offset: 2, 2\n  index: -1\npaokuo04\n  rotate: false\n  xy: 0, 209\n  size: 93, 81\n  orig: 96, 85\n  offset: 2, 2\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "8396a3a7-2a49-4845-ba3c-6bd8b90a069d"
+    }
+  ],
+  "textureNames": [
+    "ningshuangpao.png"
+  ],
+  "scale": 1
+}

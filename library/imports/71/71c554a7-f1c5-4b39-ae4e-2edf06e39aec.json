@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_misson_grey@2x",
+    "texture": "64a423ce-27b1-4368-9733-1b48ca5ec242",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      76,
+      76
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      76,
+      76
+    ],
+    "capInsets": [
+      35,
+      20,
+      25,
+      45
+    ]
+  }
+}

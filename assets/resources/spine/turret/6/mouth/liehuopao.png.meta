@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "a86913f5-d666-4737-b1fb-1c4f95cd3e0f",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "liehuopao": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "0e8c3ba8-a552-4c1a-8eb8-e9d0d47e516c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a86913f5-d666-4737-b1fb-1c4f95cd3e0f",
       "trimType": "auto",
       "trimThreshold": 1,

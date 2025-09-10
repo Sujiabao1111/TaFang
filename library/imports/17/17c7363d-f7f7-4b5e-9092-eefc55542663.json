@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gameNewPlayerTask_titleGold",
+    "texture": "8f7d2894-e7ca-4524-b69d-a8ef67432fe8",
+    "atlas": "",
+    "rect": [
+      18,
+      99,
+      455,
+      272
+    ],
+    "offset": [
+      -7.5,
+      7
+    ],
+    "originalSize": [
+      506,
+      484
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_bottomicon_tujian@2x",
+    "texture": "6cf8503b-75f5-4f08-8ce3-7ffa1c83f30f",
+    "atlas": "",
+    "rect": [
+      12,
+      12,
+      93,
+      92
+    ],
+    "offset": [
+      1.5,
+      -1
+    ],
+    "originalSize": [
+      114,
+      114
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "yuzhouleishepao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "4I3QCZ2kY0SL/OfoPIff267xLwM",
+      "spine": "3.8.95",
+      "x": -52,
+      "y": -36.24,
+      "width": 104,
+      "height": 112,
+      "images": "../../../pao/pao/images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "y": -20.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "qjp-di",
+        "bone": "root",
+        "attachment": "qjp-di"
+      },
+      {
+        "name": "qjp-shen",
+        "bone": "qjp-shen",
+        "attachment": "qjp-shen"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "qjp-di": {
+            "qjp-di": {
+              "width": 99,
+              "height": 43
+            }
+          },
+          "qjp-shen": {
+            "qjp-shen": {
+              "x": 53.96,
+              "rotation": -90,
+              "width": 100,
+              "height": 99
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "bones": {
+          "qjp-shen": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "x": 0.8,
+                "y": 1.075,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2333,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nyuzhouleishepao.png\nsize: 150,148\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nqjp-di\n  rotate: true\n  xy: 109, 49\n  size: 99, 41\n  orig: 99, 43\n  offset: 0, 0\n  index: -1\nqjp-shen\n  rotate: false\n  xy: 0, 49\n  size: 100, 99\n  orig: 100, 99\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "f9f99833-16e8-421b-8737-83a48d152e6d"
+    }
+  ],
+  "textureNames": [
+    "yuzhouleishepao.png"
+  ],
+  "scale": 1
+}

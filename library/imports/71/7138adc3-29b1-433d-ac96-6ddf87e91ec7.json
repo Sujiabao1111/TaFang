@@ -1,0 +1,95 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "guangshepao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "saqYeGX0OvQx1fD14VXD2ngXRqY",
+      "spine": "3.8.95",
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "bone",
+        "parent": "root",
+        "scaleY": 0.6327
+      }
+    ],
+    "slots": [
+      {
+        "name": "hg1",
+        "bone": "bone"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "hg1": {
+            "hg1": {
+              "y": 122.62,
+              "width": 38,
+              "height": 302
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "hg1": {
+            "color": [
+              {
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.2333,
+                "color": "ffe9e6ff"
+              },
+              {
+                "time": 0.3333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "name": "hg1"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone": {
+            "scale": [
+              {
+                "x": 0.485,
+                "y": 1.168
+              },
+              {
+                "time": 0.2667,
+                "x": 0.21,
+                "y": 1.168
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nguangshepao.png\nsize: 304,304\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nhg1\n  rotate: false\n  xy: 2, 2\n  size: 34, 300\n  orig: 38, 302\n  offset: 2, 2\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "23508064-e244-4d7b-b474-4603c185cdfa"
+    }
+  ],
+  "textureNames": [
+    "guangshepao.png"
+  ],
+  "scale": 1
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_prizePurple",
+    "texture": "10c34988-3b1d-49e9-aa68-1c0edf75e923",
+    "atlas": "",
+    "rect": [
+      0,
+      18,
+      636,
+      530
+    ],
+    "offset": [
+      0,
+      -8
+    ],
+    "originalSize": [
+      636,
+      550
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

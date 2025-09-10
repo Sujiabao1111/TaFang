@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hanshapao",
+    "texture": "ee96231a-0c29-47ff-8531-8ef384a34956",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      113,
+      171
+    ],
+    "offset": [
+      -30,
+      0
+    ],
+    "originalSize": [
+      173,
+      171
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

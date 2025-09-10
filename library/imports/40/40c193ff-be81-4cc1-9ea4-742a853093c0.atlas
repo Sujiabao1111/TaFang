@@ -1,0 +1,48 @@
+
+dongjipao.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A_04
+  rotate: true
+  xy: 79, 2
+  size: 79, 73
+  orig: 82, 76
+  offset: 1, 2
+  index: -1
+A_05
+  rotate: true
+  xy: 2, 4
+  size: 81, 75
+  orig: 83, 77
+  offset: 1, 1
+  index: -1
+A_06
+  rotate: false
+  xy: 2, 87
+  size: 83, 76
+  orig: 85, 80
+  offset: 1, 2
+  index: -1
+paokuo01
+  rotate: false
+  xy: 96, 83
+  size: 89, 82
+  orig: 92, 86
+  offset: 2, 2
+  index: -1
+paokuo02
+  rotate: false
+  xy: 2, 165
+  size: 92, 83
+  orig: 96, 86
+  offset: 2, 2
+  index: -1
+paokuo04
+  rotate: false
+  xy: 96, 167
+  size: 93, 81
+  orig: 96, 85
+  offset: 2, 2
+  index: -1

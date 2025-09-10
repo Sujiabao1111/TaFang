@@ -1,0 +1,185 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "chiyanshenpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "8hZGIeN8f7zzxs8N/z9Rwmonw/w",
+      "spine": "3.8.99",
+      "x": -75,
+      "y": -15.38,
+      "width": 150,
+      "height": 105,
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qingjipao/qjp-shen2",
+        "parent": "root",
+        "rotation": 90
+      },
+      {
+        "name": "bone",
+        "parent": "root",
+        "y": 11.85,
+        "scaleX": 0.4975,
+        "scaleY": 0.4975
+      }
+    ],
+    "slots": [
+      {
+        "name": "fs",
+        "bone": "qingjipao/qjp-shen2",
+        "attachment": "A_03"
+      },
+      {
+        "name": "guangyun",
+        "bone": "bone",
+        "color": "ffb0b0ff",
+        "blend": "additive"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "fs": {
+            "A_01": {
+              "x": 37.12,
+              "rotation": -90,
+              "width": 150,
+              "height": 105
+            },
+            "A_02": {
+              "x": 37.12,
+              "rotation": -90,
+              "width": 150,
+              "height": 105
+            },
+            "A_03": {
+              "x": 37.12,
+              "rotation": -90,
+              "width": 150,
+              "height": 105
+            },
+            "A_04": {
+              "x": 37.12,
+              "rotation": -90,
+              "width": 150,
+              "height": 105
+            },
+            "A_05": {
+              "x": 37.12,
+              "rotation": -90,
+              "width": 150,
+              "height": 105
+            },
+            "A_06": {
+              "x": 37.12,
+              "rotation": -90,
+              "width": 150,
+              "height": 105
+            }
+          },
+          "guangyun": {
+            "guangyun": {
+              "x": -3.37,
+              "width": 75,
+              "height": 75
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "fs": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "A_01"
+              },
+              {
+                "time": 0.0667,
+                "name": "A_02"
+              },
+              {
+                "time": 0.1,
+                "name": "A_03"
+              },
+              {
+                "time": 0.1333,
+                "name": "A_04"
+              },
+              {
+                "time": 0.1667,
+                "name": "A_05"
+              },
+              {
+                "time": 0.2,
+                "name": "A_06"
+              },
+              {
+                "time": 0.2333,
+                "name": null
+              }
+            ]
+          },
+          "guangyun": {
+            "color": [
+              {
+                "color": "ffb0b09d",
+                "curve": "stepped"
+              },
+              {
+                "time": 0.2,
+                "color": "ffb0b09d",
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.4333,
+                "color": "ffb0b000"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.1,
+                "name": "guangyun"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "qingjipao/qjp-shen2": {
+            "scale": [
+              {
+                "x": 0.798,
+                "y": 0.798
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nchiyanshenpao.png\nsize: 512,512\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nA_01\n  rotate: false\n  xy: 144, 297\n  size: 144, 93\n  orig: 150, 105\n  offset: 3, 3\n  index: -1\nA_02\n  rotate: false\n  xy: 324, 377\n  size: 144, 91\n  orig: 150, 105\n  offset: 3, 4\n  index: -1\nA_03\n  rotate: false\n  xy: 0, 302\n  size: 142, 91\n  orig: 150, 105\n  offset: 4, 4\n  index: -1\nA_04\n  rotate: false\n  xy: 0, 395\n  size: 79, 73\n  orig: 150, 105\n  offset: 38, 24\n  index: -1\nA_05\n  rotate: false\n  xy: 156, 393\n  size: 81, 75\n  orig: 150, 105\n  offset: 37, 25\n  index: -1\nA_06\n  rotate: false\n  xy: 239, 392\n  size: 83, 76\n  orig: 150, 105\n  offset: 36, 26\n  index: -1\nguangyun\n  rotate: false\n  xy: 81, 395\n  size: 73, 73\n  orig: 75, 75\n  offset: 2, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "7907ab18-cc0f-4310-8e9e-2ca956795cf1"
+    }
+  ],
+  "textureNames": [
+    "chiyanshenpao.png"
+  ],
+  "scale": 1
+}

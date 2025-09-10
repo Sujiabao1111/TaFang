@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "txt_unlockpaota@2x",
+    "texture": "2f0762b9-1556-4a00-94a6-d090d340d3f8",
+    "atlas": "",
+    "rect": [
+      112,
+      24,
+      364,
+      66
+    ],
+    "offset": [
+      3,
+      25
+    ],
+    "originalSize": [
+      582,
+      164
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "boxcoin",
+    "texture": "d5d96649-db15-4d44-a5f4-ced96e040d08",
+    "atlas": "",
+    "rect": [
+      9,
+      5,
+      54,
+      64
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      72,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

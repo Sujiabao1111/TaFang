@@ -1,0 +1,20 @@
+
+guangshepao.png
+size: 103,101
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 62, 6
+  size: 95, 36
+  orig: 95, 36
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 0
+  size: 53, 101
+  orig: 53, 101
+  offset: 0, 0
+  index: -1

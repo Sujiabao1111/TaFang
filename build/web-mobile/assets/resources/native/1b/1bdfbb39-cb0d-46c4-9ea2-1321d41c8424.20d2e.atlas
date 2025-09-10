@@ -1,0 +1,41 @@
+
+bonengpao.png
+size: 233,233
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+AC129
+  rotate: false
+  xy: 154, 154
+  size: 77, 77
+  orig: 81, 81
+  offset: 2, 2
+  index: -1
+AC130
+  rotate: true
+  xy: 2, 77
+  size: 77, 78
+  orig: 80, 82
+  offset: 1, 2
+  index: -1
+AC131
+  rotate: true
+  xy: 82, 75
+  size: 77, 79
+  orig: 82, 82
+  offset: 3, 2
+  index: -1
+AC132
+  rotate: false
+  xy: 76, 156
+  size: 76, 75
+  orig: 82, 79
+  offset: 4, 2
+  index: -1
+AC133
+  rotate: false
+  xy: 2, 159
+  size: 72, 72
+  orig: 76, 72
+  offset: 4, 0
+  index: -1

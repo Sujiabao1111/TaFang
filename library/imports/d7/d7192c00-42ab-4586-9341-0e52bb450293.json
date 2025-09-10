@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_kingShan",
+    "texture": "bec785f9-ef35-42bc-bfe3-c794fd12028e",
+    "atlas": "",
+    "rect": [
+      39,
+      64,
+      393,
+      262
+    ],
+    "offset": [
+      5.5,
+      -12
+    ],
+    "originalSize": [
+      460,
+      366
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

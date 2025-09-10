@@ -36,30 +36,22 @@ export default class bulletBox extends baseTs {
 
         /**监听创建 */
         cc.game.on(NameTs.Game_Turret_Bullet_Creator,(data)=>{
-
             this.bulletPool.createEnemy(this.node,data);
-
         },this);
 
         /**监听创建 */
         cc.game.on(NameTs.Game_Bullet_Boom_Creator,(data)=>{
-
             this.boomPool.createEnemy(this.node,data);
-
         },this);
 
         /**监听销毁 */
         cc.game.on(NameTs.Game_Turret_Bullet_Killed,(data)=>{
-
             this.bulletPool.onEnemyKilled(data);
-            
         },this);
 
         /**监听销毁 */
         cc.game.on(NameTs.Game_Bullet_Boom_Killed,(data)=>{
-
             this.boomPool.onEnemyKilled(data);
-            
         },this);
 
 

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "txt_doublereward",
+    "texture": "ccd60caf-5ebb-44b8-852f-dbb41a807508",
+    "atlas": "",
+    "rect": [
+      190,
+      24,
+      202,
+      54
+    ],
+    "offset": [
+      0,
+      31
+    ],
+    "originalSize": [
+      582,
+      164
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

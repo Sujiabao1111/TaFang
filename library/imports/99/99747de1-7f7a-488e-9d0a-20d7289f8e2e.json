@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "paodan",
+    "texture": "33c34068-d473-4bc3-8349-a28c3ff327c8",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      20,
+      75
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      20,
+      75
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

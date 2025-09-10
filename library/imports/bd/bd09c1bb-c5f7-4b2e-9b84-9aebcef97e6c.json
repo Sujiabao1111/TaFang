@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tuishanpao",
+    "texture": "70d9c36f-cb31-4be5-b986-e22db779ab82",
+    "atlas": "",
+    "rect": [
+      2,
+      83,
+      185,
+      104
+    ],
+    "offset": [
+      0,
+      -40.5
+    ],
+    "originalSize": [
+      189,
+      189
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

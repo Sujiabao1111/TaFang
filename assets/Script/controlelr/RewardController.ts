@@ -40,9 +40,11 @@ export default class RewardController extends cc.Component {
     onLoad() {
         RewardController.instance = this
     }
+
     findPointSprite(pointId: number) {
         return this.pointSprite[pointId] || this.pointSprite[0]
     }
+
     findPointBigSprite(pointId: number) {
         return this.pointBigSprite[pointId] || this.pointBigSprite[0]
     }
@@ -54,6 +56,7 @@ export default class RewardController extends cc.Component {
     findPhoneSprite(propId: number) {
         return this.phoneSprite[propId] || this.phoneSprite[0]
     }
+
     findPropName(propId: number) {
         return PropName[propId]
     }

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "zhadan_tex",
+    "texture": "abe52bb6-55ae-4e11-bab0-a5d481f9d299",
+    "atlas": "",
+    "rect": [
+      56,
+      1,
+      938,
+      489
+    ],
+    "offset": [
+      26.5,
+      1
+    ],
+    "originalSize": [
+      997,
+      493
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

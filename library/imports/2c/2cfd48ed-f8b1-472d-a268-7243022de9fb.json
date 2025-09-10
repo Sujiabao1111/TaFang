@@ -1,0 +1,190 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "tianshizhiwen",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "9jshBYREgldcU3/lOmUurzuqBdg",
+      "spine": "3.8.99",
+      "x": -85.22,
+      "y": -78.87,
+      "width": 176.8,
+      "height": 176.8,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽nb.app"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "5",
+        "parent": "root"
+      },
+      {
+        "name": "bone14",
+        "parent": "5",
+        "scaleX": 1.3,
+        "scaleY": 1.3
+      }
+    ],
+    "slots": [
+      {
+        "name": "1",
+        "bone": "bone14",
+        "attachment": "06"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "1": {
+            "10": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            },
+            "01": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            },
+            "02": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            },
+            "03": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            },
+            "04": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            },
+            "05": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            },
+            "06": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            },
+            "07": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            },
+            "08": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            },
+            "09": {
+              "x": 2.44,
+              "y": 7.33,
+              "width": 136,
+              "height": 136
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "1": {
+            "color": [
+              {
+                "color": "ffffff00"
+              },
+              {
+                "time": 0.0333,
+                "color": "ffffffff",
+                "curve": "stepped"
+              },
+              {
+                "time": 0.2,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.3333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "02"
+              },
+              {
+                "time": 0.0667,
+                "name": "03"
+              },
+              {
+                "time": 0.1,
+                "name": "04"
+              },
+              {
+                "time": 0.1333,
+                "name": "05"
+              },
+              {
+                "time": 0.1667,
+                "name": "06"
+              },
+              {
+                "time": 0.2,
+                "name": "07"
+              },
+              {
+                "time": 0.2333,
+                "name": "08"
+              },
+              {
+                "time": 0.2667,
+                "name": "09"
+              },
+              {
+                "time": 0.3,
+                "name": "10"
+              },
+              {
+                "time": 0.3333,
+                "name": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\ntianshizhiwen.png\nsize: 512,512\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n01\n  rotate: true\n  xy: 274, 287\n  size: 126, 131\n  orig: 136, 136\n  offset: 4, 0\n  index: -1\n02\n  rotate: false\n  xy: 2, 173\n  size: 133, 128\n  orig: 136, 136\n  offset: 0, 0\n  index: -1\n03\n  rotate: false\n  xy: 2, 303\n  size: 134, 113\n  orig: 136, 136\n  offset: 1, 3\n  index: -1\n04\n  rotate: false\n  xy: 137, 170\n  size: 135, 121\n  orig: 136, 136\n  offset: 0, 0\n  index: -1\n05\n  rotate: false\n  xy: 274, 162\n  size: 135, 123\n  orig: 136, 136\n  offset: 0, 0\n  index: -1\n06\n  rotate: false\n  xy: 138, 293\n  size: 134, 120\n  orig: 136, 136\n  offset: 0, 2\n  index: -1\n07\n  rotate: true\n  xy: 408, 373\n  size: 133, 98\n  orig: 136, 136\n  offset: 0, 5\n  index: -1\n08\n  rotate: false\n  xy: 2, 420\n  size: 133, 86\n  orig: 136, 136\n  offset: 0, 20\n  index: -1\n09\n  rotate: false\n  xy: 137, 418\n  size: 133, 88\n  orig: 136, 136\n  offset: 0, 20\n  index: -1\n10\n  rotate: false\n  xy: 272, 415\n  size: 134, 91\n  orig: 136, 136\n  offset: 0, 19\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "b527116e-3ceb-4c36-8133-43c0b57cc50e"
+    }
+  ],
+  "textureNames": [
+    "tianshizhiwen.png"
+  ],
+  "scale": 1
+}

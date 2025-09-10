@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dizuo",
+    "texture": "070c927e-9439-4692-ac2c-c04ac990e36d",
+    "atlas": "",
+    "rect": [
+      9,
+      8,
+      118,
+      127
+    ],
+    "offset": [
+      -1,
+      -2.5
+    ],
+    "originalSize": [
+      138,
+      138
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

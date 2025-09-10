@@ -1,0 +1,133 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "junenghongyinpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "a1/Vja4IXjJjz3ygjeO1ABv6kcE",
+      "spine": "3.8.95",
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽/音波炮8"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "junenghongyinpao",
+        "parent": "root"
+      },
+      {
+        "name": "bone5",
+        "parent": "junenghongyinpao"
+      }
+    ],
+    "slots": [
+      {
+        "name": "bp3",
+        "bone": "bone5"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "bp3": {
+            "ybp-08_002": {
+              "width": 136,
+              "height": 136
+            },
+            "ybp-08_003": {
+              "width": 136,
+              "height": 136
+            },
+            "ybp-08_004": {
+              "width": 136,
+              "height": 136
+            },
+            "ybp-08_005": {
+              "width": 136,
+              "height": 136
+            },
+            "ybp-08_006": {
+              "width": 136,
+              "height": 136
+            },
+            "ybp-08_007": {
+              "width": 136,
+              "height": 136
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "bp3": {
+            "color": [
+              {
+                "time": 0.1333,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.2333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.0333,
+                "name": "ybp-08_002"
+              },
+              {
+                "time": 0.0667,
+                "name": "ybp-08_003"
+              },
+              {
+                "time": 0.1,
+                "name": "ybp-08_004"
+              },
+              {
+                "time": 0.1333,
+                "name": "ybp-08_005"
+              },
+              {
+                "time": 0.1667,
+                "name": "ybp-08_006"
+              },
+              {
+                "time": 0.2,
+                "name": "ybp-08_007"
+              },
+              {
+                "time": 0.2333,
+                "name": null
+              }
+            ]
+          }
+        },
+        "bones": {
+          "junenghongyinpao": {
+            "shear": [
+              {
+                "time": 0.8
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\njunenghongyinpao.png\nsize: 317,317\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nybp-08_002\n  rotate: false\n  xy: 0, 0\n  size: 98, 95\n  orig: 109, 109\n  offset: 6, 6\n  index: -1\nybp-08_003\n  rotate: false\n  xy: 111, 102\n  size: 107, 104\n  orig: 109, 109\n  offset: 1, 1\n  index: -1\nybp-08_004\n  rotate: true\n  xy: 111, 208\n  size: 109, 108\n  orig: 109, 109\n  offset: 0, 0\n  index: -1\nybp-08_005\n  rotate: false\n  xy: 0, 208\n  size: 109, 109\n  orig: 109, 109\n  offset: 0, 0\n  index: -1\nybp-08_006\n  rotate: false\n  xy: 0, 97\n  size: 109, 109\n  orig: 109, 109\n  offset: 0, 0\n  index: -1\nybp-08_007\n  rotate: true\n  xy: 100, 15\n  size: 80, 83\n  orig: 109, 109\n  offset: 14, 16\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "a9273cc5-f8d8-4168-adb3-ddcc0ecce7fa"
+    }
+  ],
+  "textureNames": [
+    "junenghongyinpao.png"
+  ],
+  "scale": 1
+}

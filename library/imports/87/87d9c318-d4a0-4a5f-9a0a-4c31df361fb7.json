@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_setgunfront",
+    "texture": "1caf432e-bec6-4487-9b7b-5cbb68878d44",
+    "atlas": "",
+    "rect": [
+      28,
+      10,
+      156,
+      162
+    ],
+    "offset": [
+      0,
+      11
+    ],
+    "originalSize": [
+      212,
+      204
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

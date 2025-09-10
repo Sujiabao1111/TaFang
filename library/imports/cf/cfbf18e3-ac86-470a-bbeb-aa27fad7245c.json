@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_signNumFrame",
+    "texture": "ec39fac3-2c89-4b2c-9431-054eeae0e11e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      42,
+      22
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      42,
+      22
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

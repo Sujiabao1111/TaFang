@@ -4,27 +4,27 @@ import pageTs from "../common/pageTs";
 import util from "../util/util";
 import turret from "./turret/turret";
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class turretHost extends baseTs {
 
-    @property({displayName:"炮塔",type:cc.Prefab})
-    private turretPre:cc.Prefab = null;
+    @property({ displayName: "炮塔", type: cc.Prefab })
+    private turretPre: cc.Prefab = null;
 
     /**炮塔js */
-    private turretJs:turret = null;
+    private turretJs: turret = null;
 
-    onLoad(){
+    onLoad() {
 
         this.initTurret(util.userData.turretLevel);
 
-        cc.game.on(NameTs.Game_Pop_Open,(res)=>{
-            if(res == pageTs.pageName.GameUpgrade){
+        cc.game.on(NameTs.Game_Pop_Open, (res) => {
+            if (res == pageTs.pageName.GameUpgrade) {
                 this.updateTurrert();
             }
 
-        },this);
+        }, this);
 
     }
 
@@ -32,11 +32,11 @@ export default class turretHost extends baseTs {
      * 还原用户炮塔
      * @param level 等级
      */
-    initTurret(level:number){
-        let item:cc.Node = cc.instantiate(this.turretPre);
-        item.getComponent(item.name).init({level});
+    initTurret(level: number) {
+        let item: cc.Node = cc.instantiate(this.turretPre);
+        item.getComponent(item.name).init({ level });
         item.setParent(this.node);
-        item.setPosition(10,320);
+        item.setPosition(10, 320);
         this.turretJs = item.getComponent(turret);
         // this.createTurret({level:38,location:1,isFree:true});
     }
@@ -44,9 +44,9 @@ export default class turretHost extends baseTs {
     /**
      * 更新炮塔
      */
-    updateTurrert(){
+    updateTurrert() {
         this.turretJs.upLevel();
     }
 
-    
+
 }

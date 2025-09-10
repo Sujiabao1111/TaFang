@@ -1,0 +1,13 @@
+
+junenghongyinpao.png
+size: 75,75
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+PVPSkill_7_3
+  rotate: false
+  xy: 2, 2
+  size: 71, 71
+  orig: 73, 73
+  offset: 1, 1
+  index: -1

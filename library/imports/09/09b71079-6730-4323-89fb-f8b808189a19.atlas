@@ -1,0 +1,97 @@
+
+zhongzipao.png
+size: 361,361
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bk1
+  rotate: false
+  xy: 297, 213
+  size: 62, 64
+  orig: 67, 68
+  offset: 4, 3
+  index: -1
+bk2
+  rotate: false
+  xy: 2, 237
+  size: 103, 122
+  orig: 106, 130
+  offset: 2, 5
+  index: -1
+bk3
+  rotate: false
+  xy: 109, 157
+  size: 94, 97
+  orig: 97, 97
+  offset: 1, 0
+  index: -1
+bk4
+  rotate: false
+  xy: 2, 23
+  size: 100, 104
+  orig: 101, 105
+  offset: 0, 0
+  index: -1
+bk5
+  rotate: false
+  xy: 107, 256
+  size: 103, 103
+  orig: 104, 104
+  offset: 0, 0
+  index: -1
+bk6
+  rotate: true
+  xy: 2, 129
+  size: 106, 105
+  orig: 111, 106
+  offset: 2, 0
+  index: -1
+bk7
+  rotate: true
+  xy: 104, 25
+  size: 102, 99
+  orig: 109, 102
+  offset: 3, 2
+  index: -1
+bp_001
+  rotate: true
+  xy: 205, 89
+  size: 80, 83
+  orig: 100, 100
+  offset: 6, 15
+  index: -1
+bp_002
+  rotate: false
+  xy: 205, 171
+  size: 90, 83
+  orig: 100, 100
+  offset: 7, 15
+  index: -1
+bp_003
+  rotate: true
+  xy: 212, 271
+  size: 88, 81
+  orig: 100, 100
+  offset: 9, 16
+  index: -1
+bp_005
+  rotate: true
+  xy: 290, 52
+  size: 79, 67
+  orig: 100, 100
+  offset: 13, 18
+  index: -1
+bp_007
+  rotate: true
+  xy: 295, 279
+  size: 80, 51
+  orig: 100, 100
+  offset: 13, 25
+  index: -1
+bp_009
+  rotate: true
+  xy: 297, 133
+  size: 78, 44
+  orig: 100, 100
+  offset: 15, 28
+  index: -1

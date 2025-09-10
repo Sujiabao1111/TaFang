@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_guoduline",
+    "texture": "f75183ed-b53a-401b-9e37-5c3b21578089",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      74,
+      50
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      74,
+      50
+    ],
+    "capInsets": [
+      35,
+      22,
+      34,
+      23
+    ]
+  }
+}

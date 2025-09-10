@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_5yuan",
+    "texture": "548f3cd6-0100-4427-8b2c-fae9d994bca3",
+    "atlas": "",
+    "rect": [
+      0,
+      14,
+      162,
+      51
+    ],
+    "offset": [
+      -1,
+      -4.5
+    ],
+    "originalSize": [
+      164,
+      70
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

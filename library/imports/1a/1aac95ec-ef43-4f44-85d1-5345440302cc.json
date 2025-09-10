@@ -1,0 +1,171 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "dongjipao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "FE7V5oy0MYmju8EyCDjnsiaRXrE",
+      "spine": "3.8.99",
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽nb.app"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "6",
+        "parent": "root"
+      },
+      {
+        "name": "qjp-shen3",
+        "parent": "6",
+        "length": 90.52,
+        "rotation": 90,
+        "y": -29.08
+      },
+      {
+        "name": "qjp-shen4",
+        "parent": "qjp-shen3",
+        "x": 31.97,
+        "scaleX": 0.7,
+        "scaleY": 0.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "kou2",
+        "bone": "qjp-shen4",
+        "color": "dededeff"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "kou2": {
+            "A_04": {
+              "x": 34.46,
+              "y": -4.19,
+              "rotation": -90,
+              "width": 82,
+              "height": 76
+            },
+            "A_05": {
+              "x": 38.03,
+              "y": -3.47,
+              "rotation": -90,
+              "width": 83,
+              "height": 77
+            },
+            "A_06": {
+              "x": 40.17,
+              "y": -3.47,
+              "rotation": -90,
+              "width": 85,
+              "height": 80
+            },
+            "paokuo01": {
+              "x": 18.74,
+              "y": 0.1,
+              "rotation": -90,
+              "width": 92,
+              "height": 86
+            },
+            "paokuo02": {
+              "x": 18.74,
+              "y": 0.1,
+              "rotation": -90,
+              "width": 96,
+              "height": 86
+            },
+            "paokuo04": {
+              "x": 18.74,
+              "y": 0.1,
+              "rotation": -90,
+              "width": 96,
+              "height": 85
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "kou2": {
+            "attachment": [
+              {
+                "time": 0.0333,
+                "name": "paokuo01"
+              },
+              {
+                "time": 0.0667,
+                "name": "paokuo02"
+              },
+              {
+                "time": 0.1,
+                "name": "paokuo04"
+              },
+              {
+                "time": 0.1333,
+                "name": "A_04"
+              },
+              {
+                "time": 0.1667,
+                "name": "A_05"
+              },
+              {
+                "time": 0.2,
+                "name": "A_06"
+              },
+              {
+                "time": 0.2333,
+                "name": null
+              }
+            ]
+          }
+        },
+        "bones": {
+          "qjp-shen3": {
+            "scale": [
+              {},
+              {
+                "time": 0.1,
+                "x": 0.918,
+                "y": 1.052,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2,
+                "x": 1.015,
+                "y": 0.978,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.3,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\ndongjipao.png\nsize: 256,256\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nA_04\n  rotate: true\n  xy: 79, 2\n  size: 79, 73\n  orig: 82, 76\n  offset: 1, 2\n  index: -1\nA_05\n  rotate: true\n  xy: 2, 4\n  size: 81, 75\n  orig: 83, 77\n  offset: 1, 1\n  index: -1\nA_06\n  rotate: false\n  xy: 2, 87\n  size: 83, 76\n  orig: 85, 80\n  offset: 1, 2\n  index: -1\npaokuo01\n  rotate: false\n  xy: 96, 83\n  size: 89, 82\n  orig: 92, 86\n  offset: 2, 2\n  index: -1\npaokuo02\n  rotate: false\n  xy: 2, 165\n  size: 92, 83\n  orig: 96, 86\n  offset: 2, 2\n  index: -1\npaokuo04\n  rotate: false\n  xy: 96, 167\n  size: 93, 81\n  orig: 96, 85\n  offset: 2, 2\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "3571ddfa-2de5-4b71-a329-c65b123f9699"
+    }
+  ],
+  "textureNames": [
+    "dongjipao.png"
+  ],
+  "scale": 1
+}

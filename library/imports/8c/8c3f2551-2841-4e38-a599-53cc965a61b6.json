@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_btnClose",
+    "texture": "0083a296-8f4e-4c5d-bfc1-33c95c001160",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      68,
+      66
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      68,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

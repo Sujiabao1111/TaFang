@@ -1,0 +1,48 @@
+
+fanwuzhipao.png
+size: 337,337
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+001
+  rotate: false
+  xy: 226, 213
+  size: 109, 122
+  orig: 125, 125
+  offset: 13, 2
+  index: -1
+002
+  rotate: false
+  xy: 226, 89
+  size: 109, 122
+  orig: 125, 125
+  offset: 13, 2
+  index: -1
+003
+  rotate: false
+  xy: 2, 213
+  size: 110, 122
+  orig: 125, 125
+  offset: 12, 2
+  index: -1
+004
+  rotate: false
+  xy: 2, 89
+  size: 110, 122
+  orig: 125, 125
+  offset: 12, 2
+  index: -1
+005
+  rotate: false
+  xy: 114, 213
+  size: 110, 122
+  orig: 125, 125
+  offset: 12, 2
+  index: -1
+006
+  rotate: false
+  xy: 114, 89
+  size: 110, 122
+  orig: 125, 125
+  offset: 12, 2
+  index: -1

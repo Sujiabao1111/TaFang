@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "47a148ab-e8ff-4e19-91f5-0dc914869a9e",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "paodan": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "cf99e2dd-c6a1-4328-890c-32537e5a5b5f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "47a148ab-e8ff-4e19-91f5-0dc914869a9e",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_kingRed",
+    "texture": "df9be10d-d93e-4ff1-8cee-d617edcb80e3",
+    "atlas": "",
+    "rect": [
+      34,
+      0,
+      648,
+      636
+    ],
+    "offset": [
+      17,
+      0
+    ],
+    "originalSize": [
+      682,
+      636
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

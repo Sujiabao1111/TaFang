@@ -1,0 +1,107 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "zhendangpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "vrLTDJ4BveXmk/zxkdan/o14BEQ",
+      "spine": "3.8.95",
+      "x": -41.91,
+      "y": -43.41,
+      "width": 85,
+      "height": 93.52,
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "paoshen",
+        "parent": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "paodi",
+        "bone": "root",
+        "attachment": "paodi"
+      },
+      {
+        "name": "paoshen",
+        "bone": "paoshen",
+        "attachment": "paoshen"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "paodi": {
+            "paodi": {
+              "x": 0.59,
+              "y": -4.41,
+              "width": 85,
+              "height": 78
+            }
+          },
+          "paoshen": {
+            "paoshen": {
+              "x": 1.68,
+              "y": 10.61,
+              "width": 68,
+              "height": 79
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "bones": {
+          "paoshen": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "x": 1.062,
+                "y": 1.062,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2667,
+                "x": 0.961,
+                "y": 0.961,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.4,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nzhendangpao.png\nsize: 158,158\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\npaodi\n  rotate: false\n  xy: 2, 78\n  size: 85, 78\n  orig: 85, 78\n  offset: 0, 0\n  index: -1\npaoshen\n  rotate: false\n  xy: 89, 77\n  size: 67, 79\n  orig: 68, 79\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "943a56db-8654-47ff-8f6c-c238ee236402"
+    }
+  ],
+  "textureNames": [
+    "zhendangpao.png"
+  ],
+  "scale": 1
+}

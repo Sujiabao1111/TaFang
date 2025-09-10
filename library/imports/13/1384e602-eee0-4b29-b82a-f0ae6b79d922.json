@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "xuehua",
+    "texture": "f8e727af-a04b-4a4f-aaeb-2323de217c96",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      54,
+      62
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      54,
+      62
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

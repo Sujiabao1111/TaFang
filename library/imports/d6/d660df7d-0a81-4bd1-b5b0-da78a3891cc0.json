@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_mengban",
+    "texture": "7aba8de0-60e5-4523-8e84-bc8301b77143",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      194,
+      80
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      194,
+      80
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

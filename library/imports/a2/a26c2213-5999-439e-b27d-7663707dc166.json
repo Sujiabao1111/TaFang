@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "huopao",
+    "texture": "43af497d-d546-471e-8eb7-eb0ab55241a9",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      75,
+      82
+    ],
+    "offset": [
+      -24.5,
+      21
+    ],
+    "originalSize": [
+      128,
+      128
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

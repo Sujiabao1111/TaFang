@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "08f5ff9a-fa53-426d-9aff-d662e2bf8eb0",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "icon_jinbidui": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "834ffc21-048d-448c-ab3b-8ed27af54fed",
+      "importer": "sprite-frame",
       "rawTextureUuid": "08f5ff9a-fa53-426d-9aff-d662e2bf8eb0",
       "trimType": "auto",
       "trimThreshold": 1,

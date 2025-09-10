@@ -1,0 +1,2496 @@
+{
+  "projectPath": "D:\\AGame\\TaFang",
+  "mtimes": {
+    "4ea25030-5110-4808-90a2-3d3ad54e0bd4": {
+      "assetMtime": 1756885886108,
+      "metaMtime": 1756885892819
+    },
+    "0190decc-4365-4a35-8c95-d7415e0b3010": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199033
+    },
+    "357eeb95-a1bf-478e-b016-eb9f02b76197": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199033
+    },
+    "033ad855-c86a-4ac4-a5df-61ff1acf2c2e": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198990
+    },
+    "e8bb25c1-a964-416a-8533-bd98ab11e447": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198990
+    },
+    "05b39542-6966-463b-b1ff-9b34433ac599": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199067
+    },
+    "a54f4c04-3e22-49b9-9175-552afb559f3c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199067
+    },
+    "0a980f31-e707-402f-a34a-338c7fd37a9b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198914
+    },
+    "9131e8bb-de7f-41db-8345-dcb6f1fc4bdd": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198914
+    },
+    "164ab7b9-9b70-46d3-ace4-4a22ece48e53": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199029
+    },
+    "579a95c7-3031-48f9-8e30-569340060628": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199029
+    },
+    "17720c09-3da7-4555-8810-805ddd971f8e": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198901
+    },
+    "0f630bb3-3e64-4d2e-8b8e-ea7aff791a8a": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198901
+    },
+    "17c7363d-f7f7-4b5e-9092-eefc55542663": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199113
+    },
+    "8f7d2894-e7ca-4524-b69d-a8ef67432fe8": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199113
+    },
+    "19e568a8-7593-4b1f-8f2c-f3f55351d6ad": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198884
+    },
+    "518e906e-62e8-46df-ba67-2999a22f2a79": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198884
+    },
+    "1fc18deb-4ed4-4fa8-832f-41f4210039f1": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198636
+    },
+    "0de86d56-892f-423a-9b9d-abfaa16467db": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198636
+    },
+    "1fda4ad0-a056-463a-8882-525f9e4acab2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198883
+    },
+    "94413768-2d17-4e3a-af97-7d002bde8271": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198883
+    },
+    "2ba89c02-ef06-416b-a774-f4a6850bca4f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199091
+    },
+    "977fed1e-cdcd-42b5-8424-da0a639bccc2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199091
+    },
+    "2cc5302b-5bbe-4112-b541-4b22bed0c9da": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198876
+    },
+    "dfe668b4-3db5-4551-81f4-8de2827fc82c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198876
+    },
+    "2e0b22a1-14bd-4704-9aba-51824e356ae9": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198888
+    },
+    "2dc51860-1792-4911-be74-fe5d0d2cebdf": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198888
+    },
+    "30fe3315-5f85-4ef5-a948-c9c6a754c26b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199074
+    },
+    "281a2d40-2204-4d7b-a8cb-dd8860292141": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199074
+    },
+    "35f78694-475e-4e09-806b-00aad637ad00": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199008
+    },
+    "cfd7b023-27e5-4c0f-ba9d-bb36c5fa8008": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199008
+    },
+    "3784b933-0499-458d-b2d5-1992b356447a": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198907
+    },
+    "bbb9903c-2440-435d-a4c3-7d58324c7fc3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198907
+    },
+    "3f2f7404-eec8-4607-9833-887d256a9d68": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198885
+    },
+    "7ac69efa-c38c-460d-930a-3fe63b132e20": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198885
+    },
+    "41992d58-1351-42b8-bf4f-9c30d0842394": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199035
+    },
+    "b4cf48f4-e095-4348-a46d-71022a8e5d59": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199035
+    },
+    "48bcf3a1-b591-4c52-97f6-f48d42b8397a": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198967
+    },
+    "4d1a7f02-d10c-4023-bb31-62e114f9a773": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198967
+    },
+    "520f2584-e2b0-4a10-b3de-4e609109f40b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198859
+    },
+    "ddf44701-c2e6-4855-8620-f57094714c51": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198859
+    },
+    "54fecfe6-e9f6-4f4d-876a-002066bcb467": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199058
+    },
+    "76d50c9f-de50-49e7-933a-91d5d2a799e2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199058
+    },
+    "55dc784c-f80a-4ebf-85ce-2f539d90e204": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199065
+    },
+    "048f0c1d-2f9f-4ed7-bd18-45ace7830610": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199065
+    },
+    "563d6ba8-2a2c-44a4-8346-d61683728a88": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199026
+    },
+    "f466a781-aa74-4600-b517-786eaadb7738": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199026
+    },
+    "5ba831ec-db1d-413f-824c-30efeec140f8": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199071
+    },
+    "1ca4633a-755c-4df5-a6f3-c1d8632446d3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199071
+    },
+    "5e2c6042-4db5-428e-8a8b-a0bc58a400b5": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198965
+    },
+    "3946db70-d3a6-4ad5-9517-80fefb222e54": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198965
+    },
+    "5e833260-de73-4990-b120-355038b3b172": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198999
+    },
+    "3944ca62-57aa-4d92-831b-c9a29845e68c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198999
+    },
+    "64ab6b55-d360-4171-b9f3-330f4f65db07": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199024
+    },
+    "ba62cc86-bdad-4308-88bb-f17d2e18e855": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199024
+    },
+    "68994047-8c13-4dcb-bf06-8d5b91dd27f5": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198957
+    },
+    "69943a26-b3d1-44d7-81e6-2cc0b1257498": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198957
+    },
+    "694092fd-2402-406a-b34c-cc294ab81930": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199031
+    },
+    "9a881625-7699-4770-9f59-3ced47df35b4": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199031
+    },
+    "7503012d-1641-4b75-9685-1d53a9844581": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198950
+    },
+    "d6f79d2d-14e7-4b28-9666-982ba99df5c7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198950
+    },
+    "752c1753-5a3a-472e-87cf-74c70a398bd2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198947
+    },
+    "25f4e183-b33f-4fe5-b4b3-70c47411cce7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198947
+    },
+    "756d3c3a-caac-4cef-81a7-0315a187d5a9": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198642
+    },
+    "820a8720-4b93-4c1b-80ec-92cba4dd321f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198642
+    },
+    "7f122dd3-96fc-40f7-b0e9-fd508de1cfcf": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198955
+    },
+    "142b64b7-515d-42a2-a276-044801e6b09b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198955
+    },
+    "84dc553e-77ba-419c-8e43-a28cfec6e2f0": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198918
+    },
+    "159f7b0a-908b-44c9-ad4a-deef694eecdd": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198918
+    },
+    "85a8ebc3-9e8e-4582-be41-a1597c04711c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199088
+    },
+    "a4b8c740-5b75-48ec-a866-c438ad9f06c1": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199088
+    },
+    "87842a82-9fad-4aee-8475-1b03c47dcbe2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199073
+    },
+    "cabcbf53-607c-4602-a499-5a6c0d7241c8": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199073
+    },
+    "88517192-682a-4c13-8d2b-694d4a3af604": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198920
+    },
+    "9ef3859d-82e9-4b3b-ad6b-4509be613664": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198920
+    },
+    "8ac0c0b8-fa38-4ade-8e9a-c04a65048293": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198639
+    },
+    "c0fb2117-a167-4dc1-913e-e5a50735f3b7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198639
+    },
+    "951e9eb8-ce1e-4023-ac48-a82b17bdd235": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198874
+    },
+    "8e797754-446b-4ec8-84e4-df56ba657920": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198874
+    },
+    "9d08d5cc-53aa-426a-9894-3e1bb48c64d4": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198995
+    },
+    "fd7ee595-d522-4b0d-95a8-f014816a281d": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198995
+    },
+    "9fabcb46-ac86-499a-88c8-9bc6e82abbef": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198997
+    },
+    "4283f0ea-21c7-4705-8860-b8599a1cd162": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198997
+    },
+    "a1072739-b37d-4fbf-8007-c42bde45d9c6": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198962
+    },
+    "e037175e-d2b3-494e-a6b5-a6f08ddfca5f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198962
+    },
+    "a3e15d56-0b72-4bd5-a1db-ed6a64d4c537": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198912
+    },
+    "fd2a3b4a-e961-4d6f-af89-1c1357402437": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198912
+    },
+    "ab8dbff9-6168-4a86-bd55-775552ba8f79": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198992
+    },
+    "cbddd93f-1693-49a4-befe-676eed6f47d8": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198992
+    },
+    "acca3d0f-569c-45e2-af1a-c8eda4da545f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199054
+    },
+    "22a9ae74-bb2a-4ce5-9be3-16c8c01f60db": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199054
+    },
+    "add3b903-964f-4778-8480-39e06c0a7ee6": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198641
+    },
+    "696bc7a3-ad50-4d33-bb13-8ac9520875c7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198641
+    },
+    "b0e85abd-3d92-48a0-b707-12249bdd1f77": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198923
+    },
+    "df47687c-27ad-465c-b8b2-2f6d4805af52": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198923
+    },
+    "b1b05c00-09ec-4c17-8df2-e918823c1d2c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198945
+    },
+    "b968491a-ee3e-47f0-ae97-3146bdbb14e2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198945
+    },
+    "b5d0c021-f44e-47f5-8b89-afcdca3f79d9": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198881
+    },
+    "4ce2f7a0-e46c-4476-9487-8217c785b324": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198881
+    },
+    "b85c52cb-ed85-4fa0-8559-0cfa820e3ad3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199096
+    },
+    "548f3cd6-0100-4427-8b2c-fae9d994bca3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199096
+    },
+    "b9265c8b-c408-4660-90d0-b2dba8ff5f4f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198878
+    },
+    "c99d57b3-a6f0-4e65-96f7-b2136058384c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198878
+    },
+    "bc5a6442-5f6a-41c2-b4fe-932352ccb6d4": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198963
+    },
+    "9ce20cec-5cad-408d-887a-b5a6c6fb586d": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198963
+    },
+    "c3ba5cae-b805-434b-b89b-681d4ee8d4f8": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199072
+    },
+    "5b1d0913-2bff-4e6a-b947-19b8795c306f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199072
+    },
+    "c43cb291-6a26-4e1f-97ed-279f05165730": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199005
+    },
+    "da35b36a-a1b4-488d-97dd-d21e4d1bb317": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199005
+    },
+    "c642126d-d14c-487b-a219-d4777dd572c3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198987
+    },
+    "b5ec5d96-8cf7-44f5-bb2e-cd007e2e440d": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198987
+    },
+    "c843b160-88b1-4499-a354-ce8e4b65dd2b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198981
+    },
+    "772365f1-b4c0-4eeb-a09e-b68087aca755": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198981
+    },
+    "cd745634-2843-474b-8dce-c1975e1db3c3": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198911
+    },
+    "e70d68bf-1b17-4c4d-8097-d4f94354061e": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198911
+    },
+    "d05a7a20-f4e7-452c-95f1-792c389a52a6": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198952
+    },
+    "115c0c86-a886-4c41-82a7-0cae915c9c4b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198952
+    },
+    "d3bca6f9-67c6-4021-8a27-a89637bb6f8f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199049
+    },
+    "c82480e9-7da7-4f7f-9ea2-10801b5853d6": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199049
+    },
+    "d3da00c1-6fe1-4f00-84e9-f123fd3fe8b7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198985
+    },
+    "4580c16a-c1eb-4823-a36d-bf3b441f18fa": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198985
+    },
+    "d3ebee22-fccf-4de9-8115-7116bae5d5b7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198871
+    },
+    "c926a9c7-c97a-4b3f-9d66-99d13b9ee04f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198871
+    },
+    "d6b67269-8dc6-4719-91d4-ecec6b1fa83d": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198943
+    },
+    "f40f76f7-a9ed-4459-a877-d1a8f32af01f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198943
+    },
+    "d6f92e60-4b3f-4534-a843-1c4444a28c3b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199037
+    },
+    "7e203a80-4e71-46e0-a32a-1b60a4e26311": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199037
+    },
+    "d8287de5-cdae-4304-9cdc-1d3870a780f9": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199093
+    },
+    "aea4f063-e498-4908-ac0d-60335aa660ce": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199093
+    },
+    "da4da7ca-7f19-4edc-8e3e-dd872079dca7": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199020
+    },
+    "fec966d5-3b59-444f-8480-98a8809b893f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199020
+    },
+    "da8e8bbc-473f-4a0a-a653-a4ec57971cce": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198919
+    },
+    "bc3ede48-09ee-490d-9213-d36cd1a468d9": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198919
+    },
+    "dee4dd83-98f8-41f1-a4cc-f15d2ab63dfe": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199102
+    },
+    "7f0d4b55-d01e-47c1-82d6-aa83cbb6815f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199102
+    },
+    "e0414a93-378d-47b6-9930-fe48b6ccc82f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199036
+    },
+    "33a27ce8-8e63-46e0-b17a-c255f040ea27": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199036
+    },
+    "e59e3450-9593-482a-b6ea-8d7012b42288": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198909
+    },
+    "5b05832c-3563-41e3-8513-2822c24ac123": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198909
+    },
+    "e7fba493-967e-4d2b-977e-251f820cc04b": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198904
+    },
+    "1d0b7edc-e248-4196-92e1-908136f1e1ff": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198904
+    },
+    "e88548db-d050-4d72-a79e-9100af42677a": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199050
+    },
+    "acb54714-1a90-4602-920a-fcc5c06f8476": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199050
+    },
+    "e8df2c05-e48e-474f-b63f-f8ab1366be27": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198959
+    },
+    "32b08bd3-bd5d-4615-9ad1-e5e3b5880ac2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198959
+    },
+    "f0ff49f7-7691-475b-beed-abd0c3385d37": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198983
+    },
+    "9ba578f8-4842-4ade-9c7e-00fddda831e9": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198983
+    },
+    "f866545c-388c-46aa-9741-f5fb650013a9": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199060
+    },
+    "69388f63-20c4-4d8e-b0e8-4e490635510f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199060
+    },
+    "f8dd2f8d-a58a-45a3-9f08-2fef3d7ed20c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198867
+    },
+    "3e0d9dee-aa91-4123-9f80-7d6ffd8c62e2": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198867
+    },
+    "fa0d80e4-12c7-4759-9643-7fd948c62490": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199100
+    },
+    "32bd6518-d1ba-4dfa-8fa1-74d5827685c8": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199100
+    },
+    "fb035d00-ab94-4b66-ac79-867b93b3b12d": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198916
+    },
+    "2918d61a-b3bb-462d-9720-d9af8954b68c": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198916
+    },
+    "fbee5d9e-4dd4-4fe1-82ab-96b824d13daf": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198879
+    },
+    "5cd7cc42-889b-431a-aaf6-58c0abe91e01": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885198879
+    }
+  },
+  "result": {
+    "name": "AutoAtlas",
+    "width": 2048,
+    "height": 2048,
+    "ver": "1.2.5",
+    "uuid": "4ea25030-5110-4808-90a2-3d3ad54e0bd4",
+    "importer": "auto-atlas",
+    "maxWidth": 2048,
+    "maxHeight": 2048,
+    "padding": 2,
+    "compressionLevel": 6,
+    "allowRotation": true,
+    "forceSquared": false,
+    "powerOfTwo": false,
+    "algorithm": "MaxRects",
+    "format": "png",
+    "quality": 80,
+    "contourBleed": true,
+    "paddingBleed": true,
+    "filterUnused": true,
+    "packable": false,
+    "premultiplyAlpha": false,
+    "filterMode": "bilinear",
+    "platformSettings": {},
+    "subMetas": {},
+    "bleed": 1,
+    "atlases": [
+      {
+        "files": [
+          {
+            "name": "img_tixian_diwen",
+            "uuid": "30fe3315-5f85-4ef5-a948-c9c6a754c26b",
+            "textureUuid": "281a2d40-2204-4d7b-a8cb-dd8860292141",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_13.png",
+            "trim": {
+              "x": 3,
+              "y": 3,
+              "width": 672,
+              "height": 198,
+              "rotatedWidth": 672,
+              "rotatedHeight": 198
+            },
+            "rawWidth": 672,
+            "rawHeight": 198,
+            "width": 678,
+            "height": 204,
+            "originalPath": "D:/AGame/TaFang/library/imports/28/281a2d40-2204-4d7b-a8cb-dd8860292141.png",
+            "x": 0,
+            "y": 0,
+            "rotatedWidth": 678,
+            "rotatedHeight": 204
+          },
+          {
+            "name": "GodWheel_deng1",
+            "uuid": "48bcf3a1-b591-4c52-97f6-f48d42b8397a",
+            "textureUuid": "4d1a7f02-d10c-4023-bb31-62e114f9a773",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_18.png",
+            "trim": {
+              "x": 681,
+              "y": 3,
+              "width": 608,
+              "height": 622,
+              "rotatedWidth": 622,
+              "rotatedHeight": 608
+            },
+            "rawWidth": 624,
+            "rawHeight": 624,
+            "width": 614,
+            "height": 628,
+            "originalPath": "D:/AGame/TaFang/library/imports/4d/4d1a7f02-d10c-4023-bb31-62e114f9a773.png",
+            "x": 678,
+            "y": 0,
+            "rotated": true,
+            "rotatedWidth": 628,
+            "rotatedHeight": 614
+          },
+          {
+            "name": "icon",
+            "uuid": "b1b05c00-09ec-4c17-8df2-e918823c1d2c",
+            "textureUuid": "b968491a-ee3e-47f0-ae97-3146bdbb14e2",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944263_image_47.png",
+            "trim": {
+              "x": 1309,
+              "y": 3,
+              "width": 358,
+              "height": 194,
+              "rotatedWidth": 358,
+              "rotatedHeight": 194
+            },
+            "rawWidth": 420,
+            "rawHeight": 272,
+            "width": 364,
+            "height": 200,
+            "originalPath": "D:/AGame/TaFang/library/imports/b9/b968491a-ee3e-47f0-ae97-3146bdbb14e2.png",
+            "x": 1306,
+            "y": 0,
+            "rotatedWidth": 364,
+            "rotatedHeight": 200
+          },
+          {
+            "name": "GodWheel_getBtn",
+            "uuid": "5e2c6042-4db5-428e-8a8b-a0bc58a400b5",
+            "textureUuid": "3946db70-d3a6-4ad5-9517-80fefb222e54",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_24.png",
+            "trim": {
+              "x": 1309,
+              "y": 203,
+              "width": 338,
+              "height": 131,
+              "rotatedWidth": 338,
+              "rotatedHeight": 131
+            },
+            "rawWidth": 338,
+            "rawHeight": 136,
+            "width": 344,
+            "height": 137,
+            "originalPath": "D:/AGame/TaFang/library/imports/39/3946db70-d3a6-4ad5-9517-80fefb222e54.png",
+            "x": 1306,
+            "y": 200,
+            "rotatedWidth": 344,
+            "rotatedHeight": 137
+          },
+          {
+            "name": "img_fh_jindu",
+            "uuid": "f866545c-388c-46aa-9741-f5fb650013a9",
+            "textureUuid": "69388f63-20c4-4d8e-b0e8-4e490635510f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_73.png",
+            "trim": {
+              "x": 1653,
+              "y": 203,
+              "width": 44,
+              "height": 22,
+              "rotatedWidth": 22,
+              "rotatedHeight": 44
+            },
+            "rawWidth": 44,
+            "rawHeight": 22,
+            "width": 50,
+            "height": 28,
+            "originalPath": "D:/AGame/TaFang/library/imports/69/69388f63-20c4-4d8e-b0e8-4e490635510f.png",
+            "x": 1650,
+            "y": 200,
+            "rotated": true,
+            "rotatedWidth": 28,
+            "rotatedHeight": 50
+          },
+          {
+            "name": "bg_xuetiao@2x",
+            "uuid": "520f2584-e2b0-4a10-b3de-4e609109f40b",
+            "textureUuid": "ddf44701-c2e6-4855-8620-f57094714c51",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_19.png",
+            "trim": {
+              "x": 1653,
+              "y": 253,
+              "width": 10,
+              "height": 10,
+              "rotatedWidth": 10,
+              "rotatedHeight": 10
+            },
+            "rawWidth": 10,
+            "rawHeight": 10,
+            "width": 16,
+            "height": 16,
+            "originalPath": "D:/AGame/TaFang/library/imports/dd/ddf44701-c2e6-4855-8620-f57094714c51.png",
+            "x": 1650,
+            "y": 250,
+            "rotatedWidth": 16,
+            "rotatedHeight": 16
+          },
+          {
+            "name": "img_dzp_jindufenge@2x",
+            "uuid": "c642126d-d14c-487b-a219-d4777dd572c3",
+            "textureUuid": "b5ec5d96-8cf7-44f5-bb2e-cd007e2e440d",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_54.png",
+            "trim": {
+              "x": 1669,
+              "y": 253,
+              "width": 4,
+              "height": 28,
+              "rotatedWidth": 4,
+              "rotatedHeight": 28
+            },
+            "rawWidth": 6,
+            "rawHeight": 28,
+            "width": 10,
+            "height": 34,
+            "originalPath": "D:/AGame/TaFang/library/imports/b5/b5ec5d96-8cf7-44f5-bb2e-cd007e2e440d.png",
+            "x": 1666,
+            "y": 250,
+            "rotatedWidth": 10,
+            "rotatedHeight": 34
+          },
+          {
+            "name": "img_xtjindu@2x",
+            "uuid": "2e0b22a1-14bd-4704-9aba-51824e356ae9",
+            "textureUuid": "2dc51860-1792-4911-be74-fe5d0d2cebdf",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_12.png",
+            "trim": {
+              "x": 1653,
+              "y": 269,
+              "width": 8,
+              "height": 8,
+              "rotatedWidth": 8,
+              "rotatedHeight": 8
+            },
+            "rawWidth": 10,
+            "rawHeight": 10,
+            "width": 14,
+            "height": 14,
+            "originalPath": "D:/AGame/TaFang/library/imports/2d/2dc51860-1792-4911-be74-fe5d0d2cebdf.png",
+            "x": 1650,
+            "y": 266,
+            "rotatedWidth": 14,
+            "rotatedHeight": 14
+          },
+          {
+            "name": "GodWheel_deng2",
+            "uuid": "bc5a6442-5f6a-41c2-b4fe-932352ccb6d4",
+            "textureUuid": "9ce20cec-5cad-408d-887a-b5a6c6fb586d",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944263_image_51.png",
+            "trim": {
+              "x": 3,
+              "y": 207,
+              "width": 622,
+              "height": 606,
+              "rotatedWidth": 622,
+              "rotatedHeight": 606
+            },
+            "rawWidth": 624,
+            "rawHeight": 624,
+            "width": 628,
+            "height": 612,
+            "originalPath": "D:/AGame/TaFang/library/imports/9c/9ce20cec-5cad-408d-887a-b5a6c6fb586d.png",
+            "x": 0,
+            "y": 204,
+            "rotatedWidth": 628,
+            "rotatedHeight": 612
+          },
+          {
+            "name": "img_fh_jindubg",
+            "uuid": "55dc784c-f80a-4ebf-85ce-2f539d90e204",
+            "textureUuid": "048f0c1d-2f9f-4ed7-bd18-45ace7830610",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_21.png",
+            "trim": {
+              "x": 631,
+              "y": 207,
+              "width": 44,
+              "height": 28,
+              "rotatedWidth": 44,
+              "rotatedHeight": 28
+            },
+            "rawWidth": 46,
+            "rawHeight": 30,
+            "width": 50,
+            "height": 34,
+            "originalPath": "D:/AGame/TaFang/library/imports/04/048f0c1d-2f9f-4ed7-bd18-45ace7830610.png",
+            "x": 628,
+            "y": 204,
+            "rotatedWidth": 50,
+            "rotatedHeight": 34
+          },
+          {
+            "name": "img_guaishou@2x",
+            "uuid": "951e9eb8-ce1e-4023-ac48-a82b17bdd235",
+            "textureUuid": "8e797754-446b-4ec8-84e4-df56ba657920",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_38.png",
+            "trim": {
+              "x": 631,
+              "y": 241,
+              "width": 144,
+              "height": 40,
+              "rotatedWidth": 40,
+              "rotatedHeight": 144
+            },
+            "rawWidth": 144,
+            "rawHeight": 40,
+            "width": 150,
+            "height": 46,
+            "originalPath": "D:/AGame/TaFang/library/imports/8e/8e797754-446b-4ec8-84e4-df56ba657920.png",
+            "x": 628,
+            "y": 238,
+            "rotated": true,
+            "rotatedWidth": 46,
+            "rotatedHeight": 150
+          },
+          {
+            "name": "img_dzp_jindubg@2x",
+            "uuid": "ab8dbff9-6168-4a86-bd55-775552ba8f79",
+            "textureUuid": "cbddd93f-1693-49a4-befe-676eed6f47d8",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_43.png",
+            "trim": {
+              "x": 631,
+              "y": 391,
+              "width": 62,
+              "height": 40,
+              "rotatedWidth": 40,
+              "rotatedHeight": 62
+            },
+            "rawWidth": 62,
+            "rawHeight": 40,
+            "width": 68,
+            "height": 46,
+            "originalPath": "D:/AGame/TaFang/library/imports/cb/cbddd93f-1693-49a4-befe-676eed6f47d8.png",
+            "x": 628,
+            "y": 388,
+            "rotated": true,
+            "rotatedWidth": 46,
+            "rotatedHeight": 68
+          },
+          {
+            "name": "gameKingPao_noRed",
+            "uuid": "acca3d0f-569c-45e2-af1a-c8eda4da545f",
+            "textureUuid": "22a9ae74-bb2a-4ce5-9be3-16c8c01f60db",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944263_image_44.png",
+            "trim": {
+              "x": 631,
+              "y": 459,
+              "width": 96,
+              "height": 38,
+              "rotatedWidth": 38,
+              "rotatedHeight": 96
+            },
+            "rawWidth": 118,
+            "rawHeight": 52,
+            "width": 102,
+            "height": 44,
+            "originalPath": "D:/AGame/TaFang/library/imports/22/22a9ae74-bb2a-4ce5-9be3-16c8c01f60db.png",
+            "x": 628,
+            "y": 456,
+            "rotated": true,
+            "rotatedWidth": 44,
+            "rotatedHeight": 102
+          },
+          {
+            "name": "bg_shouyi_jindu@2x",
+            "uuid": "e59e3450-9593-482a-b6ea-8d7012b42288",
+            "textureUuid": "5b05832c-3563-41e3-8513-2822c24ac123",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_68.png",
+            "trim": {
+              "x": 631,
+              "y": 561,
+              "width": 454,
+              "height": 36,
+              "rotatedWidth": 36,
+              "rotatedHeight": 454
+            },
+            "rawWidth": 454,
+            "rawHeight": 36,
+            "width": 460,
+            "height": 42,
+            "originalPath": "D:/AGame/TaFang/library/imports/5b/5b05832c-3563-41e3-8513-2822c24ac123.png",
+            "x": 628,
+            "y": 558,
+            "rotated": true,
+            "rotatedWidth": 42,
+            "rotatedHeight": 460
+          },
+          {
+            "name": "GodWheel_zhuanPan",
+            "uuid": "c43cb291-6a26-4e1f-97ed-279f05165730",
+            "textureUuid": "da35b36a-a1b4-488d-97dd-d21e4d1bb317",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_53.png",
+            "trim": {
+              "x": 3,
+              "y": 819,
+              "width": 600,
+              "height": 600,
+              "rotatedWidth": 600,
+              "rotatedHeight": 600
+            },
+            "rawWidth": 600,
+            "rawHeight": 600,
+            "width": 606,
+            "height": 606,
+            "originalPath": "D:/AGame/TaFang/library/imports/da/da35b36a-a1b4-488d-97dd-d21e4d1bb317.png",
+            "x": 0,
+            "y": 816,
+            "rotatedWidth": 606,
+            "rotatedHeight": 606
+          },
+          {
+            "name": "title",
+            "uuid": "35f78694-475e-4e09-806b-00aad637ad00",
+            "textureUuid": "cfd7b023-27e5-4c0f-ba9d-bb36c5fa8008",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_14.png",
+            "trim": {
+              "x": 3,
+              "y": 1425,
+              "width": 574,
+              "height": 452,
+              "rotatedWidth": 452,
+              "rotatedHeight": 574
+            },
+            "rawWidth": 578,
+            "rawHeight": 484,
+            "width": 580,
+            "height": 458,
+            "originalPath": "D:/AGame/TaFang/library/imports/cf/cfd7b023-27e5-4c0f-ba9d-bb36c5fa8008.png",
+            "x": 0,
+            "y": 1422,
+            "rotated": true,
+            "rotatedWidth": 458,
+            "rotatedHeight": 580
+          },
+          {
+            "name": "img_lv@2x",
+            "uuid": "3f2f7404-eec8-4607-9833-887d256a9d68",
+            "textureUuid": "7ac69efa-c38c-460d-930a-3fe63b132e20",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_16.png",
+            "trim": {
+              "x": 3,
+              "y": 2005,
+              "width": 36,
+              "height": 30,
+              "rotatedWidth": 30,
+              "rotatedHeight": 36
+            },
+            "rawWidth": 36,
+            "rawHeight": 32,
+            "width": 42,
+            "height": 36,
+            "originalPath": "D:/AGame/TaFang/library/imports/7a/7ac69efa-c38c-460d-930a-3fe63b132e20.png",
+            "x": 0,
+            "y": 2002,
+            "rotated": true,
+            "rotatedWidth": 36,
+            "rotatedHeight": 42
+          },
+          {
+            "name": "bg_shouyi_shuoming@2x",
+            "uuid": "3784b933-0499-458d-b2d5-1992b356447a",
+            "textureUuid": "bbb9903c-2440-435d-a4c3-7d58324c7fc3",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_15.png",
+            "trim": {
+              "x": 39,
+              "y": 2005,
+              "width": 168,
+              "height": 34,
+              "rotatedWidth": 168,
+              "rotatedHeight": 34
+            },
+            "rawWidth": 168,
+            "rawHeight": 34,
+            "width": 174,
+            "height": 40,
+            "originalPath": "D:/AGame/TaFang/library/imports/bb/bbb9903c-2440-435d-a4c3-7d58324c7fc3.png",
+            "x": 36,
+            "y": 2002,
+            "rotatedWidth": 174,
+            "rotatedHeight": 40
+          },
+          {
+            "name": "txt_lingxianjin@2x",
+            "uuid": "9d08d5cc-53aa-426a-9894-3e1bb48c64d4",
+            "textureUuid": "fd7ee595-d522-4b0d-95a8-f014816a281d",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_39.png",
+            "trim": {
+              "x": 213,
+              "y": 2005,
+              "width": 94,
+              "height": 34,
+              "rotatedWidth": 94,
+              "rotatedHeight": 34
+            },
+            "rawWidth": 98,
+            "rawHeight": 34,
+            "width": 100,
+            "height": 40,
+            "originalPath": "D:/AGame/TaFang/library/imports/fd/fd7ee595-d522-4b0d-95a8-f014816a281d.png",
+            "x": 210,
+            "y": 2002,
+            "rotatedWidth": 100,
+            "rotatedHeight": 40
+          },
+          {
+            "name": "txt_kelingqu",
+            "uuid": "add3b903-964f-4778-8480-39e06c0a7ee6",
+            "textureUuid": "696bc7a3-ad50-4d33-bb13-8ac9520875c7",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944263_image_45.png",
+            "trim": {
+              "x": 313,
+              "y": 2005,
+              "width": 82,
+              "height": 32,
+              "rotatedWidth": 82,
+              "rotatedHeight": 32
+            },
+            "rawWidth": 82,
+            "rawHeight": 34,
+            "width": 88,
+            "height": 38,
+            "originalPath": "D:/AGame/TaFang/library/imports/69/696bc7a3-ad50-4d33-bb13-8ac9520875c7.png",
+            "x": 310,
+            "y": 2002,
+            "rotatedWidth": 88,
+            "rotatedHeight": 38
+          },
+          {
+            "name": "img_dzp_jindutiao@2x",
+            "uuid": "c843b160-88b1-4499-a354-ce8e4b65dd2b",
+            "textureUuid": "772365f1-b4c0-4eeb-a09e-b68087aca755",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_55.png",
+            "trim": {
+              "x": 401,
+              "y": 2005,
+              "width": 80,
+              "height": 28,
+              "rotatedWidth": 80,
+              "rotatedHeight": 28
+            },
+            "rawWidth": 80,
+            "rawHeight": 28,
+            "width": 86,
+            "height": 34,
+            "originalPath": "D:/AGame/TaFang/library/imports/77/772365f1-b4c0-4eeb-a09e-b68087aca755.png",
+            "x": 398,
+            "y": 2002,
+            "rotatedWidth": 86,
+            "rotatedHeight": 34
+          },
+          {
+            "name": "bg",
+            "uuid": "2ba89c02-ef06-416b-a774-f4a6850bca4f",
+            "textureUuid": "977fed1e-cdcd-42b5-8424-da0a639bccc2",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_10.png",
+            "trim": {
+              "x": 461,
+              "y": 1425,
+              "width": 532,
+              "height": 188,
+              "rotatedWidth": 188,
+              "rotatedHeight": 532
+            },
+            "rawWidth": 532,
+            "rawHeight": 188,
+            "width": 538,
+            "height": 194,
+            "originalPath": "D:/AGame/TaFang/library/imports/97/977fed1e-cdcd-42b5-8424-da0a639bccc2.png",
+            "x": 458,
+            "y": 1422,
+            "rotated": true,
+            "rotatedWidth": 194,
+            "rotatedHeight": 538
+          },
+          {
+            "name": "icon_floatcoin@2x (1)",
+            "uuid": "f8dd2f8d-a58a-45a3-9f08-2fef3d7ed20c",
+            "textureUuid": "3e0d9dee-aa91-4123-9f80-7d6ffd8c62e2",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944266_image_74.png",
+            "trim": {
+              "x": 487,
+              "y": 1963,
+              "width": 74,
+              "height": 81,
+              "rotatedWidth": 74,
+              "rotatedHeight": 81
+            },
+            "rawWidth": 96,
+            "rawHeight": 96,
+            "width": 80,
+            "height": 87,
+            "originalPath": "D:/AGame/TaFang/library/imports/3e/3e0d9dee-aa91-4123-9f80-7d6ffd8c62e2.png",
+            "x": 484,
+            "y": 1960,
+            "rotatedWidth": 80,
+            "rotatedHeight": 87
+          },
+          {
+            "name": "img_money@2x",
+            "uuid": "9fabcb46-ac86-499a-88c8-9bc6e82abbef",
+            "textureUuid": "4283f0ea-21c7-4705-8860-b8599a1cd162",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_40.png",
+            "trim": {
+              "x": 567,
+              "y": 1963,
+              "width": 78,
+              "height": 74,
+              "rotatedWidth": 74,
+              "rotatedHeight": 78
+            },
+            "rawWidth": 88,
+            "rawHeight": 76,
+            "width": 84,
+            "height": 80,
+            "originalPath": "D:/AGame/TaFang/library/imports/42/4283f0ea-21c7-4705-8860-b8599a1cd162.png",
+            "x": 564,
+            "y": 1960,
+            "rotated": true,
+            "rotatedWidth": 80,
+            "rotatedHeight": 84
+          },
+          {
+            "name": "bg_flbq_wxz",
+            "uuid": "d8287de5-cdae-4304-9cdc-1d3870a780f9",
+            "textureUuid": "aea4f063-e498-4908-ac0d-60335aa660ce",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_63.png",
+            "trim": {
+              "x": 647,
+              "y": 1963,
+              "width": 104,
+              "height": 76,
+              "rotatedWidth": 104,
+              "rotatedHeight": 76
+            },
+            "rawWidth": 104,
+            "rawHeight": 76,
+            "width": 110,
+            "height": 82,
+            "originalPath": "D:/AGame/TaFang/library/imports/ae/aea4f063-e498-4908-ac0d-60335aa660ce.png",
+            "x": 644,
+            "y": 1960,
+            "rotatedWidth": 110,
+            "rotatedHeight": 82
+          },
+          {
+            "name": "txt_unlockpaota@2x (1)",
+            "uuid": "7f122dd3-96fc-40f7-b0e9-fd508de1cfcf",
+            "textureUuid": "142b64b7-515d-42a2-a276-044801e6b09b",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_32.png",
+            "trim": {
+              "x": 1309,
+              "y": 340,
+              "width": 311,
+              "height": 61,
+              "rotatedWidth": 311,
+              "rotatedHeight": 61
+            },
+            "rawWidth": 582,
+            "rawHeight": 164,
+            "width": 317,
+            "height": 67,
+            "originalPath": "D:/AGame/TaFang/library/imports/14/142b64b7-515d-42a2-a276-044801e6b09b.png",
+            "x": 1306,
+            "y": 337,
+            "rotatedWidth": 317,
+            "rotatedHeight": 67
+          },
+          {
+            "name": "imgNoRed",
+            "uuid": "fa0d80e4-12c7-4759-9643-7fd948c62490",
+            "textureUuid": "32bd6518-d1ba-4dfa-8fa1-74d5827685c8",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944266_image_75.png",
+            "trim": {
+              "x": 1626,
+              "y": 340,
+              "width": 118,
+              "height": 50,
+              "rotatedWidth": 50,
+              "rotatedHeight": 118
+            },
+            "rawWidth": 118,
+            "rawHeight": 52,
+            "width": 124,
+            "height": 56,
+            "originalPath": "D:/AGame/TaFang/library/imports/32/32bd6518-d1ba-4dfa-8fa1-74d5827685c8.png",
+            "x": 1623,
+            "y": 337,
+            "rotated": true,
+            "rotatedWidth": 56,
+            "rotatedHeight": 124
+          },
+          {
+            "name": "txt_ewaipaota@2x",
+            "uuid": "7503012d-1641-4b75-9685-1d53a9844581",
+            "textureUuid": "d6f79d2d-14e7-4b28-9666-982ba99df5c7",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_29.png",
+            "trim": {
+              "x": 1309,
+              "y": 407,
+              "width": 307,
+              "height": 60,
+              "rotatedWidth": 307,
+              "rotatedHeight": 60
+            },
+            "rawWidth": 582,
+            "rawHeight": 164,
+            "width": 313,
+            "height": 66,
+            "originalPath": "D:/AGame/TaFang/library/imports/d6/d6f79d2d-14e7-4b28-9666-982ba99df5c7.png",
+            "x": 1306,
+            "y": 404,
+            "rotatedWidth": 313,
+            "rotatedHeight": 66
+          },
+          {
+            "name": "img_5yuan",
+            "uuid": "b85c52cb-ed85-4fa0-8559-0cfa820e3ad3",
+            "textureUuid": "548f3cd6-0100-4427-8b2c-fae9d994bca3",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944263_image_49.png",
+            "trim": {
+              "x": 1622,
+              "y": 464,
+              "width": 162,
+              "height": 51,
+              "rotatedWidth": 51,
+              "rotatedHeight": 162
+            },
+            "rawWidth": 164,
+            "rawHeight": 70,
+            "width": 168,
+            "height": 57,
+            "originalPath": "D:/AGame/TaFang/library/imports/54/548f3cd6-0100-4427-8b2c-fae9d994bca3.png",
+            "x": 1619,
+            "y": 461,
+            "rotated": true,
+            "rotatedWidth": 57,
+            "rotatedHeight": 168
+          },
+          {
+            "name": "txt_finishgoal",
+            "uuid": "1fc18deb-4ed4-4fa8-832f-41f4210039f1",
+            "textureUuid": "0de86d56-892f-423a-9b9d-abfaa16467db",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_8.png",
+            "trim": {
+              "x": 1309,
+              "y": 473,
+              "width": 305,
+              "height": 62,
+              "rotatedWidth": 305,
+              "rotatedHeight": 62
+            },
+            "rawWidth": 582,
+            "rawHeight": 164,
+            "width": 311,
+            "height": 68,
+            "originalPath": "D:/AGame/TaFang/library/imports/0d/0de86d56-892f-423a-9b9d-abfaa16467db.png",
+            "x": 1306,
+            "y": 470,
+            "rotatedWidth": 311,
+            "rotatedHeight": 68
+          },
+          {
+            "name": "txt_fulishipin",
+            "uuid": "756d3c3a-caac-4cef-81a7-0315a187d5a9",
+            "textureUuid": "820a8720-4b93-4c1b-80ec-92cba4dd321f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_31.png",
+            "trim": {
+              "x": 1309,
+              "y": 541,
+              "width": 305,
+              "height": 61,
+              "rotatedWidth": 305,
+              "rotatedHeight": 61
+            },
+            "rawWidth": 582,
+            "rawHeight": 164,
+            "width": 311,
+            "height": 67,
+            "originalPath": "D:/AGame/TaFang/library/imports/82/820a8720-4b93-4c1b-80ec-92cba4dd321f.png",
+            "x": 1306,
+            "y": 538,
+            "rotatedWidth": 311,
+            "rotatedHeight": 67
+          },
+          {
+            "name": "txt_fulihongbao",
+            "uuid": "8ac0c0b8-fa38-4ade-8e9a-c04a65048293",
+            "textureUuid": "c0fb2117-a167-4dc1-913e-e5a50735f3b7",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_37.png",
+            "trim": {
+              "x": 1309,
+              "y": 608,
+              "width": 305,
+              "height": 61,
+              "rotatedWidth": 305,
+              "rotatedHeight": 61
+            },
+            "rawWidth": 582,
+            "rawHeight": 164,
+            "width": 311,
+            "height": 67,
+            "originalPath": "D:/AGame/TaFang/library/imports/c0/c0fb2117-a167-4dc1-913e-e5a50735f3b7.png",
+            "x": 1306,
+            "y": 605,
+            "rotatedWidth": 311,
+            "rotatedHeight": 67
+          },
+          {
+            "name": "txt_shouyix2@2x",
+            "uuid": "84dc553e-77ba-419c-8e43-a28cfec6e2f0",
+            "textureUuid": "159f7b0a-908b-44c9-ad4a-deef694eecdd",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_33.png",
+            "trim": {
+              "x": 1620,
+              "y": 632,
+              "width": 158,
+              "height": 56,
+              "rotatedWidth": 56,
+              "rotatedHeight": 158
+            },
+            "rawWidth": 160,
+            "rawHeight": 68,
+            "width": 164,
+            "height": 62,
+            "originalPath": "D:/AGame/TaFang/library/imports/15/159f7b0a-908b-44c9-ad4a-deef694eecdd.png",
+            "x": 1617,
+            "y": 629,
+            "rotated": true,
+            "rotatedWidth": 62,
+            "rotatedHeight": 164
+          },
+          {
+            "name": "GodWheel_beiJing",
+            "uuid": "a1072739-b37d-4fbf-8007-c42bde45d9c6",
+            "textureUuid": "e037175e-d2b3-494e-a6b5-a6f08ddfca5f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_41.png",
+            "trim": {
+              "x": 757,
+              "y": 617,
+              "width": 517,
+              "height": 518,
+              "rotatedWidth": 518,
+              "rotatedHeight": 517
+            },
+            "rawWidth": 636,
+            "rawHeight": 638,
+            "width": 523,
+            "height": 524,
+            "originalPath": "D:/AGame/TaFang/library/imports/e0/e037175e-d2b3-494e-a6b5-a6f08ddfca5f.png",
+            "x": 754,
+            "y": 614,
+            "rotated": true,
+            "rotatedWidth": 524,
+            "rotatedHeight": 523
+          },
+          {
+            "name": "img_fh_pmd",
+            "uuid": "c3ba5cae-b805-434b-b89b-681d4ee8d4f8",
+            "textureUuid": "5b1d0913-2bff-4e6a-b947-19b8795c306f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944263_image_52.png",
+            "trim": {
+              "x": 655,
+              "y": 1021,
+              "width": 96,
+              "height": 60,
+              "rotatedWidth": 96,
+              "rotatedHeight": 60
+            },
+            "rawWidth": 96,
+            "rawHeight": 60,
+            "width": 102,
+            "height": 66,
+            "originalPath": "D:/AGame/TaFang/library/imports/5b/5b1d0913-2bff-4e6a-b947-19b8795c306f.png",
+            "x": 652,
+            "y": 1018,
+            "rotatedWidth": 102,
+            "rotatedHeight": 66
+          },
+          {
+            "name": "img_gongji@2x",
+            "uuid": "b5d0c021-f44e-47f5-8b89-afcdca3f79d9",
+            "textureUuid": "4ce2f7a0-e46c-4476-9487-8217c785b324",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944263_image_48.png",
+            "trim": {
+              "x": 655,
+              "y": 1087,
+              "width": 96,
+              "height": 45,
+              "rotatedWidth": 96,
+              "rotatedHeight": 45
+            },
+            "rawWidth": 96,
+            "rawHeight": 46,
+            "width": 102,
+            "height": 51,
+            "originalPath": "D:/AGame/TaFang/library/imports/4c/4ce2f7a0-e46c-4476-9487-8217c785b324.png",
+            "x": 652,
+            "y": 1084,
+            "rotatedWidth": 102,
+            "rotatedHeight": 51
+          },
+          {
+            "name": "oval2",
+            "uuid": "d6f92e60-4b3f-4534-a843-1c4444a28c3b",
+            "textureUuid": "7e203a80-4e71-46e0-a32a-1b60a4e26311",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_62.png",
+            "trim": {
+              "x": 609,
+              "y": 1138,
+              "width": 140,
+              "height": 140,
+              "rotatedWidth": 140,
+              "rotatedHeight": 140
+            },
+            "rawWidth": 140,
+            "rawHeight": 140,
+            "width": 146,
+            "height": 146,
+            "originalPath": "D:/AGame/TaFang/library/imports/7e/7e203a80-4e71-46e0-a32a-1b60a4e26311.png",
+            "x": 606,
+            "y": 1135,
+            "rotatedWidth": 146,
+            "rotatedHeight": 146
+          },
+          {
+            "name": "bg_shouyi_time@2x(1)",
+            "uuid": "0a980f31-e707-402f-a34a-338c7fd37a9b",
+            "textureUuid": "9131e8bb-de7f-41db-8345-dcb6f1fc4bdd",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944260_image_3.png",
+            "trim": {
+              "x": 673,
+              "y": 617,
+              "width": 76,
+              "height": 48,
+              "rotatedWidth": 76,
+              "rotatedHeight": 48
+            },
+            "rawWidth": 76,
+            "rawHeight": 48,
+            "width": 82,
+            "height": 54,
+            "originalPath": "D:/AGame/TaFang/library/imports/91/9131e8bb-de7f-41db-8345-dcb6f1fc4bdd.png",
+            "x": 670,
+            "y": 614,
+            "rotatedWidth": 82,
+            "rotatedHeight": 54
+          },
+          {
+            "name": "bg_shouyi_time@2x",
+            "uuid": "e7fba493-967e-4d2b-977e-251f820cc04b",
+            "textureUuid": "1d0b7edc-e248-4196-92e1-908136f1e1ff",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_69.png",
+            "trim": {
+              "x": 673,
+              "y": 671,
+              "width": 76,
+              "height": 48,
+              "rotatedWidth": 76,
+              "rotatedHeight": 48
+            },
+            "rawWidth": 76,
+            "rawHeight": 48,
+            "width": 82,
+            "height": 54,
+            "originalPath": "D:/AGame/TaFang/library/imports/1d/1d0b7edc-e248-4196-92e1-908136f1e1ff.png",
+            "x": 670,
+            "y": 668,
+            "rotatedWidth": 82,
+            "rotatedHeight": 54
+          },
+          {
+            "name": "hongbao@2x",
+            "uuid": "563d6ba8-2a2c-44a4-8346-d61683728a88",
+            "textureUuid": "f466a781-aa74-4600-b517-786eaadb7738",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_22.png",
+            "trim": {
+              "x": 609,
+              "y": 1284,
+              "width": 103,
+              "height": 130,
+              "rotatedWidth": 103,
+              "rotatedHeight": 130
+            },
+            "rawWidth": 104,
+            "rawHeight": 130,
+            "width": 109,
+            "height": 136,
+            "originalPath": "D:/AGame/TaFang/library/imports/f4/f466a781-aa74-4600-b517-786eaadb7738.png",
+            "x": 606,
+            "y": 1281,
+            "rotatedWidth": 109,
+            "rotatedHeight": 136
+          },
+          {
+            "name": "img_hole@2x",
+            "uuid": "b9265c8b-c408-4660-90d0-b2dba8ff5f4f",
+            "textureUuid": "c99d57b3-a6f0-4e65-96f7-b2136058384c",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944263_image_50.png",
+            "trim": {
+              "x": 673,
+              "y": 725,
+              "width": 84,
+              "height": 72,
+              "rotatedWidth": 72,
+              "rotatedHeight": 84
+            },
+            "rawWidth": 98,
+            "rawHeight": 98,
+            "width": 90,
+            "height": 78,
+            "originalPath": "D:/AGame/TaFang/library/imports/c9/c99d57b3-a6f0-4e65-96f7-b2136058384c.png",
+            "x": 670,
+            "y": 722,
+            "rotated": true,
+            "rotatedWidth": 78,
+            "rotatedHeight": 90
+          },
+          {
+            "name": "level",
+            "uuid": "d6b67269-8dc6-4719-91d4-ecec6b1fa83d",
+            "textureUuid": "f40f76f7-a9ed-4459-a877-d1a8f32af01f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_61.png",
+            "trim": {
+              "x": 673,
+              "y": 815,
+              "width": 197,
+              "height": 65,
+              "rotatedWidth": 65,
+              "rotatedHeight": 197
+            },
+            "rawWidth": 200,
+            "rawHeight": 68,
+            "width": 203,
+            "height": 71,
+            "originalPath": "D:/AGame/TaFang/library/imports/f4/f40f76f7-a9ed-4459-a877-d1a8f32af01f.png",
+            "x": 670,
+            "y": 812,
+            "rotated": true,
+            "rotatedWidth": 71,
+            "rotatedHeight": 203
+          },
+          {
+            "name": "close",
+            "uuid": "a3e15d56-0b72-4bd5-a1db-ed6a64d4c537",
+            "textureUuid": "fd2a3b4a-e961-4d6f-af89-1c1357402437",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_42.png",
+            "trim": {
+              "x": 609,
+              "y": 1021,
+              "width": 26,
+              "height": 26,
+              "rotatedWidth": 26,
+              "rotatedHeight": 26
+            },
+            "rawWidth": 58,
+            "rawHeight": 56,
+            "width": 32,
+            "height": 32,
+            "originalPath": "D:/AGame/TaFang/library/imports/fd/fd2a3b4a-e961-4d6f-af89-1c1357402437.png",
+            "x": 606,
+            "y": 1018,
+            "rotatedWidth": 32,
+            "rotatedHeight": 32
+          },
+          {
+            "name": "img_shouyi_dot@2x",
+            "uuid": "88517192-682a-4c13-8d2b-694d4a3af604",
+            "textureUuid": "9ef3859d-82e9-4b3b-ad6b-4509be613664",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_36.png",
+            "trim": {
+              "x": 609,
+              "y": 1053,
+              "width": 24,
+              "height": 24,
+              "rotatedWidth": 24,
+              "rotatedHeight": 24
+            },
+            "rawWidth": 24,
+            "rawHeight": 24,
+            "width": 30,
+            "height": 30,
+            "originalPath": "D:/AGame/TaFang/library/imports/9e/9ef3859d-82e9-4b3b-ad6b-4509be613664.png",
+            "x": 606,
+            "y": 1050,
+            "rotatedWidth": 30,
+            "rotatedHeight": 30
+          },
+          {
+            "name": "dialog_title_gongxi",
+            "uuid": "68994047-8c13-4dcb-bf06-8d5b91dd27f5",
+            "textureUuid": "69943a26-b3d1-44d7-81e6-2cc0b1257498",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_27.png",
+            "trim": {
+              "x": 655,
+              "y": 1420,
+              "width": 514,
+              "height": 179,
+              "rotatedWidth": 179,
+              "rotatedHeight": 514
+            },
+            "rawWidth": 556,
+            "rawHeight": 188,
+            "width": 520,
+            "height": 185,
+            "originalPath": "D:/AGame/TaFang/library/imports/69/69943a26-b3d1-44d7-81e6-2cc0b1257498.png",
+            "x": 652,
+            "y": 1417,
+            "rotated": true,
+            "rotatedWidth": 185,
+            "rotatedHeight": 520
+          },
+          {
+            "name": "img_dizuo_nor@2x (1)",
+            "uuid": "2cc5302b-5bbe-4112-b541-4b22bed0c9da",
+            "textureUuid": "dfe668b4-3db5-4551-81f4-8de2827fc82c",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_11.png",
+            "trim": {
+              "x": 757,
+              "y": 1940,
+              "width": 98,
+              "height": 105,
+              "rotatedWidth": 98,
+              "rotatedHeight": 105
+            },
+            "rawWidth": 112,
+            "rawHeight": 112,
+            "width": 104,
+            "height": 111,
+            "originalPath": "D:/AGame/TaFang/library/imports/df/dfe668b4-3db5-4551-81f4-8de2827fc82c.png",
+            "x": 754,
+            "y": 1937,
+            "rotatedWidth": 104,
+            "rotatedHeight": 111
+          },
+          {
+            "name": "gameNewPlayerTask_titleGold",
+            "uuid": "17c7363d-f7f7-4b5e-9092-eefc55542663",
+            "textureUuid": "8f7d2894-e7ca-4524-b69d-a8ef67432fe8",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_6.png",
+            "trim": {
+              "x": 755,
+              "y": 1140,
+              "width": 455,
+              "height": 272,
+              "rotatedWidth": 455,
+              "rotatedHeight": 272
+            },
+            "rawWidth": 506,
+            "rawHeight": 484,
+            "width": 461,
+            "height": 278,
+            "originalPath": "D:/AGame/TaFang/library/imports/8f/8f7d2894-e7ca-4524-b69d-a8ef67432fe8.png",
+            "x": 752,
+            "y": 1137,
+            "rotatedWidth": 461,
+            "rotatedHeight": 278
+          },
+          {
+            "name": "bg1",
+            "uuid": "fb035d00-ab94-4b66-ac79-867b93b3b12d",
+            "textureUuid": "2918d61a-b3bb-462d-9720-d9af8954b68c",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944266_image_76.png",
+            "trim": {
+              "x": 1216,
+              "y": 1140,
+              "width": 455,
+              "height": 261,
+              "rotatedWidth": 455,
+              "rotatedHeight": 261
+            },
+            "rawWidth": 506,
+            "rawHeight": 484,
+            "width": 461,
+            "height": 267,
+            "originalPath": "D:/AGame/TaFang/library/imports/29/2918d61a-b3bb-462d-9720-d9af8954b68c.png",
+            "x": 1213,
+            "y": 1137,
+            "rotatedWidth": 461,
+            "rotatedHeight": 267
+          },
+          {
+            "name": "title@2x",
+            "uuid": "d05a7a20-f4e7-452c-95f1-792c389a52a6",
+            "textureUuid": "115c0c86-a886-4c41-82a7-0cae915c9c4b",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_57.png",
+            "trim": {
+              "x": 840,
+              "y": 1418,
+              "width": 503,
+              "height": 140,
+              "rotatedWidth": 140,
+              "rotatedHeight": 503
+            },
+            "rawWidth": 582,
+            "rawHeight": 166,
+            "width": 509,
+            "height": 146,
+            "originalPath": "D:/AGame/TaFang/library/imports/11/115c0c86-a886-4c41-82a7-0cae915c9c4b.png",
+            "x": 837,
+            "y": 1415,
+            "rotated": true,
+            "rotatedWidth": 146,
+            "rotatedHeight": 509
+          },
+          {
+            "name": "icon_floathongbao@2x",
+            "uuid": "d3ebee22-fccf-4de9-8115-7116bae5d5b7",
+            "textureUuid": "c926a9c7-c97a-4b3f-9d66-99d13b9ee04f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_60.png",
+            "trim": {
+              "x": 861,
+              "y": 1927,
+              "width": 126,
+              "height": 113,
+              "rotatedWidth": 126,
+              "rotatedHeight": 113
+            },
+            "rawWidth": 128,
+            "rawHeight": 128,
+            "width": 132,
+            "height": 119,
+            "originalPath": "D:/AGame/TaFang/library/imports/c9/c926a9c7-c97a-4b3f-9d66-99d13b9ee04f.png",
+            "x": 858,
+            "y": 1924,
+            "rotatedWidth": 132,
+            "rotatedHeight": 119
+          },
+          {
+            "name": "bg_title@2x",
+            "uuid": "cd745634-2843-474b-8dce-c1975e1db3c3",
+            "textureUuid": "e70d68bf-1b17-4c4d-8097-d4f94354061e",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_56.png",
+            "trim": {
+              "x": 1281,
+              "y": 675,
+              "width": 296,
+              "height": 98,
+              "rotatedWidth": 296,
+              "rotatedHeight": 98
+            },
+            "rawWidth": 298,
+            "rawHeight": 98,
+            "width": 302,
+            "height": 104,
+            "originalPath": "D:/AGame/TaFang/library/imports/e7/e70d68bf-1b17-4c4d-8097-d4f94354061e.png",
+            "x": 1278,
+            "y": 672,
+            "rotatedWidth": 302,
+            "rotatedHeight": 104
+          },
+          {
+            "name": "img_shouyi_jinbidui@2x",
+            "uuid": "b0e85abd-3d92-48a0-b707-12249bdd1f77",
+            "textureUuid": "df47687c-27ad-465c-b8b2-2f6d4805af52",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944263_image_46.png",
+            "trim": {
+              "x": 1281,
+              "y": 779,
+              "width": 284,
+              "height": 210,
+              "rotatedWidth": 284,
+              "rotatedHeight": 210
+            },
+            "rawWidth": 296,
+            "rawHeight": 212,
+            "width": 290,
+            "height": 216,
+            "originalPath": "D:/AGame/TaFang/library/imports/df/df47687c-27ad-465c-b8b2-2f6d4805af52.png",
+            "x": 1278,
+            "y": 776,
+            "rotatedWidth": 290,
+            "rotatedHeight": 216
+          },
+          {
+            "name": "hand",
+            "uuid": "164ab7b9-9b70-46d3-ace4-4a22ece48e53",
+            "textureUuid": "579a95c7-3031-48f9-8e30-569340060628",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_4.png",
+            "trim": {
+              "x": 1281,
+              "y": 995,
+              "width": 139,
+              "height": 140,
+              "rotatedWidth": 140,
+              "rotatedHeight": 139
+            },
+            "rawWidth": 164,
+            "rawHeight": 170,
+            "width": 145,
+            "height": 146,
+            "originalPath": "D:/AGame/TaFang/library/imports/57/579a95c7-3031-48f9-8e30-569340060628.png",
+            "x": 1278,
+            "y": 992,
+            "rotated": true,
+            "rotatedWidth": 146,
+            "rotatedHeight": 145
+          },
+          {
+            "name": "img_hebingtip",
+            "uuid": "fbee5d9e-4dd4-4fe1-82ab-96b824d13daf",
+            "textureUuid": "5cd7cc42-889b-431a-aaf6-58c0abe91e01",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944266_image_77.png",
+            "trim": {
+              "x": 1427,
+              "y": 995,
+              "width": 138,
+              "height": 139,
+              "rotatedWidth": 138,
+              "rotatedHeight": 139
+            },
+            "rawWidth": 140,
+            "rawHeight": 140,
+            "width": 144,
+            "height": 145,
+            "originalPath": "D:/AGame/TaFang/library/imports/5c/5cd7cc42-889b-431a-aaf6-58c0abe91e01.png",
+            "x": 1424,
+            "y": 992,
+            "rotatedWidth": 144,
+            "rotatedHeight": 145
+          },
+          {
+            "name": "icon_fenhong_paowang",
+            "uuid": "5ba831ec-db1d-413f-824c-30efeec140f8",
+            "textureUuid": "1ca4633a-755c-4df5-a6f3-c1d8632446d3",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_23.png",
+            "trim": {
+              "x": 1571,
+              "y": 796,
+              "width": 104,
+              "height": 104,
+              "rotatedWidth": 104,
+              "rotatedHeight": 104
+            },
+            "rawWidth": 104,
+            "rawHeight": 104,
+            "width": 110,
+            "height": 110,
+            "originalPath": "D:/AGame/TaFang/library/imports/1c/1ca4633a-755c-4df5-a6f3-c1d8632446d3.png",
+            "x": 1568,
+            "y": 793,
+            "rotatedWidth": 110,
+            "rotatedHeight": 110
+          },
+          {
+            "name": "bg_flbq_xz",
+            "uuid": "dee4dd83-98f8-41f1-a4cc-f15d2ab63dfe",
+            "textureUuid": "7f0d4b55-d01e-47c1-82d6-aa83cbb6815f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_66.png",
+            "trim": {
+              "x": 1571,
+              "y": 906,
+              "width": 104,
+              "height": 98,
+              "rotatedWidth": 104,
+              "rotatedHeight": 98
+            },
+            "rawWidth": 104,
+            "rawHeight": 98,
+            "width": 110,
+            "height": 104,
+            "originalPath": "D:/AGame/TaFang/library/imports/7f/7f0d4b55-d01e-47c1-82d6-aa83cbb6815f.png",
+            "x": 1568,
+            "y": 903,
+            "rotatedWidth": 110,
+            "rotatedHeight": 104
+          },
+          {
+            "name": "img_dzp_redbg@2x",
+            "uuid": "033ad855-c86a-4ac4-a5df-61ff1acf2c2e",
+            "textureUuid": "e8bb25c1-a964-416a-8533-bd98ab11e447",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944260_image_1.png",
+            "trim": {
+              "x": 1571,
+              "y": 1010,
+              "width": 84,
+              "height": 92,
+              "rotatedWidth": 92,
+              "rotatedHeight": 84
+            },
+            "rawWidth": 84,
+            "rawHeight": 92,
+            "width": 90,
+            "height": 98,
+            "originalPath": "D:/AGame/TaFang/library/imports/e8/e8bb25c1-a964-416a-8533-bd98ab11e447.png",
+            "x": 1568,
+            "y": 1007,
+            "rotated": true,
+            "rotatedWidth": 98,
+            "rotatedHeight": 90
+          },
+          {
+            "name": "img_3hongbao",
+            "uuid": "17720c09-3da7-4555-8810-805ddd971f8e",
+            "textureUuid": "0f630bb3-3e64-4d2e-8b8e-ea7aff791a8a",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_5.png",
+            "trim": {
+              "x": 1216,
+              "y": 1407,
+              "width": 242,
+              "height": 185,
+              "rotatedWidth": 242,
+              "rotatedHeight": 185
+            },
+            "rawWidth": 252,
+            "rawHeight": 208,
+            "width": 248,
+            "height": 191,
+            "originalPath": "D:/AGame/TaFang/library/imports/0f/0f630bb3-3e64-4d2e-8b8e-ea7aff791a8a.png",
+            "x": 1213,
+            "y": 1404,
+            "rotatedWidth": 248,
+            "rotatedHeight": 191
+          },
+          {
+            "name": "bg_tixian_zhi",
+            "uuid": "da4da7ca-7f19-4edc-8e3e-dd872079dca7",
+            "textureUuid": "fec966d5-3b59-444f-8480-98a8809b893f",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_64.png",
+            "trim": {
+              "x": 1464,
+              "y": 1407,
+              "width": 175,
+              "height": 210,
+              "rotatedWidth": 210,
+              "rotatedHeight": 175
+            },
+            "rawWidth": 178,
+            "rawHeight": 212,
+            "width": 181,
+            "height": 216,
+            "originalPath": "D:/AGame/TaFang/library/imports/fe/fec966d5-3b59-444f-8480-98a8809b893f.png",
+            "x": 1461,
+            "y": 1404,
+            "rotated": true,
+            "rotatedWidth": 216,
+            "rotatedHeight": 181
+          },
+          {
+            "name": "icon",
+            "uuid": "85a8ebc3-9e8e-4582-be41-a1597c04711c",
+            "textureUuid": "a4b8c740-5b75-48ec-a866-c438ad9f06c1",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_34.png",
+            "trim": {
+              "x": 1464,
+              "y": 1588,
+              "width": 192,
+              "height": 153,
+              "rotatedWidth": 192,
+              "rotatedHeight": 153
+            },
+            "rawWidth": 250,
+            "rawHeight": 190,
+            "width": 198,
+            "height": 159,
+            "originalPath": "D:/AGame/TaFang/library/imports/a4/a4b8c740-5b75-48ec-a866-c438ad9f06c1.png",
+            "x": 1461,
+            "y": 1585,
+            "rotatedWidth": 198,
+            "rotatedHeight": 159
+          },
+          {
+            "name": "guaishou_2@2x (1)",
+            "uuid": "64ab6b55-d360-4171-b9f3-330f4f65db07",
+            "textureUuid": "ba62cc86-bdad-4308-88bb-f17d2e18e855",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_26.png",
+            "trim": {
+              "x": 986,
+              "y": 1747,
+              "width": 172,
+              "height": 148,
+              "rotatedWidth": 148,
+              "rotatedHeight": 172
+            },
+            "rawWidth": 184,
+            "rawHeight": 194,
+            "width": 178,
+            "height": 154,
+            "originalPath": "D:/AGame/TaFang/library/imports/ba/ba62cc86-bdad-4308-88bb-f17d2e18e855.png",
+            "x": 983,
+            "y": 1744,
+            "rotated": true,
+            "rotatedWidth": 154,
+            "rotatedHeight": 178
+          },
+          {
+            "name": "GodWheel_close",
+            "uuid": "e8df2c05-e48e-474f-b63f-f8ab1366be27",
+            "textureUuid": "32b08bd3-bd5d-4615-9ad1-e5e3b5880ac2",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_71.png",
+            "trim": {
+              "x": 1140,
+              "y": 1418,
+              "width": 72,
+              "height": 70,
+              "rotatedWidth": 70,
+              "rotatedHeight": 72
+            },
+            "rawWidth": 72,
+            "rawHeight": 72,
+            "width": 78,
+            "height": 76,
+            "originalPath": "D:/AGame/TaFang/library/imports/32/32b08bd3-bd5d-4615-9ad1-e5e3b5880ac2.png",
+            "x": 1137,
+            "y": 1415,
+            "rotated": true,
+            "rotatedWidth": 76,
+            "rotatedHeight": 78
+          },
+          {
+            "name": "hongbao",
+            "uuid": "694092fd-2402-406a-b34c-cc294ab81930",
+            "textureUuid": "9a881625-7699-4770-9f59-3ced47df35b4",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_28.png",
+            "trim": {
+              "x": 986,
+              "y": 1418,
+              "width": 184,
+              "height": 147,
+              "rotatedWidth": 147,
+              "rotatedHeight": 184
+            },
+            "rawWidth": 186,
+            "rawHeight": 162,
+            "width": 190,
+            "height": 153,
+            "originalPath": "D:/AGame/TaFang/library/imports/9a/9a881625-7699-4770-9f59-3ced47df35b4.png",
+            "x": 983,
+            "y": 1415,
+            "rotated": true,
+            "rotatedWidth": 153,
+            "rotatedHeight": 190
+          },
+          {
+            "name": "lujing43@2x",
+            "uuid": "e0414a93-378d-47b6-9930-fe48b6ccc82f",
+            "textureUuid": "33a27ce8-8e63-46e0-b17a-c255f040ea27",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_67.png",
+            "trim": {
+              "x": 1139,
+              "y": 1598,
+              "width": 138,
+              "height": 144,
+              "rotatedWidth": 144,
+              "rotatedHeight": 138
+            },
+            "rawWidth": 140,
+            "rawHeight": 146,
+            "width": 144,
+            "height": 150,
+            "originalPath": "D:/AGame/TaFang/library/imports/33/33a27ce8-8e63-46e0-b17a-c255f040ea27.png",
+            "x": 1136,
+            "y": 1595,
+            "rotated": true,
+            "rotatedWidth": 150,
+            "rotatedHeight": 144
+          },
+          {
+            "name": "img_shuijingta@2x",
+            "uuid": "19e568a8-7593-4b1f-8f2c-f3f55351d6ad",
+            "textureUuid": "518e906e-62e8-46df-ba67-2999a22f2a79",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_7.png",
+            "trim": {
+              "x": 986,
+              "y": 1608,
+              "width": 121,
+              "height": 128,
+              "rotatedWidth": 121,
+              "rotatedHeight": 128
+            },
+            "rawWidth": 128,
+            "rawHeight": 130,
+            "width": 127,
+            "height": 134,
+            "originalPath": "D:/AGame/TaFang/library/imports/51/518e906e-62e8-46df-ba67-2999a22f2a79.png",
+            "x": 983,
+            "y": 1605,
+            "rotatedWidth": 127,
+            "rotatedHeight": 134
+          },
+          {
+            "name": "GodWheel_gold",
+            "uuid": "f0ff49f7-7691-475b-beed-abd0c3385d37",
+            "textureUuid": "9ba578f8-4842-4ade-9c7e-00fddda831e9",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_72.png",
+            "trim": {
+              "x": 1139,
+              "y": 1496,
+              "width": 60,
+              "height": 63,
+              "rotatedWidth": 63,
+              "rotatedHeight": 60
+            },
+            "rawWidth": 84,
+            "rawHeight": 84,
+            "width": 66,
+            "height": 69,
+            "originalPath": "D:/AGame/TaFang/library/imports/9b/9ba578f8-4842-4ade-9c7e-00fddda831e9.png",
+            "x": 1136,
+            "y": 1493,
+            "rotated": true,
+            "rotatedWidth": 69,
+            "rotatedHeight": 66
+          },
+          {
+            "name": "monster",
+            "uuid": "0190decc-4365-4a35-8c95-d7415e0b3010",
+            "textureUuid": "357eeb95-a1bf-478e-b016-eb9f02b76197",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944260_image_0.png",
+            "trim": {
+              "x": 1289,
+              "y": 1598,
+              "width": 154,
+              "height": 160,
+              "rotatedWidth": 160,
+              "rotatedHeight": 154
+            },
+            "rawWidth": 154,
+            "rawHeight": 160,
+            "width": 160,
+            "height": 166,
+            "originalPath": "D:/AGame/TaFang/library/imports/35/357eeb95-a1bf-478e-b016-eb9f02b76197.png",
+            "x": 1286,
+            "y": 1595,
+            "rotated": true,
+            "rotatedWidth": 166,
+            "rotatedHeight": 160
+          },
+          {
+            "name": "GodWheel_shuiDi",
+            "uuid": "d3da00c1-6fe1-4f00-84e9-f123fd3fe8b7",
+            "textureUuid": "4580c16a-c1eb-4823-a36d-bf3b441f18fa",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_59.png",
+            "trim": {
+              "x": 993,
+              "y": 1925,
+              "width": 111,
+              "height": 156,
+              "rotatedWidth": 156,
+              "rotatedHeight": 111
+            },
+            "rawWidth": 174,
+            "rawHeight": 174,
+            "width": 117,
+            "height": 162,
+            "originalPath": "D:/AGame/TaFang/library/imports/45/4580c16a-c1eb-4823-a36d-bf3b441f18fa.png",
+            "x": 990,
+            "y": 1922,
+            "rotated": true,
+            "rotatedWidth": 162,
+            "rotatedHeight": 117
+          },
+          {
+            "name": "img_light@2x",
+            "uuid": "5e833260-de73-4990-b120-355038b3b172",
+            "textureUuid": "3944ca62-57aa-4d92-831b-c9a29845e68c",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_25.png",
+            "trim": {
+              "x": 1140,
+              "y": 1758,
+              "width": 156,
+              "height": 155,
+              "rotatedWidth": 155,
+              "rotatedHeight": 156
+            },
+            "rawWidth": 158,
+            "rawHeight": 158,
+            "width": 162,
+            "height": 161,
+            "originalPath": "D:/AGame/TaFang/library/imports/39/3944ca62-57aa-4d92-831b-c9a29845e68c.png",
+            "x": 1137,
+            "y": 1755,
+            "rotated": true,
+            "rotatedWidth": 161,
+            "rotatedHeight": 162
+          },
+          {
+            "name": "zhezhao_yuan@2x",
+            "uuid": "e88548db-d050-4d72-a79e-9100af42677a",
+            "textureUuid": "acb54714-1a90-4602-920a-fcc5c06f8476",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_70.png",
+            "trim": {
+              "x": 1455,
+              "y": 1747,
+              "width": 188,
+              "height": 188,
+              "rotatedWidth": 188,
+              "rotatedHeight": 188
+            },
+            "rawWidth": 188,
+            "rawHeight": 188,
+            "width": 194,
+            "height": 194,
+            "originalPath": "D:/AGame/TaFang/library/imports/ac/acb54714-1a90-4602-920a-fcc5c06f8476.png",
+            "x": 1452,
+            "y": 1744,
+            "rotatedWidth": 194,
+            "rotatedHeight": 194
+          },
+          {
+            "name": "img_fh_liebiao",
+            "uuid": "05b39542-6966-463b-b1ff-9b34433ac599",
+            "textureUuid": "a54f4c04-3e22-49b9-9175-552afb559f3c",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944260_image_2.png",
+            "trim": {
+              "x": 1155,
+              "y": 1941,
+              "width": 88,
+              "height": 88,
+              "rotatedWidth": 88,
+              "rotatedHeight": 88
+            },
+            "rawWidth": 88,
+            "rawHeight": 88,
+            "width": 94,
+            "height": 94,
+            "originalPath": "D:/AGame/TaFang/library/imports/a5/a54f4c04-3e22-49b9-9175-552afb559f3c.png",
+            "x": 1152,
+            "y": 1938,
+            "rotatedWidth": 94,
+            "rotatedHeight": 94
+          },
+          {
+            "name": "oval1",
+            "uuid": "41992d58-1351-42b8-bf4f-9c30d0842394",
+            "textureUuid": "b4cf48f4-e095-4348-a46d-71022a8e5d59",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_17.png",
+            "trim": {
+              "x": 1249,
+              "y": 1941,
+              "width": 88,
+              "height": 88,
+              "rotatedWidth": 88,
+              "rotatedHeight": 88
+            },
+            "rawWidth": 88,
+            "rawHeight": 88,
+            "width": 94,
+            "height": 94,
+            "originalPath": "D:/AGame/TaFang/library/imports/b4/b4cf48f4-e095-4348-a46d-71022a8e5d59.png",
+            "x": 1246,
+            "y": 1938,
+            "rotatedWidth": 94,
+            "rotatedHeight": 94
+          },
+          {
+            "name": "img_fh_fh",
+            "uuid": "54fecfe6-e9f6-4f4d-876a-002066bcb467",
+            "textureUuid": "76d50c9f-de50-49e7-933a-91d5d2a799e2",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_20.png",
+            "trim": {
+              "x": 1343,
+              "y": 1941,
+              "width": 88,
+              "height": 88,
+              "rotatedWidth": 88,
+              "rotatedHeight": 88
+            },
+            "rawWidth": 88,
+            "rawHeight": 88,
+            "width": 94,
+            "height": 94,
+            "originalPath": "D:/AGame/TaFang/library/imports/76/76d50c9f-de50-49e7-933a-91d5d2a799e2.png",
+            "x": 1340,
+            "y": 1938,
+            "rotatedWidth": 94,
+            "rotatedHeight": 94
+          },
+          {
+            "name": "img_fh_pwfh",
+            "uuid": "87842a82-9fad-4aee-8475-1b03c47dcbe2",
+            "textureUuid": "cabcbf53-607c-4602-a499-5a6c0d7241c8",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_35.png",
+            "trim": {
+              "x": 1437,
+              "y": 1941,
+              "width": 88,
+              "height": 88,
+              "rotatedWidth": 88,
+              "rotatedHeight": 88
+            },
+            "rawWidth": 88,
+            "rawHeight": 88,
+            "width": 94,
+            "height": 94,
+            "originalPath": "D:/AGame/TaFang/library/imports/ca/cabcbf53-607c-4602-a499-5a6c0d7241c8.png",
+            "x": 1434,
+            "y": 1938,
+            "rotatedWidth": 94,
+            "rotatedHeight": 94
+          },
+          {
+            "name": "biaoqian_icon@2x (1)",
+            "uuid": "752c1753-5a3a-472e-87cf-74c70a398bd2",
+            "textureUuid": "25f4e183-b33f-4fe5-b4b3-70c47411cce7",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944262_image_30.png",
+            "trim": {
+              "x": 1531,
+              "y": 1941,
+              "width": 84,
+              "height": 48,
+              "rotatedWidth": 48,
+              "rotatedHeight": 84
+            },
+            "rawWidth": 84,
+            "rawHeight": 48,
+            "width": 90,
+            "height": 54,
+            "originalPath": "D:/AGame/TaFang/library/imports/25/25f4e183-b33f-4fe5-b4b3-70c47411cce7.png",
+            "x": 1528,
+            "y": 1938,
+            "rotated": true,
+            "rotatedWidth": 54,
+            "rotatedHeight": 90
+          },
+          {
+            "name": "img_lock@2x",
+            "uuid": "1fda4ad0-a056-463a-8882-525f9e4acab2",
+            "textureUuid": "94413768-2d17-4e3a-af97-7d002bde8271",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944261_image_9.png",
+            "trim": {
+              "x": 1585,
+              "y": 1941,
+              "width": 45,
+              "height": 58,
+              "rotatedWidth": 58,
+              "rotatedHeight": 45
+            },
+            "rawWidth": 46,
+            "rawHeight": 60,
+            "width": 51,
+            "height": 64,
+            "originalPath": "D:/AGame/TaFang/library/imports/94/94413768-2d17-4e3a-af97-7d002bde8271.png",
+            "x": 1582,
+            "y": 1938,
+            "rotated": true,
+            "rotatedWidth": 64,
+            "rotatedHeight": 51
+          },
+          {
+            "name": "zhezhao_chang@2x",
+            "uuid": "d3bca6f9-67c6-4021-8a27-a89637bb6f8f",
+            "textureUuid": "c82480e9-7da7-4f7f-9ea2-10801b5853d6",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944264_image_58.png",
+            "trim": {
+              "x": 1585,
+              "y": 1992,
+              "width": 48,
+              "height": 48,
+              "rotatedWidth": 48,
+              "rotatedHeight": 48
+            },
+            "rawWidth": 48,
+            "rawHeight": 48,
+            "width": 54,
+            "height": 54,
+            "originalPath": "D:/AGame/TaFang/library/imports/c8/c82480e9-7da7-4f7f-9ea2-10801b5853d6.png",
+            "x": 1582,
+            "y": 1989,
+            "rotatedWidth": 54,
+            "rotatedHeight": 54
+          },
+          {
+            "name": "videoIcon",
+            "uuid": "da8e8bbc-473f-4a0a-a653-a4ec57971cce",
+            "textureUuid": "bc3ede48-09ee-490d-9213-d36cd1a468d9",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756885944265_image_65.png",
+            "trim": {
+              "x": 1301,
+              "y": 1758,
+              "width": 45,
+              "height": 45,
+              "rotatedWidth": 45,
+              "rotatedHeight": 45
+            },
+            "rawWidth": 48,
+            "rawHeight": 48,
+            "width": 51,
+            "height": 51,
+            "originalPath": "D:/AGame/TaFang/library/imports/bc/bc3ede48-09ee-490d-9213-d36cd1a468d9.png",
+            "x": 1298,
+            "y": 1755,
+            "rotatedWidth": 51,
+            "rotatedHeight": 51
+          }
+        ],
+        "width": 1679,
+        "height": 2048,
+        "name": "AutoAtlas-1",
+        "imagePath": "D:\\AGame\\TaFang\\temp\\TexturePacker\\preview\\assets\\Texture\\1\\AutoAtlas.pac\\AutoAtlas-1.png"
+      }
+    ],
+    "unpackedTextures": []
+  }
+}

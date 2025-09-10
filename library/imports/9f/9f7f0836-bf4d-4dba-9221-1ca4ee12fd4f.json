@@ -1,0 +1,14 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "monsterblood_tex",
+  "_objFlags": 0,
+  "_native": "",
+  "_atlasJson": "{\"name\":\"monsterblood\",\"height\":32,\"SubTexture\":[{\"name\":\"monsterblood\",\"x\":1,\"height\":18,\"y\":1,\"width\":44}],\"imagePath\":\"monsterblood_tex.png\",\"width\":64}",
+  "_texture": {
+    "__uuid__": "0fc2c4b0-c868-435e-9259-d75e5399df83"
+  },
+  "texture": {
+    "__uuid__": "0fc2c4b0-c868-435e-9259-d75e5399df83"
+  },
+  "_textureAtlasData": null
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg_zaijianjindu",
+    "texture": "8ea1f5a3-313c-49ee-bb7b-8cf30c5cba4e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      98,
+      146
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      98,
+      146
+    ],
+    "capInsets": [
+      47,
+      100,
+      48,
+      41
+    ]
+  }
+}

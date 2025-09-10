@@ -1,0 +1,130 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "yandanpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "THvhai97Q4ml7Ile+WQJR0wvUBE",
+      "spine": "3.8.99",
+      "x": -37.01,
+      "y": -122.72,
+      "width": 81.12,
+      "height": 192.4,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽nb.app/qingjipao"
+    },
+    "bones": [
+      {
+        "name": "root",
+        "rotation": -0.07
+      },
+      {
+        "name": "qjp-shen4",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "x": -0.65,
+        "y": -27.31
+      },
+      {
+        "name": "wei",
+        "parent": "qjp-shen4",
+        "length": 29.42,
+        "rotation": 180,
+        "x": -16.48,
+        "y": 0.55
+      }
+    ],
+    "slots": [
+      {
+        "name": "qjp-shen2",
+        "bone": "qjp-shen4",
+        "attachment": "shen_03"
+      },
+      {
+        "name": "wei01",
+        "bone": "wei",
+        "attachment": "wei03"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "qjp-shen2": {
+            "shen_03": {
+              "x": 44.95,
+              "y": -0.65,
+              "rotation": -90,
+              "width": 64,
+              "height": 104
+            }
+          },
+          "wei01": {
+            "wei01": {
+              "x": 31.87,
+              "y": -2.16,
+              "rotation": 90,
+              "width": 65,
+              "height": 102
+            },
+            "wei02": {
+              "x": 32.87,
+              "y": 0.34,
+              "rotation": 90,
+              "width": 86,
+              "height": 96
+            },
+            "wei03": {
+              "x": 28.87,
+              "y": 4.84,
+              "rotation": 90,
+              "width": 81,
+              "height": 100
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "wei01": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "wei01"
+              },
+              {
+                "time": 0.0667,
+                "name": "wei02"
+              },
+              {
+                "time": 0.1,
+                "name": "wei03"
+              },
+              {
+                "time": 0.1333,
+                "name": "wei01"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nyandanpao.png\nsize: 256,256\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nshen_03\n  rotate: false\n  xy: 0, 86\n  size: 62, 102\n  orig: 64, 104\n  offset: 1, 1\n  index: -1\nwei01\n  rotate: false\n  xy: 96, 9\n  size: 61, 100\n  orig: 65, 102\n  offset: 2, 1\n  index: -1\nwei02\n  rotate: true\n  xy: 0, 0\n  size: 84, 94\n  orig: 86, 96\n  offset: 1, 1\n  index: -1\nwei03\n  rotate: true\n  xy: 64, 111\n  size: 77, 93\n  orig: 81, 100\n  offset: 2, 5\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "35559613-0125-4155-8e84-3720c8c4a2da"
+    }
+  ],
+  "textureNames": [
+    "yandanpao.png"
+  ],
+  "scale": 1
+}

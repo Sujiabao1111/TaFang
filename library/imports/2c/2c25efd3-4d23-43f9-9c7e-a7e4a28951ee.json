@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_tixian_green",
+    "texture": "b8f1c459-9b25-46e7-85f6-19b77b86b037",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      154,
+      68
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      154,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

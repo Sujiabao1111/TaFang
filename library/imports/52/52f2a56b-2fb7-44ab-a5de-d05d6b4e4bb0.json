@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_iconVideo2",
+    "texture": "2636590e-0df7-43ff-af8d-64a804c30cfd",
+    "atlas": "",
+    "rect": [
+      6,
+      5,
+      27,
+      27
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      38,
+      38
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "a922efc4-c97e-4b8a-bed8-f539c203d76e",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "honghuopao": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "bc6b2976-bc05-4f0b-8e4b-b973ab2f2943",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a922efc4-c97e-4b8a-bed8-f539c203d76e",
       "trimType": "auto",
       "trimThreshold": 1,

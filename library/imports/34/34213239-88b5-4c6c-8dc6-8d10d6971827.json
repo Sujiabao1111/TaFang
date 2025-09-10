@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "diancipao",
+    "texture": "0e02bd56-9484-4c04-92cf-1df1d9bc1c67",
+    "atlas": "",
+    "rect": [
+      2,
+      51,
+      492,
+      443
+    ],
+    "offset": [
+      -8,
+      -16.5
+    ],
+    "originalSize": [
+      512,
+      512
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

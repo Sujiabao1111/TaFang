@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "hudun_tex",
+    "texture": "8e8da45c-5a82-46ac-83ae-ac638b5e2526",
+    "atlas": "",
+    "rect": [
+      2,
+      1,
+      283,
+      157
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      287,
+      161
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

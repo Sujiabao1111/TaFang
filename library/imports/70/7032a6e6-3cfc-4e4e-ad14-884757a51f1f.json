@@ -1,0 +1,14 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "finger_tex",
+  "_objFlags": 0,
+  "_native": "",
+  "_atlasJson": "{\"name\":\"finger\",\"SubTexture\":[{\"name\":\"finger\",\"x\":179,\"frameY\":0,\"height\":139,\"y\":1,\"frameWidth\":142,\"frameHeight\":140,\"frameX\":0,\"width\":141},{\"name\":\"yuan\",\"x\":1,\"height\":176,\"y\":1,\"width\":176}],\"imagePath\":\"finger_tex.png\",\"height\":179,\"width\":322}",
+  "_texture": {
+    "__uuid__": "2fad30c4-a884-4f78-b28a-fd78f4e2bb98"
+  },
+  "texture": {
+    "__uuid__": "2fad30c4-a884-4f78-b28a-fd78f4e2bb98"
+  },
+  "_textureAtlasData": null
+}

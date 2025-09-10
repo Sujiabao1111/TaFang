@@ -143,12 +143,7 @@ export default class tuJianItem extends baseTs {
      * 点击
      */
     click() {
-        if (this.haveNode.active) {
-            TrackMgr.AppClick({
-                app_page_title: "图鉴",
-                app_ck_module: "炮王进度",
-                app_exposure_type: "Icon",
-            });
+        if (this.haveNode.active) {;
             
             cc.game.emit(NameTs.Game_TuJian_UpData, {
                 target: this,

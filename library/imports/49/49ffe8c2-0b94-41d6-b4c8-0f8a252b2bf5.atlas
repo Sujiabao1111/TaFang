@@ -1,0 +1,62 @@
+
+moyinlianyupao.png
+size: 236,236
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kp1
+  rotate: false
+  xy: 2, 158
+  size: 76, 76
+  orig: 76, 76
+  offset: 0, 0
+  index: -1
+kp2
+  rotate: false
+  xy: 2, 80
+  size: 76, 76
+  orig: 76, 76
+  offset: 0, 0
+  index: -1
+kp3
+  rotate: false
+  xy: 80, 158
+  size: 76, 76
+  orig: 76, 76
+  offset: 0, 0
+  index: -1
+kp4
+  rotate: false
+  xy: 158, 158
+  size: 74, 76
+  orig: 76, 76
+  offset: 1, 0
+  index: -1
+kp5
+  rotate: false
+  xy: 80, 2
+  size: 74, 76
+  orig: 76, 76
+  offset: 1, 0
+  index: -1
+kp6
+  rotate: false
+  xy: 158, 80
+  size: 74, 76
+  orig: 76, 76
+  offset: 1, 0
+  index: -1
+kp7
+  rotate: false
+  xy: 2, 2
+  size: 76, 76
+  orig: 76, 76
+  offset: 0, 0
+  index: -1
+kp8
+  rotate: false
+  xy: 80, 80
+  size: 76, 76
+  orig: 76, 76
+  offset: 0, 0
+  index: -1

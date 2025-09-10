@@ -1,0 +1,90 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "hongxingpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "LSfS6CjtCi5QzHgxe0zeZqftyUI",
+      "spine": "3.8.95",
+      "x": -59,
+      "y": -43.5,
+      "width": 118,
+      "height": 120.26,
+      "images": "../../pao/pao/images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "y": -20.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "qjp-shen",
+        "bone": "qjp-shen",
+        "attachment": "qjp-shen"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "qjp-shen": {
+            "qjp-shen": {
+              "x": 40.46,
+              "rotation": -90,
+              "width": 118,
+              "height": 114
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "bones": {
+          "qjp-shen": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "x": 0.8,
+                "y": 1.075,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2333,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nhongxingpao.png\nsize: 118,116\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nqjp-shen\n  rotate: false\n  xy: 0, 2\n  size: 118, 114\n  orig: 118, 114\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "19d282f4-92f1-40c5-93e8-97702da5b17a"
+    }
+  ],
+  "textureNames": [
+    "hongxingpao.png"
+  ],
+  "scale": 1
+}

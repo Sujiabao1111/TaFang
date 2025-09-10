@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "2e2bf0ea-3360-4401-b7ba-61bfa0887350",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "bg_daojuqipao": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "939e144d-6a67-4611-a1e1-156b75647afa",
+      "importer": "sprite-frame",
       "rawTextureUuid": "2e2bf0ea-3360-4401-b7ba-61bfa0887350",
       "trimType": "auto",
       "trimThreshold": 1,

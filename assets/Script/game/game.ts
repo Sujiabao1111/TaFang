@@ -1,17 +1,16 @@
 import { AssistCtr } from "../Assist/AssistCtr";
 import baseTs from "../base/baseTs";
-import { AdPosition } from "../common/AdPosition";
 import { gamePass, gameState, propState, propType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
 import RedController from "../controlelr/RedController";
-import userData from "../data/userData";
+import UserData from "../data/userData";
 import { GameEffect } from "../effect/GameEffect";
+import { setLanguage } from "../Language/LanguageData";
 import { UrlConst } from "../server/UrlConst";
-import AdController from "../server/xmsdk_cocos/AD/AdController";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
-import TrackMgr from "../TrackMgr/TrackMgr";
+import { Tools } from "../util/Tools";
 import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
@@ -19,28 +18,35 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class game extends baseTs {
 
-
-    // @property(cc.Label)
-    // customsLabel: cc.Label = null; //关卡label
-
     @property(dragonBones.ArmatureDisplay)
-    crystal: dragonBones.ArmatureDisplay = null;   //水晶
+    private crystal: dragonBones.ArmatureDisplay = null;   //水晶
 
     @property(cc.Node)
-    ske_hudun: cc.Node = null;   //护盾
+    private ske_hudun: cc.Node = null;   //护盾
 
     @property(cc.Sprite)
-    image_bg: cc.Sprite = null;  //背景图
+    private image_bg: cc.Sprite = null;  //背景图
 
     @property(cc.SpriteFrame)
-    image_bgArray: Array<cc.SpriteFrame> = [];  //背景图集
+    private image_bgArray: Array<cc.SpriteFrame> = [];  //背景图集
 
     private onceOpenGame = true;    //是否第一次开始游戏
 
+    public get _userData(): UserData {
+        return util.userData;
+    }
+
+
     onLoad() {
-
-
         util.offlineTurretProduct();
+
+        // 设置语言
+        let languageType = Tools.getStorage("LanguageType");
+        let index = languageType == undefined || languageType == null ? 1 : languageType;
+        setLanguage(Number(index));
+
+        soundController.singleton.initIsPlayMusic();
+        soundController.singleton.playBGM();
 
         cc.game.on(NameTs.Game_End, (res) => {
             switch (res) {
@@ -56,59 +62,56 @@ export default class game extends baseTs {
                     this.scheduleOnce(() => {
                         this.crystal.playAnimation("paota_piaofu", -1);
                         cc.game.emit(NameTs.Game_Again);
+                        console.log("送一个空降宝箱Game_End");
                         util.showEmptyBox();   //送一个空降宝箱
                     }, 1);
-
-                    TrackMgr.AppGamedate({
-                        is_challenge_suc: false,
-                        game_level_hcdg: "第" + util.userData.customs.big + "关",
-                        level_hcdg: "第" + util.userData.customs.small + "波",
-                        game_time: util.gameTime.toFixed(1) + "s",
-                        use_tool: String(util.gamePropNum),
-                    });
                     break;
             }
         }, this);
 
         cc.game.on(NameTs.Game_Start, () => {
             if (!this.onceOpenGame) {    //不是第一次开始游戏才送
+                console.log("送一个空降宝箱Game_Start");
+
                 util.showEmptyBox();   //送一个空降宝箱
             }
+
             this.onceOpenGame = false;
 
-            if (util.userData.customs.big == 2 && util.userData.customs.small == 2) {
+            if (this._userData.customs.big == 2 && this._userData.customs.small == 2) {
                 if (!util.isOkSign) {
                     this.showSign();
                 }
             }
 
-            // if (util.userData.customs.small == util.mapConfig.length) {
+            // if (this._userData.customs.small == util.mapConfig.length) {
             //     if (!util.adPreObj[AdPosition.GamePssView]) {
             //         util.preloadAd(AdPosition.GamePssView, true);
             //     }
             // }
             // util.levelState = gameState.start;
-            //更新关卡title
+
+            // 更新关卡title
             cc.game.emit(NameTs.Game_View_CustomsUpdata);
+
             //加载关卡怪兽
             cc.game.emit(NameTs.Game_Load_Monster);
-            for (let i = 0; i < util.userData.prop.length; i++) {
+
+            for (let i = 0; i < this._userData.prop.length; i++) {
                 if (i == propType.auto - 1) continue;
-                util.userData.prop[i].time = null;
-                util.userData.prop[i].use = propState.end;
-                if (util.userData.prop[i].type == 3) {
+                this._userData.prop[i].time = null;
+                this._userData.prop[i].use = propState.end;
+                if (this._userData.prop[i].type == 3) {
                     this.closeShield();
                 }
             }
+
             util.Opening_times_level++;
-            TrackMgr.level_open({
-                number_of_levels: "第" + util.userData.customs.big + "关",
-                level: "第" + util.userData.customs.small + "波",
-                Opening_times: util.Opening_times_level,
-            });
-            XMSDK.trackUserProperties({
-                level_num: util.userData.customs.big + "-" + util.userData.customs.small,
-            });
+
+            // XMSDK.trackUserProperties({
+            //     level_num: this._userData.customs.big + "-" + this._userData.customs.small,
+            // });
+
         }, this);
 
 
@@ -143,43 +146,38 @@ export default class game extends baseTs {
                 case pageTs.pageName.GameEarnings:
                     this.showEarnings();
                     break;
+
                 case pageTs.pageName.GameTask:
                     this.showTask();
                     break;
                 case pageTs.pageName.GameDetention:
                     this.showDetention();
                     break;
+
                 case pageTs.pageName.GameAdLoading:
                     this.showAdLoading();
                     break;
                 case pageTs.pageName.GameUpgrade:
-                    let nowTime:number = new Date().getTime();
-                    let time = Math.floor((nowTime - util.userData.unlocking_time)/1000);
-                    console.log(time,'time')
-                    TrackMgr.turret_unlock({
-                        unlock_turret_level : util.userData.turretLevel,
-                        unlocking_time:time+"s",
-                        synthesis_times:util.userData.synthesis_times,
-                        level:"第"+util.userData.customs.big+"-"+util.userData.customs.small+"关"
-            
-                    });
-                    util.userData.unlocking_time = nowTime;
-                    util.userData.synthesis_times = 0;
-                    console.log(util.userData.noviceGuide,'util.userData.noviceGuide')
+                    let nowTime: number = new Date().getTime();
+                    let time = Math.floor((nowTime - this._userData.unlocking_time) / 1000);
+                    console.log(time, 'time')
+                    this._userData.unlocking_time = nowTime;
+                    this._userData.synthesis_times = 0;
+                    console.log(this._userData.noviceGuide, 'this._userData.noviceGuide')
 
-                    if(util.userData.turretLevel==5){
+                    if (this._userData.turretLevel == 5) {
                         //等级5级时候主动弹出
                         this.showPage(pageTs.pageName.GameGoldWheel);
                     }
 
-                    if(util.checkTestB(NameTs.new_hand_test)&&util.userData.noviceGuide==3){
-                        cc.game.emit(NameTs.Game_Novice_Open,4);
+                    if (util.checkTestB(NameTs.new_hand_test) && this._userData.noviceGuide == 3) {
+                        cc.game.emit(NameTs.Game_Novice_Open, 4);
                         util.sendTurretData();
-                    }else{
-                        if(util.checkTestB(NameTs.lock_turret_test)&&(util.userData.turretLevel>2&&util.userData.turretLevel<8)){
+                    } else {
+                        if (util.checkTestB(NameTs.lock_turret_test) && (this._userData.turretLevel > 2 && this._userData.turretLevel < 8)) {
                             console.log("B用户3-7级，不触发弹窗")
                             util.sendTurretData();
-                        }else{
+                        } else {
                             this.showUpgrade();
                         }
                     }
@@ -199,6 +197,7 @@ export default class game extends baseTs {
                 case pageTs.pageName.GameKingPaoProgress:
                     this.showKingPaoProgress(res.data);
                     break;
+
                 case pageTs.pageName.GameOnPrizeGetReward:
                     this.showOnPrizeGetRewared(res.data);
                     break;
@@ -211,32 +210,6 @@ export default class game extends baseTs {
             }
 
         }, this);
-
-        // XMSDK.post({
-        //     url: UrlConst.sign_main,
-        //     onSuccess: res => {
-        //         cc.error("请求成功", res)
-        //         if (res.code === 0 && res.data) {
-
-        //         }
-        //         else {
-
-        //         }
-        //     },
-        //     onFail: err => {
-
-        //     }
-        // }
-        // )        
-
-        // this.showPage(pageTs.pageName.GameOffline);
-
-        // cc.game.emit(NameTs.Game_Pop_Open, {
-        //     name: pageTs.pageName.GameOnLinePrize,
-        //     data: {
-        //         point: 300
-        //     }
-        // });
 
 
         cc.game.on(NameTs.Game_Tool_Use, (type) => {
@@ -255,26 +228,25 @@ export default class game extends baseTs {
                 this.openShield();
             }
             else if (type == propType.frozen) {                 //冰冻
-            GameEffect.playToolFrozen();
+                GameEffect.playToolFrozen();
             }
         }, this);
 
+        // 关闭护盾
         cc.game.on(NameTs.Close_Shield, () => {
-
             this.closeShield();
-
         }, this);
 
-        console.log(util.userData.noviceGuide, 'util.userData.noviceGuide')
-        if (util.userData.noviceGuide !== -1 && util.userData.turretLevel < 2) {
-            util.userData.noviceGuide = 1;
-            if(util.checkTestB(NameTs.new_hand_test)){
+        console.log("新手引导是否过了:", 'this._userData.noviceGuide')
+        if (this._userData.noviceGuide !== -1 && this._userData.turretLevel < 2) {
+            this._userData.noviceGuide = 1;
+            if (util.checkTestB(NameTs.new_hand_test)) {
                 this.showPage(pageTs.pageName.GameGuide);
-            }else{
+            } else {
                 this.showPage(pageTs.pageName.GameGuide2);
             }
+
             util.sendTurretData();
- //fix bug
 
             XMSDK.getdataStr({
                 url: UrlConst.sign_main,
@@ -291,139 +263,72 @@ export default class game extends baseTs {
             }
             )
         } else {
-            if (util.userData.newUser) {
-                if (util.userData.offlineIncome&&util.userData.offlineIncome.reward>0) {
+            if (this._userData.newUser) {
+                if (this._userData.offlineIncome && this._userData.offlineIncome.reward > 0) {
                     this.showPage(pageTs.pageName.GameOffline);
                 } else {
                     // this.showPage(pageTs.pageName.GameStart);
                     this.FistGameStart(1);
                 }
-				 //fix bug
-				 
-                XMSDK.getdataStr({
-                    url: UrlConst.sign_main,
-                    onSuccess: res => {
-                        if (res.code === 0 && res.data) {
-                            if (res && res.data) {
-                                util.isOkSign = res.data.todayChecked;
 
-                            }
-                        }
-                    },
-                    onFail: err => {
-
-                    }
-                }
-                )
             }
             else {
-				 //fix bug
-				 
-                XMSDK.getdataStr({
-                    url: UrlConst.sign_main,
-                    onSuccess: res => {
-                        if (res.code === 0 && res.data) {
-                            console.log(res.data, 'res.data')
-                            if (res.data && !res.data.todayChecked) {
-                                res.data[`callBack`] = () => {
-                                    // this.showPage(pageTs.pageName.GameStart);
-                                    this.FistGameStart(2);
-                                }
-                                this.showPage(pageTs.pageName.GameSign, res.data);
-                            }
-                            else {
-                                if (util.userData.offlineIncome&&util.userData.offlineIncome.reward>0) {
-                                    this.showPage(pageTs.pageName.GameOffline);
-                                }
-                                else {
-                                    res.data[`callBack`] = () => {
-                                        // this.showPage(pageTs.pageName.GameStart);
-                                        this.FistGameStart(3);
-                                    }
-                                    this.showPage(pageTs.pageName.GameSign, res.data);
-                                }
-                            }
 
-                            if (res && res.data) {
-                                util.isOkSign = res.data.todayChecked;
-
-                                //预加载离线
-                                // if (!util.adPreObj[AdPosition.Offline]) {
-                                //     util.preloadAd(AdPosition.Offline);
-                                // }
-                                // if (!util.adPreObj[AdPosition.OfflineView]) {
-                                //     util.preloadAd(AdPosition.OfflineView, true);
-                                // }
-
-                            }
-                        }
-                        else {
-                            // this.showPage(pageTs.pageName.GameStart);
-                            this.FistGameStart(4);
-                        }
-                    },
-                    onFail: err => {
-
-                    }
-                }
-                )
             }
         }
         this.openOnlineTime();
-        this.openOnLinePrizeTimer();
-        this.checkBgImage();       
+        // this.openOnLinePrizeTimer();
+        this.checkBgImage();
 
         cc.game.on(cc.game.EVENT_HIDE, () => {
             console.log("cocos游戏进入后台时触发的事件。")
             //退出时间
-            util.setStorage(util.localDiary.offlineTime,new Date().getTime());
+            util.setStorage(util.localDiary.offlineTime, new Date().getTime());
             XMSDK.trackUserProperties({
-                synthesis_times_hcdg: util.userData.synthesis_All,
+                synthesis_times_hcdg: this._userData.synthesis_All,
             });
-            util.userData.synthesis_All = 0;             
+            this._userData.synthesis_All = 0;
 
             util.setStorage(util.localDiary.onlineTime, util.onlineTimeNum);
             util.setStorage(util.localDiary.randomRedTimeNum, util.randomRedTimeNum);
         }, this);
 
         cc.game.on(cc.game.EVENT_SHOW, () => {
-            console.log("cocos游戏进入前台运行时触发的事件。")            
-            util.offlineTurretProduct();      
+            console.log("cocos游戏进入前台运行时触发的事件。")
+            util.offlineTurretProduct();
         }, this);
 
 
-        TrackMgr.AppViewScreen({
-            app_page_title: "首页"
-        });
-
-        if (!util.userData.unlocking_time) {
-            util.userData.unlocking_time = new Date().getTime();
-            util.setStorage(util.localDiary.unlocking_time, util.userData.unlocking_time)
-        }      
+        if (!this._userData.unlocking_time) {
+            this._userData.unlocking_time = new Date().getTime();
+            util.setStorage(util.localDiary.unlocking_time, this._userData.unlocking_time)
+        }
     }
-            
-    openOnlineTime(){
-        if(!util.chekcToday()){            
-            util.setStorage(util.localDiary.onlineTime, 0);            
+
+    openOnlineTime() {
+        if (!util.chekcToday()) {
+            util.setStorage(util.localDiary.onlineTime, 0);
         }
         let onTime = util.getStorage(util.localDiary.onlineTime)
-        if(onTime == null){            
+        if (onTime == null) {
             util.setStorage(util.localDiary.onlineTime, 0);
-        } 
+        }
 
         util.onlineTimeNum = onTime;
-        this.schedule(()=>{
-            util.onlineTimeNum++;             
+        this.schedule(() => {
+            util.onlineTimeNum++;
             RedController.checkMainSignRed();
         }, 1)
     }
 
+    /**
+    * 替换背景图片
+    */
     checkBgImage() {
-        //替换背景图片
-        let bgImageData = AssistCtr.checkLvBg(util.userData.customs.big);
+        let bgImageData = AssistCtr.checkLvBg(this._userData.customs.big);
         let bgIndex = bgImageData.mapId - 1;
 
-        if(this.image_bg && this.image_bgArray){
+        if (this.image_bg && this.image_bgArray) {
             if (this.image_bgArray[bgIndex]) {
                 this.image_bg.spriteFrame = this.image_bgArray[bgIndex];
             }
@@ -442,6 +347,7 @@ export default class game extends baseTs {
 
     private onLinePrizeTimer;           //在线奖励倒计时器
     private onLinePrizeTimeNum = 0;     //在线奖励倒计时时间
+
     /**
      * 打开在线奖励
      */
@@ -452,9 +358,9 @@ export default class game extends baseTs {
                     this.onLinePrizeTimeNum++;
                     if (this.onLinePrizeTimeNum > util.online_time) {        //在线打怪半个小时后自动弹窗在线奖励弹窗
                         this.closeOnLinePrizeTimer();
-                         //fix bug
-						 
-						XMSDK.getdataStr({
+                        //fix bug
+
+                        XMSDK.getdataStr({
                             url: UrlConst.getOnLinePrize,
                             onSuccess: res => {
                                 if (res.code == 0 && res.data) {
@@ -518,12 +424,7 @@ export default class game extends baseTs {
      * 结束游戏
      */
     showEnd() {
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "通关失败"
-        })
-
         this.showPage(pageTs.pageName.GameEnd);
-
     }
 
     /**
@@ -531,33 +432,9 @@ export default class game extends baseTs {
      */
 
     showPass() {
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "通关成功"
-        })
-
-
         util.Opening_times_level = 0;
         // this.showPage(pageTs.pageName.GamePass);
         this.showPage(pageTs.pageName.GamePassReward2);
-
-        // XMSDK.post({
-        //     url: UrlConst.gameLevelCompleted,
-        //     data:{
-        //         // level:
-        //     },
-        //     onSuccess: res => {
-        //         console.log("请求成功gameLevelIndex", res)
-        //         if (res.code === 0 && res.data) {
-
-        //         }
-        //         else {
-
-        //         }
-        //     },
-        //     onFail: err => {
-
-        //     }
-        // });
 
     }
 
@@ -566,9 +443,7 @@ export default class game extends baseTs {
      */
 
     showSet() {
-
         this.showPage(pageTs.pageName.GameSet);
-
     }
 
     /**
@@ -576,9 +451,7 @@ export default class game extends baseTs {
      */
 
     showProp() {
-
         this.showPage(pageTs.pageName.GameProp);
-
     }
 
 
@@ -586,8 +459,6 @@ export default class game extends baseTs {
      * 签到
      */
     showSign(data = null) {
-		 //fix bug
-		 
         XMSDK.getdataStr({
             url: UrlConst.sign_main,
             onSuccess: res => {
@@ -612,16 +483,14 @@ export default class game extends baseTs {
         this.showPage(pageTs.pageName.GameSignReward, data);
     }
 
-
-
     /**
     * 提现
      */
     showWallet() {
         util.sendTurretData(() => {
-             //fix bug
-			 
-			XMSDK.getdataStr({
+            //fix bug
+
+            XMSDK.getdataStr({
                 url: UrlConst.wallet_main2,
                 onSuccess: res => {
                     if (res.code === 0 && res.data) {
@@ -637,7 +506,6 @@ export default class game extends baseTs {
             }
             )
         });
-
     }
 
     /**
@@ -660,6 +528,7 @@ export default class game extends baseTs {
     showTuJian() {
         this.showPage(pageTs.pageName.GameTuJian);
     }
+
     /**
      * 收益翻倍
      */
@@ -671,22 +540,14 @@ export default class game extends baseTs {
      * 任务
      */
     showTask() {
-
         util.getdataStr({
             url: UrlConst.task_day_main,
             success: (res) => {
-                this.showPage(pageTs.pageName.GameTask,res);     
+                this.showPage(pageTs.pageName.GameTask, res);
             }
         });
     }
 
-
-    /**
-     * 挽留
-     */
-    showDetention() {
-        this.showPage(pageTs.pageName.GameDetention);
-    }
 
     /**
      * 视频加载loading
@@ -694,6 +555,7 @@ export default class game extends baseTs {
     showAdLoading() {
         this.showPage(pageTs.pageName.GameAdLoading);
     }
+
     /**
      * 升级
      */
@@ -715,15 +577,21 @@ export default class game extends baseTs {
         this.showPage(pageTs.pageName.GameOnLinePrize, data);
     }
 
+
+    /**
+   * 挽留
+   */
+    showDetention() {
+        this.showPage(pageTs.pageName.GameDetention);
+    }
+
     /**
      * 开启新手任务
      */
     showNewPlayerTask() {
-       //fix bug
-	    XMSDK.getdataStr({
+        XMSDK.getdataStr({
             url: UrlConst.newPlayerTaskData,
             onSuccess: res => {
-				console.log("99999999999999999### showNewPlayerTask ： "+res.data )
                 if (res.code === 0 && res.data) {
                     this.showPage(pageTs.pageName.GameNewPlayerTask, res.data);
                 }
@@ -736,17 +604,15 @@ export default class game extends baseTs {
             }
         }
         )
-		
-		
-		
     }
 
+
     /**
-     * 炮王任务
-     */
+       * 炮王任务
+       */
     showKingPao() {
-		 //fix bug
-		 
+        //fix bug
+
         XMSDK.getdataStr({
             url: UrlConst.kingPaoTaskData,
             onSuccess: res => {
@@ -770,16 +636,11 @@ export default class game extends baseTs {
      */
     showKingPaoProgress(clickData) {
         if (clickData) {
-            TrackMgr.artillery_bonus({
-                activity_state: `点击「炮王进度」任务`,
-                button_hcdg: `加10%按钮`,
-                task_progress: `${clickData.progress}`,
-                Page_source: clickData.clickTarget ? "图鉴" : "百万分红"
-            })
+
         }
-		
-		 //fix bug
-		
+
+        //fix bug
+
         XMSDK.getdataStr({
             url: UrlConst.kingPaoProgress,
             onSuccess: res => {
@@ -806,6 +667,7 @@ export default class game extends baseTs {
         })
     }
 
+
     /**
      * 签到处在线奖励红包
      */
@@ -819,13 +681,13 @@ export default class game extends baseTs {
      * 打开随机红包
      */
     showRandomRedPrize(data) {
-        this.showPage(pageTs.pageName.GameRandomRedPrize,data);
+        this.showPage(pageTs.pageName.GameRandomRedPrize, data);
     }
 
     /**
      * 打开合成炮塔随机红包
      */
-    showTurretRandomRed(){
+    showTurretRandomRed() {
         this.showPage(pageTs.pageName.GameTurretRandomRed);
     }
 
@@ -834,9 +696,9 @@ export default class game extends baseTs {
      * 第一次开始游戏
      */
 
-    FistGameStart(e){
-        this.scheduleOnce(()=>{
+    FistGameStart(e) {
+        this.scheduleOnce(() => {
             cc.game.emit(NameTs.Game_Start);
-        },.3);
+        }, .3);
     }
 }

@@ -1,0 +1,85 @@
+{
+  "projectPath": "D:\\AGame\\TaFang",
+  "actualPlatform": "web-mobile",
+  "mtimes": {
+    "83ffee7b-6534-45c7-a26b-8aa63a9b3786": {
+      "assetMtime": 1756885990919,
+      "metaMtime": 1756885998641
+    },
+    "389dd3b3-665c-429b-beae-8abcf06d7a5f": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199391
+    },
+    "decb2e02-890f-448f-a264-062f2dab3a31": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199391
+    }
+  },
+  "result": {
+    "name": "AutoAtlas",
+    "width": 2048,
+    "height": 2048,
+    "ver": "1.2.5",
+    "uuid": "83ffee7b-6534-45c7-a26b-8aa63a9b3786",
+    "importer": "auto-atlas",
+    "maxWidth": 2048,
+    "maxHeight": 2048,
+    "padding": 2,
+    "compressionLevel": 6,
+    "allowRotation": true,
+    "forceSquared": false,
+    "powerOfTwo": false,
+    "algorithm": "MaxRects",
+    "format": "png",
+    "quality": 80,
+    "contourBleed": true,
+    "paddingBleed": true,
+    "filterUnused": true,
+    "packable": false,
+    "premultiplyAlpha": false,
+    "filterMode": "bilinear",
+    "platformSettings": {},
+    "subMetas": {},
+    "bleed": 1,
+    "atlases": [
+      {
+        "files": [
+          {
+            "name": "img_nonetwork@2x",
+            "uuid": "389dd3b3-665c-429b-beae-8abcf06d7a5f",
+            "textureUuid": "decb2e02-890f-448f-a264-062f2dab3a31",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756889178123_image_0.png",
+            "trim": {
+              "x": 3,
+              "y": 3,
+              "width": 191,
+              "height": 153,
+              "rotatedWidth": 191,
+              "rotatedHeight": 153
+            },
+            "rawWidth": 248,
+            "rawHeight": 188,
+            "width": 197,
+            "height": 159,
+            "originalPath": "D:/AGame/TaFang/library/imports/de/decb2e02-890f-448f-a264-062f2dab3a31.png",
+            "x": 0,
+            "y": 0,
+            "rotatedWidth": 197,
+            "rotatedHeight": 159
+          }
+        ],
+        "width": 197,
+        "height": 159,
+        "name": "AutoAtlas-1",
+        "imagePath": "D:\\AGame\\TaFang\\temp\\TexturePacker\\build\\native\\assets\\Texture\\2\\AutoAtlas.pac\\AutoAtlas-1.png",
+        "compressd": {
+          "suffix": [
+            ".png"
+          ],
+          "imagePathNoExt": "D:\\AGame\\TaFang\\temp\\TexturePacker\\build\\native\\assets\\Texture\\2\\AutoAtlas.pac\\compressed\\AutoAtlas-1"
+        }
+      }
+    ],
+    "unpackedTextures": []
+  }
+}

@@ -96,7 +96,7 @@
       "__uuid__": "934e1a87-d410-4424-a272-4327c0662fe1"
     },
     "_texture": null,
-    "_stopped": true,
+    "_stopped": false,
     "playOnLoad": true,
     "autoRemoveOnFinish": false,
     "totalParticles": 10,
@@ -182,7 +182,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "6b18ba88-57fa-4e5f-a295-d30fff1af8e4"
+      "__id__": 0
     },
     "fileId": "",
     "sync": false

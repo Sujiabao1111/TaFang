@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "02e91e18-7813-4a18-b3ab-821bc4aaa28a",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "biaoqian_icon@2x": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "78f0afa6-3fcb-4007-ab2d-9a79249d1e35",
+      "importer": "sprite-frame",
       "rawTextureUuid": "02e91e18-7813-4a18-b3ab-821bc4aaa28a",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,0 +1,191 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "hanfengpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "w7JN08kSlv6jYeB64HPfBmibM58",
+      "spine": "3.8.95",
+      "x": -53.67,
+      "y": -37.14,
+      "width": 96.42,
+      "height": 129.54,
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "bone",
+        "parent": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "effect_a11_01",
+        "bone": "bone",
+        "color": "ffffffb8",
+        "attachment": "effect_a11_02"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "effect_a11_01": {
+            "effect_a11_01": {
+              "x": -5.47,
+              "y": 27.63,
+              "rotation": -3,
+              "width": 90,
+              "height": 125
+            },
+            "effect_a11_02": {
+              "x": -5.47,
+              "y": 27.63,
+              "rotation": -3,
+              "width": 90,
+              "height": 125
+            },
+            "effect_a11_03": {
+              "x": -5.47,
+              "y": 27.63,
+              "rotation": -3,
+              "width": 90,
+              "height": 125
+            },
+            "effect_a11_04": {
+              "x": -5.47,
+              "y": 27.63,
+              "rotation": -3,
+              "width": 90,
+              "height": 125
+            },
+            "effect_a11_05": {
+              "x": -5.47,
+              "y": 27.63,
+              "rotation": -3,
+              "width": 90,
+              "height": 125
+            },
+            "effect_a11_06": {
+              "x": -5.47,
+              "y": 27.63,
+              "rotation": -3,
+              "width": 90,
+              "height": 125
+            },
+            "effect_a11_07": {
+              "x": -5.47,
+              "y": 27.63,
+              "rotation": -3,
+              "width": 90,
+              "height": 125
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "effect_a11_01": {
+            "attachment": [
+              {
+                "time": 0.0333,
+                "name": "effect_a11_03"
+              },
+              {
+                "time": 0.0667,
+                "name": "effect_a11_04"
+              },
+              {
+                "time": 0.1,
+                "name": "effect_a11_05"
+              },
+              {
+                "time": 0.1333,
+                "name": "effect_a11_01"
+              },
+              {
+                "time": 0.1667,
+                "name": "effect_a11_02"
+              },
+              {
+                "time": 0.2,
+                "name": "effect_a11_03"
+              },
+              {
+                "time": 0.2333,
+                "name": "effect_a11_04"
+              },
+              {
+                "time": 0.2667,
+                "name": "effect_a11_05"
+              },
+              {
+                "time": 0.3,
+                "name": "effect_a11_06"
+              },
+              {
+                "time": 0.3333,
+                "name": "effect_a11_07"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone": {
+            "scale": [
+              {},
+              {
+                "time": 0.3333,
+                "x": 1.2,
+                "y": 1.2
+              }
+            ],
+            "shear": [
+              {
+                "x": 7,
+                "y": 7
+              },
+              {
+                "time": 0.0667,
+                "x": -7,
+                "y": -7
+              },
+              {
+                "time": 0.1667,
+                "x": 7,
+                "y": 7
+              },
+              {
+                "time": 0.2667,
+                "x": -7,
+                "y": -7
+              },
+              {
+                "time": 0.3333,
+                "x": 7,
+                "y": 7
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nhanfengpao.png\nsize: 280,280\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\neffect_a11_01\n  rotate: false\n  xy: 94, 181\n  size: 78, 97\n  orig: 90, 125\n  offset: 8, 17\n  index: -1\neffect_a11_02\n  rotate: false\n  xy: 93, 54\n  size: 79, 105\n  orig: 90, 125\n  offset: 7, 16\n  index: -1\neffect_a11_03\n  rotate: true\n  xy: 174, 202\n  size: 76, 104\n  orig: 90, 125\n  offset: 8, 14\n  index: -1\neffect_a11_04\n  rotate: true\n  xy: 174, 42\n  size: 76, 98\n  orig: 90, 125\n  offset: 9, 12\n  index: -1\neffect_a11_05\n  rotate: true\n  xy: 174, 120\n  size: 80, 103\n  orig: 90, 125\n  offset: 5, 10\n  index: -1\neffect_a11_06\n  rotate: false\n  xy: 2, 51\n  size: 89, 108\n  orig: 90, 125\n  offset: 1, 7\n  index: -1\neffect_a11_07\n  rotate: false\n  xy: 2, 161\n  size: 90, 117\n  orig: 90, 125\n  offset: 0, 7\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "37181254-6eaa-4b91-8888-809f0afd8d26"
+    }
+  ],
+  "textureNames": [
+    "hanfengpao.png"
+  ],
+  "scale": 1
+}

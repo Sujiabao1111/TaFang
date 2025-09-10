@@ -1,0 +1,162 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "yandanpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "IJUD8EszzH3rJbtuOM/G1sb7K6A",
+      "spine": "3.8.99",
+      "x": -62.45,
+      "y": -70.44,
+      "width": 129,
+      "height": 141,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽nb.app/qingjipao"
+    },
+    "bones": [
+      {
+        "name": "root",
+        "rotation": -0.07
+      },
+      {
+        "name": "bao",
+        "parent": "root",
+        "rotation": 0.07,
+        "scaleX": 3,
+        "scaleY": 3
+      }
+    ],
+    "slots": [
+      {
+        "name": "01",
+        "bone": "bao",
+        "attachment": "04"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "01": {
+            "01": {
+              "x": 0.13,
+              "y": -2.2,
+              "rotation": 90,
+              "width": 33,
+              "height": 32
+            },
+            "02": {
+              "x": 1.24,
+              "y": -1.09,
+              "rotation": 90,
+              "width": 45,
+              "height": 44
+            },
+            "03": {
+              "x": 0.68,
+              "y": 0.02,
+              "rotation": 90,
+              "width": 45,
+              "height": 43
+            },
+            "04": {
+              "x": 0.68,
+              "y": 0.02,
+              "rotation": 90,
+              "width": 47,
+              "height": 43
+            },
+            "05": {
+              "x": 0.68,
+              "y": 0.02,
+              "rotation": 90,
+              "width": 45,
+              "height": 43
+            },
+            "06": {
+              "x": 0.68,
+              "y": -0.53,
+              "rotation": 90,
+              "width": 46,
+              "height": 45
+            },
+            "07": {
+              "x": 1.24,
+              "y": -1.09,
+              "rotation": 90,
+              "width": 45,
+              "height": 40
+            },
+            "08": {
+              "x": 1.24,
+              "y": -3.31,
+              "rotation": 90,
+              "width": 41,
+              "height": 38
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "01": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "01"
+              },
+              {
+                "time": 0.0667,
+                "name": "02"
+              },
+              {
+                "time": 0.1,
+                "name": "03"
+              },
+              {
+                "time": 0.1333,
+                "name": "04"
+              },
+              {
+                "time": 0.1667,
+                "name": "05"
+              },
+              {
+                "time": 0.2,
+                "name": "06"
+              },
+              {
+                "time": 0.2333,
+                "name": "07"
+              },
+              {
+                "time": 0.2667,
+                "name": "08"
+              },
+              {
+                "time": 0.3,
+                "name": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nyandanpao.png\nsize: 128,128\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n01\n  rotate: true\n  xy: 0, 10\n  size: 30, 29\n  orig: 33, 32\n  offset: 2, 2\n  index: -1\n02\n  rotate: false\n  xy: 87, 43\n  size: 41, 41\n  orig: 45, 44\n  offset: 2, 2\n  index: -1\n03\n  rotate: false\n  xy: 0, 87\n  size: 43, 41\n  orig: 45, 43\n  offset: 1, 1\n  index: -1\n04\n  rotate: false\n  xy: 45, 87\n  size: 43, 41\n  orig: 47, 43\n  offset: 2, 1\n  index: -1\n05\n  rotate: true\n  xy: 0, 42\n  size: 43, 41\n  orig: 45, 43\n  offset: 1, 1\n  index: -1\n06\n  rotate: false\n  xy: 43, 44\n  size: 42, 41\n  orig: 46, 45\n  offset: 2, 2\n  index: -1\n07\n  rotate: true\n  xy: 90, 86\n  size: 42, 36\n  orig: 45, 40\n  offset: 2, 1\n  index: -1\n08\n  rotate: false\n  xy: 43, 8\n  size: 38, 34\n  orig: 41, 38\n  offset: 2, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "dc6e4c34-9c81-4b1b-b5cd-8c863d4815e5"
+    }
+  ],
+  "textureNames": [
+    "yandanpao.png"
+  ],
+  "scale": 1
+}

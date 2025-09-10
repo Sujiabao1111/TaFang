@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "d9f27987-1437-43c2-b950-14485b64aabf",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "btnbg@2x": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "192db649-3a74-4f7f-b220-29e7482b51da",
+      "importer": "sprite-frame",
       "rawTextureUuid": "d9f27987-1437-43c2-b950-14485b64aabf",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -28,8 +30,8 @@
       "rawHeight": 64,
       "borderTop": 0,
       "borderBottom": 0,
-      "borderLeft": 0,
-      "borderRight": 0,
+      "borderLeft": 22,
+      "borderRight": 21,
       "subMetas": {}
     }
   }

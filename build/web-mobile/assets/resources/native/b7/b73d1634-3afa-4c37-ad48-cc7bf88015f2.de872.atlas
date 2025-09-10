@@ -1,0 +1,13 @@
+
+bingyupao.png
+size: 124,122
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-shen
+  rotate: false
+  xy: 0, 3
+  size: 124, 119
+  orig: 126, 121
+  offset: 1, 1
+  index: -1

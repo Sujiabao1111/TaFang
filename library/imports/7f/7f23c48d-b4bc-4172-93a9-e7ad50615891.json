@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chaodiancipao",
+    "texture": "01740b84-f11a-4e02-8370-62dfd018e24b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      83,
+      103
+    ],
+    "offset": [
+      -11,
+      0
+    ],
+    "originalSize": [
+      105,
+      103
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

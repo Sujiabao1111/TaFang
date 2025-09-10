@@ -1,0 +1,163 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "qingjipao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "I161Jo/slWydR/eH8n/f3rFMHHI",
+      "spine": "3.8.99",
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "sj",
+        "parent": "root",
+        "x": 3.23,
+        "y": 213.52
+      }
+    ],
+    "slots": [
+      {
+        "name": "sj",
+        "bone": "sj"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "sj": {
+            "sj0": {
+              "x": -0.66,
+              "y": -0.83,
+              "width": 19,
+              "height": 19
+            },
+            "sj1": {
+              "x": 3.09,
+              "y": -0.79,
+              "rotation": 90,
+              "width": 48,
+              "height": 51
+            },
+            "sj2": {
+              "x": 2.82,
+              "y": -3.15,
+              "rotation": 90,
+              "width": 47,
+              "height": 54
+            },
+            "sj3": {
+              "x": 1.25,
+              "y": -2.96,
+              "rotation": 90,
+              "width": 47,
+              "height": 51
+            },
+            "sj4": {
+              "x": 1.46,
+              "y": -0.37,
+              "rotation": 90,
+              "width": 32,
+              "height": 33
+            },
+            "sj5": {
+              "x": 0.4,
+              "y": 0.09,
+              "rotation": 90,
+              "width": 43,
+              "height": 45
+            },
+            "sj6": {
+              "x": 2.56,
+              "y": -0.84,
+              "rotation": 90,
+              "width": 46,
+              "height": 48
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "sj": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.1333,
+                "name": null
+              },
+              {
+                "time": 0.1667,
+                "name": "sj0"
+              },
+              {
+                "time": 0.2,
+                "name": "sj4"
+              },
+              {
+                "time": 0.2333,
+                "name": "sj5"
+              },
+              {
+                "time": 0.2667,
+                "name": "sj6"
+              },
+              {
+                "time": 0.3,
+                "name": "sj1"
+              },
+              {
+                "time": 0.3333,
+                "name": "sj2"
+              },
+              {
+                "time": 0.3667,
+                "name": "sj3"
+              },
+              {
+                "time": 0.4,
+                "name": null
+              }
+            ]
+          }
+        },
+        "bones": {
+          "sj": {
+            "translate": [
+              {
+                "x": -3.23,
+                "y": -213.52
+              }
+            ],
+            "scale": [
+              {
+                "x": 1.779,
+                "y": 1.779
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nqingjipao.png\nsize: 149,116\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nsj0\n  rotate: false\n  xy: 111, 0\n  size: 18, 18\n  orig: 19, 19\n  offset: 0, 1\n  index: -1\nsj1\n  rotate: false\n  xy: 0, 2\n  size: 48, 51\n  orig: 48, 51\n  offset: 0, 0\n  index: -1\nsj2\n  rotate: false\n  xy: 0, 64\n  size: 45, 52\n  orig: 47, 54\n  offset: 1, 1\n  index: -1\nsj3\n  rotate: false\n  xy: 54, 65\n  size: 45, 51\n  orig: 47, 51\n  offset: 1, 0\n  index: -1\nsj4\n  rotate: false\n  xy: 111, 29\n  size: 31, 32\n  orig: 32, 33\n  offset: 0, 0\n  index: -1\nsj5\n  rotate: false\n  xy: 108, 72\n  size: 41, 44\n  orig: 43, 45\n  offset: 1, 0\n  index: -1\nsj6\n  rotate: false\n  xy: 57, 8\n  size: 45, 46\n  orig: 46, 48\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "cadf2696-5c6c-4e7d-be1e-318f5e149077"
+    }
+  ],
+  "textureNames": [
+    "qingjipao.png"
+  ],
+  "scale": 1
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_topcoin@2x",
+    "texture": "a21ee4c4-e915-4d7d-9ff9-161322d42ba1",
+    "atlas": "",
+    "rect": [
+      5,
+      1,
+      63,
+      69
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      72,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

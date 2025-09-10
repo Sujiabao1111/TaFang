@@ -1,0 +1,153 @@
+
+tiancaipao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+02
+  rotate: false
+  xy: 141, 131
+  size: 79, 76
+  orig: 81, 81
+  offset: 0, 0
+  index: -1
+03
+  rotate: false
+  xy: 383, 85
+  size: 79, 67
+  orig: 81, 81
+  offset: 1, 2
+  index: -1
+04
+  rotate: true
+  xy: 430, 154
+  size: 81, 72
+  orig: 81, 81
+  offset: 0, 0
+  index: -1
+05
+  rotate: false
+  xy: 348, 162
+  size: 80, 73
+  orig: 81, 81
+  offset: 0, 0
+  index: -1
+06
+  rotate: false
+  xy: 301, 91
+  size: 80, 69
+  orig: 81, 81
+  offset: 0, 1
+  index: -1
+07
+  rotate: true
+  xy: 141, 50
+  size: 79, 59
+  orig: 81, 81
+  offset: 0, 3
+  index: -1
+08
+  rotate: false
+  xy: 202, 23
+  size: 79, 51
+  orig: 81, 81
+  offset: 0, 12
+  index: -1
+09
+  rotate: true
+  xy: 284, 10
+  size: 79, 53
+  orig: 81, 81
+  offset: 0, 12
+  index: -1
+10
+  rotate: false
+  xy: 202, 76
+  size: 80, 53
+  orig: 81, 81
+  offset: 0, 12
+  index: -1
+7199000_00
+  rotate: true
+  xy: 259, 374
+  size: 128, 109
+  orig: 128, 128
+  offset: 0, 9
+  index: -1
+7199000_01
+  rotate: false
+  xy: 260, 205
+  size: 86, 81
+  orig: 128, 128
+  offset: 21, 31
+  index: -1
+7199000_02
+  rotate: false
+  xy: 369, 237
+  size: 98, 91
+  orig: 128, 128
+  offset: 14, 22
+  index: -1
+7199000_03
+  rotate: false
+  xy: 260, 288
+  size: 107, 84
+  orig: 128, 128
+  offset: 9, 19
+  index: -1
+7199000_04
+  rotate: false
+  xy: 370, 330
+  size: 106, 86
+  orig: 128, 128
+  offset: 13, 14
+  index: -1
+7199000_05
+  rotate: false
+  xy: 370, 418
+  size: 110, 84
+  orig: 128, 128
+  offset: 11, 13
+  index: -1
+bao2_002
+  rotate: false
+  xy: 2, 343
+  size: 134, 159
+  orig: 158, 172
+  offset: 12, 11
+  index: -1
+bao2_003
+  rotate: false
+  xy: 2, 181
+  size: 132, 160
+  orig: 154, 162
+  offset: 10, 1
+  index: -1
+bao2_004
+  rotate: true
+  xy: 2, 41
+  size: 138, 137
+  orig: 144, 154
+  offset: 5, 4
+  index: -1
+bao2_005
+  rotate: true
+  xy: 136, 209
+  size: 132, 122
+  orig: 136, 140
+  offset: 2, 7
+  index: -1
+bao2_006
+  rotate: true
+  xy: 138, 368
+  size: 134, 119
+  orig: 143, 138
+  offset: 4, 8
+  index: -1
+bao2_008
+  rotate: false
+  xy: 222, 131
+  size: 77, 72
+  orig: 137, 118
+  offset: 29, 19
+  index: -1

@@ -1,0 +1,20 @@
+
+yanshapao.png
+size: 134,132
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: false
+  xy: 0, 67
+  size: 119, 65
+  orig: 119, 65
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: true
+  xy: 0, 0
+  size: 56, 108
+  orig: 56, 108
+  offset: 0, 0
+  index: -1

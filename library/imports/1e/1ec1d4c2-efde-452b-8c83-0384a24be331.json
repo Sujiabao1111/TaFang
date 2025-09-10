@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bingyupao",
+    "texture": "fee8750d-c373-4348-a1e3-694e0135efee",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      58,
+      134
+    ],
+    "offset": [
+      -39,
+      0
+    ],
+    "originalSize": [
+      136,
+      134
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

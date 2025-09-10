@@ -1,0 +1,20 @@
+
+bingshunpao.png
+size: 141,139
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: false
+  xy: 0, 70
+  size: 109, 69
+  orig: 109, 69
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: true
+  xy: 0, 0
+  size: 59, 104
+  orig: 59, 104
+  offset: 0, 0
+  index: -1

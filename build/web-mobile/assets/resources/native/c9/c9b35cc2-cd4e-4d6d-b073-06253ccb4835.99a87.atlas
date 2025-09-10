@@ -1,0 +1,48 @@
+
+bingyupao.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A_01
+  rotate: false
+  xy: 2, 343
+  size: 144, 93
+  orig: 146, 96
+  offset: 1, 2
+  index: -1
+A_02
+  rotate: false
+  xy: 148, 345
+  size: 144, 91
+  orig: 146, 96
+  offset: 1, 3
+  index: -1
+A_03
+  rotate: false
+  xy: 294, 345
+  size: 142, 91
+  orig: 146, 96
+  offset: 2, 3
+  index: -1
+A_04
+  rotate: false
+  xy: 233, 270
+  size: 79, 73
+  orig: 82, 76
+  offset: 1, 2
+  index: -1
+A_05
+  rotate: false
+  xy: 2, 266
+  size: 81, 75
+  orig: 83, 77
+  offset: 1, 1
+  index: -1
+A_06
+  rotate: false
+  xy: 148, 267
+  size: 83, 76
+  orig: 85, 80
+  offset: 1, 2
+  index: -1

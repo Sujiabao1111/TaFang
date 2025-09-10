@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "xuefengpao",
+    "texture": "7b2efcfd-f180-484a-a993-dac089fac220",
+    "atlas": "",
+    "rect": [
+      0,
+      5,
+      114,
+      107
+    ],
+    "offset": [
+      0,
+      -2.5
+    ],
+    "originalSize": [
+      114,
+      112
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

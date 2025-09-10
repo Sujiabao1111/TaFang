@@ -1,0 +1,103 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "shengqipao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "3BbIZQcXx/wFper5Y2pXVkq9U3k",
+      "spine": "3.8.95",
+      "x": -48,
+      "y": -30.24,
+      "width": 96,
+      "height": 100,
+      "images": "../../../pao/pao/images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "y": -20.7
+      }
+    ],
+    "slots": [
+      {
+        "name": "qjp-di",
+        "bone": "qjp-shen",
+        "attachment": "qjp-di"
+      },
+      {
+        "name": "qjp-shen",
+        "bone": "qjp-shen",
+        "attachment": "qjp-shen"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "qjp-di": {
+            "qjp-di": {
+              "x": 20.7,
+              "rotation": -90,
+              "width": 92,
+              "height": 35
+            }
+          },
+          "qjp-shen": {
+            "qjp-shen": {
+              "x": 40.46,
+              "rotation": -90,
+              "width": 59,
+              "height": 106
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "bones": {
+          "qjp-shen": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "x": 0.8,
+                "y": 1.075,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2333,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nshengqipao.png\nsize: 108,106\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nqjp-di\n  rotate: true\n  xy: 68, 14\n  size: 92, 35\n  orig: 92, 35\n  offset: 0, 0\n  index: -1\nqjp-shen\n  rotate: false\n  xy: 0, 0\n  size: 59, 106\n  orig: 59, 106\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "9627444f-c33d-49e2-b2a8-c560a5c764fb"
+    }
+  ],
+  "textureNames": [
+    "shengqipao.png"
+  ],
+  "scale": 1
+}

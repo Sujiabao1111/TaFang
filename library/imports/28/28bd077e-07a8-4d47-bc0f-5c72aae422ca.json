@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_btnBack",
+    "texture": "34103ea9-3c58-46ed-8064-7f5b226c69f0",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      72,
+      70
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      72,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

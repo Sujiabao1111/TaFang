@@ -1,9 +1,8 @@
 
-import { gameNumerical, gameState, PoolInfo, propInfo, propState, propType, soundInfo, thingType, turretInfo, updateType } from "../common/faceTs";
+import { gameState, PoolInfo, propInfo, propState, propType, soundInfo, thingType, turretInfo, updateType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import userData from "../data/userData";
 import jsonSingleton from "../base/jsonSingleton";
-import tool from "./tool";
 import { TextCtr } from "../Assist/TextCtr";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import { UrlConst } from "../server/UrlConst";
@@ -12,6 +11,8 @@ import AdController from "../server/xmsdk_cocos/AD/AdController";
 import { AdPosition } from "../common/AdPosition";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import { AssistCtr } from "../Assist/AssistCtr";
+import { Tools } from "./Tools";
+import UserData from "../data/userData";
 // import encrypt = require('encryptjs');
 class util {
 
@@ -25,7 +26,7 @@ class util {
         NameTs.coinData,
         NameTs.treasureData,
         NameTs.monsterIdData,
-		NameTs.gkData,
+        NameTs.gkData,
         NameTs.bulletData
     ];
 
@@ -41,8 +42,8 @@ class util {
         propConfig: "propConfig",//道具详细表
         offlineTime: "offlineTime",//离线时间
         onlineTime: "onlineTime", //在线时间
-        randomRedTimeNum:"randomRedTimeNum",//随机红包时间
-        earnProgress:"earnProgress",//展现手指次数
+        randomRedTimeNum: "randomRedTimeNum",//随机红包时间
+        earnProgress: "earnProgress",//展现手指次数
     }
 
     secretkey: string = 'open_sesame'; // 加密密钥
@@ -51,11 +52,11 @@ class util {
 
     MonsterMap: Map<string, any> = new Map(); //储存怪兽东西
 
-    iphoneXTop: number;//刘海屏高度
+    iphoneXTop: number = 50;//刘海屏高度
 
     touchId: number; //touchid
 
-    savingPotLock:boolean = false;//是否解锁了金币飞入存钱罐
+    savingPotLock: boolean = false;//是否解锁了金币飞入存钱罐
 
     heavenTouch: boolean;//用于防重复点击
 
@@ -66,16 +67,13 @@ class util {
     adPreObj: any = {}; //预加载广告的
 
     /**用户数据 */
-    userData: userData = {
+    userData: UserData = {
         pool: [],
         coin: 0,
         hongbao: 0,
-        customs: {
-            big: 1,
-            small: 1
-        },
+        customs: { big: 1, small: 1 }, // 关卡 大关 小关
         product: 40,
-        turretLevel: 1,
+        turretLevel: 1, //炮台等级
         prop: [
             /**冰冻 */
             { type: 1, num: 0, time: null, use: propState.end },
@@ -100,8 +98,8 @@ class util {
         haveTreasure: [],
         termCoin: 0,
         offlineIncome: {
-            reward:0,
-            multipleReward:0
+            reward: 0,
+            multipleReward: 0
         },
         version: 0,
         GetTurretNum: 18,
@@ -116,14 +114,14 @@ class util {
         localCompoundTime: 0,
         dayEnterSignNum: null,
         goldWheelCount: null,
-        savingPotNum:0,
+        savingPotNum: 0,
     };
 
     /**AB测试 */
     AB_Test: any = {
         lock_turret_test: "B",
         heaven_coin_test: "B",
-        new_hand_test:"B",
+        new_hand_test: "B",
         // wallet_test:"A",
     }
 
@@ -166,7 +164,7 @@ class util {
 
     /**是否到时间发送数据3秒 */
     isSendTurretData: boolean = false;
-    
+
     /**是否到时间发送数据3秒 */
     isSendCoinData: boolean = false;
 
@@ -207,7 +205,7 @@ class util {
     //今天是否签到
     isOkSign: boolean = false;
     //是否有在线奖励红包
-    isSignOnLineRed:boolean = false;
+    isSignOnLineRed: boolean = false;
     //距离上次获得随机红包时间
     upTurretRandomRedTime = 0;
     //当前在线时间
@@ -229,7 +227,7 @@ class util {
         for (let i = 0; i < this.levelMap.length; i++) {
             let item = this.levelMap[i];
             let data = this.GetPoolData(item.no);
-            let heavenItem = tool.GetArrData("no", item.no, this.userData.heavenPool);
+            let heavenItem = Tools.GetArrData("no", item.no, this.userData.heavenPool);
 
             if (data && data.level == -1 && data.state == 1 && heavenItem.id == null) {
                 if (item.no != this.userData.emptyBoxNo) {
@@ -241,160 +239,139 @@ class util {
         return loaction;
     }
 
-	setInt(_key,_value){
-            cc.sys.localStorage.setItem(_key,_value.toString())
-        }
-	
-	 getInt(_key,def){
-			
-			var ds = cc.sys.localStorage.getItem(_key)
-			if( ds == "" || ds == null)
-			{
-				this.setInt(_key,def);
-				ds = def;
-			}
-            return Number(ds)
-        }
+    setInt(_key, _value) {
+        cc.sys.localStorage.setItem(_key, _value.toString())
+    }
 
-	getString(_key)
-	{
-		return cc.sys.localStorage.getItem(_key)
-	}
-	
-	
-	setString(_key,_value)
-	{
-		cc.sys.localStorage.setItem(_key,_value.toString())
-	}
+    getInt(_key, def) {
+        var ds = cc.sys.localStorage.getItem(_key)
+        if (ds == "" || ds == null) {
+            this.setInt(_key, def);
+            ds = def;
+        }
+        return Number(ds)
+    }
 
-	inidata(){
-		//金币
-		this.userData.version = 548;
-		this.doubleEarn.use = 0;
+    getString(_key) {
+        return cc.sys.localStorage.getItem(_key)
+    }
+
+
+    setString(_key, _value) {
+        cc.sys.localStorage.setItem(_key, _value.toString())
+    }
+
+    inidata() {
+        //金币
+        this.userData.version = 548;
+        this.doubleEarn.use = 0;
         this.doubleEarn.time = 0;
-		this.userData.coin = this.getInt("goldhb",0)
-		this.userData.exchangeRate = this.getInt("exchangeRate",10000)
-		this.userData.product = this.getInt("product",40)
-		this.userData.customs.big = this.getInt("customsbig",1)
-		this.userData.customs.small = this.getInt("customssmall",1)
-		this.userData.newUser =true //this.getInt("newuser",1)==1?true:false;
-		this.userData.turretLevel=this.getInt("turretLevel",1)
-		
-		let psdd = this.getString("mappool")
-		if( psdd == "" || psdd ==null )
-		{
-			this.initPool();
-			let dds =  JSON.stringify( this.userData.pool)
-			this.setString( "mappool" ,dds)
-		}else
-		{
-			this.userData.pool =  JSON.parse(psdd)
-			 this.repairPool();
-		}
-		
-	}
-	
-	savedata()
-	{
-		
-		this.setInt("goldhb",this.userData.coin)
-		this.setInt("exchangeRate",this.userData.exchangeRate)
-		this.setInt("product",this.userData.product)
-		 this.setInt("customsbig",this.userData.customs.big)
-		 this.setInt("customssmall",this.userData.customs.small)
-		this.userData.newUser =true //this.getInt("newuser",1)==1?true:false;
-		this.setInt("turretLevel",this.userData.turretLevel)
-		
-		let dds =  JSON.stringify( this.userData.pool)
-		this.setString( "mappool" ,dds)
-	}
-	
-	
-	//判断是不是签到今天
-	canSinge()
-	{
-		var canget = true;
-		var d = new Date();
-		var dats  = ["0","0","0","0","0","0","0"];
-		var dd = this.getString("singdada");		
-		
-		if( dd == "" || dd== null || dd == undefined )
-		{
-			 this.setString("singdada",JSON.stringify(dats));		
-			//,JSON.stringify(表名)
-		}else
-		{
-			dats =  JSON.parse(dd );
-		}
-		
-		var resrte = 0;
-		for(var i=0;i<7;i++)
-		{
-			if( dats[i] == "0" )
-			{
-				resrte = 1;
-			}
-		}
-		
-		if( resrte == 0 )
-		{
-			dats  = ["0","0","0","0","0","0","0"];
-			this.setString("singdada",JSON.stringify(dats));		
-		}
-		
-		
-		var tdstr = d.getFullYear() +""+ d.getMonth()+""+d.getDate();
-		//console.log("sing :  " +tdstr );
-		for( var i = 0;i<7;i++ )
-		{
-			if( tdstr == dats[i] )
-			{
-				canget = false;
-			}
-		}
-		
-		
-		return !canget;
-	}
-	
-	
-	singlen()
-	{
-		var dd = this.getString("singdada");	
-		var dats =  JSON.parse(dd );
-		
-		var index = 0;
-		for( var i = 0;i<7;i++ )
-		{
-			if( dats[i] != "0" )
-			{
-				index+=1
-			}
-		}
-		 
-		return 	index;	 
-	}
-	
-	singtoday()
-	{
-		var dd = this.getString("singdada");	
-		var dats =  JSON.parse(dd );
-		var d = new Date();
-		var tdstr = d.getFullYear() +""+ d.getMonth()+""+d.getDate();
-		var index = 0;
-		for( var i = 0;i<7;i++ )
-		{
-			if( dats[i] == "0" )
-			{
-				dats[i] = tdstr;
-				index = i;
-				
-				i= 8;
-			}
-		}
-		 this.setString("singdada",JSON.stringify(dats));
-		return 	index;	 
-	}
+        this.userData.coin = this.getInt("goldhb", 0)
+        this.userData.exchangeRate = this.getInt("exchangeRate", 10000)
+        this.userData.product = this.getInt("product", 40)
+        this.userData.customs.big = this.getInt("customsbig", 1)
+        this.userData.customs.small = this.getInt("customssmall", 1)
+        this.userData.newUser = true //this.getInt("newuser",1)==1?true:false;
+        this.userData.turretLevel = this.getInt("turretLevel", 1)
+
+        let psdd = this.getString("mappool")
+        if (psdd == "" || psdd == null) {
+            this.initPool();
+            let dds = JSON.stringify(this.userData.pool)
+            this.setString("mappool", dds)
+        } else {
+            this.userData.pool = JSON.parse(psdd)
+            this.repairPool();
+        }
+
+    }
+
+    savedata() {
+
+        this.setInt("goldhb", this.userData.coin)
+        this.setInt("exchangeRate", this.userData.exchangeRate)
+        this.setInt("product", this.userData.product)
+        this.setInt("customsbig", this.userData.customs.big)
+        this.setInt("customssmall", this.userData.customs.small)
+        this.userData.newUser = true //this.getInt("newuser",1)==1?true:false;
+        this.setInt("turretLevel", this.userData.turretLevel)
+
+        let dds = JSON.stringify(this.userData.pool)
+        this.setString("mappool", dds)
+    }
+
+
+    //判断是不是签到今天
+    canSinge() {
+        var canget = true;
+        var d = new Date();
+        var dats = ["0", "0", "0", "0", "0", "0", "0"];
+        var dd = this.getString("singdada");
+
+        if (dd == "" || dd == null || dd == undefined) {
+            this.setString("singdada", JSON.stringify(dats));
+            //,JSON.stringify(表名)
+        } else {
+            dats = JSON.parse(dd);
+        }
+
+        var resrte = 0;
+        for (var i = 0; i < 7; i++) {
+            if (dats[i] == "0") {
+                resrte = 1;
+            }
+        }
+
+        if (resrte == 0) {
+            dats = ["0", "0", "0", "0", "0", "0", "0"];
+            this.setString("singdada", JSON.stringify(dats));
+        }
+
+
+        var tdstr = d.getFullYear() + "" + d.getMonth() + "" + d.getDate();
+        //console.log("sing :  " +tdstr );
+        for (var i = 0; i < 7; i++) {
+            if (tdstr == dats[i]) {
+                canget = false;
+            }
+        }
+
+
+        return !canget;
+    }
+
+
+    singlen() {
+        var dd = this.getString("singdada");
+        var dats = JSON.parse(dd);
+
+        var index = 0;
+        for (var i = 0; i < 7; i++) {
+            if (dats[i] != "0") {
+                index += 1
+            }
+        }
+
+        return index;
+    }
+
+    singtoday() {
+        var dd = this.getString("singdada");
+        var dats = JSON.parse(dd);
+        var d = new Date();
+        var tdstr = d.getFullYear() + "" + d.getMonth() + "" + d.getDate();
+        var index = 0;
+        for (var i = 0; i < 7; i++) {
+            if (dats[i] == "0") {
+                dats[i] = tdstr;
+                index = i;
+
+                i = 8;
+            }
+        }
+        this.setString("singdada", JSON.stringify(dats));
+        return index;
+    }
 
 
     /**
@@ -454,7 +431,7 @@ class util {
 
         let turretData = jsonSingleton.singleton.getJson(NameTs.turretData);
 
-        data = tool.deepClone(tool.GetArrData("level", level, turretData));
+        data = Tools.deepClone(Tools.GetArrData("level", level, turretData));
 
         return data;
     }
@@ -484,19 +461,18 @@ class util {
      * @param type 1-第一次解锁新炮塔，2-消灭怪兽，3-解锁炮塔 4-完成关卡 5.合成
      */
     GetBehaviorRewardVo(type: number) {
-		//console.log("-------123-------behaviorRewardVoList : " + JSON.stringify(this.behaviorRewardVoList) )
-        return tool.GetArrData("type", type, this.behaviorRewardVoList).reward;
+        //console.log("-------123-------behaviorRewardVoList : " + JSON.stringify(this.behaviorRewardVoList) )
+        return Tools.GetArrData("type", type, this.behaviorRewardVoList).reward;
 
     }
-	
-	
-	getnowmapdata()
-	{
-		
-       this.mapConfig = this.getMapdata(this.userData.customs.big);
-		
-	}
-	
+
+
+    getnowmapdata() {
+
+        this.mapConfig = this.getMapdata(this.userData.customs.big);
+
+    }
+
 
     /**
      * 保存一下金币池塘数据
@@ -577,8 +553,9 @@ class util {
      */
     GetCustomsMonsterInfo() {
 
+        this.userData.customs.big = this.userData.customs.big > 45 ? 45 : this.userData.customs.big;
         let mapData = this.getMapdata(this.userData.customs.big);
-		//console.log("GetCustomsMonsterInfo : "+ JSON.stringify(mapData))
+        //console.log("GetCustomsMonsterInfo : "+ JSON.stringify(mapData))
         // let mapData = jsonSingleton.singleton.getJson(NameTs.mapData);
 
         //返回数据
@@ -623,16 +600,11 @@ class util {
      * 获取当前关卡地图配置
      */
     GetCustomsMap() {
-
         let mapData = jsonSingleton.singleton.getJson(NameTs.mapData);
-
         //返回数据
-
-        let data = tool.GetArrData("id", 1, mapData);
-		//console.log("--------GetCustomsMap----------:map : "+ mapData )
+        let data = Tools.GetArrData("id", 1, mapData);
+        //console.log("--------GetCustomsMap----------:map : "+ mapData )
         return data;
-
-
     }
 
     /**
@@ -641,9 +613,8 @@ class util {
      */
 
     GetPoolData(loaction: number) {
-
         let data = null;
-        data = tool.GetArrData("no", loaction, this.userData.pool);
+        data = Tools.GetArrData("no", loaction, this.userData.pool);
         return data;
     }
     /**
@@ -653,7 +624,7 @@ class util {
     GetPlaceData(loaction: number) {
         let data = null;
 
-        data = tool.GetArrData("no", loaction, this.levelMap);
+        data = Tools.GetArrData("no", loaction, this.levelMap);
 
         return data;
     }
@@ -666,7 +637,7 @@ class util {
     GetMonsterData(level: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.monsterData);
 
-        return tool.GetArrData("no", level, data);
+        return Tools.GetArrData("no", level, data);
 
     }
 
@@ -693,7 +664,7 @@ class util {
 
     GetMonsterColor(level: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.monsterData);
-        return tool.GetArrData("no", level, data).color;
+        return Tools.GetArrData("no", level, data).color;
 
     }
 
@@ -704,7 +675,7 @@ class util {
 
     GetMonsterIdData(id: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.monsterIdData);
-        return tool.GetArrData("id", id, data);
+        return Tools.GetArrData("id", id, data);
 
     }
 
@@ -730,7 +701,7 @@ class util {
      */
     setLevelMonsterData(id: number, num: number) {
 
-        let isExist: boolean = tool.setArrData("id", id, "num", num, this.levelMonsterArr);
+        let isExist: boolean = Tools.setArrData("id", id, "num", num, this.levelMonsterArr);
         if (!isExist) {
             this.levelMonsterArr.push({ id, num });
         }
@@ -832,7 +803,7 @@ class util {
      */
     getPoolSameLevelTurret(level: number) {
 
-        let sameLevel = tool.GetArrData("level", level, this.userData.pool, -1);
+        let sameLevel = Tools.GetArrData("level", level, this.userData.pool, -1);
         return sameLevel;
 
     }
@@ -867,13 +838,13 @@ class util {
             });
             this.userData.customs.big += 1;
             this.userData.customs.small = 1;
-			this.setInt("customsbig",this.userData.customs.big)
-			this.setInt("customssmall",this.userData.customs.small)
+            this.setInt("customsbig", this.userData.customs.big)
+            this.setInt("customssmall", this.userData.customs.small)
             console.log("超过了小关卡的的长度,小关卡变为1，大关卡+1");
             IsUp = true;
         } else {
             this.userData.customs.small += 1;
-			this.setInt("customssmall",this.userData.customs.small)
+            this.setInt("customssmall", this.userData.customs.small)
         }
 
         return IsUp;
@@ -901,7 +872,6 @@ class util {
     checkUpdateLevel(level: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.turretData);
         if (data.length < level) {
-
             return false;
         }
 
@@ -931,8 +901,8 @@ class util {
         if (this.userData.coin < 0) {
             this.userData.coin = 0;
         }
-		this.savedata();
-        cc.game.emit(NameTs.Game_Wallet_AddCoin,num);
+        this.savedata();
+        cc.game.emit(NameTs.Game_Wallet_AddCoin, num);
         cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.coin);
     }
 
@@ -956,7 +926,7 @@ class util {
 
         let smallData = { num: 0, level: 0 };
 
-        let str = tool.GetArrData("level", this.userData.turretLevel, data);
+        let str = Tools.GetArrData("level", this.userData.turretLevel, data);
         let randomLevel: number = null;
         if (!str) {
             console.log("找不到~" + this.userData.turretLevel + "级的炮塔购买信息")
@@ -1001,7 +971,7 @@ class util {
     */
     GetWeigthLevel(data: any[]) {
 
-        let arr = tool.deepClone(data);
+        let arr = Tools.deepClone(data);
 
         let str = [];
 
@@ -1016,7 +986,7 @@ class util {
             }
 
         }
-        let random: number = tool.GetRandom(0, str.length - 1);
+        let random: number = Tools.GetRandom(0, str.length - 1);
         let id: number = str[random];
         if (id == null) {
             id = arr[0].id;
@@ -1091,7 +1061,7 @@ class util {
      */
     checkNoExist(no: number): boolean {
 
-        let data = tool.GetArrData("no", no, this.userData.pool);
+        let data = Tools.GetArrData("no", no, this.userData.pool);
         if (data.level == -1 && data.state == 1) {
             return true;
         }
@@ -1103,7 +1073,7 @@ class util {
      * @param type 类型
      */
     GetPropNum(type: number) {
-        let data: propInfo = tool.GetArrData("type", type, this.userData.prop);
+        let data: propInfo = Tools.GetArrData("type", type, this.userData.prop);
         return data.num;
     }
 
@@ -1114,7 +1084,7 @@ class util {
     GetPropTime(type: number) {
         let propData = this.propConfig;
         console.log(propData, 'propData')
-        let data = tool.GetArrData("type", type, propData);
+        let data = Tools.GetArrData("type", type, propData);
         return Number(data.time);
     }
 
@@ -1124,13 +1094,15 @@ class util {
      */
     UseProp(type: number) {
         let num: number = Number(type) - 1;
-        this.userData.prop[num].time = this.GetPropTime(type);
+        // this.userData.prop[num].time = this.GetPropTime(type);
+        this.userData.prop[num].time = 60;
         this.userData.prop[num].use = propState.start;
         this.userData.prop[num].num -= 1;
         if (type == propType.cls) {                         //清屏            
             cc.game.emit(NameTs.Tool_Effect_Name.Game_Prop_Cls);
         } else if (type == propType.auto) {                  //自动合成
             cc.game.emit(NameTs.Tool_Effect_Name.Game_Prop_Atuo);
+
         }
         else if (type == propType.shock) {                  //电击
             cc.game.emit(NameTs.Tool_Effect_Name.Game_Prop_Shock);
@@ -1143,14 +1115,14 @@ class util {
         }
         cc.game.emit(NameTs.Game_Tool_Use, type);
         cc.game.emit(NameTs.Game_PropItem_Update);
-        console.log("使用成功", type, this.userData.prop[num], propState.start);
+        // console.log("使用成功", type, this.userData.prop[num], propState.start);
     }
 
     /**
      * 获取当前最高等级的炮塔数组2个以上的
      */
     GetTurretAuto() {
-        let pool: PoolInfo[] = tool.deepClone(this.userData.pool);
+        let pool: PoolInfo[] = Tools.deepClone(this.userData.pool);
         if (pool.length < 2) return false;
         let sortFn = (a, b) => {
             let num = b.level - a.level;
@@ -1159,7 +1131,7 @@ class util {
         pool = pool.sort(sortFn);
         let NewArr = [];
         for (let i = 0; i < pool.length; i++) {
-            let arr = tool.GetArrData("level", pool[i].level, pool, -1);
+            let arr = Tools.GetArrData("level", pool[i].level, pool, -1);
             if (arr.length > 1 && this.checkUpdateLevel(arr[0].level + 1)) {
                 NewArr = arr;
                 break;
@@ -1179,6 +1151,7 @@ class util {
         let cash = this.userData.coin / this.userData.exchangeRate || 0
         return TextCtr.triggerNumber(cash)
     }
+
     /**
      * 发送快照
      */
@@ -1222,14 +1195,17 @@ class util {
         XMSDK.trackUserProperties({
             coin_balance: this.userData.coin + "金币",
         });
+
         this.userData.version += 1;
         data.version = this.userData.version;
         if (JSON.stringify(data) == "{}") {
             return;
         }
+
         setTimeout(() => {
             this.isSendTurretData = false;
         }, 3000);
+
         this.getdataStr({
             url: UrlConst.gameLevelReport,
             data,
@@ -1248,9 +1224,9 @@ class util {
      * 金币快照
      */
 
-    sendCoinData(call?: Function){
+    sendCoinData(call?: Function) {
 
-        if(this.isSendCoinData)return;
+        if (this.isSendCoinData) return;
         this.isSendCoinData = true;
         let data: any = {};
         if (this.userData.termCoin > 0) {
@@ -1294,7 +1270,7 @@ class util {
         //     }
         // }
 
-        let time:number = tool.GetRandom(30,60);
+        let time: number = Tools.GetRandom(30, 60);
 
         return time;
     }
@@ -1304,17 +1280,17 @@ class util {
      */
     GetHeavenPlace(): number {
         //空的位置
-        let emptyPlace = tool.GetArrData("level", -1, this.userData.pool, -1);
+        let emptyPlace = Tools.GetArrData("level", -1, this.userData.pool, -1);
         if (!emptyPlace) return null;
         //符合的位置
-        let conformPlace = tool.GetArrData("state", 1, emptyPlace, -1);
+        let conformPlace = Tools.GetArrData("state", 1, emptyPlace, -1);
         if (!conformPlace) return null;
 
         //符合的数组
         let newArr = [];
         for (let i = 0; i < conformPlace.length; i++) {
             let item = conformPlace[i];
-            let heavenItem = tool.GetArrData("no", item.no, this.userData.heavenPool);
+            let heavenItem = Tools.GetArrData("no", item.no, this.userData.heavenPool);
             let isHaveEmptyBox = heavenItem.no == this.userData.emptyBoxNo;
 
             if (item.no == heavenItem.no && heavenItem.id == null && !isHaveEmptyBox) {
@@ -1322,7 +1298,7 @@ class util {
             }
         }
         //随机一个
-        let randomNum = tool.GetRandom(0, newArr.length - 1);
+        let randomNum = Tools.GetRandom(0, newArr.length - 1);
         return newArr[randomNum];
 
     }
@@ -1332,7 +1308,7 @@ class util {
      */
     GetBulletData(type: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.bulletData);
-        return tool.GetArrData("type", type, data);
+        return Tools.GetArrData("type", type, data);
     }
 
     /**
@@ -1340,7 +1316,7 @@ class util {
      */
     GetBoomName(type: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.bulletData);
-        return tool.GetArrData("type", type, data).boom;
+        return Tools.GetArrData("type", type, data).boom;
     }
 
     /**
@@ -1478,7 +1454,7 @@ class util {
     }
 
 
-  getdataStr(obj: { url: string, data?: any, success?: Function, fail?: Function }) {
+    getdataStr(obj: { url: string, data?: any, success?: Function, fail?: Function }) {
 
         XMSDK.getdataStr({
             url: obj.url,
@@ -1505,7 +1481,6 @@ class util {
      */
 
     chekcToday() {
-
         let day = new Date().getDate();
         let isDay: boolean = false;
         if (day == this.userData.GetDayTime) {
@@ -1549,27 +1524,8 @@ class util {
             let location: number = this.checkPool();
             if (!location) {
                 console.error("没有位置");
-                // TrackMgr.airborne_gold({
-                //     activity_state: "金币下发",
-                //     distribution_status: false,
-                //     failure_reasons: "没有位置"
-                // })
-                TrackMgr.empty_treasure({
-                    activity_state: `宝箱下发`,
-                    distribution_status: false,
-                    failure_reasons: `当前没有空地；场地上有未开启宝箱`,
-                })
-
                 return;
             }
-            TrackMgr.empty_treasure({
-                activity_state: `宝箱下发`,
-                distribution_status: true,
-            })
-
-            TrackMgr.AppBuyProductDialog_hcdg({
-                dialog_name_hcdg: `空降宝箱（未砸开）`
-            })
 
             this.userData.emptyBoxNo = location;
             cc.game.emit(NameTs.Show_Empty_Box);
@@ -1660,7 +1616,6 @@ class util {
      * 发送看视频获取炮塔记录
      */
     sendTurretNum() {
-
         this.post({
             url: UrlConst.watchVideoAddBattery,
             success: () => {
@@ -1671,45 +1626,44 @@ class util {
                 console.log("记录看视频获得炮塔任务失败")
             }
         })
-
     }
+
     setTempParm(name: string, value: any) {
         this.tempParm[name] = value
     }
+
     getTempParm(name: string) {
         return this.tempParm[name]
     }
 
-	getMapdata(bigmap)
-	{
-		//jsonArr.gkData
-		let data = jsonSingleton.singleton.getJson(NameTs.gkData);
-		//console.log(bigmap + " jsonArr.gkData ----------------------------- :" +  JSON.stringify( data ) )
-		let nwdata = []
-		
-		for (let i=0;i<data.length;i++) {
-			//console.log("-------# " + JSON.stringify(data[i]) )
-			if( data[i]["levelNo"] == bigmap+"")
-			{
-				nwdata.push(data[i]))
-			}
-		}
-		
-		return nwdata
-	}
+    getMapdata(bigmap) {
+        let data = jsonSingleton.singleton.getJson(NameTs.gkData);
+        let nwdata = []
+        for (let i = 0; i < data.length; i++) {
+            if (data[i]["levelNo"] == bigmap + "") {
+                nwdata.push(data[i])
+            }
+        }
+        return nwdata
+    }
 
     /**
      * 是否为b用户
      */
     checkTestB(name: string): boolean {
-        let user:string = AssistCtr.isATest()?"A":"B";
-        return this.AB_Test[name][user]=="true"?true:false;
+        let user: string = AssistCtr.isATest() ? "A" : "B";
+
+        // console.log("当前用户：" + user);
+        // let valiue = this.AB_Test[name][user];
+        // console.log("当前用户2222：" + valiue);
+
+        return this.AB_Test[name][user] == "true" ? true : false;
     }
 
     /**离线增加炮塔次数*/
     offlineTurretProduct() {
         //当前时间
-    let nowTime: number = new Date().getTime();
+        let nowTime: number = new Date().getTime();
         //上一次时间
         let lastTime: number = this.getStorage(this.localDiary.offlineTime) || new Date().getTime();
         //每30秒一个 换算
@@ -1727,7 +1681,7 @@ class util {
     }
 
 
-    
+
 }
 
 

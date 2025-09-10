@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_green_deep@2x (1)",
+    "texture": "acbc5067-d48b-4803-81a6-69a16a1bfaef",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      288,
+      100
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      288,
+      100
+    ],
+    "capInsets": [
+      50,
+      45,
+      50,
+      45
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "rongjiapao",
+    "texture": "c29650fb-3356-4f9d-93fd-e399c2da8817",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      118,
+      116
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      118,
+      116
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_mobile",
+    "texture": "13ed3ec0-680e-4f7a-bf7a-2c20b3a4aa1f",
+    "atlas": "",
+    "rect": [
+      1,
+      8,
+      143,
+      142
+    ],
+    "offset": [
+      -3.5,
+      -4
+    ],
+    "originalSize": [
+      152,
+      150
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_barProcess",
+    "texture": "cfde8aea-e3d3-47d1-8e2e-84ed172d4a78",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      260,
+      18
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      262,
+      20
+    ],
+    "capInsets": [
+      8,
+      0,
+      8,
+      0
+    ]
+  }
+}

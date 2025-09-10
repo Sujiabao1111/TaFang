@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "a29bbaa9-dff2-40fe-8f10-719abffb9ffc",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "newBigWheel_phone": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "48a3d786-06e2-4f3c-aa5b-8e75b9dd39f8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a29bbaa9-dff2-40fe-8f10-719abffb9ffc",
       "trimType": "auto",
       "trimThreshold": 1,

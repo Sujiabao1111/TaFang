@@ -17,11 +17,9 @@ class jsonSingleton{
         }
         if(arr){
             arr.forEach(name=>{
-				
                 cc.resources.load('data/'+name, (err, jsonAsset:cc.JsonAsset)=> {
                     len--;
                     this.jsonData[name] = jsonAsset.json;
-					
                     if(len==0){
                         call&&call();
                     }

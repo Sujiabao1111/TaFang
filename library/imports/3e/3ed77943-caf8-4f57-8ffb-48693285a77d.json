@@ -1,0 +1,14 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "hole_tex",
+  "_objFlags": 0,
+  "_native": "",
+  "_atlasJson": "{\"name\":\"hole\",\"height\":119,\"SubTexture\":[{\"name\":\"heidong\",\"x\":1,\"height\":116,\"y\":1,\"width\":121}],\"imagePath\":\"hole_tex.png\",\"width\":124}",
+  "_texture": {
+    "__uuid__": "36f778e1-a7d9-4eee-a47d-8ee1b5fa8761"
+  },
+  "texture": {
+    "__uuid__": "36f778e1-a7d9-4eee-a47d-8ee1b5fa8761"
+  },
+  "_textureAtlasData": null
+}

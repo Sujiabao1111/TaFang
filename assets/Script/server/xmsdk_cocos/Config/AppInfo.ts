@@ -7,12 +7,12 @@ export const WebVersionCode = 103001;       //1030是安卓的，01是客户端�
 //是否本地开发,上线前需要改成false
 const isLocal = cc.sys.os != cc.sys.OS_ANDROID;
 // 是否为测试服,上线前需要改成false
-const isTest = true;
+const isTest = false;
 //网页的host
 const getHost = function (hasTest) {
     return (hasTest ? 'https://finevideo.jidiandian.cn' : 'https://jidiandian.cn');
-
 }
+
 //客户端Host
 const getAppHost = function (hasTest) {
     return (hasTest ? 'https://testapi.jidiandian.cn' : 'https://api.jidiandian.cn');
@@ -48,12 +48,12 @@ const setUpTesting = function (hasTest) {
     AppInfo.host = getHost(hasTest);
     AppInfo.appHost = getAppHost(hasTest);
 }
+
 //获取phead 
 const getPhead = function () {
     let phead = AppInfo.phead;
     if (typeof AppInfo.phead === 'string') {
         try {
-
             phead = JSON.parse(phead);
         } catch (e) {
             throw new Error(e);
@@ -63,6 +63,7 @@ const getPhead = function () {
     //console.log("phead",JSON.stringify(phead))
     return phead;
 }
+
 //获取adHead
 const getAdHead = function () {
     let clientAdHead = AppInfo.adHead;
@@ -81,7 +82,8 @@ const getAdHead = function () {
     } = clientAdHead || {};
     const timestamp = Date.now();
     const phead = getPhead() || {};
-    const sign = MD5(encodeURIComponent(`prdId=${prdId}&deviceId=${deviceId}&timestamp=${timestamp}&key=${KEY}`));
+    // const sign = MD5(encodeURIComponent(`prdId=${prdId}&deviceId=${deviceId}&timestamp=${timestamp}&key=${KEY}`));
+    const sign = null;
     return JSON.stringify(Object.assign(clientAdHead, { "timestamp": timestamp, "signature": sign, "token": phead.access_token || '' }));
 
 }

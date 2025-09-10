@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_btnSign",
+    "texture": "4cff465e-1425-4170-be8b-4e2074d658ea",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      500,
+      108
+    ],
+    "offset": [
+      -1,
+      0
+    ],
+    "originalSize": [
+      502,
+      108
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

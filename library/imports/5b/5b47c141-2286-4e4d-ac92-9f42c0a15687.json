@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_boxjindu@2x",
+    "texture": "ef7116cd-eddf-4ed0-bbd9-985514593516",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      38,
+      32
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      38,
+      32
+    ],
+    "capInsets": [
+      15,
+      15,
+      15,
+      15
+    ]
+  }
+}

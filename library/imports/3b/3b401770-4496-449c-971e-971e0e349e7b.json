@@ -1,0 +1,14 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "baoxiang_tex",
+  "_objFlags": 0,
+  "_native": "",
+  "_atlasJson": "{\"name\":\"baoxiang\",\"height\":218,\"SubTexture\":[{\"name\":\"red-xia\",\"x\":1,\"height\":107,\"y\":1,\"width\":169},{\"name\":\"red-shang\",\"x\":1,\"height\":106,\"y\":110,\"width\":168},{\"name\":\"star\",\"x\":171,\"frameWidth\":70,\"height\":69,\"y\":110,\"frameHeight\":70,\"frameX\":0,\"frameY\":0,\"width\":69}],\"imagePath\":\"baoxiang_tex.png\",\"width\":242}",
+  "_texture": {
+    "__uuid__": "be21e7c3-e5e2-4ac1-8ecf-7212eb1dc408"
+  },
+  "texture": {
+    "__uuid__": "be21e7c3-e5e2-4ac1-8ecf-7212eb1dc408"
+  },
+  "_textureAtlasData": null
+}

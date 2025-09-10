@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_signedmask",
+    "texture": "26f8e5e4-a3ac-4b0b-9199-adc44a911825",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      124,
+      144
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      124,
+      144
+    ],
+    "capInsets": [
+      55,
+      65,
+      55,
+      68
+    ]
+  }
+}

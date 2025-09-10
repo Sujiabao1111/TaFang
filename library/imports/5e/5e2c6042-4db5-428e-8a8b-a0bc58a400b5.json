@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GodWheel_getBtn",
+    "texture": "3946db70-d3a6-4ad5-9517-80fefb222e54",
+    "atlas": "",
+    "rect": [
+      0,
+      5,
+      338,
+      131
+    ],
+    "offset": [
+      0,
+      -2.5
+    ],
+    "originalSize": [
+      338,
+      136
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

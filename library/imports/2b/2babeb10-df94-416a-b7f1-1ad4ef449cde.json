@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "newBigWheel_signkuang1",
+    "texture": "0f88b403-45f0-4157-9f40-d39f9cb3a918",
+    "atlas": "",
+    "rect": [
+      4,
+      4,
+      130,
+      168
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      138,
+      176
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

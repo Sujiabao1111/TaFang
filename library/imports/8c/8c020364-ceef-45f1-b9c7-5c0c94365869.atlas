@@ -1,0 +1,48 @@
+
+zaoyinpao.png
+size: 193,191
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ybp-bp1_002
+  rotate: true
+  xy: 49, 18
+  size: 23, 44
+  orig: 64, 64
+  offset: 20, 0
+  index: -1
+ybp-bp1_003
+  rotate: true
+  xy: 0, 0
+  size: 41, 40
+  orig: 64, 64
+  offset: 12, 12
+  index: -1
+ybp-bp1_004
+  rotate: true
+  xy: 73, 53
+  size: 63, 62
+  orig: 64, 64
+  offset: 1, 1
+  index: -1
+ybp-bp1_005
+  rotate: false
+  xy: 0, 127
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+ybp-bp1_006
+  rotate: false
+  xy: 0, 52
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+ybp-bp1_007
+  rotate: false
+  xy: 73, 127
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1

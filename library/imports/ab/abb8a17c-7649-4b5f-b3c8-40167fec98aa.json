@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "txt_hechengpaota",
+    "texture": "169914d4-990a-4a15-a9a1-4c00fd5aca26",
+    "atlas": "",
+    "rect": [
+      140,
+      24,
+      305,
+      61
+    ],
+    "offset": [
+      1.5,
+      27.5
+    ],
+    "originalSize": [
+      582,
+      164
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

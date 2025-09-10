@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon_hongbao@2x",
+    "texture": "e1b36731-891e-4a89-b060-c351bff78883",
+    "atlas": "",
+    "rect": [
+      0,
+      16,
+      176,
+      157
+    ],
+    "offset": [
+      0,
+      -6.5
+    ],
+    "originalSize": [
+      176,
+      176
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

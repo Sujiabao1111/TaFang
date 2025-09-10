@@ -1,0 +1,20 @@
+
+hanfengpao.png
+size: 105,103
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 69, 7
+  size: 96, 36
+  orig: 96, 36
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 14
+  size: 60, 89
+  orig: 60, 89
+  offset: 0, 0
+  index: -1

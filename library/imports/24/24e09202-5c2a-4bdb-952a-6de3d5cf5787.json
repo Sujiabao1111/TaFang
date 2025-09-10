@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "roll_bottom_tex",
+    "texture": "d792b91c-6a67-40de-b893-d7dc8e306b91",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      192,
+      483
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      195,
+      486
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

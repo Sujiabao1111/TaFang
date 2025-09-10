@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "31f84529-2758-43b0-a9ae-da3a6db2f2fd",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "img_tixian_finish": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "1c3850ef-b8ad-4415-ad7b-18b97590e970",
+      "importer": "sprite-frame",
       "rawTextureUuid": "31f84529-2758-43b0-a9ae-da3a6db2f2fd",
       "trimType": "auto",
       "trimThreshold": 1,

@@ -1,0 +1,13 @@
+
+duoyupao.png
+size: 169,169
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+paodan06
+  rotate: false
+  xy: 2, 2
+  size: 97, 165
+  orig: 108, 171
+  offset: 10, 4
+  index: -1

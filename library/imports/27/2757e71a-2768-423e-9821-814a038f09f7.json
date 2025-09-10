@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chaoshengpao",
+    "texture": "c58e8db2-5e28-4f51-b685-11aaab37d9ec",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      230,
+      232
+    ],
+    "offset": [
+      -1,
+      0
+    ],
+    "originalSize": [
+      236,
+      236
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

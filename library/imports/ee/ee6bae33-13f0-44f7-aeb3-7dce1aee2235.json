@@ -1,0 +1,140 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "xuefengpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "oZKvcQNj3LDWxkV/tCOY6/toIQw",
+      "spine": "3.8.95",
+      "x": -54,
+      "y": -54,
+      "width": 108,
+      "height": 108,
+      "images": "F:/waibao/spine/小鱼/炮/炮导出/最新版(炮塔)04/19雪封炮/boom",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "sj",
+        "parent": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "sj",
+        "bone": "sj",
+        "attachment": "bk_002"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "sj": {
+            "bk_001": {
+              "width": 108,
+              "height": 108
+            },
+            "bk_002": {
+              "width": 108,
+              "height": 108
+            },
+            "bk_003": {
+              "width": 108,
+              "height": 108
+            },
+            "bk_005": {
+              "scaleX": 1.1372,
+              "scaleY": 1.1372,
+              "width": 121,
+              "height": 121
+            },
+            "bk_007": {
+              "scaleX": 1.1324,
+              "scaleY": 1.1324,
+              "width": 121,
+              "height": 121
+            },
+            "bk_009": {
+              "width": 121,
+              "height": 121
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "sj": {
+            "color": [
+              {
+                "time": 0.1333,
+                "color": "ffffffff",
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2333,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "bk_001"
+              },
+              {
+                "time": 0.0667,
+                "name": "bk_002"
+              },
+              {
+                "time": 0.1,
+                "name": "bk_003"
+              },
+              {
+                "time": 0.1333,
+                "name": "bk_007"
+              },
+              {
+                "time": 0.1667,
+                "name": "bk_009"
+              },
+              {
+                "time": 0.2,
+                "name": null
+              }
+            ]
+          }
+        },
+        "bones": {
+          "sj": {
+            "scale": [
+              {
+                "x": 0.9,
+                "y": 0.9
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nxuefengpao.png\nsize: 342,340\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nbk_001\n  rotate: false\n  xy: 119, 34\n  size: 94, 92\n  orig: 108, 108\n  offset: 8, 6\n  index: -1\nbk_002\n  rotate: false\n  xy: 114, 243\n  size: 97, 97\n  orig: 108, 108\n  offset: 7, 3\n  index: -1\nbk_003\n  rotate: false\n  xy: 119, 137\n  size: 92, 95\n  orig: 108, 108\n  offset: 8, 3\n  index: -1\nbk_005\n  rotate: false\n  xy: 0, 226\n  size: 105, 114\n  orig: 121, 121\n  offset: 12, 6\n  index: -1\nbk_007\n  rotate: true\n  xy: 0, 110\n  size: 105, 110\n  orig: 121, 121\n  offset: 12, 7\n  index: -1\nbk_009\n  rotate: true\n  xy: 0, 0\n  size: 99, 91\n  orig: 121, 121\n  offset: 13, 15\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "b6f1e21d-be58-474e-8bbd-e07abaaf2a3c"
+    }
+  ],
+  "textureNames": [
+    "xuefengpao.png"
+  ],
+  "scale": 1
+}

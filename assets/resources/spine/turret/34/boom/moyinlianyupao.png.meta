@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "7be421da-7858-4f57-861e-bf4007ce9b8b",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "moyinlianyupao": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "c9453fb2-3ab5-4e3a-b341-0ee1e8019e01",
+      "importer": "sprite-frame",
       "rawTextureUuid": "7be421da-7858-4f57-861e-bf4007ce9b8b",
       "trimType": "auto",
       "trimThreshold": 1,

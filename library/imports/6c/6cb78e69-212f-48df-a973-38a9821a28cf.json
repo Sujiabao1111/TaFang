@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "yuzhouleishepao",
+    "texture": "a29d8802-97b5-4ec5-a3da-abdbce8e4012",
+    "atlas": "",
+    "rect": [
+      2,
+      101,
+      292,
+      193
+    ],
+    "offset": [
+      0,
+      -49.5
+    ],
+    "originalSize": [
+      296,
+      296
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

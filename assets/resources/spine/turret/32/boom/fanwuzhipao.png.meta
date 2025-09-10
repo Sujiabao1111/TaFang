@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "e6ab9aa8-91db-4cbe-a64c-4cee8198e55c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "fanwuzhipao": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "0e9cfcd5-8773-455e-9fa3-9ae6248de4fe",
+      "importer": "sprite-frame",
       "rawTextureUuid": "e6ab9aa8-91db-4cbe-a64c-4cee8198e55c",
       "trimType": "auto",
       "trimThreshold": 1,

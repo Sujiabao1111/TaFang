@@ -41,7 +41,7 @@ export default class NameTs {
     //销毁等级label
     static Game_LevelLabel_Killed = "Game_LevelLabel_Killed";
 
-    
+
 
     //双倍收益
     static Game_Earnings_Linster = "Game_Earnings_Linster";
@@ -76,26 +76,30 @@ export default class NameTs {
     //销毁砸开
     static Game_Bullet_Boom_Killed = "Game_Bullet_Boom_Killed";
 
-    /**炮台json*/
-    static turretData = "turretData2";
+    /**炮弹json*/
+    static bulletData = "bulletData";
+    /**购买json*/
+    static buyData = "buyData";
+    /**天降金币json*/
+    static coinData = "coinData";
+    /**关卡json*/
+    static gkData = "gk";
     /**地图json*/
     static mapData = "mapData";
     /**怪兽json*/
     static monsterData = "monsterData";
-    /**购买json*/
-    static buyData = "buyData3";
-    /**道具json*/
-    static propData = "propData";
-    /**天降金币json*/
-    static coinData = "coinData";
-    /**宝箱json*/
-    static treasureData = "treasureData";
     /**怪物关卡json*/
     static monsterIdData = "monsterIdData";
-    /**炮弹json*/
-    static bulletData = "bulletData";
-	/**关卡json*/
-    static gkData = "gk";
+    /**道具json*/
+    static propData = "propData";
+    /**宝箱json*/
+    static treasureData = "treasureData";
+    /**炮台json*/
+    static turretData = "turretData";
+
+
+
+
 
     //关卡更新
     static Game_View_CustomsUpdata = "Game_View_CustomsUpdata";
@@ -133,6 +137,7 @@ export default class NameTs {
 
     //金币特效
     static Game_Effect_coin = "Game_Effect_coin";
+
     //炮塔特效
     static Game_Effect_turret = "Game_Effect_turret";
 
@@ -157,7 +162,6 @@ export default class NameTs {
     static Game_CloseNewPlayerTask = "Game_CloseNewPlayerTask";
     //炮王任务更新
     static Game_KingPaoTask_Update = "Game_KingPaoTask_Update";
-
     //购买更新
     static Game_Buy_update = "Game_Buy_update";
 
@@ -190,6 +194,8 @@ export default class NameTs {
 
     //关闭护盾
     static Close_Shield = "Close_Shield"
+    //关闭自动合成
+    static Close_Prop_Atuo = "Close_Prop_Atuo"
 
 
     //图鉴展现更新
@@ -253,7 +259,7 @@ export default class NameTs {
     static new_hand_test = "new_hand_test";//新手流程
 
 
-    
+
     //关掉load页面
     static Close_LoadPage = `Close_LoadPage`;
 

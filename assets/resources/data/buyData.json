@@ -1,1 +1,154 @@
-[{"level":"1","min":"1","max":"1"},{"level":"2","min":"1","max":"2"},{"level":"3","min":"2","max":"2"},{"level":"4","min":"2","max":"3"},{"level":"5","min":"3","max":"4"},{"level":"6","min":"4","max":"5"},{"level":"7","min":"5","max":"6"},{"level":"8","min":"6","max":"7"},{"level":"9","min":"7","max":"8"},{"level":"10","min":"6","max":"8"},{"level":"11","min":"7","max":"9"},{"level":"12","min":"8","max":"10"},{"level":"13","min":"9","max":"11"},{"level":"14","min":"10","max":"12"},{"level":"15","min":"11","max":"13"},{"level":"16","min":"11","max":"13"},{"level":"17","min":"12","max":"14"},{"level":"18","min":"13","max":"15"},{"level":"19","min":"14","max":"16"},{"level":"20","min":"15","max":"17"},{"level":"21","min":"14","max":"17"},{"level":"22","min":"15","max":"18"},{"level":"23","min":"16","max":"19"},{"level":"24","min":"17","max":"20"},{"level":"25","min":"18","max":"21"},{"level":"26","min":"17","max":"21"},{"level":"27","min":"18","max":"22"},{"level":"28","min":"19","max":"23"},{"level":"29","min":"20","max":"24"},{"level":"30","min":"21","max":"25"},{"level":"31","min":"20","max":"25"},{"level":"32","min":"21","max":"26"},{"level":"33","min":"22","max":"27"},{"level":"34","min":"23","max":"28"},{"level":"35","min":"24","max":"29"},{"level":"36","min":"23","max":"29"},{"level":"37","min":"24","max":"30"},{"level":"38","min":"25","max":"31"},{"level":"39","min":"26","max":"32"},{"level":"40","min":"27","max":"33"},{"level":"41","min":"28","max":"34"}]
+[
+    {
+        "level": "1",
+        "arr": "[{\"id\":1,\"weigth\":100}]"
+    },
+    {
+        "level": "2",
+        "arr": "[{\"id\":1,\"weigth\":100}]"
+    },
+    {
+        "level": "3",
+        "arr": "[{\"id\":1,\"weigth\":50},{\"id\":2,\"weigth\":50}]"
+    },
+    {
+        "level": "4",
+        "arr": "[{\"id\":1,\"weigth\":25},{\"id\":2,\"weigth\":50},{\"id\":3,\"weigth\":25}]"
+    },
+    {
+        "level": "5",
+        "arr": "[{\"id\":2,\"weigth\":25},{\"id\":3,\"weigth\":50},{\"id\":4,\"weigth\":25}]"
+    },
+    {
+        "level": "6",
+        "arr": "[{\"id\":3,\"weigth\":25},{\"id\":4,\"weigth\":50},{\"id\":5,\"weigth\":25}]"
+    },
+    {
+        "level": "7",
+        "arr": "[{\"id\":4,\"weigth\":25},{\"id\":5,\"weigth\":50},{\"id\":6,\"weigth\":25}]"
+    },
+    {
+        "level": "8",
+        "arr": "[{\"id\":4,\"weigth\":25},{\"id\":5,\"weigth\":50},{\"id\":6,\"weigth\":25}]"
+    },
+    {
+        "level": "9",
+        "arr": "[{\"id\":5,\"weigth\":25},{\"id\":6,\"weigth\":50},{\"id\":7,\"weigth\":25}]"
+    },
+    {
+        "level": "10",
+        "arr": "[{\"id\":6,\"weigth\":25},{\"id\":7,\"weigth\":50},{\"id\":8,\"weigth\":25}]"
+    },
+    {
+        "level": "11",
+        "arr": "[{\"id\":7,\"weigth\":25},{\"id\":8,\"weigth\":50},{\"id\":9,\"weigth\":25}]"
+    },
+    {
+        "level": "12",
+        "arr": "[{\"id\":8,\"weigth\":25},{\"id\":9,\"weigth\":50},{\"id\":10,\"weigth\":25}]"
+    },
+    {
+        "level": "13",
+        "arr": "[{\"id\":9,\"weigth\":25},{\"id\":10,\"weigth\":50},{\"id\":11,\"weigth\":25}]"
+    },
+    {
+        "level": "14",
+        "arr": "[{\"id\":10,\"weigth\":25},{\"id\":11,\"weigth\":50},{\"id\":12,\"weigth\":25}]"
+    },
+    {
+        "level": "15",
+        "arr": "[{\"id\":11,\"weigth\":25},{\"id\":12,\"weigth\":50},{\"id\":13,\"weigth\":25}]"
+    },
+    {
+        "level": "16",
+        "arr": "[{\"id\":12,\"weigth\":25},{\"id\":13,\"weigth\":50},{\"id\":14,\"weigth\":25}]"
+    },
+    {
+        "level": "17",
+        "arr": "[{\"id\":13,\"weigth\":25},{\"id\":14,\"weigth\":50},{\"id\":15,\"weigth\":25}]"
+    },
+    {
+        "level": "18",
+        "arr": "[{\"id\":13,\"weigth\":25},{\"id\":14,\"weigth\":50},{\"id\":15,\"weigth\":25}]"
+    },
+    {
+        "level": "19",
+        "arr": "[{\"id\":13,\"weigth\":25},{\"id\":14,\"weigth\":50},{\"id\":15,\"weigth\":25}]"
+    },
+    {
+        "level": "20",
+        "arr": "[{\"id\":14,\"weigth\":25},{\"id\":15,\"weigth\":50},{\"id\":16,\"weigth\":25}]"
+    },
+    {
+        "level": "21",
+        "arr": "[{\"id\":15,\"weigth\":25},{\"id\":16,\"weigth\":50},{\"id\":17,\"weigth\":25}]"
+    },
+    {
+        "level": "22",
+        "arr": "[{\"id\":16,\"weigth\":25},{\"id\":17,\"weigth\":50},{\"id\":18,\"weigth\":25}]"
+    },
+    {
+        "level": "23",
+        "arr": "[{\"id\":17,\"weigth\":25},{\"id\":18,\"weigth\":50},{\"id\":19,\"weigth\":25}]"
+    },
+    {
+        "level": "24",
+        "arr": "[{\"id\":18,\"weigth\":25},{\"id\":19,\"weigth\":50},{\"id\":20,\"weigth\":25}]"
+    },
+    {
+        "level": "25",
+        "arr": "[{\"id\":19,\"weigth\":25},{\"id\":20,\"weigth\":50},{\"id\":21,\"weigth\":25}]"
+    },
+    {
+        "level": "26",
+        "arr": "[{\"id\":20,\"weigth\":25},{\"id\":21,\"weigth\":50},{\"id\":22,\"weigth\":25}]"
+    },
+    {
+        "level": "27",
+        "arr": "[{\"id\":21,\"weigth\":25},{\"id\":22,\"weigth\":50},{\"id\":23,\"weigth\":25}]"
+    },
+    {
+        "level": "28",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "29",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "30",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "31",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "32",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "33",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "34",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "35",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "36",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "37",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    },
+    {
+        "level": "38",
+        "arr": "[{\"id\":22,\"weigth\":25},{\"id\":23,\"weigth\":50},{\"id\":24,\"weigth\":25}]"
+    }
+]

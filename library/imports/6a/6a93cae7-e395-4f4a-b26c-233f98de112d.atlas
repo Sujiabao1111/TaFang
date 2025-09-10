@@ -1,0 +1,55 @@
+
+qingjipao.png
+size: 149,116
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+sj0
+  rotate: false
+  xy: 111, 0
+  size: 18, 18
+  orig: 19, 19
+  offset: 0, 1
+  index: -1
+sj1
+  rotate: false
+  xy: 0, 2
+  size: 48, 51
+  orig: 48, 51
+  offset: 0, 0
+  index: -1
+sj2
+  rotate: false
+  xy: 0, 64
+  size: 45, 52
+  orig: 47, 54
+  offset: 1, 1
+  index: -1
+sj3
+  rotate: false
+  xy: 54, 65
+  size: 45, 51
+  orig: 47, 51
+  offset: 1, 0
+  index: -1
+sj4
+  rotate: false
+  xy: 111, 29
+  size: 31, 32
+  orig: 32, 33
+  offset: 0, 0
+  index: -1
+sj5
+  rotate: false
+  xy: 108, 72
+  size: 41, 44
+  orig: 43, 45
+  offset: 1, 0
+  index: -1
+sj6
+  rotate: false
+  xy: 57, 8
+  size: 45, 46
+  orig: 46, 48
+  offset: 1, 1
+  index: -1

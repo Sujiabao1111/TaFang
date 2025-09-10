@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "26bde210-8ec3-4232-9ee3-f01fce34db03",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "bingheyongdongpao": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "412414a1-6207-43e1-8626-91b45386a508",
+      "importer": "sprite-frame",
       "rawTextureUuid": "26bde210-8ec3-4232-9ee3-f01fce34db03",
       "trimType": "auto",
       "trimThreshold": 1,

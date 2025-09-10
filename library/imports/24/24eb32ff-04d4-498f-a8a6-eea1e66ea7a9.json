@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "foguang_tex",
+    "texture": "e2d0f179-ec9c-44ae-85bf-8bc910e54efc",
+    "atlas": "",
+    "rect": [
+      3,
+      3,
+      654,
+      886
+    ],
+    "offset": [
+      -3,
+      0
+    ],
+    "originalSize": [
+      666,
+      892
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

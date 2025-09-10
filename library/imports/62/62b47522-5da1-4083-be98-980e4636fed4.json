@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bingdong_tex",
+    "texture": "c58e2b35-2c8f-44a5-92f9-b0407538ca31",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      999,
+      1280
+    ],
+    "offset": [
+      -1,
+      0.5
+    ],
+    "originalSize": [
+      1003,
+      1283
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

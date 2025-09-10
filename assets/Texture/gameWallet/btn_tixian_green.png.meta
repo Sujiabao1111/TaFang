@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "b8f1c459-9b25-46e7-85f6-19b77b86b037",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "btn_tixian_green": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "2c25efd3-4d23-43f9-9c7e-a7e4a28951ee",
+      "importer": "sprite-frame",
       "rawTextureUuid": "b8f1c459-9b25-46e7-85f6-19b77b86b037",
       "trimType": "auto",
       "trimThreshold": 1,

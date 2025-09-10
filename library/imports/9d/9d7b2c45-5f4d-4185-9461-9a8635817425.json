@@ -1,0 +1,14 @@
+{
+  "__type__": "dragonBones.DragonBonesAtlasAsset",
+  "_name": "hudun_tex",
+  "_objFlags": 0,
+  "_native": "",
+  "_atlasJson": "{\"name\":\"hudun\",\"SubTexture\":[{\"name\":\"hudun\",\"x\":161,\"height\":124,\"y\":1,\"width\":124},{\"name\":\"hudunlight\",\"x\":1,\"height\":158,\"y\":1,\"width\":158}],\"imagePath\":\"hudun_tex.png\",\"height\":161,\"width\":287}",
+  "_texture": {
+    "__uuid__": "8e8da45c-5a82-46ac-83ae-ac638b5e2526"
+  },
+  "texture": {
+    "__uuid__": "8e8da45c-5a82-46ac-83ae-ac638b5e2526"
+  },
+  "_textureAtlasData": null
+}

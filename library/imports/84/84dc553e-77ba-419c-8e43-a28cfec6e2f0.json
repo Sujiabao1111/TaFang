@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "txt_shouyix2@2x",
+    "texture": "159f7b0a-908b-44c9-ad4a-deef694eecdd",
+    "atlas": "",
+    "rect": [
+      1,
+      10,
+      158,
+      56
+    ],
+    "offset": [
+      0,
+      -4
+    ],
+    "originalSize": [
+      160,
+      68
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

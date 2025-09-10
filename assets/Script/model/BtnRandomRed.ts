@@ -22,52 +22,44 @@ export default class BtnRandomRed extends cc.Component {
     img_closeRed: cc.Node = null;
 
     @property(dragonBones.ArmatureDisplay)
-    img_openRed: dragonBones.ArmatureDisplay = null;    
+    img_openRed: dragonBones.ArmatureDisplay = null;
 
     onceEnter = true;
 
-    onEnable() {                
+    onEnable() {
         let self = this;
-        if(!util.chekcToday()){                        
+        if (!util.chekcToday()) {
             util.setStorage(util.localDiary.randomRedTimeNum, 60);
         }
 
         let randomRedTimeNum = util.getStorage(util.localDiary.randomRedTimeNum)
-        if(randomRedTimeNum == null){            
+        if (randomRedTimeNum == null) {
             util.setStorage(util.localDiary.randomRedTimeNum, 60);
-        } 
+        }
 
         util.randomRedTimeNum = randomRedTimeNum;
         self.lable_time.string = AssistCtr.formatSeconds(util.randomRedTimeNum);
         self.updateData();
-        
-        util.GlobalMap.set("RandomRed",this.node);
+
+        util.GlobalMap.set("RandomRed", this.node);
     }
 
     onLoad() {
         cc.game.on(NameTs.randomRedUpdate, this.updateData, this);
-        
+
     }
 
     clickOpen() {
         let self = this;
-        TrackMgr.AppClick({
-            app_page_title: "首页",
-            app_ck_module: "福利红包",
-            app_exposure_type: "icon",
-        });
 
 
         if (self.lable_time.node.active) {
             AssistCtr.showToastTip(`${util.randomRedTimeNum}s后可领取`);
         }
         else {
-            cc.game.emit(NameTs.Game_Pop_Open, {name:pageTs.pageName.GameRandomRedPrize});
+            cc.game.emit(NameTs.Game_Pop_Open, { name: pageTs.pageName.GameRandomRedPrize });
         }
 
-        TrackMgr.welfare_red_envelope({
-            activity_state: "点击福利红包"
-        })
     }
 
     openTimer() {
@@ -86,9 +78,6 @@ export default class BtnRandomRed extends cc.Component {
             self.img_openRed.node.active = true;
             self.img_openRed.playAnimation("fulihongbao", 0);
 
-            TrackMgr.welfare_red_envelope({
-                activity_state: "福利红包待领取"
-            })
         }
     }
 
@@ -103,11 +92,7 @@ export default class BtnRandomRed extends cc.Component {
             self.img_closeRed.active = false;
             self.img_openRed.node.active = true;
             self.img_openRed.playAnimation("fulihongbao", 0);
-
             util.randomRedTimeNum = 0;
-            TrackMgr.welfare_red_envelope({
-                activity_state: "福利红包待领取"
-            })
         }
         util.randomRedTimeNum--;
     }
@@ -118,7 +103,7 @@ export default class BtnRandomRed extends cc.Component {
             url: UrlConst.btnRandomRedCount,
             onSuccess: res => {
                 if (res.code === 0 && res.data) {
-                    if(!this.isValid){
+                    if (!this.isValid) {
                         return;
                     }
 
@@ -129,14 +114,11 @@ export default class BtnRandomRed extends cc.Component {
                             self.img_openRed.node.active = true;
                             self.img_openRed.playAnimation("fulihongbao", 0);
 
-                            TrackMgr.welfare_red_envelope({
-                                activity_state: "福利红包待领取"
-                            })
                         }
                         else {
-                            if(!self.onceEnter){
+                            if (!self.onceEnter) {
                                 util.randomRedTimeNum = 60;
-                            }                            
+                            }
                             this.onceEnter = false;
                             this.openTimer();
                         }

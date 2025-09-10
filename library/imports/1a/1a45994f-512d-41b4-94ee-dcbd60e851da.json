@@ -1,0 +1,107 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "bonengpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "7uNI1atb5IIDoLTeaOxyc14MoBE",
+      "spine": "3.8.95",
+      "x": -41.91,
+      "y": -43.41,
+      "width": 85,
+      "height": 78,
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "paoshen",
+        "parent": "root"
+      }
+    ],
+    "slots": [
+      {
+        "name": "paodi",
+        "bone": "root",
+        "attachment": "paodi"
+      },
+      {
+        "name": "paoshen",
+        "bone": "paoshen",
+        "attachment": "paoshen"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "paodi": {
+            "paodi": {
+              "x": 0.59,
+              "y": -4.41,
+              "width": 85,
+              "height": 78
+            }
+          },
+          "paoshen": {
+            "paoshen": {
+              "x": 0.71,
+              "y": 1.21,
+              "width": 81,
+              "height": 61
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "bones": {
+          "paoshen": {
+            "scale": [
+              {
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.1333,
+                "x": 1.062,
+                "y": 1.062,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2667,
+                "x": 0.961,
+                "y": 0.961,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.4,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nbonengpao.png\nsize: 145,145\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\npaodi\n  rotate: false\n  xy: 2, 65\n  size: 85, 78\n  orig: 85, 78\n  offset: 0, 0\n  index: -1\npaoshen\n  rotate: false\n  xy: 2, 2\n  size: 81, 61\n  orig: 81, 61\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "d470eadb-fa1f-4cc1-abe5-58a89ba0e007"
+    }
+  ],
+  "textureNames": [
+    "bonengpao.png"
+  ],
+  "scale": 1
+}

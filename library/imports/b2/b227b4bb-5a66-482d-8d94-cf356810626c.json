@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ningshuangpao",
+    "texture": "8396a3a7-2a49-4845-ba3c-6bd8b90a069d",
+    "atlas": "",
+    "rect": [
+      0,
+      207,
+      292,
+      83
+    ],
+    "offset": [
+      0,
+      -103.5
+    ],
+    "originalSize": [
+      292,
+      290
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

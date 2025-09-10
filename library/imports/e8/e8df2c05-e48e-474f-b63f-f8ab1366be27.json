@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GodWheel_close",
+    "texture": "32b08bd3-bd5d-4615-9ad1-e5e3b5880ac2",
+    "atlas": "",
+    "rect": [
+      0,
+      2,
+      72,
+      70
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      72,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

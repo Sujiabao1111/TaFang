@@ -4,84 +4,84 @@ import { AdPosition } from "../common/AdPosition";
 import { gameNumerical, updateType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
+import { t } from "../Language/LanguageData";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
 import soundController from "../soundController";
 import TrackMgr from "../TrackMgr/TrackMgr";
-import tool from "../util/tool";
+import { Tools } from "../util/Tools";
 import util from "../util/util";
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class gameGetVideoTurret extends baseTs {
 
-    @property({type:cc.Label,displayName:"数量"})
-    private numLabel:cc.Label = null;
+    @property({ type: cc.Label, displayName: "数量" })
+    private numLabel: cc.Label = null;
 
     // @property({type:cc.Node,displayName:"光"})
     // private light:cc.Node = null;
 
-    @property({type:cc.Sprite,displayName:"炮塔身"})
-    private turretBody:cc.Sprite = null;
+    @property({ type: cc.Sprite, displayName: "炮塔身" })
+    private turretBody: cc.Sprite = null;
 
-    @property({type:cc.Sprite,displayName:"炮塔脚"})
-    private turretFoot:cc.Sprite = null;
-    
-    @property({type:cc.Node,displayName:"关闭"})
-    private closeBtnNode:cc.Node = null;
-    
-    @property({type:cc.Node,displayName:"信息流"})
-    private feed_node:cc.Node = null;
-    
+    @property({ type: cc.Sprite, displayName: "炮塔脚" })
+    private turretFoot: cc.Sprite = null;
+
+    @property({ type: cc.Node, displayName: "关闭" })
+    private closeBtnNode: cc.Node = null;
+
+    @property({ type: cc.Node, displayName: "信息流" })
+    private feed_node: cc.Node = null;
+
     /**金币 */
-    private num:number = 0;
+    private num: number = 0;
 
-    private initData:any;
+    private initData: any;
 
-    onLoad () {
+    onLoad() {
 
     }
 
-    start () {
+    start() {
 
         // cc.tween(this.light).repeatForever(
         //     cc.tween().to(1,{scale:1}).to(1,{scale:1.1})
         // ).start();
-        
-        
-        this.scheduleOnce(()=>{
+
+
+        this.scheduleOnce(() => {
 
             this.closeBtnNode.active = true;
 
-        },gameNumerical.closeTime);
+        }, gameNumerical.closeTime);
     }
 
     /**初始化 */
-    init(data){
-        
-        let level:number = util.getBuyRandomLevel();
-        
-        this.initData = util.GetTurretData(level);
-        // this.num = tool.GetRandom(8,12);
-        this.num = data.num||tool.GetRandom(8,12);
-        this.numLabel.string = "+"+this.num+"炮塔";
+    init(data) {
 
-        this.loadSprite("body",(res)=>{
-            this.turretBody&&(this.turretBody.spriteFrame = res);
+        let level: number = util.getBuyRandomLevel();
+
+        this.initData = util.GetTurretData(level);
+        this.num = data.num || Tools.GetRandom(8, 12);
+        this.numLabel.string = "+" + this.num + "炮塔";
+
+        this.loadSprite("body", (res) => {
+            this.turretBody && (this.turretBody.spriteFrame = res);
         })
-        this.loadSprite("foot",(res)=>{
-            if(this.turretFoot&&res){
+        this.loadSprite("foot", (res) => {
+            if (this.turretFoot && res) {
                 this.turretFoot.node.active = true;
                 this.turretFoot.spriteFrame = res
-            }else{
+            } else {
                 this.turretFoot.node.active = false;
             }
-            if(Number(this.initData.spriteFootY)>0){
-                    this.turretFoot&&(this.turretFoot.node.y = Number(this.initData.spriteFootY));
+            if (Number(this.initData.spriteFootY) > 0) {
+                this.turretFoot && (this.turretFoot.node.y = Number(this.initData.spriteFootY));
             }
         })
-        
-        if(!util.adPreObj[AdPosition.GetTurret]){
+
+        if (!util.adPreObj[AdPosition.GetTurret]) {
             util.preloadAd(AdPosition.GetTurret);
         }
 
@@ -97,54 +97,55 @@ export default class gameGetVideoTurret extends baseTs {
     /**
      * 获取
      */
-    getBtn(){
+    getBtn() {
         soundController.singleton.clickAudio();
 
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: "看视频领取炮塔弹窗",
-            ck_module:"领取",
-            active_ad_hcdg:"激励视频"
-        });
+        // TrackMgr.AppDialogClick_hcdg({
+        //     dialog_name_hcdg: "看视频领取炮塔弹窗",
+        //     ck_module:"领取",
+        //     active_ad_hcdg:"激励视频"
+        // });
 
-        AdController.loadAd(AdPosition.GetTurret, (res) => {
-            if(util.adPreObj[AdPosition.GetTurret]){
-                util.preloadAd(AdPosition.GetTurret);
-            } 
-            util.sendTurretNum(); 
-            util.productTurret(this.num);
-            cc.game.emit(NameTs.Game_Effect_turret,{node:this.node,num:this.num});
+        // AdController.loadAd(AdPosition.GetTurret, (res) => {
+        if (util.adPreObj[AdPosition.GetTurret]) {
+            util.preloadAd(AdPosition.GetTurret);
+        }
+        // util.sendTurretNum();
+        util.productTurret(this.num);
+        cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num: this.num });
 
-            AssistCtr.showToastTip("获得"+this.num+"个炮塔！");
+        AssistCtr.showToastTip(t('main.Got_turrets', this.num));
 
-            this.closePage();
 
-            util.userData.GetTurretNum-=1;
+        this.closePage();
 
-            util.setStorage(util.localDiary.GetTurretNum,util.userData.GetTurretNum);
-        }, () => {
-            AssistCtr.showToastTip("加载视频失败，请稍后！");
-        });
+        util.userData.GetTurretNum -= 1;
+
+        util.setStorage(util.localDiary.GetTurretNum, util.userData.GetTurretNum);
+        // }, () => {
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // });
 
     }
 
     /**关闭close */
-    closeBtn(){
+    closeBtn() {
         soundController.singleton.clickAudio();
         this.closePage();
         TrackMgr.AppDialogClick_hcdg({
             dialog_name_hcdg: "看视频领取炮塔弹窗",
-            ck_module:"关闭",
+            ck_module: "关闭",
         });
     }
 
 
-   /**
-     * 加载图片
-     */
-    loadSprite(name:string,call:Function){
-        cc.resources.load(this.initData[name],cc.SpriteFrame,(err,res:cc.SpriteFrame)=>{
-            if(err){
-                console.error("找不到该图片",err);
+    /**
+      * 加载图片
+      */
+    loadSprite(name: string, call: Function) {
+        cc.resources.load(this.initData[name], cc.SpriteFrame, (err, res: cc.SpriteFrame) => {
+            if (err) {
+                console.error("找不到该图片", err);
             }
             call(res);
 

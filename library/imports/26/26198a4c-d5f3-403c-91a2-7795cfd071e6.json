@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "yanshapao",
+    "texture": "bb040a17-d283-45a1-83f1-e8aed0044daf",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      53,
+      86
+    ],
+    "offset": [
+      -16.5,
+      0
+    ],
+    "originalSize": [
+      90,
+      90
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

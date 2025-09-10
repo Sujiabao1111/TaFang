@@ -1,0 +1,20 @@
+
+zhongzipao.png
+size: 122,120
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 80, 0
+  size: 120, 36
+  orig: 120, 36
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 2
+  size: 71, 118
+  orig: 71, 118
+  offset: 0, 0
+  index: -1

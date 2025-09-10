@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "txt_wonjiangli@2x",
+    "texture": "860e1301-ae82-4e4b-8742-87ff4bc9402f",
+    "atlas": "",
+    "rect": [
+      138,
+      24,
+      309,
+      62
+    ],
+    "offset": [
+      1.5,
+      27
+    ],
+    "originalSize": [
+      582,
+      164
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -34,9 +34,9 @@ export default class autoScroller extends cc.Component {
     private inviteAllData = [];         //列表全部信息
 
     private isOnceEnter = true;         //是否第一次进入
- 
-    @property({ type: cc.String, displayName: "脚本名(需要setData,getItemId)" })
-    private tsName:cc.String = "tuJianItem";
+
+    @property({ displayName: "脚本名(需要setData,getItemId)" })
+    private tsName: string = "tuJianItem";
 
     @property({ type: cc.Integer, displayName: "实际上要生成多少" })
     private spawnCount: number = 8;
@@ -56,7 +56,7 @@ export default class autoScroller extends cc.Component {
     private bufferZone: number = 600; //当物品不在bufferZone时，我们重新放置它    
 
     onLoad() {
-        
+
     }
 
     public setData(data: Array<any>) {
@@ -127,7 +127,7 @@ export default class autoScroller extends cc.Component {
         let items = this.items;
         let buffer = this.bufferZone;
         let isRight = this.scrollView.content.x > this.lastContentPosX; // scrolling direction       
-        let offset = (this.preItem.data.width + this.spacingX) * this.items.length; 
+        let offset = (this.preItem.data.width + this.spacingX) * this.items.length;
         for (let i = 0; i < items.length; ++i) {
             let viewPos = this.getPositionInView(items[i]);
             if (isRight) {
@@ -162,7 +162,7 @@ export default class autoScroller extends cc.Component {
                 if (viewPos.y < -buffer && items[i].y + offset < 0) {
                     let item = items[i].getComponent(this.tsName);
                     let itemId = item.getItemId() - items.length;
-                    if(this.inviteAllData[itemId]){
+                    if (this.inviteAllData[itemId]) {
                         items[i].y = items[i].y + offset;
                         item.getComponent(this.tsName).setData(itemId, this.inviteAllData[itemId]);
                     }
@@ -171,14 +171,14 @@ export default class autoScroller extends cc.Component {
                 if (viewPos.y > buffer && items[i].y - offset > -this.content.height) {
                     let item = items[i].getComponent(this.tsName);
                     let itemId = item.getItemId() + items.length;
-                    if(this.inviteAllData[itemId]){
+                    if (this.inviteAllData[itemId]) {
                         items[i].y = items[i].y - offset;
                         item.getComponent(this.tsName).setData(itemId, this.inviteAllData[itemId]);
                     }
                 }
             }
-        }        
-        this.lastContentPosY = this.scrollView.content.y;        
+        }
+        this.lastContentPosY = this.scrollView.content.y;
     }
 
     private initialize() {

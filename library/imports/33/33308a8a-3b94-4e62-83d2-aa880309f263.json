@@ -1,0 +1,194 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "tuishanpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "0BFEPEoyqVfI3qKrl/kgefPZaKo",
+      "spine": "3.8.95",
+      "x": -422.92,
+      "y": -210.64,
+      "width": 722,
+      "height": 726,
+      "images": "./images/",
+      "audio": "C:/Users/Administrator/Desktop/打爆怪兽/音波炮8"
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "07tuishanpao",
+        "parent": "root"
+      },
+      {
+        "name": "PVPSkill_7_3",
+        "parent": "07tuishanpao"
+      }
+    ],
+    "slots": [
+      {
+        "name": "PVPSkill_7_4",
+        "bone": "PVPSkill_7_3",
+        "attachment": "PVPSkill_7_13"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "PVPSkill_7_4": {
+            "PVPSkill_7_6": {
+              "x": -0.2,
+              "y": 45.4,
+              "width": 17,
+              "height": 98
+            },
+            "PVPSkill_7_7": {
+              "x": -0.2,
+              "y": 64.9,
+              "width": 57,
+              "height": 137
+            },
+            "PVPSkill_7_8": {
+              "x": 0.3,
+              "y": 84.9,
+              "width": 78,
+              "height": 177
+            },
+            "PVPSkill_7_9": {
+              "x": 0.3,
+              "y": 84.9,
+              "width": 90,
+              "height": 177
+            },
+            "PVPSkill_7_10": {
+              "x": -0.2,
+              "y": 84.9,
+              "width": 93,
+              "height": 177
+            },
+            "PVPSkill_7_11": {
+              "x": 0.3,
+              "y": 84.9,
+              "width": 104,
+              "height": 177
+            },
+            "PVPSkill_7_12": {
+              "x": -0.2,
+              "y": 84.9,
+              "width": 109,
+              "height": 177
+            },
+            "PVPSkill_7_13": {
+              "x": 0.3,
+              "y": 85.4,
+              "width": 124,
+              "height": 178
+            },
+            "PVPSkill_7_14": {
+              "x": -0.2,
+              "y": 85.4,
+              "width": 137,
+              "height": 178
+            },
+            "PVPSkill_7_15": {
+              "x": 0.3,
+              "y": 85.4,
+              "width": 160,
+              "height": 178
+            },
+            "PVPSkill_7_16": {
+              "x": -0.2,
+              "y": 85.4,
+              "width": 167,
+              "height": 178
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "PVPSkill_7_4": {
+            "color": [
+              {
+                "time": 0.2333,
+                "color": "ffffffff"
+              },
+              {
+                "time": 0.4,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "PVPSkill_7_6"
+              },
+              {
+                "time": 0.0667,
+                "name": "PVPSkill_7_7"
+              },
+              {
+                "time": 0.1,
+                "name": "PVPSkill_7_8"
+              },
+              {
+                "time": 0.1333,
+                "name": "PVPSkill_7_9"
+              },
+              {
+                "time": 0.1667,
+                "name": "PVPSkill_7_10"
+              },
+              {
+                "time": 0.2,
+                "name": "PVPSkill_7_11"
+              },
+              {
+                "time": 0.2333,
+                "name": "PVPSkill_7_12"
+              },
+              {
+                "time": 0.2667,
+                "name": "PVPSkill_7_13"
+              },
+              {
+                "time": 0.3,
+                "name": "PVPSkill_7_14"
+              },
+              {
+                "time": 0.3333,
+                "name": "PVPSkill_7_15"
+              },
+              {
+                "time": 0.3667,
+                "name": "PVPSkill_7_16"
+              },
+              {
+                "time": 0.4,
+                "name": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\ntuishanpao.png\nsize: 512,512\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nPVPSkill_7_10\n  rotate: false\n  xy: 388, 303\n  size: 93, 177\n  orig: 93, 177\n  offset: 0, 0\n  index: -1\nPVPSkill_7_11\n  rotate: false\n  xy: 282, 322\n  size: 104, 177\n  orig: 104, 177\n  offset: 0, 0\n  index: -1\nPVPSkill_7_12\n  rotate: false\n  xy: 171, 322\n  size: 109, 177\n  orig: 109, 177\n  offset: 0, 0\n  index: -1\nPVPSkill_7_13\n  rotate: false\n  xy: 164, 141\n  size: 124, 178\n  orig: 124, 178\n  offset: 0, 0\n  index: -1\nPVPSkill_7_14\n  rotate: true\n  xy: 2, 2\n  size: 137, 178\n  orig: 137, 178\n  offset: 0, 0\n  index: -1\nPVPSkill_7_15\n  rotate: false\n  xy: 2, 141\n  size: 160, 178\n  orig: 160, 178\n  offset: 0, 0\n  index: -1\nPVPSkill_7_16\n  rotate: false\n  xy: 2, 321\n  size: 167, 178\n  orig: 167, 178\n  offset: 0, 0\n  index: -1\nPVPSkill_7_6\n  rotate: true\n  xy: 388, 482\n  size: 17, 98\n  orig: 17, 98\n  offset: 0, 0\n  index: -1\nPVPSkill_7_7\n  rotate: false\n  xy: 182, 2\n  size: 57, 137\n  orig: 57, 137\n  offset: 0, 0\n  index: -1\nPVPSkill_7_8\n  rotate: true\n  xy: 290, 63\n  size: 78, 177\n  orig: 78, 177\n  offset: 0, 0\n  index: -1\nPVPSkill_7_9\n  rotate: false\n  xy: 290, 143\n  size: 90, 177\n  orig: 90, 177\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "07522c28-1f61-4bdd-b4c5-7d4066defacc"
+    }
+  ],
+  "textureNames": [
+    "tuishanpao.png"
+  ],
+  "scale": 1
+}

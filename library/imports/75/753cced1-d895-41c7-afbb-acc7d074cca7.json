@@ -1,0 +1,119 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "hanfengpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "bz0OHWgJ2sjw8i56jU2Gjv4uyLg",
+      "spine": "3.8.95",
+      "x": -46.5,
+      "y": -21.31,
+      "width": 93,
+      "height": 45,
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "bone4",
+        "parent": "root",
+        "y": 1.19
+      }
+    ],
+    "slots": [
+      {
+        "name": "790000",
+        "bone": "bone4",
+        "attachment": "790000"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "790000": {
+            "790000": {
+              "width": 93,
+              "height": 45
+            },
+            "790001": {
+              "width": 93,
+              "height": 45
+            },
+            "790002": {
+              "width": 93,
+              "height": 45
+            },
+            "790003": {
+              "width": 93,
+              "height": 45
+            },
+            "790004": {
+              "width": 93,
+              "height": 45
+            },
+            "790013": {
+              "width": 93,
+              "height": 45
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "790000": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "790000"
+              },
+              {
+                "time": 0.0667,
+                "name": "790001"
+              },
+              {
+                "time": 0.1,
+                "name": "790002"
+              },
+              {
+                "time": 0.1333,
+                "name": "790003"
+              },
+              {
+                "time": 0.1667,
+                "name": "790004"
+              },
+              {
+                "time": 0.2,
+                "name": "790013"
+              },
+              {
+                "time": 0.2333,
+                "name": null
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nhanfengpao.png\nsize: 136,136\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n790000\n  rotate: true\n  xy: 69, 14\n  size: 33, 17\n  orig: 93, 45\n  offset: 28, 14\n  index: -1\n790001\n  rotate: false\n  xy: 88, 22\n  size: 46, 24\n  orig: 93, 45\n  offset: 21, 10\n  index: -1\n790002\n  rotate: false\n  xy: 2, 14\n  size: 65, 33\n  orig: 93, 45\n  offset: 11, 6\n  index: -1\n790003\n  rotate: false\n  xy: 2, 49\n  size: 80, 40\n  orig: 93, 45\n  offset: 4, 2\n  index: -1\n790004\n  rotate: false\n  xy: 2, 91\n  size: 88, 43\n  orig: 93, 45\n  offset: 0, 1\n  index: -1\n790013\n  rotate: true\n  xy: 92, 48\n  size: 86, 42\n  orig: 93, 45\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "549fce30-3d17-4dcb-9ac2-8d45ffdd6b8c"
+    }
+  ],
+  "textureNames": [
+    "hanfengpao.png"
+  ],
+  "scale": 1
+}

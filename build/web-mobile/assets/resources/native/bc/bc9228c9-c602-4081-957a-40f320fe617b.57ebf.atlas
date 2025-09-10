@@ -1,0 +1,34 @@
+
+zhongzipao.png
+size: 419,419
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fs1
+  rotate: false
+  xy: 2, 126
+  size: 119, 291
+  orig: 129, 293
+  offset: 3, 0
+  index: -1
+fs2
+  rotate: true
+  xy: 123, 216
+  size: 101, 289
+  orig: 101, 290
+  offset: 0, 1
+  index: -1
+fs3
+  rotate: true
+  xy: 123, 319
+  size: 98, 294
+  orig: 98, 294
+  offset: 0, 0
+  index: -1
+fs4
+  rotate: true
+  xy: 123, 130
+  size: 84, 294
+  orig: 89, 294
+  offset: 0, 0
+  index: -1

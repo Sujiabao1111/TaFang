@@ -1,0 +1,160 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "huopao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "Ikkgay0GE90ctV/fb8moMP8KYGs",
+      "spine": "3.8.99",
+      "x": -21.65,
+      "y": -19.21,
+      "width": 41,
+      "height": 41,
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "qingjipao/qjp-shen",
+        "parent": "root",
+        "length": 90.52,
+        "rotation": 90,
+        "x": -0.65,
+        "y": 0.06
+      },
+      {
+        "name": "qingjipao/qjp-shen2",
+        "parent": "qingjipao/qjp-shen",
+        "x": 0.73
+      }
+    ],
+    "slots": [
+      {
+        "name": "fs",
+        "bone": "qingjipao/qjp-shen2",
+        "attachment": "fs2"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "fs": {
+            "fs1": {
+              "y": 0.5,
+              "width": 26,
+              "height": 27
+            },
+            "fs2": {
+              "x": 0.5,
+              "y": 0.5,
+              "width": 41,
+              "height": 41
+            },
+            "fs3": {
+              "x": 0.5,
+              "y": 0.5,
+              "width": 33,
+              "height": 33
+            },
+            "fs4": {
+              "x": 0.5,
+              "y": 0.5,
+              "width": 43,
+              "height": 43
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "fs": {
+            "attachment": [
+              {
+                "name": null
+              },
+              {
+                "time": 0.0333,
+                "name": "fs1"
+              },
+              {
+                "time": 0.0667,
+                "name": "fs3"
+              },
+              {
+                "time": 0.1,
+                "name": "fs2"
+              },
+              {
+                "time": 0.1333,
+                "name": "fs4"
+              },
+              {
+                "time": 0.1667,
+                "name": null
+              }
+            ]
+          }
+        },
+        "bones": {
+          "qingjipao/qjp-shen2": {
+            "translate": [
+              {
+                "x": 0.32,
+                "y": -1.12
+              }
+            ],
+            "scale": [
+              {
+                "x": 1.249,
+                "y": 1.249
+              }
+            ]
+          },
+          "qingjipao/qjp-shen": {
+            "scale": [
+              {},
+              {
+                "time": 0.1,
+                "x": 0.918,
+                "y": 1.052,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2,
+                "x": 1.015,
+                "y": 0.978,
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.3,
+                "curve": "stepped"
+              },
+              {
+                "time": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nhuopao.png\nsize: 128,128\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nfs1\n  rotate: false\n  xy: 45, 58\n  size: 26, 26\n  orig: 26, 27\n  offset: 0, 1\n  index: -1\nfs2\n  rotate: false\n  xy: 2, 2\n  size: 40, 39\n  orig: 41, 41\n  offset: 0, 1\n  index: -1\nfs3\n  rotate: false\n  xy: 44, 8\n  size: 33, 33\n  orig: 33, 33\n  offset: 0, 0\n  index: -1\nfs4\n  rotate: false\n  xy: 2, 43\n  size: 41, 41\n  orig: 43, 43\n  offset: 1, 1\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "43af497d-d546-471e-8eb7-eb0ab55241a9"
+    }
+  ],
+  "textureNames": [
+    "huopao.png"
+  ],
+  "scale": 1
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "guangshepao",
+    "texture": "542857fd-f558-450f-bc59-d385dfe6f2e6",
+    "atlas": "",
+    "rect": [
+      2,
+      107,
+      146,
+      41
+    ],
+    "offset": [
+      0,
+      -52.5
+    ],
+    "originalSize": [
+      150,
+      150
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

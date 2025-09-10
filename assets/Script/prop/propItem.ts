@@ -5,11 +5,10 @@ import { propProperty, propType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
 import { UrlConst } from "../server/UrlConst";
-import AdController from "../server/xmsdk_cocos/AD/AdController";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
 import TrackMgr from "../TrackMgr/TrackMgr";
-import tool from "../util/tool";
+import { Tools } from "../util/Tools";
 import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
@@ -85,14 +84,14 @@ export default class propItem extends baseTs {
         // }
 
 
-        if(this.isAstrict && (util.userData.customs.big >= this.initData.propIssueDetailList[0].level)){
+        if (this.isAstrict && (util.userData.customs.big >= this.initData.propIssueDetailList[0].level)) {
             TrackMgr.AppBuyProductDialog_hcdg({
-                dialog_name_hcdg:"恭喜解锁新道具"
+                dialog_name_hcdg: "恭喜解锁新道具"
             });
-            
+
             TrackMgr.AppDialogClick_hcdg({
                 dialog_name_hcdg: "恭喜解锁新道具",
-                ck_module:"收下",
+                ck_module: "收下",
             })
         }
 
@@ -133,8 +132,8 @@ export default class propItem extends baseTs {
      * 使用
      */
     UseBtn() {
-        let data = tool.GetArrData("type", this.propId, util.propConfig);
-        if(data && data.name != ""){
+        let data = Tools.GetArrData("type", this.propId, util.propConfig);
+        if (data && data.name != "") {
             TrackMgr.AppClick({
                 app_page_title: "首页",
                 app_ck_module: `道具-${data.name}`,
@@ -156,20 +155,20 @@ export default class propItem extends baseTs {
         soundController.singleton.clickAudio();
 
         if (this.propNum <= 0) {
-            
+
 
             TrackMgr.AppBuyProductDialog_hcdg({
-                dialog_name_hcdg:"未获得该道具"
+                dialog_name_hcdg: "未获得该道具"
             })
             TrackMgr.AppDialogClick_hcdg({
                 dialog_name_hcdg: "未获得该道具",
-                ck_module:"领取",
+                ck_module: "领取",
             })
             cc.game.emit(NameTs.Game_Pop_Open, {
                 name: pageTs.pageName.GameToolGet,
                 data: {
                     id: this.id,
-                    propId: this.propId,       
+                    propId: this.propId,
                     node: this.node
                 }
             });
@@ -195,20 +194,15 @@ export default class propItem extends baseTs {
         console.log("使用道具", this.propId);
         this.sendMTrack(true, false);
         util.gamePropNum += 1;
-        
+
     }
 
     /**是否 */
     sendMTrack(isSuccess: boolean, isVideo: boolean) {
 
-        let data = tool.GetArrData("type", this.propId, util.propConfig);
+        let data = Tools.GetArrData("type", this.propId, util.propConfig);
 
-        TrackMgr.tool_used({
-            tool_name: data.name,
-            use_success: isSuccess,
-            is_video_tool: isVideo,
-            level: "第" + util.userData.customs.big + "关",
-        })
+    
 
     }
 
@@ -216,17 +210,17 @@ export default class propItem extends baseTs {
     setData() {
 
         this.propNum = util.GetPropNum(this.propId);
-        
+
         this.numLabel.node.getParent().active = this.propNum > 0;
 
         this.addIcon.active = this.propNum == 0;
 
         this.numLabel.string = this.propNum + "";
-        
+
         // this.node.width = this.propNum == 0?0:80;
     }
 
-    
+
 
     // update (dt) {}
 }

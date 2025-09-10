@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "a54f4c04-3e22-49b9-9175-552afb559f3c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "img_fh_liebiao": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "05b39542-6966-463b-b1ff-9b34433ac599",
+      "importer": "sprite-frame",
       "rawTextureUuid": "a54f4c04-3e22-49b9-9175-552afb559f3c",
       "trimType": "auto",
       "trimThreshold": 1,

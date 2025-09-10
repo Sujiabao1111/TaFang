@@ -25,7 +25,7 @@ export default class XMSDK {
         setUpTesting(PlatformFactory.Ins.isTestServer());//获取测试or正式
         AppInfo.phead = JSON.parse(PlatformFactory.Ins.getPheadString());
         // AppInfo.phead = mock1.PHEAD;
-		console.log("处理数据-----------------------")
+        console.log("处理数据-----------------------")
         AppInfo.version = "v1.2.9"
         console.log('获取取phead');
 
@@ -75,8 +75,8 @@ export default class XMSDK {
     /**
          * 获取app名字
          */
-    static getAppName(){
-        return PlatformFactory.Ins.getAppName&&PlatformFactory.Ins.getAppName();
+    static getAppName() {
+        return PlatformFactory.Ins.getAppName && PlatformFactory.Ins.getAppName();
     }
 
 
@@ -219,7 +219,7 @@ export default class XMSDK {
     static showUserProtocol() {
         PlatformFactory.Ins.showUserProtocol();
     }
-    static cancelAccount(){
+    static cancelAccount() {
         PlatformFactory.Ins.cancelAccount();
     }
 
@@ -262,7 +262,7 @@ export default class XMSDK {
     }
 
     static openNetWorkCount = 0;
-    static post(config: ServerConfig) {        
+    static post(config: ServerConfig) {
         let configData: ServerConfig = {
             url: config.url,
             data: config.data,
@@ -270,25 +270,25 @@ export default class XMSDK {
             header: config.header,
             onSuccess: function (res) {
                 XMSDK.openNetWorkCount = 0;
-				console.log("成功回调--------------------post" );
+                console.log("成功回调--------------------post");
                 config.onSuccess && config.onSuccess(res)
             },
             onFail: function (res) {
                 XMSDK.openNetWorkCount++
 
                 config.onFail && config.onFail(res)
-               
+
             },
             onComplete: function (res) {
-                config.onComplete && config.onComplete(res);                
+                config.onComplete && config.onComplete(res);
             },
 
         }
         Ajax.send(configData);
     }
-	
-	
-	  static getdataStr(config: ServerConfig) {        
+
+
+    static getdataStr(config: ServerConfig) {
         let configData: ServerConfig = {
             url: config.url,
             data: config.data,
@@ -296,24 +296,22 @@ export default class XMSDK {
             header: config.header,
             onSuccess: function (res) {
                 XMSDK.openNetWorkCount = 0;
-
                 config.onSuccess && config.onSuccess(res)
             },
             onFail: function (res) {
                 XMSDK.openNetWorkCount++
-
                 config.onFail && config.onFail(res)
-      
+
             },
             onComplete: function (res) {
-                config.onComplete && config.onComplete(res);                
+                config.onComplete && config.onComplete(res);
             },
 
         }
         Ajax.getdata(configData);
     }
-	
-	
+
+
     static get(config: ServerConfig) {
         //UIFunc.openUI(ActivityPannelName.PannelAdLoading)
         let configData: ServerConfig = {
@@ -323,7 +321,7 @@ export default class XMSDK {
             header: config.header,
             onSuccess: function (res) {
                 XMSDK.openNetWorkCount = 0;
-console.log("成功回调--------------------get" );
+                console.log("成功回调--------------------get");
                 config.onSuccess && config.onSuccess(res)
             },
             onFail: function (res) {
@@ -332,7 +330,7 @@ console.log("成功回调--------------------get" );
                 config.onFail && config.onFail(res)
             },
             onComplete: function (res) {
-                config.onComplete && config.onComplete(res)                
+                config.onComplete && config.onComplete(res)
             },
 
         }

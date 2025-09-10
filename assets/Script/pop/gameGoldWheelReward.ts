@@ -13,6 +13,7 @@ import { gameNumerical, updateType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
 import RewardController from "../controlelr/RewardController";
+import { t } from "../Language/LanguageData";
 import PageManage from "../PageManage";
 import { UrlConst } from "../server/UrlConst";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
@@ -83,6 +84,7 @@ export default class gameGoldWheelReward extends baseTs {
         this.node.active = false;
         // this.SendPost();
     }
+
     getPrize() {
         let self = this;
         if (self.isClickGetPrize) {
@@ -96,24 +98,13 @@ export default class gameGoldWheelReward extends baseTs {
                     id: this.initData.id
                 },
                 onSuccess: res => {
-                    if(!this.isValid){
+                    if (!this.isValid) {
                         return;
                     }
 
                     if (res.code === 0) {
-                        TrackMgr.AppDialogClick_hcdg({
-                            dialog_name_hcdg: "金币转盘获得奖励弹窗",
-                            ck_module: "收下",
-                            dialog_enter: "首页金币转盘",
-                        })
-                        // XMSDK.track({
-                        //     eventName: SAConst.AppDialogClick,
-                        //     props: {
-                        //         dialog_name2: "金币转盘获得奖励弹窗",
-                        //         ck_module: "收下",
-                        //         dialog_enter: this.isMain ? "首页金币转盘" : "限时礼包收下跳转",
-                        //     }
-                        // });
+                      
+                      
                         self.startAnimation();
                         // if (self.initData.reward.type == updateType.hongbao) {
                         //     util.userData.coin += Number(self.initData.reward.value)
@@ -140,12 +131,13 @@ export default class gameGoldWheelReward extends baseTs {
         self.node.active = false;
         if (this.initData.reward.type == 2) {
             // util.addTermCoin(this.coin)
-            cc.game.emit(NameTs.Game_Effect_coin, { node: this.rewardSprite.node, value: this.coin,num:10,parent:cc.director.getScene().getChildByName('Canvas')});
-            AssistCtr.showToastTip("获取"+this.coin+"红包币");
+            cc.game.emit(NameTs.Game_Effect_coin, { node: this.rewardSprite.node, value: this.coin, num: 10, parent: cc.director.getScene().getChildByName('Canvas') });
+            AssistCtr.showToastTip("获取" + this.coin + "红包币");
         } else if (this.initData.reward.type == 1) {
+            this.coin = 1000;
             util.productTurret(this.coin);
-            cc.game.emit(NameTs.Game_Effect_turret, { node: this.rewardSprite.node, num: this.coin ,parent:cc.director.getScene().getChildByName('Canvas')});
-            AssistCtr.showToastTip("获得"+this.coin+"个炮塔！");
+            // cc.game.emit(NameTs.Game_Effect_turret, { node: this.rewardSprite.node, num: this.coin, parent: cc.director.getScene().getChildByName('Canvas') });
+            AssistCtr.showToastTip(t('main.Got_turrets', this.coin));
         }
     }
 

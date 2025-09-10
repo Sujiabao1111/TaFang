@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "f75183ed-b53a-401b-9e37-5c3b21578089",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "img_guoduline": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "53d726d7-7306-4015-a098-8487040c646b",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f75183ed-b53a-401b-9e37-5c3b21578089",
       "trimType": "auto",
       "trimThreshold": 1,

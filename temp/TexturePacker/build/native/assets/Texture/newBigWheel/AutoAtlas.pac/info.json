@@ -1,0 +1,117 @@
+{
+  "projectPath": "D:\\AGame\\TaFang",
+  "actualPlatform": "web-mobile",
+  "mtimes": {
+    "c91cbd47-a50b-4acf-9b7f-df279db937d1": {
+      "assetMtime": 1756886147331,
+      "metaMtime": 1756886253196
+    },
+    "09d88a65-9745-4611-8001-3d7b74c21ffe": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199586
+    },
+    "ee22b7ca-c5ba-4632-8a27-bfa7a05cbaa6": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199586
+    },
+    "48a3d786-06e2-4f3c-aa5b-8e75b9dd39f8": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199524
+    },
+    "a29bbaa9-dff2-40fe-8f10-719abffb9ffc": {
+      "assetMtime": 1617245364000,
+      "metaMtime": 1756885199524
+    }
+  },
+  "result": {
+    "name": "AutoAtlas",
+    "width": 2048,
+    "height": 2048,
+    "ver": "1.2.5",
+    "uuid": "c91cbd47-a50b-4acf-9b7f-df279db937d1",
+    "importer": "auto-atlas",
+    "maxWidth": 2048,
+    "maxHeight": 2048,
+    "padding": 2,
+    "compressionLevel": 6,
+    "allowRotation": true,
+    "forceSquared": false,
+    "powerOfTwo": false,
+    "algorithm": "MaxRects",
+    "format": "png",
+    "quality": 80,
+    "contourBleed": true,
+    "paddingBleed": true,
+    "filterUnused": true,
+    "packable": false,
+    "premultiplyAlpha": false,
+    "filterMode": "bilinear",
+    "platformSettings": {},
+    "subMetas": {},
+    "bleed": 1,
+    "atlases": [
+      {
+        "files": [
+          {
+            "name": "newBigWheel_phone",
+            "uuid": "48a3d786-06e2-4f3c-aa5b-8e75b9dd39f8",
+            "textureUuid": "a29bbaa9-dff2-40fe-8f10-719abffb9ffc",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756889177943_image_1.png",
+            "trim": {
+              "x": 3,
+              "y": 3,
+              "width": 85,
+              "height": 105,
+              "rotatedWidth": 105,
+              "rotatedHeight": 85
+            },
+            "rawWidth": 120,
+            "rawHeight": 120,
+            "width": 91,
+            "height": 111,
+            "originalPath": "D:/AGame/TaFang/library/imports/a2/a29bbaa9-dff2-40fe-8f10-719abffb9ffc.png",
+            "x": 0,
+            "y": 0,
+            "rotated": true,
+            "rotatedWidth": 111,
+            "rotatedHeight": 91
+          },
+          {
+            "name": "newBigWheel_sorry",
+            "uuid": "09d88a65-9745-4611-8001-3d7b74c21ffe",
+            "textureUuid": "ee22b7ca-c5ba-4632-8a27-bfa7a05cbaa6",
+            "path": "D:\\AGame\\TaFang\\temp\\trimImages\\spritesheet_js_1756889177943_image_0.png",
+            "trim": {
+              "x": 3,
+              "y": 94,
+              "width": 100,
+              "height": 100,
+              "rotatedWidth": 100,
+              "rotatedHeight": 100
+            },
+            "rawWidth": 120,
+            "rawHeight": 120,
+            "width": 106,
+            "height": 106,
+            "originalPath": "D:/AGame/TaFang/library/imports/ee/ee22b7ca-c5ba-4632-8a27-bfa7a05cbaa6.png",
+            "x": 0,
+            "y": 91,
+            "rotatedWidth": 106,
+            "rotatedHeight": 106
+          }
+        ],
+        "width": 111,
+        "height": 197,
+        "name": "AutoAtlas-1",
+        "imagePath": "D:\\AGame\\TaFang\\temp\\TexturePacker\\build\\native\\assets\\Texture\\newBigWheel\\AutoAtlas.pac\\AutoAtlas-1.png",
+        "compressd": {
+          "suffix": [
+            ".png"
+          ],
+          "imagePathNoExt": "D:\\AGame\\TaFang\\temp\\TexturePacker\\build\\native\\assets\\Texture\\newBigWheel\\AutoAtlas.pac\\compressed\\AutoAtlas-1"
+        }
+      }
+    ],
+    "unpackedTextures": []
+  }
+}

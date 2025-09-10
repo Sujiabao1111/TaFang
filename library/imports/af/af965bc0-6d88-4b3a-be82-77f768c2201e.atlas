@@ -1,0 +1,41 @@
+
+bingheyongdongpao.png
+size: 344,344
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A1
+  rotate: false
+  xy: 2, 188
+  size: 124, 154
+  orig: 126, 156
+  offset: 1, 1
+  index: -1
+A2
+  rotate: false
+  xy: 2, 36
+  size: 124, 150
+  orig: 126, 152
+  offset: 1, 1
+  index: -1
+A3
+  rotate: true
+  xy: 128, 221
+  size: 121, 150
+  orig: 123, 152
+  offset: 1, 1
+  index: -1
+A4
+  rotate: true
+  xy: 128, 108
+  size: 111, 146
+  orig: 113, 148
+  offset: 1, 1
+  index: -1
+A5
+  rotate: true
+  xy: 128, 2
+  size: 104, 141
+  orig: 106, 143
+  offset: 1, 1
+  index: -1

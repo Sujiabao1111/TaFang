@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GodWheel_shuiDi",
+    "texture": "4580c16a-c1eb-4823-a36d-bf3b441f18fa",
+    "atlas": "",
+    "rect": [
+      33,
+      11,
+      111,
+      156
+    ],
+    "offset": [
+      1.5,
+      -2
+    ],
+    "originalSize": [
+      174,
+      174
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GodWheel_deng1",
+    "texture": "4d1a7f02-d10c-4023-bb31-62e114f9a773",
+    "atlas": "",
+    "rect": [
+      8,
+      1,
+      608,
+      622
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      624,
+      624
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

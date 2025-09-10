@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "bb0dcc05-c62f-4ae7-8674-2b76a8408944",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "img_tixianjindu@2x": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "60a6bc56-b449-4ba4-8e93-1a59ec6da811",
+      "importer": "sprite-frame",
       "rawTextureUuid": "bb0dcc05-c62f-4ae7-8674-2b76a8408944",
       "trimType": "auto",
       "trimThreshold": 1,

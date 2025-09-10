@@ -4,35 +4,42 @@ import { gamePass, gameState, monsterInfo } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
 import pool from "../common/pool";
+import UserData from "../data/userData";
 import { UrlConst } from "../server/UrlConst";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import TrackMgr from "../TrackMgr/TrackMgr";
-import tool from "../util/tool";
+import { Tools } from "../util/Tools";
 import util from "../util/util";
 
 
-const {ccclass, property} = cc._decorator;
+//#region 怪兽 怪兽 怪兽 怪兽 怪兽
+
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class monsertBox extends baseTs {
 
 
-    @property({displayName:"怪兽",type:cc.Prefab})
-    private monsertPre:cc.Prefab = null;
+    @property({ displayName: "怪兽", type: cc.Prefab })
+    private monsertPre: cc.Prefab = null;
 
 
     /**寻路算法 */
-    private AStar:AStar;
+    private AStar: AStar;
 
     /**行走路线 */
-    private walkData:any = {id:null,data:null};
-    
-    // private pool:pool; //对象池
-    
+    private walkData: any = { id: null, data: null };
 
-    private isCome:boolean = false;
-    
-    onLoad () {
+    // private pool:pool; //对象池
+
+
+    private isCome: boolean = false;
+
+    public get _userData(): UserData {
+        return util.userData;
+    }
+
+    onLoad() {
 
         this.AStar = new AStar();
 
@@ -42,11 +49,11 @@ export default class monsertBox extends baseTs {
 
 
         //监听销毁
-        cc.game.on(NameTs.Game_Monster_Killed,res=>{
-            if(res.node){
-                util.levelMonsterNum --;
-                if(res.coin>0){
-                    cc.game.emit(NameTs.Game_Effect_coin,{node:res.node,value:res.coin,noMusic:true});
+        cc.game.on(NameTs.Game_Monster_Killed, res => {
+            if (res.node) {
+                util.levelMonsterNum--;
+                if (res.coin > 0) {
+                    cc.game.emit(NameTs.Game_Effect_coin, { node: res.node, value: res.coin, noMusic: true });
                     util.addTermCoin(res.coin);
                 }
                 // this.pool.onEnemyKilled(res.node);
@@ -54,52 +61,51 @@ export default class monsertBox extends baseTs {
                 res.node.removeFromParent();
                 res.node = null;
                 // util.addCoin(res.coin);
-                if(util.levelMonsterNum<=0&&util.levelState == gameState.start){
+                if (util.levelMonsterNum <= 0 && util.levelState == gameState.start) {
                     console.log("打完了,准备加载下一关");
-                    
                     util.levelState = gameState.end;
                     util.sendTurretData();
-                    util.userData.resistAttackTimes = 1;
-					util.getnowmapdata();
+                    this._userData.resistAttackTimes = 1;
+                    util.getnowmapdata();
                     cc.game.emit(NameTs.Game_Task_Progress);
                     TrackMgr.AppGamedate({
                         is_challenge_suc: true,
-                        game_level_hcdg: "第" + util.userData.customs.big + "关",
-                        level_hcdg: "第" + util.userData.customs.small + "波",
+                        game_level_hcdg: "第" + this._userData.customs.big + "关",
+                        level_hcdg: "第" + this._userData.customs.small + "波",
                         game_time: util.gameTime.toFixed(1) + "s",
                         use_tool: String(util.gamePropNum),
                     });
 
-                    if(util.saveCustomLevel()){
-                        cc.game.emit(NameTs.Game_End,gamePass.success);
-                    }else{
+                    if (util.saveCustomLevel()) {
+                        cc.game.emit(NameTs.Game_End, gamePass.success);
+                    } else {
                         // this.showPage(pageTs.pageName.GameStart);
                         cc.game.emit(NameTs.Game_Start);
                     }
                 }
             }
-        },this);
+        }, this);
 
-        //加载下一关
-        cc.game.on(NameTs.Game_Load_Monster,()=>{
+        // 加载下一关
+        cc.game.on(NameTs.Game_Load_Monster, () => {
             this.loadNextMonster();
-        },this);
+        }, this);
 
-        //重玩
-        cc.game.on(NameTs.Game_Again,()=>{
+        // 重玩
+        cc.game.on(NameTs.Game_Again, () => {
             this.clearAllMonster();
-            util.userData.customs.small = (util.userData.customs.small-1<1)?1:(util.userData.customs.small-1);
-            console.log(util.userData.customs.small,'util.userData.customs.small')
+            this._userData.customs.small = (this._userData.customs.small - 1 < 1) ? 1 : (this._userData.customs.small - 1);
+            console.log(this._userData.customs.small, 'this._userData.customs.small')
             cc.game.emit(NameTs.Game_View_CustomsUpdata);
             this.loadNextMonster();
-        },this);
+        }, this);
 
     }
 
     /**
      * 初始化
      */
-    init(){
+    init() {
         // 获取地图数据
         let mapData = util.GetCustomsMap();
         //初始化某些数据
@@ -108,39 +114,33 @@ export default class monsertBox extends baseTs {
         util.MonsterMap.clear();
 
         /**行走路线 */
-        this.AStar.init(mapData.map,mapData.xLen,mapData.yLen);
-        this.AStar.FindPoint(res=>{
-
-            if(!res){
+        this.AStar.init(mapData.map, mapData.xLen, mapData.yLen);
+        this.AStar.FindPoint(res => {
+            if (!res) {
                 console.error("道路不通")
                 return;
             }
-
-            this.walkData = {id:mapData.id,data:res};
-
+            this.walkData = { id: mapData.id, data: res };
             this.loadMonster();
-
         });
 
 
-        
+
     }
 
-    start () {
+    start() {
     }
 
     /**
      * 加载当前关卡怪兽数据
     */
-    loadMonster(){
+    loadMonster() {
         this.isCome = true;
 
         //拷贝一份防止属性串改
-        let monsterData = tool.deepClone(util.GetCustomsMonsterInfo());
+        let monsterData = Tools.deepClone(util.GetCustomsMonsterInfo());
 
-        
-
-        let monsterArr:any[] = monsterData;
+        let monsterArr: any[] = monsterData;
         //将怪兽放进数组
         // for(let i = 0;i<monsterData.length;i++){
         //     let item = monsterData[i];
@@ -155,20 +155,20 @@ export default class monsertBox extends baseTs {
 
 
 
-        monsterArr = tool.randomArr(monsterArr);
+        monsterArr = Tools.randomArr(monsterArr);
         //设置结束条件（怪兽的数量）
         util.levelMonsterNum = monsterArr.length;
         util.levelState = gameState.start;
-        let zIndex:number = monsterArr.length;
-        for(let i = 0;i<monsterArr.length;i++){
-            let monster:monsterInfo = util.GetMonsterIdData(monsterArr[i]);
+        let zIndex: number = monsterArr.length;
+        for (let i = 0; i < monsterArr.length; i++) {
+            let monster: monsterInfo = util.GetMonsterIdData(monsterArr[i]);
             zIndex--;
-            this.createMonster(monster,i,zIndex);
+            this.createMonster(monster, i, zIndex);
         }
 
-        this.scheduleOnce(()=>{
+        this.scheduleOnce(() => {
             this.isCome = false;
-        },0.2);
+        }, 0.2);
     }
 
     /**
@@ -177,11 +177,10 @@ export default class monsertBox extends baseTs {
      * @param id 第几个
      * @param zIndex 层级
      */
-    createMonster(data:monsterInfo,id:number,zIndex:number){
-        
+    createMonster(data: monsterInfo, id: number, zIndex: number) {
         // this.pool.createEnemy(this.node,{data,walk:this.walkData.data,id});
-        let item:cc.Node = cc.instantiate(this.monsertPre);
-        item.getComponent(item.name).init({data,walk:this.walkData.data,id});
+        let item: cc.Node = cc.instantiate(this.monsertPre);
+        item.getComponent(item.name).init({ data, walk: this.walkData.data, id });
         item.setParent(this.node);
         item.zIndex = zIndex;
     }
@@ -191,28 +190,22 @@ export default class monsertBox extends baseTs {
      * 加载下一关怪兽
      * @param id 地图id
      */
-    loadNextMonster(){
-        if(this.isCome)return;
+    loadNextMonster() {
+        if (this.isCome) return;
         let mapData = util.GetCustomsMap();
-        if(this.walkData.id&&this.walkData.id==mapData.id){
+        if (this.walkData.id && this.walkData.id == mapData.id) {
             this.loadMonster();
             return;
         }
-       
         this.init();
     }
 
     /**
      * 清除所有
      */
-    clearAllMonster(){
-
+    clearAllMonster() {
         cc.game.emit(NameTs.Game_Monster_clearAll);
-
     }
 
 
-    
-
-    // update (dt) {}
 }

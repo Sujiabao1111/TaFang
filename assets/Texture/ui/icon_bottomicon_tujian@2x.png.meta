@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "6cf8503b-75f5-4f08-8ce3-7ffa1c83f30f",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "icon_bottomicon_tujian@2x": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "0ae128b9-f7a6-4b29-a20f-d1180965c48a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "6cf8503b-75f5-4f08-8ce3-7ffa1c83f30f",
       "trimType": "auto",
       "trimThreshold": 1,

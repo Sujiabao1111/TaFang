@@ -1,0 +1,20 @@
+
+moyinlianyupao.png
+size: 211,211
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+paodi
+  rotate: false
+  xy: 2, 99
+  size: 124, 110
+  orig: 126, 112
+  offset: 1, 1
+  index: -1
+paoshen
+  rotate: false
+  xy: 128, 116
+  size: 81, 93
+  orig: 83, 95
+  offset: 1, 1
+  index: -1

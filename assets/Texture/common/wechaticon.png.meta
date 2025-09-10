@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "c8fae56a-3854-42b3-b575-1e32b13f854c",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "wechaticon": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "e4c6f7a0-a65e-450c-aa65-2b9c6f586bcf",
+      "importer": "sprite-frame",
       "rawTextureUuid": "c8fae56a-3854-42b3-b575-1e32b13f854c",
       "trimType": "auto",
       "trimThreshold": 1,

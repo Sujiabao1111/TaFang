@@ -10,7 +10,6 @@ import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
-import { kingPaoData, kingPaoTask } from "./gameKingPao";
 
 const { ccclass, property } = cc._decorator;
 
@@ -80,8 +79,7 @@ export default class gameTuJian extends baseTs {
     @property({ type: cc.Label, displayName: "描述" })
     private lable_describe: cc.Label = null;
 
-    @property(cc.Node)
-    kingTaskItem: cc.Node = null;
+
 
     onceEnter = false;                              //是否初次进入
 
@@ -92,7 +90,6 @@ export default class gameTuJian extends baseTs {
     curClickMonsterData = null;                     //当前选中的怪兽信息
 
     tabData = null;
-    kingItemData:kingPaoTask = null;
 
     onEnable() {
         if (this.onceEnter) {                 //不是初次进入不需要刷新图鉴信息
@@ -104,7 +101,6 @@ export default class gameTuJian extends baseTs {
             dialog_name_hcdg: "图鉴弹窗"
         })
 
-        this.updatekingData();
     }
 
     onLoad() {
@@ -139,63 +135,10 @@ export default class gameTuJian extends baseTs {
         new scrollTs(this.monsterContent, this.monsterView, this.turretItem, monsterData);
 
         cc.game.on(NameTs.Game_TuJian_UpData, this.updateTuJian, this);
-        cc.game.on(NameTs.Game_KingPaoTask_Update, this.updatekingData, this);
+
     }
 
-    updatekingData(){
-        XMSDK.getdataStr({
-            url: UrlConst.kingPaoTaskData,
-            onSuccess: res => {
-                if (res.code === 0 && res.data) {
-                    if(!this.isValid){
-                        return;
-                    }
 
-                    if(!this || !this.kingTaskItem){
-                        return;                       
-                    }
-                    let data: kingPaoData = res.data;                    
-                    let itemData = data.taskList[0];
-                    this.kingItemData = itemData;
-                    let strNum = (itemData.process/itemData.processTarget) * 100;                    
-                    var y = String(strNum).indexOf(".") + 1;//获取小数点的位置                    
-                    if(y > 0) {
-                        strNum = Number(strNum.toFixed(2));
-                    }
-                    this.kingTaskItem.getChildByName(`lable_kindProgress`).getComponent(cc.RichText).string = `<color=#FFFFFF>${itemData.title}:</c><color=#FCFF15>${strNum}%</color>`; 
-
-                    let process = (itemData.process / itemData.processTarget);
-                    if(process >= 1){
-                        process = 1;
-                    }
-
-                    let proGressWidth = (this.kingTaskItem.getChildByName(`rectNode`).width - 7) * process;
-                    if (proGressWidth > 1 && proGressWidth < 25) {
-                        proGressWidth = 25;
-                    }
-                    this.kingTaskItem.getChildByName(`rectNode`).getChildByName(`progressNode`).width = proGressWidth;
-                    this.kingTaskItem.active = true;                    
-
-                    if(itemData.achieve == 1){
-                        this.kingTaskItem.getChildByName("btnNode").getChildByName("lable").getComponent(cc.Label).string = `兑换`;
-                    }
-                    else if(itemData.achieve == 2){
-                        this.kingTaskItem.getChildByName("btnNode").getChildByName("lable").getComponent(cc.Label).string = `已兑换`;
-                    }
-                    else{
-                        this.kingTaskItem.getChildByName("btnNode").getChildByName("lable").getComponent(cc.Label).string = `${data.turretKingRedEnvelopeDetailDTO.bonusPerCapita}元`;
-                    }
-                }
-                else {
-                    this.kingTaskItem.active = false;
-                }
-            },
-            onFail: err => {
-
-            }
-        }
-        )
-    }
 
     start() {
         this.clickTab(null, 1);
@@ -434,50 +377,5 @@ export default class gameTuJian extends baseTs {
         }
     }
 
-    clickOpenKingPaoProgress() {
-        if(this.kingItemData){
-            if(this.kingItemData.achieve == 1){                
-                XMSDK.post({
-                    url: UrlConst.kingPaoGet,
-                    data: {
-                        id: this.kingItemData.id
-                    },
-                    onSuccess: res => {
-                        if(!this.isValid){
-                            return;
-                        }
 
-                        if (res.code === 0) {
-                            AssistCtr.showToastTip(`兑换成功，人工审核中`);
-                            this.kingItemData.achieve = 2;
-                            this.kingTaskItem.getChildByName("btnNode").getChildByName("lable").getComponent(cc.Label).string = `已兑换`;
-                        }
-                        else {
-                            if(res){
-                                AssistCtr.showToastTip(res.message);
-                            }       
-                        }
-                    },
-                    onFail: err => {
-        
-                    }
-                })           
-            }
-            else if(this.kingItemData.achieve == 2){
-                AssistCtr.showToastTip(`已兑换`);
-            }
-            else{
-                cc.game.emit(NameTs.Game_Pop_Open, {
-                    name: pageTs.pageName.GameKingPaoProgress,
-                    data: {
-                        clickTarget: 1,
-                        progress: `${this.kingItemData.process}/${this.kingItemData.processTarget}`
-                    },
-                });
-            }
-        }
-        else{
-            cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameKingPaoProgress);
-        }        
-    }
 }

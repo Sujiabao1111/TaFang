@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg_tixian_zhi",
+    "texture": "fec966d5-3b59-444f-8480-98a8809b893f",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      175,
+      210
+    ],
+    "offset": [
+      -0.5,
+      1
+    ],
+    "originalSize": [
+      178,
+      212
+    ],
+    "capInsets": [
+      81,
+      83,
+      80,
+      83
+    ]
+  }
+}

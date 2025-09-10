@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "930f1ee2-307f-47cd-a7d8-969327788468",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "bg_tixian_zhi": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "65f19541-3ef5-4db0-90f3-c657e9b1896b",
+      "importer": "sprite-frame",
       "rawTextureUuid": "930f1ee2-307f-47cd-a7d8-969327788468",
       "trimType": "auto",
       "trimThreshold": 1,

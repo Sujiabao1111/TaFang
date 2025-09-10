@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_misson_yellow2",
+    "texture": "93ff37e7-3490-4f7f-8369-c8f410508dd4",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      76,
+      76
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      76,
+      76
+    ],
+    "capInsets": [
+      36,
+      35,
+      37,
+      37
+    ]
+  }
+}

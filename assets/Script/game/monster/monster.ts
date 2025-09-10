@@ -1,60 +1,60 @@
 import NameTs from "../../common/NameTs";
-import tool from "../../util/tool";
+import { Tools } from "../../util/Tools";
 import util from "../../util/util";
 import monsterFactory from "../monsterFactory";
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class monster extends monsterFactory {
-    
+
     // @property({type:cc.ProgressBar,displayName:"血条"})
     // hp: cc.ProgressBar = null;
 
     // @property({type:cc.Node,displayName:"冰冻"})
     // FrozenNode: cc.Node = null;
-    
-    @property({type:dragonBones.ArmatureDisplay,displayName:"怪兽图片"})
-    monsterSpine:dragonBones.ArmatureDisplay = null;
-    
+
+    @property({ type: dragonBones.ArmatureDisplay, displayName: "怪兽图片" })
+    monsterSpine: dragonBones.ArmatureDisplay = null;
+
     // @property({type:cc.Node,displayName:"影子"})
     // shadowNode: cc.Node = null;
-    
+
     initData;//初始化数据
 
-    start () {
+    start() {
 
 
-        
+
     }
-        
+
 
 
     /**
      * 攻击
      */
-    attackFn(){
+    attackFn() {
 
-        
+
 
     }
 
-    init(data){
+    init(data) {
         this.initData = data.data;
 
         this.monsterSpine.node.opacity = 255;
-        let randomNum:number  = tool.GetRandom(1,16);
-        if(randomNum==4||randomNum==9||randomNum==14){
+        let randomNum: number = Tools.GetRandom(1, 16);
+        if (randomNum == 4 || randomNum == 9 || randomNum == 14) {
             randomNum += 1;
         }
-        let level:number = this.initData.level>16?randomNum:this.initData.level;
+        let level: number = this.initData.level > 16 ? randomNum : this.initData.level;
         this.colorLevel = level;
 
         this.monsterData = util.GetMonsterData(this.colorLevel);
         this.walkNo = 0;
-        this.walkArr = tool.deepClone(data.walk);
+        this.walkArr = Tools.deepClone(data.walk);
         //初始位置
-        this.initPos= cc.Vec2.clone(util.GetMapPos(this.walkArr[this.walkNo].y,this.walkArr[this.walkNo].x));
+        this.initPos = cc.Vec2.clone(util.GetMapPos(this.walkArr[this.walkNo].y, this.walkArr[this.walkNo].x));
         this.node.setPosition(this.initPos);
         this.setName();
         this.monsterSpine.node.scale = 0;
@@ -63,8 +63,8 @@ export default class monster extends monsterFactory {
         //设置血量
         this.monsterHp = Number(this.initData.hp);
         /**储存怪物的node */
-        this.monsetrName = util.userData.customs.big+"-"+util.userData.customs.small+"_Monster_"+this.id;
-        util.MonsterMap.set(this.monsetrName,this.node);
+        this.monsetrName = util.userData.customs.big + "-" + util.userData.customs.small + "_Monster_" + this.id;
+        util.MonsterMap.set(this.monsetrName, this.node);
         /**初始化冰冻效果 */
         this.isFrozen = false;
         // this.FrozenNode.active = false;
@@ -75,15 +75,15 @@ export default class monster extends monsterFactory {
         this.startAni();
         this.monsterSpine = this.monsterSpine;
 
-        cc.game.on(NameTs.Game_Monster_Bruise+this.monsetrName,(res)=>{
-            this.monsterBruise(res.num,res.crit);
-        },this);
+        cc.game.on(NameTs.Game_Monster_Bruise + this.monsetrName, (res) => {
+            this.monsterBruise(res.num, res.crit);
+        }, this);
     }
 
     /**
      * 设置名字
      */
-    setName(){
+    setName() {
         // this.loadSprite((res)=>{
         //     this.monsterPicNode.spriteFrame = res;
         // });
@@ -92,21 +92,21 @@ export default class monster extends monsterFactory {
 
     }
 
-    
+
 
     /**
      * 出厂动画
      */
-    startAni(){
+    startAni() {
 
         //停止提前的动画
         this.node.stopAllActions();
         this.monsterSpine.node.y = Number(this.monsterData.y);
-        cc.tween(this.monsterSpine.node).delay(this.id).to(.3,{scale:Number(this.monsterData.scale)}).call(()=>{
-            cc.game.emit(NameTs.Game_Monster_Hp_Creater,{id:this.id});
+        cc.tween(this.monsterSpine.node).delay(this.id).to(.3, { scale: Number(this.monsterData.scale) }).call(() => {
+            cc.game.emit(NameTs.Game_Monster_Hp_Creater, { id: this.id });
             this.walk();
             // this.shadowNode.active = true;
-            cc.game.emit(NameTs.Game_Monster_Shadow_Creater,{id:this.id});
+            cc.game.emit(NameTs.Game_Monster_Shadow_Creater, { id: this.id });
         }).start();
 
     }
@@ -115,11 +115,11 @@ export default class monster extends monsterFactory {
     /**
      * 死亡动画
      */
-    dieAni(call){        
+    dieAni(call) {
         this.node.stopAllActions();
-        cc.tween(this.monsterSpine.node).to(.3,{scale:0}).call(()=>{call()}).start();
+        cc.tween(this.monsterSpine.node).to(.3, { scale: 0 }).call(() => { call() }).start();
     }
-    
+
 
     // /**
     //  * 设置血条
@@ -133,19 +133,19 @@ export default class monster extends monsterFactory {
     /**
      * 开启冰冻
      */
-    openFrozen(){
+    openFrozen() {
         // this.FrozenNode.active = true;
-        this.monsterSpine.node.color = cc.color(11,190,255,255);
+        this.monsterSpine.node.color = cc.color(11, 190, 255, 255);
         this.monsterSpine.node.opacity = 178;
     }
 
     /**
      * 关闭冰冻
      */
-    closeFrozen(){
+    closeFrozen() {
         // this.FrozenNode.active = false;
-        
-        this.monsterSpine.node.color = cc.color(255,255,255,255);
+
+        this.monsterSpine.node.color = cc.color(255, 255, 255, 255);
         this.monsterSpine.node.opacity = 255;
     }
 

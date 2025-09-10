@@ -1,0 +1,62 @@
+
+shengyipao.png
+size: 553,553
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect_u09_09
+  rotate: false
+  xy: 2, 325
+  size: 250, 226
+  orig: 270, 250
+  offset: 11, 8
+  index: -1
+effect_u09_10
+  rotate: true
+  xy: 368, 2
+  size: 154, 172
+  orig: 270, 250
+  offset: 53, 35
+  index: -1
+effect_u09_11
+  rotate: false
+  xy: 199, 133
+  size: 167, 190
+  orig: 270, 250
+  offset: 45, 25
+  index: -1
+effect_u09_12
+  rotate: false
+  xy: 254, 348
+  size: 183, 203
+  orig: 270, 250
+  offset: 37, 18
+  index: -1
+effect_u09_13
+  rotate: false
+  xy: 2, 128
+  size: 195, 195
+  orig: 270, 250
+  offset: 32, 33
+  index: -1
+effect_u09_14
+  rotate: false
+  xy: 368, 158
+  size: 177, 188
+  orig: 270, 250
+  offset: 54, 34
+  index: -1
+effect_u09_15
+  rotate: false
+  xy: 439, 449
+  size: 99, 102
+  orig: 270, 250
+  offset: 84, 77
+  index: -1
+effect_u09_16
+  rotate: false
+  xy: 2, 21
+  size: 100, 105
+  orig: 270, 250
+  offset: 84, 76
+  index: -1

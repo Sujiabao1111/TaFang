@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "zaoyinpao",
+    "texture": "f84be6a8-6365-4b37-bf4a-a2d6a649214b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      137,
+      191
+    ],
+    "offset": [
+      -28,
+      0
+    ],
+    "originalSize": [
+      193,
+      191
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

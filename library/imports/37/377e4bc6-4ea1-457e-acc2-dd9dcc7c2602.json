@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "txt_ewaipaota@2x",
+    "texture": "27ff2eea-4297-4745-9e51-25853db355d2",
+    "atlas": "",
+    "rect": [
+      139,
+      24,
+      307,
+      60
+    ],
+    "offset": [
+      1.5,
+      28
+    ],
+    "originalSize": [
+      582,
+      164
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

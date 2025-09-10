@@ -1,0 +1,20 @@
+
+duoyupao.png
+size: 234,232
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+qjp-di
+  rotate: true
+  xy: 0, 0
+  size: 107, 74
+  orig: 107, 74
+  offset: 0, 0
+  index: -1
+qjp-shen
+  rotate: false
+  xy: 0, 118
+  size: 78, 114
+  orig: 78, 114
+  offset: 0, 0
+  index: -1

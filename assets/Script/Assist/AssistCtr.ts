@@ -50,7 +50,7 @@ export const AssistCtr = {
      * 
      * @param value 秒
      */
-    formatSeconds(value):string {
+    formatSeconds(value): string {
         let result = parseInt(value);
         let h = Math.floor(result / 3600) < 10 ? '0' + Math.floor(result / 3600) : Math.floor(result / 3600);
         let m = Math.floor((result / 60 % 60)) < 10 ? '0' + Math.floor((result / 60 % 60)) : Math.floor((result / 60 % 60));
@@ -60,12 +60,12 @@ export const AssistCtr = {
         //res += `${h}:`;
         res += `${m}:`;
         res += `${s}`;
-        return res;     
+        return res;
     },
 
     //距离24点还有多久
-    formatData24():string{        
-        var date: any = new Date();        
+    formatData24(): string {
+        var date: any = new Date();
         let temphh = 23 - date.getHours();
         let tempMinutes = 59 - date.getMinutes();
         let tempSeconds = 59 - date.getSeconds();
@@ -83,11 +83,11 @@ export const AssistCtr = {
         if (isNaN(num)) {
             num = 0;
         }
-        if(num >= 10000){
-            return  (num / 10000).toFixed(1) + 'w';
+        if (num >= 10000) {
+            return (num / 10000).toFixed(1) + 'w';
         }
-        else if(num >= 1000){
-            return  (num / 1000).toFixed(1) + 'k';
+        else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'k';
         }
         return num;
     },
@@ -176,12 +176,6 @@ export const AssistCtr = {
     },
 
     showToastTip(msg: string) {
-        if (this.isShowMsg) return
-        this.isShowMsg = true
-        setTimeout(() => {
-            this.isShowMsg = false
-        }, 1500);
-
         cc.director.emit(NameTs.Show_Toast, msg);
     },
 
@@ -231,7 +225,7 @@ export const AssistCtr = {
             { mapId: 1, minLv: 1, maxLv: 15, color: "#BB420E" },
             { mapId: 2, minLv: 16, maxLv: 42, color: "#BB420E" },
             { mapId: 1, minLv: 43, maxLv: 69, color: "#BB420E" },
-            { mapId: 1, minLv: 70, maxLv: 9999, color: "#1C83BC" },         
+            { mapId: 1, minLv: 70, maxLv: 9999, color: "#1C83BC" },
         ]
 
         for (let i = 0; i < mapData.length; i++) {
@@ -240,19 +234,19 @@ export const AssistCtr = {
             }
         }
         return mapData[mapData.length - 1];
-    },  
+    },
 
     //排序
-    sortArray(sortArray, compareProperty:string, targetArray){
-        targetArray.sort((a, b)=>{
+    sortArray(sortArray, compareProperty: string, targetArray) {
+        targetArray.sort((a, b) => {
             let aScore = 100;
             let bScore = 100;
-            for(let i = 0; i < sortArray.length; i++){
-                if(a[compareProperty] != null && b[compareProperty] != null){
-                    if(a[compareProperty] == sortArray[i]){
+            for (let i = 0; i < sortArray.length; i++) {
+                if (a[compareProperty] != null && b[compareProperty] != null) {
+                    if (a[compareProperty] == sortArray[i]) {
                         aScore = aScore * i;
                     }
-                    if(b[compareProperty] == sortArray[i]){
+                    if (b[compareProperty] == sortArray[i]) {
                         bScore = bScore * i;
                     }
                 }
@@ -262,7 +256,8 @@ export const AssistCtr = {
     },
 
     isATest() {//是否为AB中的A用户
-        return getPhead().ab_user_type == "A"
+        // return getPhead().ab_user_type == "A"
+        return false
     },
 
 }

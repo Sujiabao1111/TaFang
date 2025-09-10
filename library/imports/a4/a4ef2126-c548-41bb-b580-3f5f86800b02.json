@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "foot_35",
+    "texture": "a2b1a0da-4241-4a34-add8-ee435e1ca7e6",
+    "atlas": "",
+    "rect": [
+      255,
+      255,
+      1,
+      1
+    ],
+    "offset": [
+      127.5,
+      -127.5
+    ],
+    "originalSize": [
+      256,
+      256
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

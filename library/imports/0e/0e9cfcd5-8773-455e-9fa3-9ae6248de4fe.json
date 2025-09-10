@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fanwuzhipao",
+    "texture": "e6ab9aa8-91db-4cbe-a64c-4cee8198e55c",
+    "atlas": "",
+    "rect": [
+      2,
+      89,
+      333,
+      246
+    ],
+    "offset": [
+      0,
+      -43.5
+    ],
+    "originalSize": [
+      337,
+      337
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "69388f63-20c4-4d8e-b0e8-4e490635510f",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "img_fh_jindu": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "f866545c-388c-46aa-9741-f5fb650013a9",
+      "importer": "sprite-frame",
       "rawTextureUuid": "69388f63-20c4-4d8e-b0e8-4e490635510f",
       "trimType": "auto",
       "trimThreshold": 1,

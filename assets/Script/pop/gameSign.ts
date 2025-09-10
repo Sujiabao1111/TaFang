@@ -7,7 +7,6 @@ import AdController from "../server/xmsdk_cocos/AD/AdController";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
 import TrackMgr from "../TrackMgr/TrackMgr";
-import tool from "../util/tool";
 import util from "../util/util";
 
 export interface signRewardData {
@@ -56,47 +55,46 @@ export default class gameSign extends baseTs {
     data: signData = null;
     currentDay: number = null;
 
-    private isInsert:boolean = false;
+    private isInsert: boolean = false;
 
     onEnable() {
-       
+
         TrackMgr.AppBuyProductDialog_hcdg({
             dialog_name_hcdg: `签到弹窗`,
-        })        
-       
+        })
+
     }
 
-    init(data){
-	
-        if(data){
+    init(data) {
+
+        if (data) {
             this.setData(data)
         }
 
-        this.isInsert = Math.random()>.5;
+        this.isInsert = Math.random() > .5;
 
-        if(this.isInsert){
-            if(!util.adPreObj[AdPosition.SignAwardInsert]){
+        if (this.isInsert) {
+            if (!util.adPreObj[AdPosition.SignAwardInsert]) {
                 util.preloadAd(AdPosition.SignAwardInsert);
             }
         }
-        if(!util.adPreObj[AdPosition.VideoSignDouble]){
+        if (!util.adPreObj[AdPosition.VideoSignDouble]) {
             util.preloadAd(AdPosition.VideoSignDouble);
         }
 
-        // tool.changeUnit(100000,1);
 
-        if(!util.adPreObj[AdPosition.InfoSignRewardView]){
-            util.preloadAd(AdPosition.InfoSignRewardView,true);
+        if (!util.adPreObj[AdPosition.InfoSignRewardView]) {
+            util.preloadAd(AdPosition.InfoSignRewardView, true);
         }
 
     }
-    
-    
 
 
-    onDisable() {        
+
+
+    onDisable() {
         // AdController.hideInfoAd(AdPosition.InfoSignView);           
-        
+
         // if(!util.adPreObj[AdPosition.InfoSignView]){
         //     util.preloadAd(AdPosition.InfoSignView,true)
         // }        
@@ -108,7 +106,7 @@ export default class gameSign extends baseTs {
 
     setData(data: signData) {
         this.data = data;
-		//console.log("#######################setData : " + JSON.stringify(data))
+        //console.log("#######################setData : " + JSON.stringify(data))
         this.currentDay = this.data.todayChecked ? this.data.signDays - 1 : this.data.signDays
 
         for (let m in this.data.list) {                         //签到item内容更新
@@ -159,14 +157,14 @@ export default class gameSign extends baseTs {
             showBtnName = `btn_single`;
 
             TrackMgr.AppBuyProductDialog_hcdg({
-                dialog_name_hcdg:"单倍签到弹窗"            
-            })  
+                dialog_name_hcdg: "单倍签到弹窗"
+            })
         }
         else if (!this.data.todayChecked && this.check_toggle.isChecked) {            //是否视频签到
             showBtnName = `btn_double`
 
             TrackMgr.AppBuyProductDialog_hcdg({
-                dialog_name_hcdg:"双倍签到弹窗"
+                dialog_name_hcdg: "双倍签到弹窗"
             })
         }
 
@@ -187,22 +185,22 @@ export default class gameSign extends baseTs {
     }
 
     clickSingle() {
-        TrackMgr.AppDialogClick_hcdg({            
+        TrackMgr.AppDialogClick_hcdg({
             dialog_name_hcdg: `签到弹窗`,
             ck_module: "普通领取"
         })
         this.closePage();
         this.openSignReward(1);
 
-        
-        
+
+
     }
 
     clickDouble() {
-        TrackMgr.AppDialogClick_hcdg({            
+        TrackMgr.AppDialogClick_hcdg({
             dialog_name_hcdg: `签到弹窗`,
             ck_module: "双倍领取",
-            active_ad_hcdg:"激励视频"
+            active_ad_hcdg: "激励视频"
         })
 
         // XMSDK.post({
@@ -221,7 +219,7 @@ export default class gameSign extends baseTs {
         //     this.closePage();
         // })
 
-        this.openSignReward(2);    
+        this.openSignReward(2);
         this.closePage();
         //         }
         //         else {
@@ -301,19 +299,19 @@ export default class gameSign extends baseTs {
         soundController.singleton.clickAudio();
 
         TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg:"签到成功弹窗"
+            dialog_name_hcdg: "签到成功弹窗"
         })
 
         let data = {
             list: this.data.list[this.currentDay],
             currentDay: this.currentDay,
             type: type,
-            signDays:this.data.signDays+1
+            signDays: this.data.signDays + 1
         }
 
-        if(this.data && this.data[`callBack`]){            
+        if (this.data && this.data[`callBack`]) {
             data[`callBack`] = this.data[`callBack`]
-        }        
+        }
 
         cc.game.emit(NameTs.Game_Pop_Open, {
             name: pageTs.pageName.GameSignReward,
@@ -326,18 +324,18 @@ export default class gameSign extends baseTs {
 
         this.closePage();
 
-        TrackMgr.AppDialogClick_hcdg({            
+        TrackMgr.AppDialogClick_hcdg({
             dialog_name_hcdg: `签到弹窗`,
             ck_module: "关闭"
         })
 
-        if(this.data && this.data[`callBack`]){
+        if (this.data && this.data[`callBack`]) {
             this.data[`callBack`]();
         }
 
-        if(this.isInsert){
-            AdController.loadAd(AdPosition.SignAwardInsert, ()=>{console.log("关闭签到奖励插屏广告播放完成")});
-            if(util.adPreObj[AdPosition.SignAwardInsert]){
+        if (this.isInsert) {
+            AdController.loadAd(AdPosition.SignAwardInsert, () => { console.log("关闭签到奖励插屏广告播放完成") });
+            if (util.adPreObj[AdPosition.SignAwardInsert]) {
                 util.preloadAd(AdPosition.SignAwardInsert);
             }
         }
@@ -348,7 +346,7 @@ export default class gameSign extends baseTs {
         this.setData(this.data);
 
         if (!this.check_toggle.isChecked) {
-            TrackMgr.AppDialogClick_hcdg({                
+            TrackMgr.AppDialogClick_hcdg({
                 dialog_name_hcdg: `签到弹窗`,
                 ck_module: "取消勾选"
             })

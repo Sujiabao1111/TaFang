@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "GodWheel_beiJing",
+    "texture": "e037175e-d2b3-494e-a6b5-a6f08ddfca5f",
+    "atlas": "",
+    "rect": [
+      59,
+      61,
+      517,
+      518
+    ],
+    "offset": [
+      -0.5,
+      -1
+    ],
+    "originalSize": [
+      636,
+      638
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

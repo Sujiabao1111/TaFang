@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "d96b8844-70c4-4463-b57f-b19c74532dc0",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "bg_tujian_liebiaoselet": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "e8a6db4f-eeca-4790-b147-a7a6edfdaedb",
+      "importer": "sprite-frame",
       "rawTextureUuid": "d96b8844-70c4-4463-b57f-b19c74532dc0",
       "trimType": "auto",
       "trimThreshold": 1,

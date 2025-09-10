@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_online_time",
+    "texture": "ca6f91f3-0b1e-45cc-99ab-1d1a12ab716d",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      116,
+      45
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      118,
+      46
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

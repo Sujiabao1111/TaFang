@@ -1,0 +1,140 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "yanmieguangpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "E7wBJ1lZtDoABjp/MLACR9zcCOs",
+      "spine": "3.8.99",
+      "x": -47,
+      "y": -23.38,
+      "width": 94,
+      "height": 102,
+      "images": "./images/",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "bone3",
+        "parent": "root",
+        "x": 503.06,
+        "y": 11.17
+      }
+    ],
+    "slots": [
+      {
+        "name": "zk",
+        "bone": "bone3"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "zk": {
+            "001": {
+              "x": 0.5,
+              "width": 95,
+              "height": 96
+            },
+            "002": {
+              "x": 0.5,
+              "width": 95,
+              "height": 96
+            },
+            "003": {
+              "x": 0.5,
+              "width": 95,
+              "height": 96
+            },
+            "004": {
+              "x": 0.5,
+              "width": 95,
+              "height": 96
+            },
+            "005": {
+              "x": 0.5,
+              "width": 95,
+              "height": 96
+            },
+            "006": {
+              "x": 0.5,
+              "width": 95,
+              "height": 96
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "zk": {
+            "color": [
+              {
+                "color": "ffffffd6",
+                "curve": "stepped"
+              },
+              {
+                "time": 0.1667,
+                "color": "ffffffd6"
+              },
+              {
+                "time": 0.2667,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.1,
+                "name": "003"
+              },
+              {
+                "time": 0.1333,
+                "name": "004"
+              },
+              {
+                "time": 0.1667,
+                "name": "005"
+              },
+              {
+                "time": 0.2,
+                "name": "006"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone3": {
+            "translate": [
+              {
+                "x": -503.06,
+                "y": -11.17
+              }
+            ],
+            "scale": [
+              {
+                "x": 1.279,
+                "y": 1.279
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nyanmieguangpao.png\nsize: 512,512\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n001\n  rotate: false\n  xy: 2, 2\n  size: 45, 35\n  orig: 95, 96\n  offset: 24, 28\n  index: -1\n002\n  rotate: false\n  xy: 2, 411\n  size: 95, 95\n  orig: 95, 96\n  offset: 0, 1\n  index: -1\n003\n  rotate: false\n  xy: 2, 314\n  size: 95, 95\n  orig: 95, 96\n  offset: 0, 1\n  index: -1\n004\n  rotate: false\n  xy: 2, 218\n  size: 90, 94\n  orig: 95, 96\n  offset: 3, 0\n  index: -1\n005\n  rotate: false\n  xy: 2, 126\n  size: 86, 90\n  orig: 95, 96\n  offset: 5, 4\n  index: -1\n006\n  rotate: false\n  xy: 2, 39\n  size: 84, 85\n  orig: 95, 96\n  offset: 4, 7\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "5ead5ba1-e96f-46d9-a885-41678781aa77"
+    }
+  ],
+  "textureNames": [
+    "yanmieguangpao.png"
+  ],
+  "scale": 1
+}

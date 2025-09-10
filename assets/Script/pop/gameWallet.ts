@@ -5,6 +5,7 @@ import { updateType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
 import pool from "../common/pool";
+import { t } from "../Language/LanguageData";
 import { UrlConst } from "../server/UrlConst";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
@@ -144,7 +145,7 @@ export default class gameWallet extends baseTs {
 
     private tixian_state = `当前选择的提现档位`;
 
-    private walletPool:pool ;
+    private walletPool: pool;
 
     onLoad() {
         cc.game.on(NameTs.bindWechatSuccess, this.wxSucFun, this);
@@ -162,19 +163,19 @@ export default class gameWallet extends baseTs {
         }
 
         //数据更新
-        cc.game.on(NameTs.Game_View_UserDataUpdata,(res)=>{
-            if(res==updateType.coin){
+        cc.game.on(NameTs.Game_View_UserDataUpdata, (res) => {
+            if (res == updateType.coin) {
                 let userData = util.userData;
                 this.lable_myGold.string = String(userData.coin);
             }
-        },this);
+        }, this);
 
         //增加金币
-        cc.game.on(NameTs.Game_Wallet_AddCoin,(res)=>{
-            if(res>0){
+        cc.game.on(NameTs.Game_Wallet_AddCoin, (res) => {
+            if (res > 0) {
                 this.createNum(res)
             }
-        },this);
+        }, this);
 
         this.walletPool = new pool(cc.instantiate(this.addCoinItem));
 
@@ -333,8 +334,8 @@ export default class gameWallet extends baseTs {
 
                 if (cash.hasWithdraw == 1) {
                     parentNodeChild[i].opacity = 150;
-                    console.log("已提现:",cash.amount);
-                    if((cash.type==1&&AssistCtr.isATest())||(cash.type==9&&!AssistCtr.isATest())){
+                    console.log("已提现:", cash.amount);
+                    if ((cash.type == 1 && AssistCtr.isATest()) || (cash.type == 9 && !AssistCtr.isATest())) {
                         cc.game.emit(NameTs.Game_SavingPost_Lock);
                     }
                 }
@@ -350,7 +351,7 @@ export default class gameWallet extends baseTs {
 
         if (self.lable_myGold) {
             // self.lable_myGold.string = `${AssistCtr.convertNumber(data.gold.goldPoint)}`;
-            self.lable_myGold.string = data.gold.goldPoint+"";
+            self.lable_myGold.string = data.gold.goldPoint + "";
         }
         if (self.lable_money) {
             self.lable_money.string = `约${data.gold.exchangeAmount}元`;
@@ -648,8 +649,8 @@ export default class gameWallet extends baseTs {
         }
         let str1 = this.checkIsTiXian(curSelectData);
         let str2 = this.checkIsTiXian2();
-        if(str1==""&&str2==""){
-            if(!util.adPreObj[AdPosition.getWalletMoneyVideo]){
+        if (str1 == "" && str2 == "") {
+            if (!util.adPreObj[AdPosition.getWalletMoneyVideo]) {
                 util.preloadAd(AdPosition.getWalletMoneyVideo);
             }
         }
@@ -689,7 +690,7 @@ export default class gameWallet extends baseTs {
             else {
                 AdController.loadAd(AdPosition.getWalletMoneyVideo, (res) => {
 
-                    if(util.adPreObj[AdPosition.getWalletMoneyVideo]){
+                    if (util.adPreObj[AdPosition.getWalletMoneyVideo]) {
                         util.preloadAd(AdPosition.getWalletMoneyVideo);
                     }
 
@@ -697,8 +698,8 @@ export default class gameWallet extends baseTs {
                         AssistCtr.showToastTip(str2);
                     }
                     else {
-                        
-                        util.sendCoinData(()=>{
+
+                        util.sendCoinData(() => {
 
                             XMSDK.post({
                                 url: UrlConst.wallet_get,
@@ -710,13 +711,13 @@ export default class gameWallet extends baseTs {
                                     if (!this.isValid) {
                                         return;
                                     }
-    
+
                                     if (res.code === 0) {
                                         soundController.singleton.clickAudio();
                                         self.sucView.active = true;
                                         self.lable_sucTip.string = `你的提现已申请成功，稍后可在微信\n查看是否转账成功。`;
                                         self.initData();
-    
+
                                         util.addCoin(-curSelectData.point)
                                         //GameInfo.useGold(parseInt(curSelectData.amount) * GameInfo.getChangeRate());
                                         TrackMgr.apply_for_withdrawal({
@@ -726,14 +727,14 @@ export default class gameWallet extends baseTs {
                                             is_satisfy_condition: true,
                                             markStr: curSelectData.mark,
                                         })
-    
+
                                         TrackMgr.AppBuyProductDialog_hcdg({
                                             dialog_name_hcdg: `提现申请成功`,
                                         })
                                     }
                                     else {
                                         let str = `${res.message}`;
-    
+
                                         TrackMgr.apply_for_withdrawal({
                                             applications_amount: Number(curSelectData.amount),
                                             application_status: `失败`,
@@ -748,7 +749,7 @@ export default class gameWallet extends baseTs {
                                     }
                                 },
                                 onFail: err => {
-    
+
                                 }
                             })
                         });
@@ -764,7 +765,7 @@ export default class gameWallet extends baseTs {
                         markStr: curSelectData.mark,
                     })
                     AssistCtr.showToastTip("加载视频失败，请稍后！");
-                    
+
                 })
             }
         }
@@ -982,7 +983,7 @@ export default class gameWallet extends baseTs {
                 AdController.loadAd(AdPosition.walletCardVideo, (res) => {
                     this.sendDaCard(curSelectData.type, clockInDays)
                 }, () => {
-                    AssistCtr.showToastTip("加载视频失败，请稍后！");
+                    AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
                 })
             }
         }
@@ -1053,18 +1054,18 @@ export default class gameWallet extends baseTs {
      * @param num 数量
      * @param pos 位置
      */
-    createNum(num:number){
-        let item:cc.Node = this.walletPool.createEnemy(this.addCoinBox);
+    createNum(num: number) {
+        let item: cc.Node = this.walletPool.createEnemy(this.addCoinBox);
         item.setParent(this.addCoinBox);
-        item.setPosition(0,0);
+        item.setPosition(0, 0);
         item.getComponent(cc.Sprite).enabled = false;
         item.opacity = 255;
-        item.children[1]&&(item.children[1].getComponent(cc.Label).string = "+"+ num);
+        item.children[1] && (item.children[1].getComponent(cc.Label).string = "+" + num);
         item.scale = 1.1;
         cc.tween(item).parallel(
-            cc.tween().by(.5,{y:84}),
-            cc.tween().delay(.25).to(.25,{opacity:0})
-        ).call(()=>{
+            cc.tween().by(.5, { y: 84 }),
+            cc.tween().delay(.25).to(.25, { opacity: 0 })
+        ).call(() => {
             this.walletPool.onEnemyKilled(item);
         }).start();
     }

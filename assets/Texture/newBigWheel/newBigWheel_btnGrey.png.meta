@@ -1,6 +1,7 @@
 {
-  "ver": "2.3.5",
+  "ver": "2.3.7",
   "uuid": "d433414e-33f2-4f1c-ba5c-e6d5beecb8d0",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -12,8 +13,9 @@
   "platformSettings": {},
   "subMetas": {
     "newBigWheel_btnGrey": {
-      "ver": "1.0.4",
+      "ver": "1.0.6",
       "uuid": "71f4704b-f060-4472-a793-b35267980088",
+      "importer": "sprite-frame",
       "rawTextureUuid": "d433414e-33f2-4f1c-ba5c-e6d5beecb8d0",
       "trimType": "auto",
       "trimThreshold": 1,

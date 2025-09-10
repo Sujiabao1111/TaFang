@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "finger_tex",
+    "texture": "b8b5d04c-c9be-46e1-9e0b-0e325ab9a73e",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      154,
+      137
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      157,
+      140
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+
+jinenghongyinpao.png
+size: 251,251
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pai
+  rotate: false
+  xy: 151, 160
+  size: 98, 89
+  orig: 98, 89
+  offset: 0, 0
+  index: -1
+paodi
+  rotate: false
+  xy: 65, 172
+  size: 84, 77
+  orig: 84, 77
+  offset: 0, 0
+  index: -1
+paoshen
+  rotate: false
+  xy: 2, 188
+  size: 61, 61
+  orig: 61, 61
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bingheyongdongpao",
+    "texture": "1ca640dd-760d-454f-9e7c-2d90b52debb9",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      120,
+      122
+    ],
+    "offset": [
+      -2,
+      0
+    ],
+    "originalSize": [
+      124,
+      122
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

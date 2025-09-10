@@ -1,0 +1,34 @@
+
+hongyinpao.png
+size: 363,363
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1834
+  rotate: false
+  xy: 107, 165
+  size: 132, 196
+  orig: 136, 199
+  offset: 2, 2
+  index: -1
+E01
+  rotate: false
+  xy: 44, 20
+  size: 38, 341
+  orig: 40, 343
+  offset: 1, 1
+  index: -1
+E02
+  rotate: false
+  xy: 2, 2
+  size: 40, 359
+  orig: 42, 361
+  offset: 1, 1
+  index: -1
+E03
+  rotate: false
+  xy: 84, 32
+  size: 21, 329
+  orig: 23, 331
+  offset: 1, 1
+  index: -1

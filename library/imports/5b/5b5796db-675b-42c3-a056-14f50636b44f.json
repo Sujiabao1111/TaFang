@@ -1,0 +1,131 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "zaoyinpao",
+  "_objFlags": 0,
+  "_native": "",
+  "_skeletonJson": {
+    "skeleton": {
+      "hash": "NhSO2IHf6NJ513Q9e/4k3eweTNY",
+      "spine": "3.8.99",
+      "images": "F:/waibao/spine/小鱼/炮/炮导出/最新版/25噪音炮/boom",
+      "audio": ""
+    },
+    "bones": [
+      {
+        "name": "root"
+      },
+      {
+        "name": "bone2",
+        "parent": "root",
+        "x": 1.13,
+        "y": 238.74
+      }
+    ],
+    "slots": [
+      {
+        "name": "bp",
+        "bone": "bone2",
+        "blend": "additive"
+      }
+    ],
+    "skins": [
+      {
+        "name": "default",
+        "attachments": {
+          "bp": {
+            "ybp-bp1_002": {
+              "width": 64,
+              "height": 64
+            },
+            "ybp-bp1_003": {
+              "width": 64,
+              "height": 64
+            },
+            "ybp-bp1_004": {
+              "width": 64,
+              "height": 64
+            },
+            "ybp-bp1_005": {
+              "width": 64,
+              "height": 64
+            },
+            "ybp-bp1_006": {
+              "width": 64,
+              "height": 64
+            },
+            "ybp-bp1_007": {
+              "width": 64,
+              "height": 64
+            }
+          }
+        }
+      }
+    ],
+    "animations": {
+      "animation": {
+        "slots": {
+          "bp": {
+            "color": [
+              {
+                "time": 0.1333,
+                "color": "ffffffff",
+                "curve": 0.25,
+                "c3": 0.75
+              },
+              {
+                "time": 0.2667,
+                "color": "ffffff00"
+              }
+            ],
+            "attachment": [
+              {
+                "time": 0.0333,
+                "name": "ybp-bp1_002"
+              },
+              {
+                "time": 0.0667,
+                "name": "ybp-bp1_003"
+              },
+              {
+                "time": 0.1,
+                "name": "ybp-bp1_004"
+              },
+              {
+                "time": 0.1333,
+                "name": "ybp-bp1_005"
+              },
+              {
+                "time": 0.1667,
+                "name": "ybp-bp1_006"
+              },
+              {
+                "time": 0.2,
+                "name": "ybp-bp1_007"
+              }
+            ]
+          }
+        },
+        "bones": {
+          "bone2": {
+            "translate": [
+              {
+                "x": -1.13,
+                "y": -238.74
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "_atlasText": "\nzaoyinpao.png\nsize: 193,191\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nybp-bp1_002\n  rotate: true\n  xy: 49, 18\n  size: 23, 44\n  orig: 64, 64\n  offset: 20, 0\n  index: -1\nybp-bp1_003\n  rotate: true\n  xy: 0, 0\n  size: 41, 40\n  orig: 64, 64\n  offset: 12, 12\n  index: -1\nybp-bp1_004\n  rotate: true\n  xy: 73, 53\n  size: 63, 62\n  orig: 64, 64\n  offset: 1, 1\n  index: -1\nybp-bp1_005\n  rotate: false\n  xy: 0, 127\n  size: 64, 64\n  orig: 64, 64\n  offset: 0, 0\n  index: -1\nybp-bp1_006\n  rotate: false\n  xy: 0, 52\n  size: 64, 64\n  orig: 64, 64\n  offset: 0, 0\n  index: -1\nybp-bp1_007\n  rotate: false\n  xy: 73, 127\n  size: 64, 64\n  orig: 64, 64\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "f84be6a8-6365-4b37-bf4a-a2d6a649214b"
+    }
+  ],
+  "textureNames": [
+    "zaoyinpao.png"
+  ],
+  "scale": 1
+}

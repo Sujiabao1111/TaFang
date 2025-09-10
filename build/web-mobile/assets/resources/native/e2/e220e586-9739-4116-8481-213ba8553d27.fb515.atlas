@@ -1,0 +1,48 @@
+
+tiancaizhipao.png
+size: 718,716
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A_01
+  rotate: false
+  xy: 574, 623
+  size: 144, 93
+  orig: 150, 105
+  offset: 3, 3
+  index: -1
+A_02
+  rotate: false
+  xy: 270, 625
+  size: 144, 91
+  orig: 150, 105
+  offset: 3, 4
+  index: -1
+A_03
+  rotate: false
+  xy: 423, 625
+  size: 142, 91
+  orig: 150, 105
+  offset: 4, 4
+  index: -1
+A_04
+  rotate: false
+  xy: 0, 643
+  size: 79, 73
+  orig: 150, 105
+  offset: 38, 24
+  index: -1
+A_05
+  rotate: false
+  xy: 88, 641
+  size: 81, 75
+  orig: 150, 105
+  offset: 37, 25
+  index: -1
+A_06
+  rotate: false
+  xy: 178, 640
+  size: 83, 76
+  orig: 150, 105
+  offset: 36, 26
+  index: -1

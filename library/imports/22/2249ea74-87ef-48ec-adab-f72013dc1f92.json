@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_lucky money@2x",
+    "texture": "29fde735-93ff-403b-9976-bdca6a4bcd20",
+    "atlas": "",
+    "rect": [
+      9,
+      1,
+      54,
+      70
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      72,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
