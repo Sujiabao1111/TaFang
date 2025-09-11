@@ -157,6 +157,7 @@ export const languages: languagesData = {
         '自动合成': '自动合成',
         '翻倍': '翻倍',
         '任务完成': '任务完成',
+        '累计击杀': '累计击杀',
 
 
 

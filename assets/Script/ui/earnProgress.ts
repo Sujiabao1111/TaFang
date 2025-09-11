@@ -17,10 +17,10 @@ export default class earnProgress extends baseTs {
     private taskProgress: cc.ProgressBar = null; //任务进度条
 
     @property(cc.Label)
-    private tasklabel1: cc.Label = null; //任务标题
+    private tasklabel1: cc.Label = null; // 当前击杀数
 
     @property(cc.Label)
-    private tasklabel2: cc.Label = null; //任务标题
+    private tasklabel2: cc.Label = null; // 需要击杀数
 
     @property(cc.Label)
     private getTime: cc.Label = null; //可以领多少次
@@ -35,14 +35,11 @@ export default class earnProgress extends baseTs {
 
     private initData: any = null;
 
-    private isRuning: boolean = false;//是否在东
-    private isHand: boolean = false;//是否在东
-
+    private isRuning: boolean = false; //是否在动
+    private isHand: boolean = false; //是否在动
 
     private nowGear: number = null;//默认进度3000
-
     private handNum: number = 3;//默认次数
-
     private userCoin: number = null;
 
     onLoad() {
@@ -61,36 +58,54 @@ export default class earnProgress extends baseTs {
         this.init();
 
 
-        //监听金币进度
-        cc.game.on(NameTs.Game_EarnProgress_Updata, () => {
-
+        // 监听击杀进度
+        cc.game.on(NameTs.Game_Kills_Updata, () => {
             if (!this.initData) return;
-            this.initData.canReceiveTimes -= 1;
-            this.setState(this.initData);
-            this.checkFill();
-            if (this.handNum > 0) {
-                this.handNum -= 1;
-                // this.hand.active = true;
-                util.setStorage(util.localDiary.earnProgress, this.handNum);
-            } else {
-                this.hand.active = false;
-            }
+            this.tasklabel1.string = (this.userCoin += 1) + "";
+
+            // this.initData.canReceiveTimes -= 1;
+            // this.setState(this.initData);
+            // this.checkFill();
+            // if (this.handNum > 0) {
+            //     this.handNum -= 1;
+            //     // this.hand.active = true;
+            //     util.setStorage(util.localDiary.earnProgress, this.handNum);
+            // } else {
+            //     this.hand.active = false;
+            // }
         }, this);
 
 
-        //监听金币进度
-        cc.game.on(NameTs.Game_Wallet_AddCoin, (res) => {
-            if (!this.initData) return;
-            if (res > 0) {
-                this.userCoin += res;
-                this.setState(this.initData);
-                this.checkFill();
-            }
+        // //监听金币进度
+        // cc.game.on(NameTs.Game_EarnProgress_Updata, () => {
 
-        }, this);
+        //     if (!this.initData) return;
+        //     this.initData.canReceiveTimes -= 1;
+        //     this.setState(this.initData);
+        //     this.checkFill();
+        //     if (this.handNum > 0) {
+        //         this.handNum -= 1;
+        //         // this.hand.active = true;
+        //         util.setStorage(util.localDiary.earnProgress, this.handNum);
+        //     } else {
+        //         this.hand.active = false;
+        //     }
+        // }, this);
 
 
-        util.GlobalMap.set("earnProgress", this.hongbao.node);
+        // //监听金币进度
+        // cc.game.on(NameTs.Game_Wallet_AddCoin, (res) => {
+        //     if (!this.initData) return;
+        //     if (res > 0) {
+        //         this.userCoin += res;
+        //         this.setState(this.initData);
+        //         this.checkFill();
+        //     }
+
+        // }, this);
+
+
+        // util.GlobalMap.set("earnProgress", this.hongbao.node);
 
     }
 
@@ -126,10 +141,7 @@ export default class earnProgress extends baseTs {
      * 展现任务
      */
     showGameEarn() {
-        TrackMgr.luckybag_task({
-            activity_state: "任务点击",
-            task_level: String(this.initData.nextGear),
-        });
+
         if (this.initData.canReceiveTimes <= 0) {
             AssistCtr.showToastTip("再赚取" + (this.initData.nextGear - this.userCoin) + "红包");
             return;

@@ -126,6 +126,8 @@ var monsterFactory = /** @class */ (function (_super) {
         this.setHp(this.monsterHp / this.initData.hp);
         if (this.monsterHp <= 0) {
             this.clearMonster();
+            console.log("怪兽死亡");
+            cc.game.emit(NameTs_1.default.Game_Kills_Updata);
             soundController_1.default.singleton.playDeadAudio();
             return;
         }

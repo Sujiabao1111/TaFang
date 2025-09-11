@@ -151,9 +151,10 @@ export const languages: languagesData = {
         '任务': 'Tugas',
         '抽奖': 'Pengundian',
         '签到': 'CheckIn',
-        '自动合成': 'Synthesa Otomatis',
+        '自动合成': 'Otomatis',
         '翻倍': 'Dua Kali',
         '任务完成': 'Tugas selesai',
+        '累计击杀': 'Penghancuran',
 
 
 

@@ -276,6 +276,9 @@ export default class NameTs {
     //更新金币进度
     static Game_EarnProgress_Updata = "Game_EarnProgress_Updata";
 
+    //更新击杀进度
+    static Game_Kills_Updata = "Game_Kills_Updata";
+
     /**看完视频后存钱罐 */
     static Game_SavingPost_AddCoin = "Game_SavingPost_Add";
     static Game_SavingPost_Icon = "Game_SavingPost_Icon";

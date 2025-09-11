@@ -6744,7 +6744,9 @@
     "walletLabel": {
       "__id__": 125
     },
-    "editBox": null,
+    "editBox": {
+      "__id__": 139
+    },
     "ruleView": {
       "__id__": 146
     },

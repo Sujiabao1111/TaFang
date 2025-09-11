@@ -1,8 +1,10 @@
+import { AssistCtr } from "../Assist/AssistCtr";
 import baseTs from "../base/baseTs";
 import { AdPosition } from "../common/AdPosition";
 import { gameNumerical, propType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
+import { t } from "../Language/LanguageData";
 import { UrlConst } from "../server/UrlConst";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
 import soundController from "../soundController";
@@ -15,143 +17,81 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class gamePassReward extends baseTs {
 
-    @property({ type: cc.Label, displayName: "文字" })
-    private rewardLabel: cc.Label = null;
+    @property({ type: cc.Label, displayName: "金币" })
+    private rewardLabel1: cc.Label = null;
 
-    @property({ type: cc.Label, displayName: "道具文字" })
-    private propLabel: cc.Label = null;
 
-    // @property({type:cc.Node,displayName:"光"})
-    // private light:cc.Node = null;
+    @property({ type: cc.Label, displayName: "翻倍金币" })
+    private rewardLabel2: cc.Label = null;
 
-    @property({ type: [cc.Node], displayName: "标题" })
-    private titleArr: cc.Node[] = [];
 
-    @property({ type: cc.Sprite, displayName: "图片" })
-    private pic: cc.Sprite = null;
 
-    @property({ type: [cc.SpriteFrame], displayName: "图片集合" })
-    private picSpriteFrame: cc.SpriteFrame[] = [];
+    @property({ type: cc.Node, displayName: "倍数" })
+    private multipleNode: cc.Node = null;
 
-    @property({ type: cc.Node, displayName: "信息流" })
-    private feed_node: cc.Node = null;
+    private coin: any;
 
-    //类型
-    private typeNum: number = 1;
-    //
-    private initData: any;
-
-    private xinxiliui: number;
 
     onLoad() {
-
-        // cc.tween(this.light).repeatForever(
-        //     cc.tween().to(1,{scale:1}).to(1,{scale:1.1})
-        // ).start();
-
+        cc.tween(this.multipleNode).repeatForever(
+            cc.tween().to(.3, { angle: 10 }).to(.2, { angle: 0 })
+        ).start();
 
     }
+
+
     /**
      * 
      */
     init() {
-        this.initData = util.gameLevelPassRewardVoList[0];
+        //获取用户行为4
+        this.coin = Tools.GetArrData("type", 4, util.behaviorRewardVoList).reward || 150;
 
-        let text: string = null;
-        let titleNum: number = 0;
+        this.rewardLabel1.string = "+" + this.coin + t("main.金币");
 
+        this.rewardLabel2.string = this.coin * 10 + "";
 
+        util.getdataStr({
+            url: UrlConst.gameLevelIndex,
+            success: (data) => {
+                if (!this.isValid) {
+                    return;
+                }
+                console.log("设置一次----------------------------------------------------------" + JSON.stringify(data.mapConfig))
+                // util.behaviorRewardVoList = data.behaviorRewardVoList
+                util.getnowmapdata();
+                util.mapConfig = data.mapConfig;
 
-        switch (Number(this.initData.rewardType)) {
-
-            case 1:
-                titleNum = 2;
-                let data = Tools.GetArrData("type", this.initData.rewardKey, util.propConfig);
-                text = data.explain;
-                this.loadAny("texture/prop/prop" + data.type, cc.SpriteFrame, (res) => {
-                    this.pic.spriteFrame = res;
-                });
-                // this.xinxiliui = AdPosition.UnlcokPropView;
-
-                TrackMgr.AppBuyProductDialog_hcdg({
-                    dialog_name_hcdg: "恭喜获得新道具"
-                })
-                TrackMgr.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "恭喜获得新道具",
-                    ck_module: "收下",
-                })
-                break;
-            case 3:
-                text = "";
-                titleNum = 1;
-                this.pic.spriteFrame = this.picSpriteFrame[1];
-                // this.xinxiliui = AdPosition.UnlcokPlaceView;
-                break;
-            case 2:
-                titleNum = 0;
-                text = "+" + this.initData.rewardValue + "红包币";
-                this.pic.spriteFrame = this.picSpriteFrame[0];
-                // this.xinxiliui = AdPosition.GamePassCoinView;
-                break;
-        }
-        console.log(this.xinxiliui, 'this.xinxiliui')
-        if (this.xinxiliui) AdController.loadInfoAd(this.xinxiliui, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
-
-        this.titleArr[titleNum].active = true;
-        this.propLabel.node.active = this.rewardLabel.node.active = false;
-
-        if (this.initData.rewardType && this.initData.rewardType == 1) {
-            this.propLabel.string = text;
-            this.propLabel.node.active = true;
-        } else {
-            this.rewardLabel.string = text;
-            this.rewardLabel.node.active = true;
-        }
+            }
+        })
 
     }
 
-    start() {
-
-    }
 
     /**
      * 获取
      */
-    getBtn() {
+    getBtn(str, e) {
 
+        let isVideo: boolean = e == 1;
         soundController.singleton.clickAudio();
-        // cc.game.emit(NameTs.Game_Effect_coin,{node:this.node,value:this.coin});
-        // util.addTermCoin(this.coin);
 
-        switch (Number(this.initData.rewardType)) {
+        let successFn: Function = () => {
 
-            case 1:
-                util.userData.prop[this.initData.rewardKey - 1].num += this.initData.rewardValue;
-                break;
-            case 3:
-                util.unlockPlace();
-                break;
-            case 2:
-                cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: this.initData.rewardValue, num: 10 });
-                util.addTermCoin(this.initData.rewardValue);
-                break;
-        }
-        util.gameLevelPassRewardVoList.splice(0, 1);
+            let coin: number = this.coin * (isVideo ? 10 : 1);
 
-        this.closeBtn();
+            cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: coin, num: 10 });
 
-        if (util.gameLevelPassRewardVoList.length > 0) {
-            this.showPage(pageTs.pageName.GamePassReward);
-        } else {
-            for (let i = 0; i < util.gameLevelPassRewardNextVoList.length; i++) {
-                util.gameLevelPassRewardVoList.push(util.gameLevelPassRewardNextVoList[i]);
-            }
-            util.gameLevelPassRewardNextVoList = [];
+            util.addTermCoin(coin);
 
-            console.log(util.gameLevelPassRewardNextVoList, util.gameLevelPassRewardVoList, 'util.gameLevelPassRewardNextVoList')
-            // this.showPage(pageTs.pageName.GameStart);
+            this.closeBtn();
             cc.game.emit(NameTs.Game_Start);
         }
+
+
+        successFn();
+
+
     }
 
     /**
@@ -160,19 +100,6 @@ export default class gamePassReward extends baseTs {
     closeBtn() {
         soundController.singleton.clickAudio();
         this.closePage();
-
     }
 
-    onEnable() {
-
-    }
-
-
-    onDisable() {
-        if (this.xinxiliui) AdController.hideInfoAd(this.xinxiliui);
-
-        cc.game.emit(NameTs.Game_PropItem_Update);
-    }
-
-    // update (dt) {}
 }

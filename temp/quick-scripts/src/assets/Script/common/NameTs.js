@@ -222,6 +222,8 @@ var NameTs = /** @class */ (function () {
     NameTs.red_sign_update = "red_sign_update";
     //更新金币进度
     NameTs.Game_EarnProgress_Updata = "Game_EarnProgress_Updata";
+    //更新击杀进度
+    NameTs.Game_Kills_Updata = "Game_Kills_Updata";
     /**看完视频后存钱罐 */
     NameTs.Game_SavingPost_AddCoin = "Game_SavingPost_Add";
     NameTs.Game_SavingPost_Icon = "Game_SavingPost_Icon";

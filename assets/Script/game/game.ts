@@ -68,7 +68,7 @@ export default class game extends baseTs {
                 case gamePass.smallSuccess:
                     console.log("==========小关结束===========");
 
-                    this.showPage(pageTs.pageName.GamePassReward2);
+                    this.showPage(pageTs.pageName.GamePassReward);
 
                     break;
             }
@@ -434,8 +434,7 @@ export default class game extends baseTs {
 
     showPass() {
         util.Opening_times_level = 0;
-        // this.showPage(pageTs.pageName.GamePass);
-        this.showPage(pageTs.pageName.GamePassReward2);
+        this.showPage(pageTs.pageName.GamePassReward);
     }
 
 

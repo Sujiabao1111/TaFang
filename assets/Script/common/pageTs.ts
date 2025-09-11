@@ -7,8 +7,7 @@ export default class pageTs {
         GameStart: "GameStart",
         /**游戏结束 */
         GameEnd: "GameEnd",
-        /**游戏通关 */
-        GamePass: "GamePass",
+      
         /**游戏设置 */
         GameSet: "GameSet",
         /**道具 */
@@ -43,8 +42,6 @@ export default class pageTs {
         GameGuide2: "GameGuide2",
         /**升级弹窗 */
         GameUpgrade: "GameUpgrade",
-        /**游戏通关奖励 */
-        GamePassReward: "GamePassReward",
         /**游戏离线收益 */
         GameOffline: "GameOffline",
         /**增加炮塔弹窗 */
@@ -87,7 +84,7 @@ export default class pageTs {
 
         
         /**游戏通关奖励2 */
-        GamePassReward2: "GamePassReward2",
+        GamePassReward: "GamePassReward",
         
         /**金币进度 */
         GameEarnPro:"GameEarnPro",
@@ -101,8 +98,7 @@ export default class pageTs {
         GameStart: "prefab/pop/gameStart",
         /**游戏结束 */
         GameEnd: "prefab/pop/gameEnd",
-        /**游戏结束 */
-        GamePass: "prefab/pop/gamePass",
+       
         /**游戏设置 */
         GameSet: "prefab/pop/gameSet",
         /**道具*/
@@ -137,8 +133,7 @@ export default class pageTs {
         GameGuide2: "prefab/pop/gameGuide2",
         /**升级弹窗 */
         GameUpgrade: "prefab/pop/gameUpgrade",
-        /**游戏通关奖励 */
-        GamePassReward: "prefab/pop/gamePassReward",
+       
         /**游戏离线收益 */
         GameOffline: "prefab/pop/gameOffline",
         /**增加炮塔弹窗 */
@@ -177,7 +172,7 @@ export default class pageTs {
         GameGetVideoTurret:"prefab/pop/gameGetVideoTurret",
         
         /**游戏通关奖励2 */
-        GamePassReward2: "prefab/pop/gamePassReward2",
+        GamePassReward: "prefab/pop/gamePassReward",
 
         /**金币进度 */
         GameEarnPro:"prefab/pop/gameEarnPro",
@@ -187,7 +182,7 @@ export default class pageTs {
     }
 
 
-    
+
 
     /**需要暂停游戏的页面*/
     static stopGamePage = [pageTs.pageName.GameKingPao,pageTs.pageName.NewBigWheelController,pageTs.pageName.GameOnLinePrize];

@@ -73,7 +73,7 @@ var gameEarnPro = /** @class */ (function (_super) {
                         util_1.default.addTermCoin(_this.redAmountNum * 2);
                     }
                     cc.game.emit(NameTs_1.default.Game_EarnProgress_Updata);
-                    AssistCtr_1.AssistCtr.showToastTip("获得" + coin + "红包币");
+                    // AssistCtr.showToastTip("获得"+coin+"红包币");
                     _this.closePage();
                 },
                 fail: function (res) {

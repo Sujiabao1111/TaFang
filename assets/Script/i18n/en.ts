@@ -153,9 +153,10 @@ export const languages: languagesData = {
         '任务': 'Task',
         '抽奖': 'Lottery',
         '签到': 'CheckIn',
-        '自动合成': 'Auto Synthesis',
+        '自动合成': 'Auto',
         '翻倍': 'Double',
         '任务完成': 'Task completed',
+        '累计击杀': 'Kills',
 
 
 

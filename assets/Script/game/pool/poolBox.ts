@@ -48,8 +48,13 @@ export default class poolBox extends baseTs {
             console.error("加载地图失败");
             return;
         }
+
+
+
         //设置地图大小
         util.mapSize.width = cc.winSize.width;
+        util.mapSize.width = 720;
+        console.log("屏幕大小", cc.winSize.width, cc.winSize.height);
 
         //设置格子大小
         util.mapSize.grid = util.mapSize.width / mapData.xLen;
@@ -134,7 +139,7 @@ export default class poolBox extends baseTs {
             //初始化
             if (nodeTs) nodeTs.init && nodeTs.init(str.data);
         }
-        
+
     }
 
 }

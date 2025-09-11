@@ -86,7 +86,8 @@
         "inspector",
         "cocos-services"
       ]
-    }
+    },
+    " common-asset-worker-worker": {}
   },
   "panels": {
     "node-library": {
@@ -110,6 +111,12 @@
     "project-settings": {
       "x": 423,
       "y": 134,
+      "width": 600,
+      "height": 565
+    },
+    "preferences": {
+      "x": 672,
+      "y": 240,
       "width": 600,
       "height": 565
     }

@@ -29,7 +29,6 @@ var NameTs_1 = require("../common/NameTs");
 var pageTs_1 = require("../common/pageTs");
 var UrlConst_1 = require("../server/UrlConst");
 var soundController_1 = require("../soundController");
-var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var earnProgress = /** @class */ (function (_super) {
@@ -37,15 +36,15 @@ var earnProgress = /** @class */ (function (_super) {
     function earnProgress() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.taskProgress = null; //任务进度条
-        _this.tasklabel1 = null; //任务标题
-        _this.tasklabel2 = null; //任务标题
+        _this.tasklabel1 = null; // 当前击杀数
+        _this.tasklabel2 = null; // 需要击杀数
         _this.getTime = null; //可以领多少次
         _this.hongbao = null; //红包
         _this.hand = null; //手势
         _this.coin = 500; //默认500
         _this.initData = null;
-        _this.isRuning = false; //是否在东
-        _this.isHand = false; //是否在东
+        _this.isRuning = false; //是否在动
+        _this.isHand = false; //是否在动
         _this.nowGear = null; //默认进度3000
         _this.handNum = 3; //默认次数
         _this.userCoin = null;
@@ -62,6 +61,22 @@ var earnProgress = /** @class */ (function (_super) {
             util_1.default.setStorage(util_1.default.localDiary.earnProgress, 3);
         }
         this.init();
+        // 监听击杀进度
+        cc.game.on(NameTs_1.default.Game_Kills_Updata, function () {
+            if (!_this.initData)
+                return;
+            _this.tasklabel1.string = (_this.userCoin += 1) + "";
+            // this.initData.canReceiveTimes -= 1;
+            // this.setState(this.initData);
+            // this.checkFill();
+            // if (this.handNum > 0) {
+            //     this.handNum -= 1;
+            //     // this.hand.active = true;
+            //     util.setStorage(util.localDiary.earnProgress, this.handNum);
+            // } else {
+            //     this.hand.active = false;
+            // }
+        }, this);
         //监听金币进度
         cc.game.on(NameTs_1.default.Game_EarnProgress_Updata, function () {
             if (!_this.initData)
@@ -119,10 +134,6 @@ var earnProgress = /** @class */ (function (_super) {
      * 展现任务
      */
     earnProgress.prototype.showGameEarn = function () {
-        TrackMgr_1.default.luckybag_task({
-            activity_state: "任务点击",
-            task_level: String(this.initData.nextGear),
-        });
         if (this.initData.canReceiveTimes <= 0) {
             AssistCtr_1.AssistCtr.showToastTip("再赚取" + (this.initData.nextGear - this.userCoin) + "红包");
             return;

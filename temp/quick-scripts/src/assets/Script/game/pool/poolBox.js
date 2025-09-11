@@ -55,6 +55,8 @@ var poolBox = /** @class */ (function (_super) {
         }
         //设置地图大小
         util_1.default.mapSize.width = cc.winSize.width;
+        util_1.default.mapSize.width = 720;
+        console.log("屏幕大小", cc.winSize.width, cc.winSize.height);
         //设置格子大小
         util_1.default.mapSize.grid = util_1.default.mapSize.width / mapData.xLen;
         //设置初始格子位置

@@ -627,9 +627,9 @@
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
-    "_originalWidth": 720,
-    "_originalHeight": 1560,
-    "_id": "92CaGn1X5EupLfIm46Pfnx"
+    "_originalWidth": 0,
+    "_originalHeight": 0,
+    "_id": "fb602uhktHtb6VY4EjiVVM"
   },
   {
     "__type__": "cc.Node",
@@ -2516,7 +2516,7 @@
     "node": {
       "__id__": 2
     },
-    "_enabled": true,
+    "_enabled": false,
     "_materials": [
       {
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"

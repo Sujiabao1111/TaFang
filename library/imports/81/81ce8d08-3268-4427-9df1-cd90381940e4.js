@@ -362,7 +362,6 @@ var Tools = /** @class */ (function () {
         var b = cc.winSize.width / cc.winSize.height;
         canvas.fitHeight = a < b;
         canvas.fitWidth = a >= b;
-        // cc.log(a < b, a >= b)
         cc.view.setResizeCallback(function () {
             // cc.log(canvas.designResolution, cc.winSize, canvas)
             // cc.log(cc.view.getDesignResolutionSize(), cc.view.getVisibleSize())

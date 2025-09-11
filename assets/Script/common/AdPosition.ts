@@ -35,7 +35,6 @@ export namespace AdPosition {
 
     // export const getWalletMoneyVideo = 1906	  //提现前看视频
     
-    // export const GamePassReward = 1925//过关奖励视频
     // export const earnProgressVideo = 1988 ;//金币进度奖励视频
     
     // //插屏广告            

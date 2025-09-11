@@ -1,5 +1,5 @@
 "use strict";
-cc._RF.push(module, '3f4b6yz/01Ly6iMQ4VhhRIX', 'gamePassReward');
+cc._RF.push(module, '19b942aBrdEc6tZ+2QO0APA', 'gamePassReward');
 // Script/pop/gamePassReward.ts
 
 "use strict";
@@ -25,10 +25,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var baseTs_1 = require("../base/baseTs");
 var NameTs_1 = require("../common/NameTs");
-var pageTs_1 = require("../common/pageTs");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
+var LanguageData_1 = require("../Language/LanguageData");
+var UrlConst_1 = require("../server/UrlConst");
 var soundController_1 = require("../soundController");
-var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var Tools_1 = require("../util/Tools");
 var util_1 = require("../util/util");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -36,111 +35,51 @@ var gamePassReward = /** @class */ (function (_super) {
     __extends(gamePassReward, _super);
     function gamePassReward() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.rewardLabel = null;
-        _this.propLabel = null;
-        // @property({type:cc.Node,displayName:"光"})
-        // private light:cc.Node = null;
-        _this.titleArr = [];
-        _this.pic = null;
-        _this.picSpriteFrame = [];
-        _this.feed_node = null;
-        //类型
-        _this.typeNum = 1;
+        _this.rewardLabel1 = null;
+        _this.rewardLabel2 = null;
+        _this.multipleNode = null;
         return _this;
-        // update (dt) {}
     }
     gamePassReward.prototype.onLoad = function () {
-        // cc.tween(this.light).repeatForever(
-        //     cc.tween().to(1,{scale:1}).to(1,{scale:1.1})
-        // ).start();
+        cc.tween(this.multipleNode).repeatForever(cc.tween().to(.3, { angle: 10 }).to(.2, { angle: 0 })).start();
     };
     /**
      *
      */
     gamePassReward.prototype.init = function () {
         var _this = this;
-        this.initData = util_1.default.gameLevelPassRewardVoList[0];
-        var text = null;
-        var titleNum = 0;
-        switch (Number(this.initData.rewardType)) {
-            case 1:
-                titleNum = 2;
-                var data = Tools_1.Tools.GetArrData("type", this.initData.rewardKey, util_1.default.propConfig);
-                text = data.explain;
-                this.loadAny("texture/prop/prop" + data.type, cc.SpriteFrame, function (res) {
-                    _this.pic.spriteFrame = res;
-                });
-                // this.xinxiliui = AdPosition.UnlcokPropView;
-                TrackMgr_1.default.AppBuyProductDialog_hcdg({
-                    dialog_name_hcdg: "恭喜获得新道具"
-                });
-                TrackMgr_1.default.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "恭喜获得新道具",
-                    ck_module: "收下",
-                });
-                break;
-            case 3:
-                text = "";
-                titleNum = 1;
-                this.pic.spriteFrame = this.picSpriteFrame[1];
-                // this.xinxiliui = AdPosition.UnlcokPlaceView;
-                break;
-            case 2:
-                titleNum = 0;
-                text = "+" + this.initData.rewardValue + "红包币";
-                this.pic.spriteFrame = this.picSpriteFrame[0];
-                // this.xinxiliui = AdPosition.GamePassCoinView;
-                break;
-        }
-        console.log(this.xinxiliui, 'this.xinxiliui');
-        if (this.xinxiliui)
-            AdController_1.default.loadInfoAd(this.xinxiliui, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
-        this.titleArr[titleNum].active = true;
-        this.propLabel.node.active = this.rewardLabel.node.active = false;
-        if (this.initData.rewardType && this.initData.rewardType == 1) {
-            this.propLabel.string = text;
-            this.propLabel.node.active = true;
-        }
-        else {
-            this.rewardLabel.string = text;
-            this.rewardLabel.node.active = true;
-        }
-    };
-    gamePassReward.prototype.start = function () {
+        //获取用户行为4
+        this.coin = Tools_1.Tools.GetArrData("type", 4, util_1.default.behaviorRewardVoList).reward || 150;
+        this.rewardLabel1.string = "+" + this.coin + LanguageData_1.t("main.金币");
+        this.rewardLabel2.string = this.coin * 10 + "";
+        util_1.default.getdataStr({
+            url: UrlConst_1.UrlConst.gameLevelIndex,
+            success: function (data) {
+                if (!_this.isValid) {
+                    return;
+                }
+                console.log("设置一次----------------------------------------------------------" + JSON.stringify(data.mapConfig));
+                // util.behaviorRewardVoList = data.behaviorRewardVoList
+                util_1.default.getnowmapdata();
+                util_1.default.mapConfig = data.mapConfig;
+            }
+        });
     };
     /**
      * 获取
      */
-    gamePassReward.prototype.getBtn = function () {
+    gamePassReward.prototype.getBtn = function (str, e) {
+        var _this = this;
+        var isVideo = e == 1;
         soundController_1.default.singleton.clickAudio();
-        // cc.game.emit(NameTs.Game_Effect_coin,{node:this.node,value:this.coin});
-        // util.addTermCoin(this.coin);
-        switch (Number(this.initData.rewardType)) {
-            case 1:
-                util_1.default.userData.prop[this.initData.rewardKey - 1].num += this.initData.rewardValue;
-                break;
-            case 3:
-                util_1.default.unlockPlace();
-                break;
-            case 2:
-                cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: this.node, value: this.initData.rewardValue, num: 10 });
-                util_1.default.addTermCoin(this.initData.rewardValue);
-                break;
-        }
-        util_1.default.gameLevelPassRewardVoList.splice(0, 1);
-        this.closeBtn();
-        if (util_1.default.gameLevelPassRewardVoList.length > 0) {
-            this.showPage(pageTs_1.default.pageName.GamePassReward);
-        }
-        else {
-            for (var i = 0; i < util_1.default.gameLevelPassRewardNextVoList.length; i++) {
-                util_1.default.gameLevelPassRewardVoList.push(util_1.default.gameLevelPassRewardNextVoList[i]);
-            }
-            util_1.default.gameLevelPassRewardNextVoList = [];
-            console.log(util_1.default.gameLevelPassRewardNextVoList, util_1.default.gameLevelPassRewardVoList, 'util.gameLevelPassRewardNextVoList');
-            // this.showPage(pageTs.pageName.GameStart);
+        var successFn = function () {
+            var coin = _this.coin * (isVideo ? 10 : 1);
+            cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: _this.node, value: coin, num: 10 });
+            util_1.default.addTermCoin(coin);
+            _this.closeBtn();
             cc.game.emit(NameTs_1.default.Game_Start);
-        }
+        };
+        successFn();
     };
     /**
      * 关闭
@@ -149,31 +88,15 @@ var gamePassReward = /** @class */ (function (_super) {
         soundController_1.default.singleton.clickAudio();
         this.closePage();
     };
-    gamePassReward.prototype.onEnable = function () {
-    };
-    gamePassReward.prototype.onDisable = function () {
-        if (this.xinxiliui)
-            AdController_1.default.hideInfoAd(this.xinxiliui);
-        cc.game.emit(NameTs_1.default.Game_PropItem_Update);
-    };
     __decorate([
-        property({ type: cc.Label, displayName: "文字" })
-    ], gamePassReward.prototype, "rewardLabel", void 0);
+        property({ type: cc.Label, displayName: "金币" })
+    ], gamePassReward.prototype, "rewardLabel1", void 0);
     __decorate([
-        property({ type: cc.Label, displayName: "道具文字" })
-    ], gamePassReward.prototype, "propLabel", void 0);
+        property({ type: cc.Label, displayName: "翻倍金币" })
+    ], gamePassReward.prototype, "rewardLabel2", void 0);
     __decorate([
-        property({ type: [cc.Node], displayName: "标题" })
-    ], gamePassReward.prototype, "titleArr", void 0);
-    __decorate([
-        property({ type: cc.Sprite, displayName: "图片" })
-    ], gamePassReward.prototype, "pic", void 0);
-    __decorate([
-        property({ type: [cc.SpriteFrame], displayName: "图片集合" })
-    ], gamePassReward.prototype, "picSpriteFrame", void 0);
-    __decorate([
-        property({ type: cc.Node, displayName: "信息流" })
-    ], gamePassReward.prototype, "feed_node", void 0);
+        property({ type: cc.Node, displayName: "倍数" })
+    ], gamePassReward.prototype, "multipleNode", void 0);
     gamePassReward = __decorate([
         ccclass
     ], gamePassReward);

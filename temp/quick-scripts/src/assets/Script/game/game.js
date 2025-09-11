@@ -84,7 +84,7 @@ var game = /** @class */ (function (_super) {
                     break;
                 case faceTs_1.gamePass.smallSuccess:
                     console.log("==========小关结束===========");
-                    _this.showPage(pageTs_1.default.pageName.GamePassReward2);
+                    _this.showPage(pageTs_1.default.pageName.GamePassReward);
                     break;
             }
         }, this);
@@ -402,8 +402,7 @@ var game = /** @class */ (function (_super) {
      */
     game.prototype.showPass = function () {
         util_1.default.Opening_times_level = 0;
-        // this.showPage(pageTs.pageName.GamePass);
-        this.showPage(pageTs_1.default.pageName.GamePassReward2);
+        this.showPage(pageTs_1.default.pageName.GamePassReward);
     };
     /**
      * 设置
