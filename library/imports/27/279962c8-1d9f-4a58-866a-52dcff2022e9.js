@@ -23,12 +23,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AssistCtr_1 = require("../Assist/AssistCtr");
-var AdPosition_1 = require("../common/AdPosition");
 var faceTs_1 = require("../common/faceTs");
 var RewardController_1 = require("../controlelr/RewardController");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -85,9 +82,6 @@ var NewBigWheelChou = /** @class */ (function (_super) {
         // Global.audioUtils.playClick();
         var type = data.buttonType;
         if (type == 1 && !isLookVideo) { //免费抽
-            TrackMgr_1.default.lotto_phone_click({
-                activity_button_click: "免费抽奖"
-            });
             XMSDK_1.default.getdataStr({
                 url: UrlConst_1.UrlConst.newBigWheel_action,
                 onSuccess: function (res) {
@@ -120,53 +114,53 @@ var NewBigWheelChou = /** @class */ (function (_super) {
         }
         else if (type == 2 || isLookVideo) { //看视频
             if (!eventData || !eventData.isNewBigTaskItem) {
-                AdController_1.default.loadAd(AdPosition_1.AdPosition.WheelGetRestTimes, function () {
-                    //延迟10毫秒，才不会出现请求超时失败问题
-                    XMSDK_1.default.post({
-                        url: UrlConst_1.UrlConst.newBigWheel_watch,
-                        onSuccess: function (res) {
-                            if (res.code === 0) {
-                                _this.turnId = _this.checkTurnId(res.data.id);
-                                if (_this.turnId == null) {
-                                    return;
-                                }
-                                _this.doubleData = res.data;
-                                _this.startAni();
+                // AdController.loadAd(AdPosition.WheelGetRestTimes, () => {
+                //延迟10毫秒，才不会出现请求超时失败问题
+                XMSDK_1.default.post({
+                    url: UrlConst_1.UrlConst.newBigWheel_watch,
+                    onSuccess: function (res) {
+                        if (res.code === 0) {
+                            _this.turnId = _this.checkTurnId(res.data.id);
+                            if (_this.turnId == null) {
+                                return;
+                            }
+                            _this.doubleData = res.data;
+                            _this.startAni();
+                            TrackMgr_1.default.LuckDraw({
+                                awad_name: _this.getStr(res.data.id),
+                                awad_result: true
+                            });
+                            // XMSDK.track({
+                            //     eventName: SAConst.wheel.LuckDraw,
+                            //     props: {
+                            //         awad_name: this.getStr(res.data.id),
+                            //         awad_result: true
+                            //     }
+                            // });
+                        }
+                        else {
+                            if (res.data && res.data.id) {
                                 TrackMgr_1.default.LuckDraw({
                                     awad_name: _this.getStr(res.data.id),
-                                    awad_result: true
+                                    awad_result: false
                                 });
                                 // XMSDK.track({
                                 //     eventName: SAConst.wheel.LuckDraw,
                                 //     props: {
                                 //         awad_name: this.getStr(res.data.id),
-                                //         awad_result: true
+                                //         awad_result: false
                                 //     }
                                 // });
                             }
-                            else {
-                                if (res.data && res.data.id) {
-                                    TrackMgr_1.default.LuckDraw({
-                                        awad_name: _this.getStr(res.data.id),
-                                        awad_result: false
-                                    });
-                                    // XMSDK.track({
-                                    //     eventName: SAConst.wheel.LuckDraw,
-                                    //     props: {
-                                    //         awad_name: this.getStr(res.data.id),
-                                    //         awad_result: false
-                                    //     }
-                                    // });
-                                }
-                                XMSDK_1.default.toast(res.message || '网络出错~', 2.5, 1);
-                            }
-                        },
-                        onFail: function (res) {
+                            XMSDK_1.default.toast(res.message || '网络出错~', 2.5, 1);
                         }
-                    });
-                }, function () {
-                    AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+                    },
+                    onFail: function (res) {
+                    }
                 });
+                // }, () => {
+                //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+                // })
             }
             else {
                 XMSDK_1.default.post({
@@ -337,7 +331,7 @@ var NewBigWheelChou = /** @class */ (function (_super) {
                             item.getChildByName("num").getComponent(cc.Label).string = "红包币";
                         }
                         else if (chouItemData.keyId == faceTs_1.updateType.product) {
-                            item.getChildByName("num").getComponent(cc.Label).string = "炮台";
+                            item.getChildByName("num").getComponent(cc.Label).string = "炮塔";
                         }
                     }
                     else {

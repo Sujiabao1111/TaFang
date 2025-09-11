@@ -25,11 +25,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var pageTs_1 = require("../common/pageTs");
 var LanguageData_1 = require("../Language/LanguageData");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -48,7 +46,6 @@ var gameGetTurret = /** @class */ (function (_super) {
         _this.num = 0;
         _this.dataName = null;
         return _this;
-        // update (dt) {}
     }
     gameGetTurret.prototype.onLoad = function () {
     };
@@ -134,15 +131,6 @@ var gameGetTurret = /** @class */ (function (_super) {
             }
             call(res);
         });
-    };
-    gameGetTurret.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.GetTurretView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
-        // if(util.adPreObj[AdPosition.GetTurretView]){
-        //     util.preloadAd(AdPosition.GetTurretView,true);
-        // } 
-    };
-    gameGetTurret.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.GetTurretView);
     };
     __decorate([
         property({ type: cc.Label, displayName: "数量" })

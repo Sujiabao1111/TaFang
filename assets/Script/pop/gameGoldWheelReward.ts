@@ -142,7 +142,7 @@ export default class gameGoldWheelReward extends baseTs {
     }
 
     onEnable() {
-        AdController.loadInfoAd(AdPosition.goldWheelInfo, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
+        // AdController.loadInfoAd(AdPosition.goldWheelInfo, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
 
         // if(util.adPreObj[AdPosition.TaskRewardView]){
         //     util.preloadAd(AdPosition.TaskRewardView,true);
@@ -154,7 +154,7 @@ export default class gameGoldWheelReward extends baseTs {
 
 
     onDisable() {
-        AdController.hideInfoAd(AdPosition.goldWheelInfo);
+        // AdController.hideInfoAd(AdPosition.goldWheelInfo);
         // //预加载金币信息流
         // if(!util.adPreObj[AdPosition.TaskRewardView]&&util.getHeavenPool()>0){
         //     util.preloadAd(AdPosition.TaskRewardView,true);

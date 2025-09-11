@@ -29,12 +29,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -128,48 +125,46 @@ var NewClass = /** @class */ (function (_super) {
             button_name_hcdg: "\u7FFB\u500D\u9886" + this.initData.doubleAmount,
             reward_state: this.initData.waitTime / 60 + "\u5206\u949F",
         });
-        AdController_1.default.loadAd(AdPosition_1.AdPosition.OnPrizeGet, function (res) {
-            XMSDK_1.default.getdataStr({
-                url: UrlConst_1.UrlConst.onPrizeGetRewardGet,
-                onSuccess: function (res) {
-                    if (res.code === 0) {
-                        if (!_this.isValid) {
-                            return;
-                        }
-                        TrackMgr_1.default.Online_rewards({
-                            activity_state: "领取完毕",
-                            collection_completed: "\u89C6\u9891\u9886\u53D6\u6210\u529F",
-                        });
-                        cc.game.emit(NameTs_1.default.Game_Effect_coin, { value: _this.initData.doubleAmount, num: 5, parent: cc.director.getScene().getChildByName('Canvas') });
-                        util_1.default.addTermCoin(_this.initData.doubleAmount);
-                        _this.closePage();
+        // AdController.loadAd(AdPosition.OnPrizeGet, (res) => {
+        XMSDK_1.default.getdataStr({
+            url: UrlConst_1.UrlConst.onPrizeGetRewardGet,
+            onSuccess: function (res) {
+                if (res.code === 0) {
+                    if (!_this.isValid) {
+                        return;
                     }
-                    else {
-                        _this.closePage();
-                        XMSDK_1.default.toast(res.message || '网络出错~', 2.5, 1);
-                    }
-                    _this.isClick = false;
-                },
-                onFail: function (res) {
+                    TrackMgr_1.default.Online_rewards({
+                        activity_state: "领取完毕",
+                        collection_completed: "\u89C6\u9891\u9886\u53D6\u6210\u529F",
+                    });
+                    cc.game.emit(NameTs_1.default.Game_Effect_coin, { value: _this.initData.doubleAmount, num: 5, parent: cc.director.getScene().getChildByName('Canvas') });
+                    util_1.default.addTermCoin(_this.initData.doubleAmount);
                     _this.closePage();
-                    _this.isClick = false;
                 }
-            });
-        }, function () {
-            TrackMgr_1.default.Online_rewards({
-                activity_state: "领取完毕",
-                collection_completed: "\u89C6\u9891\u9886\u53D6\u5931\u8D25",
-            });
-            _this.closePage();
-            _this.isClick = false;
-            AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+                else {
+                    _this.closePage();
+                    XMSDK_1.default.toast(res.message || '网络出错~', 2.5, 1);
+                }
+                _this.isClick = false;
+            },
+            onFail: function (res) {
+                _this.closePage();
+                _this.isClick = false;
+            }
         });
+        // }, () => {
+        //     TrackMgr.Online_rewards({
+        //         activity_state: "领取完毕",
+        //         collection_completed: `视频领取失败`,
+        //     })            
+        //     this.closePage();
+        //     this.isClick = false;
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // })
     };
     NewClass.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.onPrizeGetView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
     };
     NewClass.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.onPrizeGetView);
         cc.game.emit(NameTs_1.default.onPrizeGetUpdate);
     };
     __decorate([

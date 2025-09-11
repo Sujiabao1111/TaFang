@@ -86,7 +86,6 @@ export default class PannelReward extends baseTs {
         // UIFunc.openUI(ActivityPannelName.PannelTempNode, (node, script) => {
         //     this.tempNode = node;
         // })        
-        AssistCtr.checkIsOpenInserAd(AdPosition.SignAwardInsert)
 
 
         this.scheduleOnce(() => {
@@ -100,15 +99,7 @@ export default class PannelReward extends baseTs {
     }
 
     onDisable() {
-        // if (this.tempNode) {
-        //     UIFunc.closeUI(ActivityPannelName.PannelTempNode);
-        //     this.tempNode = null;
-        // }
-        AdController.hideInfoAd(AdPosition.InfoSignRewardView);
-
-        if (util.adPreObj[AdPosition.InfoSignRewardView]) {
-            util.preloadAd(AdPosition.InfoSignRewardView, true);
-        }
+     
 
         if (this.data && this.data[`callBack`]) {
             this.data[`callBack`]();
@@ -126,20 +117,12 @@ export default class PannelReward extends baseTs {
         if (gaintype == 1) {
             this.viewport.active = true;
             this.passView.active = false;
-            AdController.loadInfoAd(AdPosition.InfoSignRewardView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度            
         }
         else {
             this.viewport.active = false;
             this.passView.active = true;
 
-            AdController.loadAd(AdPosition.VideoSignDouble, (res) => {
-                AdController.loadInfoAd(AdPosition.InfoSignRewardView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度  
-                if (util.adPreObj[AdPosition.VideoSignDouble]) {
-                    util.preloadAd(AdPosition.VideoSignDouble);
-                }
-            }, () => {
-                AssistCtr.showToastTip("加载视频失败，请稍后！");
-            })
+      
 
             setTimeout(() => {
                 this.viewport && (this.viewport.active = true);
@@ -231,7 +214,6 @@ export default class PannelReward extends baseTs {
                 //     this.finishAnimation();
                 // });
             }
-            AssistCtr.loadAdInsertVideo(AdPosition.SignAwardInsert, () => { console.log("签到奖励插屏广告播放完成") });
         }
         this.viewport.runAction(cc.sequence(cc.fadeOut(0.3), cc.callFunc(callback)))
     }
@@ -264,7 +246,6 @@ export default class PannelReward extends baseTs {
                     if (res.code === 0) {
                         this.closePage();
 
-                        AssistCtr.loadAdInsertVideo(AdPosition.SignAwardInsert, () => { console.log("签到奖励插屏广告播放完成") });
                         cc.game.emit(NameTs.Game_Effect_coin, { node: this.doubleGoldNode, value: coin, num: 10 });
                     }
                     else {
@@ -281,9 +262,7 @@ export default class PannelReward extends baseTs {
             })
             this.closePage();
 
-            //AssistCtr.loadAdInsertVideo(AdPosition.SignAwardInsert, ()=>{console.log("签到奖励插屏广告播放完成")});
-            //cc.game.emit(NameTs.Game_Effect_coin, { node: this.doubleGoldNode, value: coin ,num:10});
-
+     
         }
 
         if (num == 1 && this.gaintype == 1 && !this.isChange) {
@@ -291,23 +270,19 @@ export default class PannelReward extends baseTs {
             this.passView && (this.passView.active = true);
 
             this.lable_prize.string = "+" + coin + t('main.红包');
-            AdController.loadAd(AdPosition.VideoSignDouble, (res) => {
+            // AdController.loadAd(AdPosition.VideoSignDouble, (res) => {
                 // successFn();
-                if (util.adPreObj[AdPosition.VideoSignDouble]) {
-                    util.preloadAd(AdPosition.VideoSignDouble);
-                }
+             
                 console.log("看视频")
                 this.doubleBtnNode && (this.doubleBtnNode.active = false);
                 this.getBtnNode && (this.getBtnNode.active = true);
                 this.lable_redAddNum.string = "+" + coin + t('main.红包');
                 // this.gaintype = 2;
-                this.isChange = true;
-                AdController.loadInfoAd(AdPosition.InfoSignRewardView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度  
-            }, () => {
-                AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
-            });
+                this.isChange = true;//636:feedNode信息流容器节点的宽度  
+            // }, () => {
+            //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+            // });
 
-            AdController.hideInfoAd(AdPosition.InfoSignRewardView);
             setTimeout(() => {
                 this.viewport && (this.viewport.active = true);
                 this.passView && (this.passView.active = false);

@@ -128,7 +128,7 @@ export default class NewClass extends baseTs {
             reward_state: `${this.initData.waitTime / 60}分钟`,
         })
 
-        AdController.loadAd(AdPosition.OnPrizeGet, (res) => {
+        // AdController.loadAd(AdPosition.OnPrizeGet, (res) => {
             XMSDK.getdataStr({
                 url: UrlConst.onPrizeGetRewardGet,
                 onSuccess: res => {
@@ -159,25 +159,23 @@ export default class NewClass extends baseTs {
                     this.isClick = false;
                 }
             })
-        }, () => {
-            TrackMgr.Online_rewards({
-                activity_state: "领取完毕",
-                collection_completed: `视频领取失败`,
-            })            
-            this.closePage();
-            this.isClick = false;
-            AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // }, () => {
+        //     TrackMgr.Online_rewards({
+        //         activity_state: "领取完毕",
+        //         collection_completed: `视频领取失败`,
+        //     })            
+        //     this.closePage();
+        //     this.isClick = false;
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
             
-        })
+        // })
     }
 
     onEnable() {
-        AdController.loadInfoAd(AdPosition.onPrizeGetView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
     }
 
 
     onDisable() {
-        AdController.hideInfoAd(AdPosition.onPrizeGetView);
         cc.game.emit(NameTs.onPrizeGetUpdate);
     }
 }

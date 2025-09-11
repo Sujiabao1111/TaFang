@@ -96,9 +96,7 @@ export default class NewBigWheelChou extends cc.Component {
         // Global.audioUtils.playClick();
         let type = data.buttonType;
         if (type == 1 && !isLookVideo) {          //免费抽
-            TrackMgr.lotto_phone_click({
-                activity_button_click: "免费抽奖"
-            })
+
             XMSDK.getdataStr({
                 url: UrlConst.newBigWheel_action,
                 onSuccess: res => {
@@ -134,56 +132,56 @@ export default class NewBigWheelChou extends cc.Component {
         }
         else if (type == 2 || isLookVideo) {        //看视频
             if (!eventData || !eventData.isNewBigTaskItem) {
-                AdController.loadAd(AdPosition.WheelGetRestTimes, () => {
-                    //延迟10毫秒，才不会出现请求超时失败问题
-                    XMSDK.post({
-                        url: UrlConst.newBigWheel_watch,
-                        onSuccess: res => {
-                            if (res.code === 0) {
-                                this.turnId = this.checkTurnId(res.data.id);
-                                if (this.turnId == null) {
-                                    return;
-                                }
+                // AdController.loadAd(AdPosition.WheelGetRestTimes, () => {
+                //延迟10毫秒，才不会出现请求超时失败问题
+                XMSDK.post({
+                    url: UrlConst.newBigWheel_watch,
+                    onSuccess: res => {
+                        if (res.code === 0) {
+                            this.turnId = this.checkTurnId(res.data.id);
+                            if (this.turnId == null) {
+                                return;
+                            }
 
-                                this.doubleData = res.data;
-                                this.startAni();
+                            this.doubleData = res.data;
+                            this.startAni();
+                            TrackMgr.LuckDraw({
+                                awad_name: this.getStr(res.data.id),
+                                awad_result: true
+                            })
+                            // XMSDK.track({
+                            //     eventName: SAConst.wheel.LuckDraw,
+                            //     props: {
+                            //         awad_name: this.getStr(res.data.id),
+                            //         awad_result: true
+                            //     }
+                            // });
+
+                        } else {
+                            if (res.data && res.data.id) {
                                 TrackMgr.LuckDraw({
                                     awad_name: this.getStr(res.data.id),
-                                    awad_result: true
+                                    awad_result: false
                                 })
                                 // XMSDK.track({
                                 //     eventName: SAConst.wheel.LuckDraw,
                                 //     props: {
                                 //         awad_name: this.getStr(res.data.id),
-                                //         awad_result: true
+                                //         awad_result: false
                                 //     }
                                 // });
-
-                            } else {
-                                if (res.data && res.data.id) {
-                                    TrackMgr.LuckDraw({
-                                        awad_name: this.getStr(res.data.id),
-                                        awad_result: false
-                                    })
-                                    // XMSDK.track({
-                                    //     eventName: SAConst.wheel.LuckDraw,
-                                    //     props: {
-                                    //         awad_name: this.getStr(res.data.id),
-                                    //         awad_result: false
-                                    //     }
-                                    // });
-                                }
-
-                                XMSDK.toast(res.message || '网络出错~', 2.5, 1);
                             }
-                        },
-                        onFail: res => {
 
+                            XMSDK.toast(res.message || '网络出错~', 2.5, 1);
                         }
-                    })
-                }, () => {
-                    AssistCtr.showToastTip("加载视频失败，请稍后！");
+                    },
+                    onFail: res => {
+
+                    }
                 })
+                // }, () => {
+                //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+                // })
             }
             else {
 
@@ -374,7 +372,7 @@ export default class NewBigWheelChou extends cc.Component {
                         if (chouItemData.keyId == updateType.hongbao) {
                             item.getChildByName("num").getComponent(cc.Label).string = "红包币";
                         } else if (chouItemData.keyId == updateType.product) {
-                            item.getChildByName("num").getComponent(cc.Label).string = "炮台";
+                            item.getChildByName("num").getComponent(cc.Label).string = "炮塔";
                         }
 
                     }

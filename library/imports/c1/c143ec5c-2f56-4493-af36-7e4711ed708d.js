@@ -23,12 +23,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AssistCtr_1 = require("../Assist/AssistCtr");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var RewardController_1 = require("../controlelr/RewardController");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -60,20 +57,8 @@ var NewBigWheelPrize = /** @class */ (function (_super) {
     NewBigWheelPrize.prototype.onLoad = function () {
     };
     NewBigWheelPrize.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.WheelDialogFeed, 636, this.feedNode);
-        if (this.checkIsOpenInserAd()) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.InsertBigWheel, function () {
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
-            });
-            // this.openAdTimer && clearTimeout(this.openAdTimer)
-            // this.openAdTimer = setTimeout(() => {
-            //     this.openAdTimer = null;
-            // }, 1000);
-        }
     };
     NewBigWheelPrize.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.WheelDialogFeed);
         cc.director.emit("moveChouPos");
         if (this.openAdTimer != null) {
             clearTimeout(this.openAdTimer);
@@ -144,26 +129,26 @@ var NewBigWheelPrize = /** @class */ (function (_super) {
     };
     NewBigWheelPrize.prototype.clickDouble = function () {
         var _this = this;
-        AdController_1.default.loadAd(AdPosition_1.AdPosition.WheelDouble, function () {
-            XMSDK_1.default.getdataStr({
-                url: UrlConst_1.UrlConst.newBigWheel_actionDouble,
-                data: {
-                    doubleId: _this.doubleData.doubleId,
-                },
-                onSuccess: function (res) {
-                    if (res.code === 0) {
-                        _this.openAward();
-                        _this.closePage();
-                    }
-                    else {
-                    }
-                },
-                onFail: function (err) {
+        // AdController.loadAd(AdPosition.WheelDouble, () => {
+        XMSDK_1.default.getdataStr({
+            url: UrlConst_1.UrlConst.newBigWheel_actionDouble,
+            data: {
+                doubleId: this.doubleData.doubleId,
+            },
+            onSuccess: function (res) {
+                if (res.code === 0) {
+                    _this.openAward();
+                    _this.closePage();
                 }
-            });
-        }, function () {
-            AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+                else {
+                }
+            },
+            onFail: function (err) {
+            }
         });
+        // }, () => {
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // })
     };
     NewBigWheelPrize.prototype.openAward = function () {
         var count = this.doubleData.doubleValue * this.doubleData.rewardValue;
@@ -207,7 +192,6 @@ var NewBigWheelPrize = /** @class */ (function (_super) {
         //     props: Object.assign({}, this.dialoadBaseProp, { ck_module: `关闭` })
         // });
         TrackMgr_1.default.LuckDrawDialogClick(Object.assign({}, this.dialoadBaseProp, { ck_module: "\u5173\u95ED" }));
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.WheelDialogFeed);
         this.closePage();
     };
     NewBigWheelPrize.prototype.closePage = function () {

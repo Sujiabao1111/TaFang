@@ -260,10 +260,7 @@ export default class turretFactiory extends cc.Component {
                     this.node.zIndex = 0;
                 }).start();
 
-                //预加载解锁炮塔信息流
-                // if(!util.adPreObj[AdPosition.UnlcokTurretView]&&util.chekPoolHaveTwo()){
-                //     util.preloadAd(AdPosition.UnlcokTurretView,true);
-                // }
+             
 
             } else { //交换
                 console.log("拖拽交换位置成功");

@@ -123,8 +123,9 @@ export const languages: languagesData = {
         '合成奖励': 'Hadiah penggabungan',
         '快速提现': 'Penarikan cepat',
         '提现金额': 'Jumlah penarikan',
-        '炮台': 'Gun turret',
-        '解锁新炮台': 'Membuka turret baru',
+        '炮塔': 'Gun turret',
+        '解锁新炮塔': 'Membuka turret baru',
+        '获得炮塔': 'Mendapatkan Pintu Api',
         '等级': 'tingkat',
         '攻击力': 'Serangan',
         '领取奖励': 'Dapatkan hadiah',
@@ -150,6 +151,9 @@ export const languages: languagesData = {
         '任务': 'Tugas',
         '抽奖': 'Pengundian',
         '签到': 'CheckIn',
+        '自动合成': 'Synthesa Otomatis',
+        '翻倍': 'Dua Kali',
+        '任务完成': 'Tugas selesai',
 
 
 

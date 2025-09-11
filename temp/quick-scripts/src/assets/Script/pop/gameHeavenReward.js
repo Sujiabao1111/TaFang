@@ -23,13 +23,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var faceTs_1 = require("../common/faceTs");
 var NameTs_1 = require("../common/NameTs");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -91,19 +88,19 @@ var gameHeavenReward = /** @class */ (function (_super) {
             this.get_node.active = !this.isVideo;
             this.closeBtnNode.getParent().active = this.isVideo;
         }
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.HeavenCoin]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.HeavenCoin);
-        }
-        TrackMgr_1.default.airborne_gold({
-            activity_state: "金币奖励弹窗",
-        });
-        TrackMgr_1.default.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "空降金币"
-        });
+        // if(!util.adPreObj[AdPosition.HeavenCoin]){
+        //     util.preloadAd(AdPosition.HeavenCoin);
+        // }
+        // TrackMgr.airborne_gold({
+        //     activity_state: "金币奖励弹窗",
+        // })
+        // TrackMgr.AppBuyProductDialog_hcdg({
+        //     dialog_name_hcdg: "空降金币"
+        // })
         if (util_1.default.checkTestB(NameTs_1.default.heaven_coin_test)) {
-            TrackMgr_1.default.AppBuyProductDialog_hcdg({
-                dialog_name_hcdg: "空投金币" + (this.isVideo ? "" : "不") + "需看视频弹窗（B用户）"
-            });
+            // TrackMgr.AppBuyProductDialog_hcdg({
+            //     dialog_name_hcdg: "空投金币"+(this.isVideo?"":"不")+"需看视频弹窗（B用户）"
+            // })
         }
         this.item = data.item;
         this.no = data.no;
@@ -146,20 +143,20 @@ var gameHeavenReward = /** @class */ (function (_super) {
             });
         }
         if (num == 1) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.HeavenCoin, function () {
-                successFn();
-                TrackMgr_1.default.airborne_gold({
-                    activity_state: "点击「视频icon领取金币」按钮",
-                });
-                if (util_1.default.adPreObj[AdPosition_1.AdPosition.HeavenCoin]) {
-                    util_1.default.preloadAd(AdPosition_1.AdPosition.HeavenCoin);
-                }
-                if (util_1.default.checkTestB(NameTs_1.default.heaven_coin_test)) {
-                    util_1.default.existVideoCoinNum--;
-                }
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
-            });
+            // AdController.loadAd(AdPosition.HeavenCoin, () => {
+            successFn();
+            // TrackMgr.airborne_gold({
+            //     activity_state: "点击「视频icon领取金币」按钮",
+            // });
+            // if (util.adPreObj[AdPosition.HeavenCoin]) {
+            //     util.preloadAd(AdPosition.HeavenCoin);
+            // }
+            if (util_1.default.checkTestB(NameTs_1.default.heaven_coin_test)) {
+                util_1.default.existVideoCoinNum--;
+            }
+            // }, () => {
+            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+            // });
             TrackMgr_1.default.AppDialogClick_hcdg({
                 dialog_name_hcdg: "空降金币",
                 ck_module: "翻倍领取",
@@ -223,17 +220,17 @@ var gameHeavenReward = /** @class */ (function (_super) {
         }
     };
     gameHeavenReward.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.HeavenCoinView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
-        if (util_1.default.adPreObj[AdPosition_1.AdPosition.HeavenCoinView]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.HeavenCoinView, true);
-        }
+        // AdController.loadInfoAd(AdPosition.HeavenCoinView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
+        // if (util.adPreObj[AdPosition.HeavenCoinView]) {
+        //     util.preloadAd(AdPosition.HeavenCoinView, true);
+        // }
     };
     gameHeavenReward.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.HeavenCoinView);
-        //预加载金币信息流
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.HeavenCoinView] && util_1.default.getHeavenPool() > 0) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.HeavenCoinView, true);
-        }
+        // AdController.hideInfoAd(AdPosition.HeavenCoinView);
+        // //预加载金币信息流
+        // if (!util.adPreObj[AdPosition.HeavenCoinView] && util.getHeavenPool() > 0) {
+        //     util.preloadAd(AdPosition.HeavenCoinView, true);
+        // }
     };
     __decorate([
         property({ type: cc.Label, displayName: "文字" })

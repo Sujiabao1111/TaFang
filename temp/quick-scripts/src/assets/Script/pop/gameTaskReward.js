@@ -25,14 +25,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var faceTs_1 = require("../common/faceTs");
 var NameTs_1 = require("../common/NameTs");
 var pageTs_1 = require("../common/pageTs");
 var LanguageData_1 = require("../Language/LanguageData");
 var PageManage_1 = require("../PageManage");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -72,12 +70,6 @@ var gameTaskReward = /** @class */ (function (_super) {
             this.rewardLabel.string = "+" + this.coin + LanguageData_1.t("main.金币");
         }
         this.initData = data;
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.TaskDayDoubleGet]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.TaskDayDoubleGet);
-        }
-        TrackMgr_1.default.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: (this.initData.typeTask == 0 ? "日常任务" : "成就任务") + "\u7EA2\u5305\u5F85\u9886\u53D6\u5F39\u7A97",
-        });
         console.log(this.initData, 'this.initData');
     };
     gameTaskReward.prototype.start = function () {
@@ -94,42 +86,42 @@ var gameTaskReward = /** @class */ (function (_super) {
             active_ad_hcdg: "激励视频"
         });
         if (this.initData && this.initData.taskTitle) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.TaskDayDoubleGet, function () {
-                if (_this.initData) {
-                    util_1.default.getdataStr({
-                        url: _this.initData.url || (_this.initData.typeTask == 0 ? UrlConst_1.UrlConst.task_day_commonGet : UrlConst_1.UrlConst.achievement_commonGet),
-                        data: _this.initData.data,
-                        success: function () {
-                            if (!_this.isValid) {
-                                return;
-                            }
-                            cc.game.emit(NameTs_1.default.Game_Task_updata);
-                            TrackMgr_1.default.finish_task({
-                                mission_name: _this.initData.taskTitle,
-                                mission_type: _this.initData.typeTask == 0 ? "日常任务" : "成就任务",
-                                mission_coin: _this.coin
-                            });
-                            TrackMgr_1.default.AppDialogClick_hcdg({
-                                dialog_name_hcdg: (_this.initData.typeTask == 0 ? "日常任务" : "成就任务") + "\u7EA2\u5305\u9886\u53D6\u6210\u529F\u5F39\u7A97",
-                                ck_module: "领取",
-                            });
-                            TrackMgr_1.default.AppBuyProductDialog_hcdg({
-                                dialog_name_hcdg: (_this.initData.typeTask == 0 ? "日常任务" : "成就任务") + "\u7EA2\u5305\u9886\u53D6\u6210\u529F\u5F39\u7A97",
-                            });
-                            PageManage_1.default.singleton.showPage(pageTs_1.default.pageName.GameCoinReward, { coin: _this.coin });
-                            _this.closePage();
-                        },
-                        fail: function () {
-                            AssistCtr_1.AssistCtr.showToastTip("领取失败");
+            // AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
+            if (this.initData) {
+                util_1.default.getdataStr({
+                    url: this.initData.url || (this.initData.typeTask == 0 ? UrlConst_1.UrlConst.task_day_commonGet : UrlConst_1.UrlConst.achievement_commonGet),
+                    data: this.initData.data,
+                    success: function () {
+                        if (!_this.isValid) {
+                            return;
                         }
-                    });
-                }
-                if (util_1.default.adPreObj[AdPosition_1.AdPosition.TaskDayDoubleGet]) {
-                    util_1.default.preloadAd(AdPosition_1.AdPosition.TaskDayDoubleGet);
-                }
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip(LanguageData_1.t("tips.reward_obtain_failed"));
-            });
+                        cc.game.emit(NameTs_1.default.Game_Task_updata);
+                        TrackMgr_1.default.finish_task({
+                            mission_name: _this.initData.taskTitle,
+                            mission_type: _this.initData.typeTask == 0 ? "日常任务" : "成就任务",
+                            mission_coin: _this.coin
+                        });
+                        TrackMgr_1.default.AppDialogClick_hcdg({
+                            dialog_name_hcdg: (_this.initData.typeTask == 0 ? "日常任务" : "成就任务") + "\u7EA2\u5305\u9886\u53D6\u6210\u529F\u5F39\u7A97",
+                            ck_module: "领取",
+                        });
+                        TrackMgr_1.default.AppBuyProductDialog_hcdg({
+                            dialog_name_hcdg: (_this.initData.typeTask == 0 ? "日常任务" : "成就任务") + "\u7EA2\u5305\u9886\u53D6\u6210\u529F\u5F39\u7A97",
+                        });
+                        PageManage_1.default.singleton.showPage(pageTs_1.default.pageName.GameCoinReward, { coin: _this.coin });
+                        _this.closePage();
+                    },
+                    fail: function () {
+                        AssistCtr_1.AssistCtr.showToastTip("领取失败");
+                    }
+                });
+            }
+            // if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
+            //     util.preloadAd(AdPosition.TaskDayDoubleGet);
+            // }
+            // }, () => {
+            //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+            // });
         }
         else {
             AssistCtr_1.AssistCtr.showToastTip("领取失败");
@@ -156,17 +148,17 @@ var gameTaskReward = /** @class */ (function (_super) {
         });
     };
     gameTaskReward.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.TaskRewardView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
-        if (util_1.default.adPreObj[AdPosition_1.AdPosition.TaskRewardView]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.TaskRewardView, true);
-        }
+        // AdController.loadInfoAd(AdPosition.TaskRewardView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
+        // if (util.adPreObj[AdPosition.TaskRewardView]) {
+        //     util.preloadAd(AdPosition.TaskRewardView, true);
+        // }
     };
     gameTaskReward.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.TaskRewardView);
-        //预加载金币信息流
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.TaskRewardView] && util_1.default.getHeavenPool() > 0) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.TaskRewardView, true);
-        }
+        // AdController.hideInfoAd(AdPosition.TaskRewardView);
+        // //预加载金币信息流
+        // if (!util.adPreObj[AdPosition.TaskRewardView] && util.getHeavenPool() > 0) {
+        //     util.preloadAd(AdPosition.TaskRewardView, true);
+        // }
     };
     __decorate([
         property({ type: cc.Label, displayName: "文字" })

@@ -30,12 +30,14 @@ var gameState;
 /**通关状态 */
 var gamePass;
 (function (gamePass) {
-    //成功
-    gamePass[gamePass["success"] = 1] = "success";
     //失败
     gamePass[gamePass["fail"] = 0] = "fail";
+    //成功
+    gamePass[gamePass["success"] = 1] = "success";
+    //成功
+    gamePass[gamePass["smallSuccess"] = 2] = "smallSuccess";
     //最后一关
-    gamePass[gamePass["last"] = 2] = "last";
+    gamePass[gamePass["last"] = 3] = "last";
 })(gamePass = exports.gamePass || (exports.gamePass = {}));
 /**游戏普通数值 */
 var gameNumerical;

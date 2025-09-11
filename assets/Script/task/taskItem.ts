@@ -114,7 +114,7 @@ export default class taskItem extends cc.Component {
 
 
         if (this.initData && this.initData.taskTitle) {
-            AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
+            // AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
                 if (this.initData) {
                     util.getdataStr({
                         url,
@@ -139,12 +139,12 @@ export default class taskItem extends cc.Component {
                         }
                     })
                 }
-                if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
-                    util.preloadAd(AdPosition.TaskDayDoubleGet);
-                }
-            }, () => {
-                AssistCtr.showToastTip("加载视频失败，请稍后！");
-            });
+                // if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
+                //     util.preloadAd(AdPosition.TaskDayDoubleGet);
+                // }
+            // }, () => {
+            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+            // });
         } else {
             AssistCtr.showToastTip("领取失败");
             // this.closeBtn();
@@ -168,14 +168,14 @@ export default class taskItem extends cc.Component {
         soundController.singleton.clickAudio();
         PageManage.singleton.closePage(pageTs.pageName.GameTask);
         let successFn = (call?) => {
-            AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
+            // AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
                 call && call();
                 // cc.game.emit(NameTs.Game_Task_updata);
-                if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
-                    util.preloadAd(AdPosition.TaskDayDoubleGet);
-                }
-            }, () => {
-            });
+            //     if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
+            //         util.preloadAd(AdPosition.TaskDayDoubleGet);
+            //     }
+            // }, () => {
+            // });
         }
 
         if (this.isTurntable) {

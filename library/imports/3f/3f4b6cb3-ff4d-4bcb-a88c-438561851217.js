@@ -24,7 +24,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var pageTs_1 = require("../common/pageTs");
 var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
@@ -71,7 +70,7 @@ var gamePassReward = /** @class */ (function (_super) {
                 this.loadAny("texture/prop/prop" + data.type, cc.SpriteFrame, function (res) {
                     _this.pic.spriteFrame = res;
                 });
-                this.xinxiliui = AdPosition_1.AdPosition.UnlcokPropView;
+                // this.xinxiliui = AdPosition.UnlcokPropView;
                 TrackMgr_1.default.AppBuyProductDialog_hcdg({
                     dialog_name_hcdg: "恭喜获得新道具"
                 });
@@ -84,13 +83,13 @@ var gamePassReward = /** @class */ (function (_super) {
                 text = "";
                 titleNum = 1;
                 this.pic.spriteFrame = this.picSpriteFrame[1];
-                this.xinxiliui = AdPosition_1.AdPosition.UnlcokPlaceView;
+                // this.xinxiliui = AdPosition.UnlcokPlaceView;
                 break;
             case 2:
                 titleNum = 0;
                 text = "+" + this.initData.rewardValue + "红包币";
                 this.pic.spriteFrame = this.picSpriteFrame[0];
-                this.xinxiliui = AdPosition_1.AdPosition.GamePassCoinView;
+                // this.xinxiliui = AdPosition.GamePassCoinView;
                 break;
         }
         console.log(this.xinxiliui, 'this.xinxiliui');

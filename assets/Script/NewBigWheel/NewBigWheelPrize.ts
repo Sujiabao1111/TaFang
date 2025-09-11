@@ -65,23 +65,11 @@ export default class NewBigWheelPrize extends cc.Component {
 
     }
     onEnable() {
-        AdController.loadInfoAd(AdPosition.WheelDialogFeed, 636, this.feedNode)
-        if (this.checkIsOpenInserAd()) {
-            AdController.loadAd(AdPosition.InsertBigWheel, () => {
 
-            }, () => {
-                AssistCtr.showToastTip("加载视频失败，请稍后！");
-            })
-            // this.openAdTimer && clearTimeout(this.openAdTimer)
-            // this.openAdTimer = setTimeout(() => {
-            //     this.openAdTimer = null;
-
-            // }, 1000);
-        }
     }
 
     onDisable() {
-        AdController.hideInfoAd(AdPosition.WheelDialogFeed)
+
         cc.director.emit("moveChouPos");
 
         if (this.openAdTimer != null) {
@@ -161,28 +149,28 @@ export default class NewBigWheelPrize extends cc.Component {
     }
 
     clickDouble() {
-        AdController.loadAd(AdPosition.WheelDouble, () => {
-            XMSDK.getdataStr({
-                url: UrlConst.newBigWheel_actionDouble,
-                data: {
-                    doubleId: this.doubleData.doubleId,
-                },
-                onSuccess: res => {
-                    if (res.code === 0) {
-                        this.openAward();
-                        this.closePage();
+        // AdController.loadAd(AdPosition.WheelDouble, () => {
+        XMSDK.getdataStr({
+            url: UrlConst.newBigWheel_actionDouble,
+            data: {
+                doubleId: this.doubleData.doubleId,
+            },
+            onSuccess: res => {
+                if (res.code === 0) {
+                    this.openAward();
+                    this.closePage();
 
-                    } else {
-
-                    }
-                },
-                onFail: err => {
+                } else {
 
                 }
-            })
-        }, () => {
-            AssistCtr.showToastTip("加载视频失败，请稍后！");
+            },
+            onFail: err => {
+
+            }
         })
+        // }, () => {
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // })
     }
 
     openAward() {
@@ -192,15 +180,15 @@ export default class NewBigWheelPrize extends cc.Component {
             spriteFrame = RewardController.instance.findPointBigSprite(1)
             // util.addTermCoin(count);
             // util.addTermCoin(this.doubleData.rewardValue);
-            count +=this.doubleData.rewardValue;
-            cc.game.emit(NameTs.Game_Effect_coin, { value: count});
+            count += this.doubleData.rewardValue;
+            cc.game.emit(NameTs.Game_Effect_coin, { value: count });
         } else if (this.type == 4) {
             spriteFrame = RewardController.instance.findPhoneSprite(1)
         } else if (this.type == 5) {
             spriteFrame = RewardController.instance.findPointBigSprite(1)
             // util.addTermCoin(this.doubleData.rewardValue);
-            count +=this.doubleData.rewardValue;
-            cc.game.emit(NameTs.Game_Effect_coin, { value: count});
+            count += this.doubleData.rewardValue;
+            cc.game.emit(NameTs.Game_Effect_coin, { value: count });
         }
         this.newBigWheelPrizeAward.startAni(spriteFrame, count)
         // PageManage.singleton.showPage(pageTs.pageName.NewBigWheelPrizeAward)
@@ -228,7 +216,7 @@ export default class NewBigWheelPrize extends cc.Component {
         //     props: Object.assign({}, this.dialoadBaseProp, { ck_module: `关闭` })
         // });
         TrackMgr.LuckDrawDialogClick(Object.assign({}, this.dialoadBaseProp, { ck_module: `关闭` }))
-        AdController.hideInfoAd(AdPosition.WheelDialogFeed)
+      
         this.closePage();
     }
     closePage() {

@@ -33,12 +33,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var RewardController_1 = require("../controlelr/RewardController");
 var LanguageData_1 = require("../Language/LanguageData");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var soundController_1 = require("../soundController");
 var util_1 = require("../util/util");
@@ -142,7 +140,7 @@ var gameGoldWheelReward = /** @class */ (function (_super) {
         }
     };
     gameGoldWheelReward.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.goldWheelInfo, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
+        // AdController.loadInfoAd(AdPosition.goldWheelInfo, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
         // if(util.adPreObj[AdPosition.TaskRewardView]){
         //     util.preloadAd(AdPosition.TaskRewardView,true);
         // } 
@@ -151,7 +149,7 @@ var gameGoldWheelReward = /** @class */ (function (_super) {
         // ).start();
     };
     gameGoldWheelReward.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.goldWheelInfo);
+        // AdController.hideInfoAd(AdPosition.goldWheelInfo);
         // //预加载金币信息流
         // if(!util.adPreObj[AdPosition.TaskRewardView]&&util.getHeavenPool()>0){
         //     util.preloadAd(AdPosition.TaskRewardView,true);

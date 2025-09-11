@@ -60,20 +60,12 @@ export default class gameCoinReward extends baseTs {
     }
     
     onEnable() {   
-        AdController.loadInfoAd(AdPosition.CoinRewardView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
-        
-        if(util.adPreObj[AdPosition.CoinRewardView]){
-            util.preloadAd(AdPosition.CoinRewardView,true);
-        } 
+     
     }
 
 
     onDisable() {
-        AdController.hideInfoAd(AdPosition.CoinRewardView);
-        //预加载金币信息流
-        if(!util.adPreObj[AdPosition.CoinRewardView]&&util.getHeavenPool()>0){
-            util.preloadAd(AdPosition.CoinRewardView,true);
-        }
+      
     }
 
     // update (dt) {}

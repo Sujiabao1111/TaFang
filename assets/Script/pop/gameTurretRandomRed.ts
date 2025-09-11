@@ -38,9 +38,7 @@ export default class gameTurretRandomRed extends baseTs {
     }
 
     onLoad(){
-        if(!util.adPreObj[AdPosition.turretRandomRed]){
-            util.preloadAd(AdPosition.turretRandomRed);
-        } 
+        
     }
 
     clickDoubleGet() {
@@ -50,18 +48,18 @@ export default class gameTurretRandomRed extends baseTs {
             active_ad_hcdg:"激励视频"
         })
 
-        AdController.loadAd(AdPosition.turretRandomRed, (res) => {
+        // AdController.loadAd(AdPosition.turretRandomRed, (res) => {
             cc.game.emit(NameTs.Game_Effect_coin, { node:this.node,value: this.prizeNum,num:10});
             util.addTermCoin(this.prizeNum);
             this.closePage();
-            if(util.adPreObj[AdPosition.turretRandomRed]){
-                util.preloadAd(AdPosition.turretRandomRed);
-            } 
-        }, () => {
-            this.closePage();
-            AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+            // if(util.adPreObj[AdPosition.turretRandomRed]){
+            //     util.preloadAd(AdPosition.turretRandomRed);
+            // } 
+        // }, () => {
+        //     this.closePage();
+        //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
             
-        })
+        // })
     }
 
     clickClose(){
@@ -77,11 +75,11 @@ export default class gameTurretRandomRed extends baseTs {
             dialog_name_hcdg: "合成炮塔奖励弹窗"
         })
 
-        AdController.loadInfoAd(AdPosition.turretRandomRedView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
+        // AdController.loadInfoAd(AdPosition.turretRandomRedView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
     }
 
 
     onDisable() {
-        AdController.hideInfoAd(AdPosition.turretRandomRedView);        
+        // AdController.hideInfoAd(AdPosition.turretRandomRedView);        
     }
 }

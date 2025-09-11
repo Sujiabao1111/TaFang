@@ -28,8 +28,6 @@ var NameTs_1 = require("../common/NameTs");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var UrlConst_1 = require("../server/UrlConst");
 var util_1 = require("../util/util");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
-var AdPosition_1 = require("../common/AdPosition");
 var faceTs_1 = require("../common/faceTs");
 var baseTs_1 = require("../base/baseTs");
 var gameGoldWheelReward_1 = require("./gameGoldWheelReward");
@@ -371,7 +369,6 @@ var gameGoldWheel = /** @class */ (function (_super) {
         this.clickWheel();
     };
     gameGoldWheel.prototype.clickWheelVideo = function () {
-        var _this = this;
         var self = this;
         if (!this.checkIsCanClickWheel()) {
             return;
@@ -381,13 +378,13 @@ var gameGoldWheel = /** @class */ (function (_super) {
             setTimeout(function () {
                 self.isCanClickWheel = true;
             }, 3000);
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.GoldWheel, function () {
-                XMSDK_1.default.toast("感谢观看，额外免费抽奖次数已发放", 1.5);
-                _this.isCanClickWheel = true;
-                _this.clickWheel(true);
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
-            });
+            // AdController.loadAd(AdPosition.GoldWheel, () => {
+            XMSDK_1.default.toast("感谢观看，额外免费抽奖次数已发放", 1.5);
+            this.isCanClickWheel = true;
+            this.clickWheel(true);
+            // }, () => {
+            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+            // })
         }
     };
     gameGoldWheel.prototype.checkIsCanClickWheel = function () {

@@ -23,11 +23,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -69,19 +66,19 @@ var gameOnLinePrize = /** @class */ (function (_super) {
         TrackMgr_1.default.AppBuyProductDialog_hcdg({
             dialog_name_hcdg: "在线时长翻倍成功弹窗",
         });
-        AdController_1.default.loadAd(AdPosition_1.AdPosition.VideoOnLinePrize, function (res) {
-            // if(this.addGold){
-            _this.addGold = _this.addGold * 2;
-            //     this.lable_addGold.string = "+"+this.addGold+"红包币";
-            // } 
-            // this.showGetBtn();
-            // if(this.titleSprFrame&&this.titleSprFrame[1]){
-            //     this.titleSpr.spriteFrame = this.titleSprFrame[1];
-            // }
-            _this.clickGet();
-        }, function () {
-            AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
-        });
+        // AdController.loadAd(AdPosition.VideoOnLinePrize, (res) => {
+        // if(this.addGold){
+        this.addGold = this.addGold * 2;
+        //     this.lable_addGold.string = "+"+this.addGold+"红包币";
+        // } 
+        // this.showGetBtn();
+        // if(this.titleSprFrame&&this.titleSprFrame[1]){
+        //     this.titleSpr.spriteFrame = this.titleSprFrame[1];
+        // }
+        this.clickGet();
+        // }, () => {
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // })               
     };
     gameOnLinePrize.prototype.clickCommon = function () {
         var _this = this;
@@ -128,7 +125,6 @@ var gameOnLinePrize = /** @class */ (function (_super) {
     };
     gameOnLinePrize.prototype.onEnable = function () {
         var _this = this;
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.InfoGameOnLinePrize, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
         TrackMgr_1.default.AppBuyProductDialog_hcdg({
             dialog_name_hcdg: "在线时长弹窗"
         });
@@ -144,7 +140,6 @@ var gameOnLinePrize = /** @class */ (function (_super) {
         this.btn_get.active = false;
     };
     gameOnLinePrize.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.InfoGameOnLinePrize);
     };
     __decorate([
         property(cc.Node)

@@ -467,13 +467,13 @@ export default class gameGoldWheel extends baseTs {
             setTimeout(() => {
                 self.isCanClickWheel = true;
             }, 3000);
-            AdController.loadAd(AdPosition.GoldWheel, () => {
+            // AdController.loadAd(AdPosition.GoldWheel, () => {
                 XMSDK.toast("感谢观看，额外免费抽奖次数已发放", 1.5);
                 this.isCanClickWheel = true;
                 this.clickWheel(true);
-            }, () => {
-                AssistCtr.showToastTip("加载视频失败，请稍后！");
-            })
+            // }, () => {
+            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+            // })
         }
     }
 

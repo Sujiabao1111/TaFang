@@ -24,13 +24,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var pageTs_1 = require("../common/pageTs");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
-var util_1 = require("../util/util");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var gameSign = /** @class */ (function (_super) {
     __extends(gameSign, _super);
@@ -57,17 +54,17 @@ var gameSign = /** @class */ (function (_super) {
             this.setData(data);
         }
         this.isInsert = Math.random() > .5;
-        if (this.isInsert) {
-            if (!util_1.default.adPreObj[AdPosition_1.AdPosition.SignAwardInsert]) {
-                util_1.default.preloadAd(AdPosition_1.AdPosition.SignAwardInsert);
-            }
-        }
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.VideoSignDouble]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.VideoSignDouble);
-        }
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.InfoSignRewardView]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.InfoSignRewardView, true);
-        }
+        // if (this.isInsert) {
+        //     if (!util.adPreObj[AdPosition.SignAwardInsert]) {
+        //         util.preloadAd(AdPosition.SignAwardInsert);
+        //     }
+        // }
+        // if (!util.adPreObj[AdPosition.VideoSignDouble]) {
+        //     util.preloadAd(AdPosition.VideoSignDouble);
+        // }
+        // if (!util.adPreObj[AdPosition.InfoSignRewardView]) {
+        //     util.preloadAd(AdPosition.InfoSignRewardView, true);
+        // }
     };
     gameSign.prototype.onDisable = function () {
         // AdController.hideInfoAd(AdPosition.InfoSignView);           
@@ -277,10 +274,10 @@ var gameSign = /** @class */ (function (_super) {
             this.data["callBack"]();
         }
         if (this.isInsert) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.SignAwardInsert, function () { console.log("关闭签到奖励插屏广告播放完成"); });
-            if (util_1.default.adPreObj[AdPosition_1.AdPosition.SignAwardInsert]) {
-                util_1.default.preloadAd(AdPosition_1.AdPosition.SignAwardInsert);
-            }
+            // AdController.loadAd(AdPosition.SignAwardInsert, () => { console.log("关闭签到奖励插屏广告播放完成") });
+            // if (util.adPreObj[AdPosition.SignAwardInsert]) {
+            //     util.preloadAd(AdPosition.SignAwardInsert);
+            // }
         }
     };
     gameSign.prototype.cllickCheckMark = function () {

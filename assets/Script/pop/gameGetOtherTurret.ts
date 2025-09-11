@@ -70,13 +70,14 @@ export default class gameGetOtherTurret extends baseTs {
         // this.num = Tools.GetRandom(3,8);
         this.num = 2;
 
-        this.numLabel.string = "+" + this.num + "炮塔";
+        this.numLabel.string = "+" + this.num + t("main.炮塔");
 
         this.lable_addGold2.string = this.num * 3 + "";
 
         this.loadSprite("body", (res) => {
             this.turretBody && (this.turretBody.spriteFrame = res);
         });
+
         this.loadSprite("foot", (res) => {
             if (this.turretFoot && res) {
                 this.turretFoot.node.active = true;
@@ -89,9 +90,7 @@ export default class gameGetOtherTurret extends baseTs {
             }
         });
 
-        if (!util.adPreObj[AdPosition.GetOtherTurret]) {
-            util.preloadAd(AdPosition.GetOtherTurret);
-        }
+
 
         this.ArrBtn[0].active = this.ArrBtn[1].active = true;
 
@@ -107,19 +106,9 @@ export default class gameGetOtherTurret extends baseTs {
     getBtn(e, res) {
         soundController.singleton.clickAudio();
 
-        // let isVideo: boolean = res == 1;//是否看视频
+        this.isVideo = res == 1;//是否看视频
 
         this.successFn();
-        // if (isVideo) {
-        //     AdController.loadAd(AdPosition.GetOtherTurret, () => {
-        //         this.isVideo = true;
-        //         util.preloadAd(AdPosition.GetOtherTurret);
-        //     }, () => {
-        //         AssistCtr.showToastTip("加载视频失败，请稍后！");
-        //     });
-        // } else {
-        //     this.successFn();
-        // }
 
     }
 
@@ -129,8 +118,6 @@ export default class gameGetOtherTurret extends baseTs {
         let num: number = this.num * (this.isVideo ? 3 : 1);
         this.closePage();
         util.userData.airborneCount -= 1;
-        // this.showPage(pageTs.pageName.GameGetTurret,{num,name:pageTs.pageName.GameGetOtherTurret}); 
-
 
         util.productTurret(num);
         cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num });
@@ -159,16 +146,5 @@ export default class gameGetOtherTurret extends baseTs {
 
         });
     }
-    onEnable() {
-        AdController.loadInfoAd(AdPosition.GetOtherTurretView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
-        // if(util.adPreObj[AdPosition.GetOtherTurretView]){
-        //     util.preloadAd(AdPosition.GetOtherTurretView,true);
-        // } 
-    }
 
-
-    onDisable() {
-        AdController.hideInfoAd(AdPosition.GetOtherTurretView);
-    }
-    // update (dt) {}
 }

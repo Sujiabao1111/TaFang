@@ -30,7 +30,7 @@ var NameTs_1 = require("../common/NameTs");
 var LanguageData_1 = require("../Language/LanguageData");
 var util_1 = require("../util/util");
 var turret_1 = require("./turret/turret");
-//#region 炮台 炮台 炮台 炮台 炮台
+//#region 炮塔
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var turretBox = /** @class */ (function (_super) {
     __extends(turretBox, _super);
@@ -110,10 +110,6 @@ var turretBox = /** @class */ (function (_super) {
                 }
             });
         }
-        //预加载解锁炮塔信息流
-        // if(!util.adPreObj[AdPosition.UnlcokTurretView]&&util.chekPoolHaveTwo()){
-        //     util.preloadAd(AdPosition.UnlcokTurretView,true);
-        // }
     };
     /**
      * 创建炮塔

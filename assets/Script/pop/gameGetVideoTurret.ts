@@ -64,7 +64,7 @@ export default class gameGetVideoTurret extends baseTs {
 
         this.initData = util.GetTurretData(level);
         this.num = data.num || Tools.GetRandom(8, 12);
-        this.numLabel.string = "+" + this.num + "炮塔";
+        this.numLabel.string = "+" + this.num + t("main.炮塔");
 
         this.loadSprite("body", (res) => {
             this.turretBody && (this.turretBody.spriteFrame = res);
@@ -81,16 +81,9 @@ export default class gameGetVideoTurret extends baseTs {
             }
         })
 
-        if (!util.adPreObj[AdPosition.GetTurret]) {
-            util.preloadAd(AdPosition.GetTurret);
-        }
 
-        // util.preloadAd(AdPosition.GetTurretView);
-        // util.preloadAd(AdPosition.GetTurret);
 
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "看视频领取炮塔弹窗"
-        })
+
     }
 
 
@@ -106,10 +99,7 @@ export default class gameGetVideoTurret extends baseTs {
         //     active_ad_hcdg:"激励视频"
         // });
 
-        // AdController.loadAd(AdPosition.GetTurret, (res) => {
-        if (util.adPreObj[AdPosition.GetTurret]) {
-            util.preloadAd(AdPosition.GetTurret);
-        }
+
         // util.sendTurretNum();
         util.productTurret(this.num);
         cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num: this.num });
@@ -151,16 +141,7 @@ export default class gameGetVideoTurret extends baseTs {
 
         });
     }
-    onEnable() {
-        AdController.loadInfoAd(AdPosition.GetTurretView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
-        // if(util.adPreObj[AdPosition.GetTurretView]){
-        //     util.preloadAd(AdPosition.GetTurretView,true);
-        // } 
-    }
 
 
-    onDisable() {
-        AdController.hideInfoAd(AdPosition.GetTurretView);
-    }
-    // update (dt) {}
+
 }

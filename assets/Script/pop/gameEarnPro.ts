@@ -42,13 +42,11 @@ export default class gameEarnPro extends baseTs {
 
     }
 
-    onEnable() {
-        AdController.loadInfoAd(AdPosition.randomRedPrizeView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
+    onEnable() {//636:feedNode信息流容器节点的宽度
     }
 
 
     onDisable() {        
-        AdController.hideInfoAd(AdPosition.randomRedPrizeView);
     }
 
     init(data) {
@@ -90,15 +88,15 @@ export default class gameEarnPro extends baseTs {
             })
         }
         if(isVideo){
-            AdController.loadAd(AdPosition.earnProgressVideo, () => {
+            // AdController.loadAd(AdPosition.earnProgressVideo, () => {
                 successFn();
                 TrackMgr.luckybag_task({
                     activity_state: "红包任务奖励弹窗",
                     button_name:"多倍领取"
                 });
-            }, () => {
-                AssistCtr.showToastTip("加载视频失败，请稍后！");
-            });
+            // }, () => {
+            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+            // });
         }else{
             TrackMgr.luckybag_task({
                 activity_state: "红包任务奖励弹窗",

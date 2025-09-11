@@ -25,10 +25,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -49,10 +47,8 @@ var gameEarnPro = /** @class */ (function (_super) {
         cc.tween(this.multipleNode).repeatForever(cc.tween().to(.3, { angle: 10 }).to(.2, { angle: 0 })).start();
     };
     gameEarnPro.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.randomRedPrizeView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
     };
     gameEarnPro.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.randomRedPrizeView);
     };
     gameEarnPro.prototype.init = function (data) {
         this.redAmountNum = data.coin;
@@ -87,15 +83,15 @@ var gameEarnPro = /** @class */ (function (_super) {
             });
         };
         if (isVideo) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.earnProgressVideo, function () {
-                successFn();
-                TrackMgr_1.default.luckybag_task({
-                    activity_state: "红包任务奖励弹窗",
-                    button_name: "多倍领取"
-                });
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+            // AdController.loadAd(AdPosition.earnProgressVideo, () => {
+            successFn();
+            TrackMgr_1.default.luckybag_task({
+                activity_state: "红包任务奖励弹窗",
+                button_name: "多倍领取"
             });
+            // }, () => {
+            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+            // });
         }
         else {
             TrackMgr_1.default.luckybag_task({

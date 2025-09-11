@@ -23,7 +23,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AdPosition_1 = require("../common/AdPosition");
 var faceTs_1 = require("../common/faceTs");
 var NameTs_1 = require("../common/NameTs");
 var pool_1 = require("../common/pool");
@@ -106,10 +105,6 @@ var heavenBox = /** @class */ (function (_super) {
         //超过12个就886
         if (this.existCoinNum >= 12)
             return;
-        //预加载金币信息流
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.HeavenCoinView]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.HeavenCoinView, true);
-        }
         var location = util_1.default.GetHeavenPlace();
         if (!location) {
             return;

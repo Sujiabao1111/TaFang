@@ -25,11 +25,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
-var LanguageData_1 = require("../Language/LanguageData");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var Tools_1 = require("../util/Tools");
 var util_1 = require("../util/util");
@@ -59,12 +56,12 @@ var gameToolGet = /** @class */ (function (_super) {
         var _this = this;
         this.loadAny("texture/prop/prop" + info.propId, cc.SpriteFrame, function (res) {
             _this.toolSpr.spriteFrame = res;
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.Prop, function () {
-                _this.getTool(info);
-            }, function () {
-                _this.closePage();
-                AssistCtr_1.AssistCtr.showToastTip(LanguageData_1.t("tips.reward_obtain_failed"));
-            });
+            // AdController.loadAd(AdPosition.Prop, () => {
+            _this.getTool(info);
+            // }, () => {
+            //     this.closePage();
+            //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+            // });
         }, function () {
             _this.getTool(info);
         });

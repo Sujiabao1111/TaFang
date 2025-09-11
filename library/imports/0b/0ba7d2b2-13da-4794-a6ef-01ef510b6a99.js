@@ -41,6 +41,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ApiService = exports.ChannelType = exports.TaskNotifyType = exports.ErrorMsg = exports.ErrorCode = void 0;
+var AssistCtr_1 = require("../Assist/AssistCtr");
 var LanguageData_1 = require("../Language/LanguageData");
 var Global_1 = require("./Global");
 var HttpClient_1 = require("./HttpClient");
@@ -1231,10 +1232,10 @@ var ApiService = /** @class */ (function () {
      *
      * @param response 错误响应，可以是字符串或ErrorMsg对象
      */
-    // showError(response: ApiMsg) {
-    //   const msg = this.getErrorMessage(response?.response);
-    //   UIManager.ins.showToast(msg);
-    // }
+    ApiService.prototype.showError = function (response) {
+        var msg = this.getErrorMessage(response === null || response === void 0 ? void 0 : response.response);
+        AssistCtr_1.AssistCtr.showToastTip(msg);
+    };
     /**
      * 检查今日免广告状态
      * @returns 包含免广告次数的响应数据

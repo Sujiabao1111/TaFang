@@ -24,7 +24,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var UrlConst_1 = require("../server/UrlConst");
 var soundController_1 = require("../soundController");
@@ -68,12 +67,12 @@ var gameTask = /** @class */ (function (_super) {
             }
             _this.updataTask(_this.selectNum);
         }, this);
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.TaskDayDoubleGet]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.TaskDayDoubleGet);
-        }
-        TrackMgr_1.default.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "任务弹窗",
-        });
+        // if(!util.adPreObj[AdPosition.TaskDayDoubleGet]){
+        //     util.preloadAd(AdPosition.TaskDayDoubleGet);
+        // }
+        // TrackMgr.AppBuyProductDialog_hcdg({
+        //     dialog_name_hcdg: "任务弹窗",
+        // });
     };
     gameTask.prototype.onDisable = function () {
         cc.game.emit(NameTs_1.default.Game_Main_Task_updata, this.dayRedNum + this.passRedNum);

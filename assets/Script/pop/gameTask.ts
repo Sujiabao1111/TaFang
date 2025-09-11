@@ -67,13 +67,13 @@ export default class gameTask extends baseTs {
         }, this);
 
         
-        if(!util.adPreObj[AdPosition.TaskDayDoubleGet]){
-            util.preloadAd(AdPosition.TaskDayDoubleGet);
-        }
+        // if(!util.adPreObj[AdPosition.TaskDayDoubleGet]){
+        //     util.preloadAd(AdPosition.TaskDayDoubleGet);
+        // }
 
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "任务弹窗",
-        });
+        // TrackMgr.AppBuyProductDialog_hcdg({
+        //     dialog_name_hcdg: "任务弹窗",
+        // });
     }
 
     onDisable(){

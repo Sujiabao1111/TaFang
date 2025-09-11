@@ -25,10 +25,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var tool_1 = require("../util/tool");
@@ -72,10 +70,6 @@ var gameEarnings = /** @class */ (function (_super) {
         //     popupState: 1
         // }
         // this.getState(json);
-        /**加载双倍收益视频 */
-        // if (!util.adPreObj[AdPosition.Earning]) {
-        //     util.preloadAd(AdPosition.Earning);
-        // }
     };
     gameEarnings.prototype.start = function () {
     };
@@ -215,44 +209,42 @@ var gameEarnings = /** @class */ (function (_super) {
             AssistCtr_1.AssistCtr.showToastTip("加速次数已用完");
             return;
         }
-        AdController_1.default.loadAd(AdPosition_1.AdPosition.Earning, function () {
-            // util.preloadAd(AdPosition.Earning);
-            util_1.default.post({
-                url: UrlConst_1.UrlConst.activateEarn,
-                success: function (res) {
-                    AssistCtr_1.AssistCtr.showToastTip("加速成功");
-                    _this.no += 1;
-                    util_1.default.doubleEarn.use = true;
-                    var time = Number(_this.data.list[_this.no].incomeNodeTime);
-                    util_1.default.doubleEarn.time = time;
-                    _this.data.incomeNodeId = time;
-                    _this.data.leftTime = time * 1000;
-                    _this.data.popupState = 1;
-                    _this.data.nowLitNode = time;
-                    _this.getState(_this.data);
-                    TrackMgr_1.default.double_revenue({
-                        activity_state: "加速中",
-                        acceleration_time: time + "s"
-                    });
-                    TrackMgr_1.default.AppDialogClick_hcdg({
-                        dialog_name_hcdg: "收益翻倍弹窗（未加速状态）",
-                        ck_module: "免费领取",
-                        active_ad_hcdg: "激励视频"
-                    });
-                },
-                fail: function () {
-                    AssistCtr_1.AssistCtr.showToastTip("加速失败");
-                }
-            });
-        }, function () {
-            AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // AdController.loadAd(AdPosition.Earning, () => {
+        // util.preloadAd(AdPosition.Earning);
+        util_1.default.post({
+            url: UrlConst_1.UrlConst.activateEarn,
+            success: function (res) {
+                AssistCtr_1.AssistCtr.showToastTip("加速成功");
+                _this.no += 1;
+                util_1.default.doubleEarn.use = true;
+                var time = Number(_this.data.list[_this.no].incomeNodeTime);
+                util_1.default.doubleEarn.time = time;
+                _this.data.incomeNodeId = time;
+                _this.data.leftTime = time * 1000;
+                _this.data.popupState = 1;
+                _this.data.nowLitNode = time;
+                _this.getState(_this.data);
+                TrackMgr_1.default.double_revenue({
+                    activity_state: "加速中",
+                    acceleration_time: time + "s"
+                });
+                TrackMgr_1.default.AppDialogClick_hcdg({
+                    dialog_name_hcdg: "收益翻倍弹窗（未加速状态）",
+                    ck_module: "免费领取",
+                    active_ad_hcdg: "激励视频"
+                });
+            },
+            fail: function () {
+                AssistCtr_1.AssistCtr.showToastTip("加速失败");
+            }
         });
+        // }, () => {
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // });
     };
     gameEarnings.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.EarningView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
     };
     gameEarnings.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.EarningView);
     };
     __decorate([
         property({ type: cc.Node, displayName: "layout盒子" })

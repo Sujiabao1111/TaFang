@@ -138,16 +138,5 @@ export default class gameGetTurret extends baseTs {
 
         });
     }
-    onEnable() {
-        AdController.loadInfoAd(AdPosition.GetTurretView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
-        // if(util.adPreObj[AdPosition.GetTurretView]){
-        //     util.preloadAd(AdPosition.GetTurretView,true);
-        // } 
-    }
-
-
-    onDisable() {
-        AdController.hideInfoAd(AdPosition.GetTurretView);
-    }
-    // update (dt) {}
+   
 }

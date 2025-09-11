@@ -41,8 +41,6 @@ export default class gameUpgrade extends baseTs {
     // @property({type:cc.Node,displayName:"倍数"})
     // private multipleNode:cc.Node = null;
 
-    @property({ type: cc.Node, displayName: "信息流" })
-    private feed_node: cc.Node = null;
 
 
     @property({ type: cc.Node, displayName: "倍数" })
@@ -133,9 +131,9 @@ export default class gameUpgrade extends baseTs {
             top_synthesis: util.userData.compoundTimes,
         });
 
-        if (!util.adPreObj[AdPosition.UnlcokTurret]) {
-            util.preloadAd(AdPosition.UnlcokTurret);
-        }
+        // if (!util.adPreObj[AdPosition.UnlcokTurret]) {
+        //     util.preloadAd(AdPosition.UnlcokTurret);
+        // }
 
         this.arrBtn[0].active = util.userData.noviceGuide == 2;
         this.arrBtn[1].active = this.arrBtn[2].active = util.userData.noviceGuide !== 2;
@@ -164,30 +162,16 @@ export default class gameUpgrade extends baseTs {
             cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num });
             util.productTurret(num);
             this.closePage();
-            // this.showPage(pageTs.pageName.GameGetTurret,{num,name:pageTs.pageName.GameUpgrade}); 
 
-            if (res == 1) {
-                TrackMgr.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "解锁新炮塔",
-                    ck_module: "多倍领取",
-                    active_ad_hcdg: "激励视频"
-                });
-            }
-            else {
-                TrackMgr.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "解锁新炮塔",
-                    ck_module: "普通领取",
-                });
-            }
         }
 
         if (res == 1) {
-            AdController.loadAd(AdPosition.UnlcokTurret, () => {
-                util.preloadAd(AdPosition.UnlcokTurret);
-                successFn();
-            }, () => {
-                AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
-            });
+            // AdController.loadAd(AdPosition.UnlcokTurret, () => {
+            //     util.preloadAd(AdPosition.UnlcokTurret);
+            successFn();
+            // }, () => {
+            //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+            // });
         } else {
             successFn();
         }
@@ -208,7 +192,7 @@ export default class gameUpgrade extends baseTs {
         });
     }
     onEnable() {
-        AdController.loadInfoAd(AdPosition.UnlcokTurretView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
+        // AdController.loadInfoAd(AdPosition.UnlcokTurretView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
         // if(util.adPreObj[AdPosition.UnlcokTurretView]){
         //     util.preloadAd(AdPosition.UnlcokTurretView,true);
         // }
@@ -216,7 +200,7 @@ export default class gameUpgrade extends baseTs {
 
 
     onDisable() {
-        AdController.hideInfoAd(AdPosition.UnlcokTurretView);
+        // AdController.hideInfoAd(AdPosition.UnlcokTurretView);
     }
     // update (dt) {}
 }

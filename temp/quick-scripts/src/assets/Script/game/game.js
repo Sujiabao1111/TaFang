@@ -68,6 +68,7 @@ var game = /** @class */ (function (_super) {
         cc.game.on(NameTs_1.default.Game_End, function (res) {
             switch (res) {
                 case faceTs_1.gamePass.success:
+                    console.log("==========大关结束===========");
                     _this.showPass();
                     _this.checkBgImage();
                     break;
@@ -80,6 +81,10 @@ var game = /** @class */ (function (_super) {
                         console.log("送一个空降宝箱Game_End");
                         util_1.default.showEmptyBox(); //送一个空降宝箱
                     }, 1);
+                    break;
+                case faceTs_1.gamePass.smallSuccess:
+                    console.log("==========小关结束===========");
+                    _this.showPage(pageTs_1.default.pageName.GamePassReward2);
                     break;
             }
         }, this);
@@ -94,16 +99,12 @@ var game = /** @class */ (function (_super) {
                     _this.showSign();
                 }
             }
-            // if (this._userData.customs.small == util.mapConfig.length) {
-            //     if (!util.adPreObj[AdPosition.GamePssView]) {
-            //         util.preloadAd(AdPosition.GamePssView, true);
-            //     }
-            // }
             // util.levelState = gameState.start;
             // 更新关卡title
             cc.game.emit(NameTs_1.default.Game_View_CustomsUpdata);
             //加载关卡怪兽
             cc.game.emit(NameTs_1.default.Game_Load_Monster);
+            // 道具
             for (var i = 0; i < _this._userData.prop.length; i++) {
                 if (i == faceTs_1.propType.auto - 1)
                     continue;

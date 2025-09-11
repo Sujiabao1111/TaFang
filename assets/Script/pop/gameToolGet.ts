@@ -43,13 +43,13 @@ export default class gameToolGet extends baseTs {
     init(info) {
         this.loadAny("texture/prop/prop" + info.propId, cc.SpriteFrame, res => {
             this.toolSpr.spriteFrame = res;
-            AdController.loadAd(AdPosition.Prop, () => {
-                this.getTool(info);
-            }, () => {
-                this.closePage();
-             AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+            // AdController.loadAd(AdPosition.Prop, () => {
+            this.getTool(info);
+            // }, () => {
+            //     this.closePage();
+            //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
 
-            });
+            // });
         }, () => {
             this.getTool(info);
         });
@@ -71,11 +71,11 @@ export default class gameToolGet extends baseTs {
                 // if (propConfig) {
                 //     AssistCtr.showToastTip(`恭喜获得${propConfig.name}道具`);
                 // }                                    
-             
+
                 this.flyAni(info.node);
             },
             fail: () => {
-             
+
                 this.closePage();
             }
         });

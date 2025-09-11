@@ -24,14 +24,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var pageTs_1 = require("../common/pageTs");
 var LanguageData_1 = require("../Language/LanguageData");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
-var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var Tools_1 = require("../util/Tools");
 var util_1 = require("../util/util");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -47,7 +44,6 @@ var gamePass = /** @class */ (function (_super) {
         // private light:cc.Node = null;
         _this.feed_node = null;
         return _this;
-        // update (dt) {}
     }
     gamePass.prototype.start = function () {
         // cc.tween(this.light).repeatForever(
@@ -84,7 +80,7 @@ var gamePass = /** @class */ (function (_super) {
                 if (!_this.isValid) {
                     return;
                 }
-                console.log("设置er次----------------------------------------------------------" + JSON.stringify(data.mapConfig));
+                console.log("设置er次-----------------------------------" + JSON.stringify(data.mapConfig));
                 //util.behaviorRewardVoList = data.behaviorRewardVoList;
                 // util.mapConfig = data.mapConfig;
                 util_1.default.getnowmapdata();
@@ -112,25 +108,21 @@ var gamePass = /** @class */ (function (_super) {
             // this.showPage(pageTs.pageName.GameStart);
             cc.game.emit(NameTs_1.default.Game_Start);
         }
-        TrackMgr_1.default.AppDialogClick_hcdg({
-            dialog_name_hcdg: "通关成功",
-            ck_module: "点击领取",
-        });
     };
     gamePass.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.GamePssView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
+        // AdController.loadInfoAd(AdPosition.GamePssView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
         // if(util.adPreObj[AdPosition.GamePssView]){
         //     util.preloadAd(AdPosition.GamePssView,true);
         // }
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.GamePassCoinView]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.GamePassCoinView, true);
-        }
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.UnlcokPropView]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.UnlcokPropView, true);
-        }
+        // if (!util.adPreObj[AdPosition.GamePassCoinView]) {
+        //     util.preloadAd(AdPosition.GamePassCoinView, true);
+        // }
+        // if (!util.adPreObj[AdPosition.UnlcokPropView]) {
+        //     util.preloadAd(AdPosition.UnlcokPropView, true);
+        // }
     };
     gamePass.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.GamePssView);
+        // AdController.hideInfoAd(AdPosition.GamePssView);
     };
     __decorate([
         property({ type: cc.Label, displayName: "关卡" })

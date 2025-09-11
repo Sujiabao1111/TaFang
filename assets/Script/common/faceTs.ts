@@ -1,44 +1,44 @@
 
 /**池塘每个位置的数据 */
-export interface PoolInfo{
+export interface PoolInfo {
     //位置
-    no:number
+    no: number
     //等级
-    level:number,
+    level: number,
     //是否解锁
-    state:number,
+    state: number,
 }
 
 /**池塘每个位置的数据 */
-export interface HeavenPoolInfo{
+export interface HeavenPoolInfo {
     //位置
-    no:number
+    no: number
     //空降金币id
-    id:number
+    id: number
     //金币数
-    value:number
+    value: number
 }
 
 /**宝箱的数据 */
-export interface TreasureInfo{
+export interface TreasureInfo {
     //id
-    id:number
+    id: number
     //是否领取了0未领 1领取 2放弃
-    state:number,
+    state: number,
 }
 
 /**关卡 */
-export interface customsInfo{
-    
+export interface customsInfo {
+
     //大关卡
-    big:number,
+    big: number,
     //小关卡
-    small:number
+    small: number
 }
 
 
 /**命名类型 */
-export enum thingType{
+export enum thingType {
 
     //塔防
     turret = 1,
@@ -52,93 +52,93 @@ export enum thingType{
 }
 
 /**怪兽的属性 */
-export interface monsterInfo{
+export interface monsterInfo {
 
     /**等级 */
-    level:number,
+    level: number,
     /**血量 */
-    hp:number,
+    hp: number,
     /**移动时间 */
-    walkTime:number,
+    walkTime: number,
     /**移动cd */
-    walkCd:number,
+    walkCd: number,
     /**名字 */
-    name:string
+    name: string
     /**金币 */
-    coin:number,
+    coin: number,
     /**速度 */
-    speed:number,
+    speed: number,
     /**描述 */
-    describtion:string,
+    describtion: string,
     /**龙骨图片 */
-    armature:string,
+    armature: string,
     /**龙骨动画 */
-    animation:string,
+    animation: string,
     /**龙骨大小 */
-    scale:number
+    scale: number
 
-    
+
 }
 
 /**炮弹属性 */
-export interface bulletInfo{
+export interface bulletInfo {
 
     /**哪种类型 */
-    type:number,
+    type: number,
     /**怪兽id */
-    targetId:number,
+    targetId: number,
     /**当前位置 */
-    initPos:cc.Vec2,
+    initPos: cc.Vec2,
     /**飞行速度 */
-    speed:number,
+    speed: number,
     /**攻击力 */
-    atk:number,
+    atk: number,
     /**暴击率 */
-    crit:number,
+    crit: number,
 }
 
 
 /**塔防属性 */
-export interface turretInfo{
+export interface turretInfo {
 
     /**名字 */
-    name:string,
+    name: string,
     /**登记 */
-    level:number,
+    level: number,
     /**攻击cd */
-    cd:number,
+    cd: number,
     /**攻击力 */
-    atk:number,
+    atk: number,
     /**暴击伤害 */
-    crit:number,
+    crit: number,
     /**暴击概率 */
-    critProb:number,
+    critProb: number,
     /**炮弹类型 */
-    bulletType:number,
+    bulletType: number,
     /**输出伤害 */
-    hurt:number,    
+    hurt: number,
     /**速度 */
-    speed:number,
+    speed: number,
     /**龙骨 */
-    DynamicResources:number,
+    DynamicResources: number,
     /**炮塔名字*/
-    spineName:string,
+    spineName: string,
     /**是否骨骼 */
-    bulletSpine:number,
+    bulletSpine: number,
     /**是否带有炮口 */
-    mouth:number,
+    mouth: number,
     /**炮口名字 */
-    mouthName:string,
+    mouthName: string,
     /**炮口Y的位置 */
-    mouthY:number
+    mouthY: number
     /**子弹发射位置增加Y */
-    bulletY:number
+    bulletY: number
     /**炮塔是否旋转 */
-    rotation:number
+    rotation: number
 }
 
 /**游戏状态 */
-export enum gameState{
+export enum gameState {
 
     //未开始
     default = 0,
@@ -152,33 +152,34 @@ export enum gameState{
 }
 
 /**通关状态 */
-export enum gamePass{
+export enum gamePass {
 
-    //成功
-    success = 1,
     //失败
     fail = 0,
+    //成功
+    success = 1,
+    //成功
+    smallSuccess = 2,
     //最后一关
-    last = 2,
-
+    last = 3,
 }
 
 /**游戏普通数值 */
-export enum gameNumerical{
+export enum gameNumerical {
 
     //产能最大值
     ProductMax = 20,
 
-    
+
     //产能时间
     ProductTime = 30,
-    
+
     //关闭时间
-    closeTime = 2 ,
+    closeTime = 2,
 }
 
 /**游戏更新类别 */
-export enum updateType{
+export enum updateType {
 
     //金币
     coin = 0,
@@ -190,33 +191,33 @@ export enum updateType{
 }
 
 /**音效配置 */
-export interface soundInfo{
+export interface soundInfo {
 
     /**背景音效*/
-    bgm:number,
+    bgm: number,
     /**普通音效 */
-    sound:number,
-    
+    sound: number,
+
 }
 
 
 /**道具 */
-export interface propInfo{
-    
+export interface propInfo {
+
     /**哪个道具 */
-    type:number,
+    type: number,
     /**数量*/
-    num:number,
+    num: number,
     /**时间*/
-    time:number,
+    time: number,
     /**使用*/
-    use:number,
+    use: number,
 }
 /**道具状态 */
-export enum propState{
+export enum propState {
 
     //结束
-    end= 0,
+    end = 0,
     //开始
     start,
     //进行中
@@ -226,23 +227,23 @@ export enum propState{
 
 
 /**道具属性*/
-export interface propProperty{
-    
+export interface propProperty {
+
     /**哪个道具 */
-    type:number,
+    type: number,
     /**名字*/
-    name:string,
+    name: string,
     /**说明*/
-    explain:string,
+    explain: string,
     /**持续时间*/
-    time:number,
+    time: number,
     /**限制等级*/
-    level:number,
+    level: number,
 }
 
 /**道具类型*/
-export enum propType{
-    
+export enum propType {
+
     /**冰冻 */
     frozen = 1,
     /**电击*/

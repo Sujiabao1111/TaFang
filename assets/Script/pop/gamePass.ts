@@ -77,7 +77,7 @@ export default class gamePass extends baseTs {
                 if (!this.isValid) {
                     return;
                 }
-                console.log("设置er次----------------------------------------------------------" + JSON.stringify(data.mapConfig))
+                console.log("设置er次-----------------------------------" + JSON.stringify(data.mapConfig))
                 //util.behaviorRewardVoList = data.behaviorRewardVoList;
                 // util.mapConfig = data.mapConfig;
                 util.getnowmapdata();
@@ -107,33 +107,28 @@ export default class gamePass extends baseTs {
             // this.showPage(pageTs.pageName.GameStart);
             cc.game.emit(NameTs.Game_Start);
         }
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: "通关成功",
-            ck_module: "点击领取",
-        })
     }
 
     onEnable() {
-        AdController.loadInfoAd(AdPosition.GamePssView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
+        // AdController.loadInfoAd(AdPosition.GamePssView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
 
         // if(util.adPreObj[AdPosition.GamePssView]){
         //     util.preloadAd(AdPosition.GamePssView,true);
         // }
 
-        if (!util.adPreObj[AdPosition.GamePassCoinView]) {
-            util.preloadAd(AdPosition.GamePassCoinView, true);
-        }
+        // if (!util.adPreObj[AdPosition.GamePassCoinView]) {
+        //     util.preloadAd(AdPosition.GamePassCoinView, true);
+        // }
 
-        if (!util.adPreObj[AdPosition.UnlcokPropView]) {
-            util.preloadAd(AdPosition.UnlcokPropView, true);
-        }
+        // if (!util.adPreObj[AdPosition.UnlcokPropView]) {
+        //     util.preloadAd(AdPosition.UnlcokPropView, true);
+        // }
     }
 
 
     onDisable() {
-        AdController.hideInfoAd(AdPosition.GamePssView);
+        // AdController.hideInfoAd(AdPosition.GamePssView);
     }
 
 
-    // update (dt) {}
 }

@@ -186,6 +186,9 @@ export default class pageTs {
         GameSavingPot:"prefab/pop/gameSavingPot"
     }
 
+
+    
+
     /**需要暂停游戏的页面*/
     static stopGamePage = [pageTs.pageName.GameKingPao,pageTs.pageName.NewBigWheelController,pageTs.pageName.GameOnLinePrize];
     /**允许二级弹窗的 */

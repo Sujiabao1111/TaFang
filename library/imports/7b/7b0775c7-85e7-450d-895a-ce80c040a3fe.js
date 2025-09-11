@@ -25,10 +25,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var LanguageData_1 = require("../Language/LanguageData");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var util_1 = require("../util/util");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -49,7 +47,6 @@ var gameGetOtherTurret = /** @class */ (function (_super) {
         _this.num = 0;
         _this.isVideo = false;
         return _this;
-        // update (dt) {}
     }
     gameGetOtherTurret.prototype.onLoad = function () {
     };
@@ -65,7 +62,7 @@ var gameGetOtherTurret = /** @class */ (function (_super) {
         this.initData = util_1.default.GetTurretData(data);
         // this.num = Tools.GetRandom(3,8);
         this.num = 2;
-        this.numLabel.string = "+" + this.num + "炮塔";
+        this.numLabel.string = "+" + this.num + LanguageData_1.t("main.炮塔");
         this.lable_addGold2.string = this.num * 3 + "";
         this.loadSprite("body", function (res) {
             _this.turretBody && (_this.turretBody.spriteFrame = res);
@@ -82,9 +79,6 @@ var gameGetOtherTurret = /** @class */ (function (_super) {
                 _this.turretFoot && (_this.turretFoot.node.y = Number(_this.initData.spriteFootY));
             }
         });
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.GetOtherTurret]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.GetOtherTurret);
-        }
         this.ArrBtn[0].active = this.ArrBtn[1].active = true;
         this.ArrBtn[2].active = false;
         this.isVideo = false;
@@ -94,25 +88,14 @@ var gameGetOtherTurret = /** @class */ (function (_super) {
      */
     gameGetOtherTurret.prototype.getBtn = function (e, res) {
         soundController_1.default.singleton.clickAudio();
-        // let isVideo: boolean = res == 1;//是否看视频
+        this.isVideo = res == 1; //是否看视频
         this.successFn();
-        // if (isVideo) {
-        //     AdController.loadAd(AdPosition.GetOtherTurret, () => {
-        //         this.isVideo = true;
-        //         util.preloadAd(AdPosition.GetOtherTurret);
-        //     }, () => {
-        //         AssistCtr.showToastTip("加载视频失败，请稍后！");
-        //     });
-        // } else {
-        //     this.successFn();
-        // }
     };
     /**获取宝塔 */
     gameGetOtherTurret.prototype.successFn = function () {
         var num = this.num * (this.isVideo ? 3 : 1);
         this.closePage();
         util_1.default.userData.airborneCount -= 1;
-        // this.showPage(pageTs.pageName.GameGetTurret,{num,name:pageTs.pageName.GameGetOtherTurret}); 
         util_1.default.productTurret(num);
         cc.game.emit(NameTs_1.default.Game_Effect_turret, { node: this.node, num: num });
         AssistCtr_1.AssistCtr.showToastTip(LanguageData_1.t('main.Got_turrets', num));
@@ -133,15 +116,6 @@ var gameGetOtherTurret = /** @class */ (function (_super) {
             }
             call(res);
         });
-    };
-    gameGetOtherTurret.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.GetOtherTurretView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
-        // if(util.adPreObj[AdPosition.GetOtherTurretView]){
-        //     util.preloadAd(AdPosition.GetOtherTurretView,true);
-        // } 
-    };
-    gameGetOtherTurret.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.GetOtherTurretView);
     };
     __decorate([
         property({ type: cc.Label, displayName: "数量" })

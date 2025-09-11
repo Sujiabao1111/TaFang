@@ -24,11 +24,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
-var util_1 = require("../util/util");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var gameCoinReward = /** @class */ (function (_super) {
     __extends(gameCoinReward, _super);
@@ -62,17 +59,8 @@ var gameCoinReward = /** @class */ (function (_super) {
         this.closePage();
     };
     gameCoinReward.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.CoinRewardView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
-        if (util_1.default.adPreObj[AdPosition_1.AdPosition.CoinRewardView]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.CoinRewardView, true);
-        }
     };
     gameCoinReward.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.CoinRewardView);
-        //预加载金币信息流
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.CoinRewardView] && util_1.default.getHeavenPool() > 0) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.CoinRewardView, true);
-        }
     };
     __decorate([
         property({ type: cc.Label, displayName: "文字" })

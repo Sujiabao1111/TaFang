@@ -25,11 +25,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var faceTs_1 = require("../common/faceTs");
 var NameTs_1 = require("../common/NameTs");
 var LanguageData_1 = require("../Language/LanguageData");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var Tools_1 = require("../util/Tools");
@@ -49,7 +47,6 @@ var gameGetVideoTurret = /** @class */ (function (_super) {
         /**金币 */
         _this.num = 0;
         return _this;
-        // update (dt) {}
     }
     gameGetVideoTurret.prototype.onLoad = function () {
     };
@@ -68,7 +65,7 @@ var gameGetVideoTurret = /** @class */ (function (_super) {
         var level = util_1.default.getBuyRandomLevel();
         this.initData = util_1.default.GetTurretData(level);
         this.num = data.num || Tools_1.Tools.GetRandom(8, 12);
-        this.numLabel.string = "+" + this.num + "炮塔";
+        this.numLabel.string = "+" + this.num + LanguageData_1.t("main.炮塔");
         this.loadSprite("body", function (res) {
             _this.turretBody && (_this.turretBody.spriteFrame = res);
         });
@@ -84,14 +81,6 @@ var gameGetVideoTurret = /** @class */ (function (_super) {
                 _this.turretFoot && (_this.turretFoot.node.y = Number(_this.initData.spriteFootY));
             }
         });
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.GetTurret]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.GetTurret);
-        }
-        // util.preloadAd(AdPosition.GetTurretView);
-        // util.preloadAd(AdPosition.GetTurret);
-        TrackMgr_1.default.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "看视频领取炮塔弹窗"
-        });
     };
     /**
      * 获取
@@ -103,10 +92,6 @@ var gameGetVideoTurret = /** @class */ (function (_super) {
         //     ck_module:"领取",
         //     active_ad_hcdg:"激励视频"
         // });
-        // AdController.loadAd(AdPosition.GetTurret, (res) => {
-        if (util_1.default.adPreObj[AdPosition_1.AdPosition.GetTurret]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.GetTurret);
-        }
         // util.sendTurretNum();
         util_1.default.productTurret(this.num);
         cc.game.emit(NameTs_1.default.Game_Effect_turret, { node: this.node, num: this.num });
@@ -137,15 +122,6 @@ var gameGetVideoTurret = /** @class */ (function (_super) {
             }
             call(res);
         });
-    };
-    gameGetVideoTurret.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.GetTurretView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
-        // if(util.adPreObj[AdPosition.GetTurretView]){
-        //     util.preloadAd(AdPosition.GetTurretView,true);
-        // } 
-    };
-    gameGetVideoTurret.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.GetTurretView);
     };
     __decorate([
         property({ type: cc.Label, displayName: "数量" })

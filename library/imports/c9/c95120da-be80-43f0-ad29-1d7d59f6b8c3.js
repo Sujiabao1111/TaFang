@@ -25,12 +25,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var pageTs_1 = require("../common/pageTs");
 var PageManage_1 = require("../PageManage");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -129,35 +127,35 @@ var gameKingPaoProgress = /** @class */ (function (_super) {
                 });
             }
             if (this.kingPaoPressData.status == 1) {
-                AdController_1.default.loadAd(AdPosition_1.AdPosition.kingTaskSign, function (res) {
-                    if (_this && _this.kingPaoPressData) {
-                        XMSDK_1.default.post({
-                            url: UrlConst_1.UrlConst.kingPaoOpen,
-                            data: {
-                                status: _this.kingPaoPressData.status
-                            },
-                            onSuccess: function (res) {
-                                if (res.code === 0) {
-                                    if (!_this.isValid) {
-                                        return;
-                                    }
-                                    AssistCtr_1.AssistCtr.showToastTip("\u4ECA\u65E5\u6253\u5361\u6210\u529F!\u660E\u65E5\u518D\u6765\u54E6~");
-                                    _this.closePage();
-                                    cc.game.emit(NameTs_1.default.Game_KingPaoTask_Update);
+                // AdController.loadAd(AdPosition.kingTaskSign, (res) => {
+                if (this && this.kingPaoPressData) {
+                    XMSDK_1.default.post({
+                        url: UrlConst_1.UrlConst.kingPaoOpen,
+                        data: {
+                            status: this.kingPaoPressData.status
+                        },
+                        onSuccess: function (res) {
+                            if (res.code === 0) {
+                                if (!_this.isValid) {
+                                    return;
                                 }
-                                else {
-                                    if (res) {
-                                        AssistCtr_1.AssistCtr.showToastTip(res.message);
-                                    }
-                                }
-                            },
-                            onFail: function (err) {
+                                AssistCtr_1.AssistCtr.showToastTip("\u4ECA\u65E5\u6253\u5361\u6210\u529F!\u660E\u65E5\u518D\u6765\u54E6~");
+                                _this.closePage();
+                                cc.game.emit(NameTs_1.default.Game_KingPaoTask_Update);
                             }
-                        });
-                    }
-                }, function () {
-                    AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
-                });
+                            else {
+                                if (res) {
+                                    AssistCtr_1.AssistCtr.showToastTip(res.message);
+                                }
+                            }
+                        },
+                        onFail: function (err) {
+                        }
+                    });
+                }
+                // }, () => {
+                //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+                // })     
                 TrackMgr_1.default.AppDialogClick_hcdg({
                     dialog_name_hcdg: "打卡任务弹窗",
                     ck_module: "打卡",

@@ -45,6 +45,9 @@ export default class monsterFactory extends cc.Component {
     /**怪兽数据 */
     monsterData: any;
 
+    /**是否最后一只 */
+    isLast: boolean = false;
+
 
     public get _userData(): UserData {
         return util.userData;

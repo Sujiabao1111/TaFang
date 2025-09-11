@@ -51,20 +51,25 @@ export default class game extends baseTs {
         cc.game.on(NameTs.Game_End, (res) => {
             switch (res) {
                 case gamePass.success:
+                    console.log("==========大关结束===========");
                     this.showPass();
                     this.checkBgImage();
                     break;
                 case gamePass.fail:
                     // this.showEnd();
-
                     this.crystal.playAnimation("paota_boom", 1);
-
                     this.scheduleOnce(() => {
                         this.crystal.playAnimation("paota_piaofu", -1);
                         cc.game.emit(NameTs.Game_Again);
                         console.log("送一个空降宝箱Game_End");
                         util.showEmptyBox();   //送一个空降宝箱
                     }, 1);
+                    break;
+                case gamePass.smallSuccess:
+                    console.log("==========小关结束===========");
+
+                    this.showPage(pageTs.pageName.GamePassReward2);
+
                     break;
             }
         }, this);
@@ -84,11 +89,6 @@ export default class game extends baseTs {
                 }
             }
 
-            // if (this._userData.customs.small == util.mapConfig.length) {
-            //     if (!util.adPreObj[AdPosition.GamePssView]) {
-            //         util.preloadAd(AdPosition.GamePssView, true);
-            //     }
-            // }
             // util.levelState = gameState.start;
 
             // 更新关卡title
@@ -97,6 +97,7 @@ export default class game extends baseTs {
             //加载关卡怪兽
             cc.game.emit(NameTs.Game_Load_Monster);
 
+            // 道具
             for (let i = 0; i < this._userData.prop.length; i++) {
                 if (i == propType.auto - 1) continue;
                 this._userData.prop[i].time = null;
@@ -435,8 +436,8 @@ export default class game extends baseTs {
         util.Opening_times_level = 0;
         // this.showPage(pageTs.pageName.GamePass);
         this.showPage(pageTs.pageName.GamePassReward2);
-
     }
+
 
     /**
      * 设置

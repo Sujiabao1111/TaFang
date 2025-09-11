@@ -25,10 +25,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -69,13 +67,11 @@ var gameOffline = /** @class */ (function (_super) {
         });
     };
     gameOffline.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.OfflineView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度   
         // if(util.adPreObj[AdPosition.OfflineView]){
         //    util.preloadAd(AdPosition.OfflineView,true);
         // } 
     };
     gameOffline.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.OfflineView);
     };
     /**获取 */
     gameOffline.prototype.getBtn = function () {
@@ -102,12 +98,12 @@ var gameOffline = /** @class */ (function (_super) {
             });
         };
         if (this.isVideo) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.Offline, function () {
-                successFn();
-                // util.preloadAd(AdPosition.Offline);
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
-            });
+            // AdController.loadAd(AdPosition.Offline,()=>{
+            successFn();
+            // util.preloadAd(AdPosition.Offline);
+            // }, () => {
+            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+            // });
             TrackMgr_1.default.AppDialogClick_hcdg({
                 dialog_name_hcdg: "离线金币弹窗",
                 ck_module: "翻倍领取",

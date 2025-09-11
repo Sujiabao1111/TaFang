@@ -51,14 +51,14 @@ export default class NewBigTaskItem extends cc.Component {
         }
 
         this.controllerJs.moveChouPos();
-        AdController.loadAd(AdPosition.WheelGetRestTimes, () => {
+        // AdController.loadAd(AdPosition.WheelGetRestTimes, () => {
             //广告观看完毕，关闭后
             setTimeout(() => {
                 cc.director.emit("NewBigWheelPrize_againChou", { isNewBigTaskItem: true });
             }, 10);
-        }, () => {
-            AssistCtr.showToastTip("加载视频失败，请稍后！");
-        })
+        // }, () => {
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // })
     }
 
     setTaskItem(taskItemData) {

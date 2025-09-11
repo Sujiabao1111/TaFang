@@ -36,6 +36,8 @@ var monsterFactory = /** @class */ (function (_super) {
         _this.isFrozen = false;
         /**是否进行中保护 */
         _this.isShield = false;
+        /**是否最后一只 */
+        _this.isLast = false;
         return _this;
     }
     Object.defineProperty(monsterFactory.prototype, "_userData", {

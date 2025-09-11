@@ -51,6 +51,8 @@ export default class CanvasController extends baseTs {
         // cc.dynamicAtlasManager.enabled = true;
         // cc.dynamicAtlasManager.showDebug(true);
 
+        Tools.updateResolution();
+
         // 设置语言
         let languageType = Tools.getStorage("LanguageType");
         let index = languageType == undefined || languageType == null ? 1 : languageType;

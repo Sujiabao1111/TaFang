@@ -25,9 +25,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
@@ -324,48 +322,48 @@ var NewBigWheelController = /** @class */ (function (_super) {
             activity_button_click: "签到领取碎片",
         });
         soundController_1.default.singleton.clickAudio();
-        AdController_1.default.loadAd(AdPosition_1.AdPosition.WheelGetSign, function () {
-            //延迟10毫秒，才不会出现请求超时失败问题
-            XMSDK_1.default.getdataStr({
-                url: UrlConst_1.UrlConst.newBigWheel_checkIn,
-                onSuccess: function (res) {
-                    if (res.code === 0) {
-                        var data = res.data;
-                        _this.openPrizeWin(4, "手机碎片", { rewardPhoneFragments: data.rewardPhoneFragments });
-                        _this.updateWinData();
-                        TrackMgr_1.default.LuckDrawProductDialog({
-                            awad_dialog: "签到奖励弹窗",
-                            awad_double_dialog: "手机碎片奖励翻倍弹窗",
-                        });
-                        // XMSDK.track({
-                        //     eventName: SAConst.wheel.LuckDrawProductDialog,
-                        //     props: {
-                        //         awad_dialog: "签到奖励弹窗",
-                        //         awad_double_dialog: "手机碎片奖励翻倍弹窗",
-                        //     }
-                        // });
-                        TrackMgr_1.default.lotto_sign_chip({
-                            click_sign_button: 1,
-                            is_sign_suc: true,
-                            sign_day: _this.maiDianSignDay
-                        });
-                    }
-                    else {
-                        TrackMgr_1.default.lotto_sign_chip({
-                            click_sign_button: 1,
-                            is_sign_suc: false,
-                            sign_day: _this.maiDianSignDay
-                        });
-                        XMSDK_1.default.toast('网络请求错误，请重试', 1.5, 2);
-                    }
-                },
-                onFail: function (res) {
-                    AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // AdController.loadAd(AdPosition.WheelGetSign, () => {
+        //延迟10毫秒，才不会出现请求超时失败问题
+        XMSDK_1.default.getdataStr({
+            url: UrlConst_1.UrlConst.newBigWheel_checkIn,
+            onSuccess: function (res) {
+                if (res.code === 0) {
+                    var data = res.data;
+                    _this.openPrizeWin(4, "手机碎片", { rewardPhoneFragments: data.rewardPhoneFragments });
+                    _this.updateWinData();
+                    TrackMgr_1.default.LuckDrawProductDialog({
+                        awad_dialog: "签到奖励弹窗",
+                        awad_double_dialog: "手机碎片奖励翻倍弹窗",
+                    });
+                    // XMSDK.track({
+                    //     eventName: SAConst.wheel.LuckDrawProductDialog,
+                    //     props: {
+                    //         awad_dialog: "签到奖励弹窗",
+                    //         awad_double_dialog: "手机碎片奖励翻倍弹窗",
+                    //     }
+                    // });
+                    TrackMgr_1.default.lotto_sign_chip({
+                        click_sign_button: 1,
+                        is_sign_suc: true,
+                        sign_day: _this.maiDianSignDay
+                    });
                 }
-            });
-        }, function () {
-            AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+                else {
+                    TrackMgr_1.default.lotto_sign_chip({
+                        click_sign_button: 1,
+                        is_sign_suc: false,
+                        sign_day: _this.maiDianSignDay
+                    });
+                    XMSDK_1.default.toast('网络请求错误，请重试', 1.5, 2);
+                }
+            },
+            onFail: function (res) {
+                AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+            }
         });
+        // }, () => {
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // })
     };
     NewBigWheelController.prototype.openPrizeWin = function (type, maiDianStr, doubleData) {
         var _this = this;

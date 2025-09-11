@@ -5,12 +5,9 @@ cc._RF.push(module, '67573FQFuJC4rHah/hjaHuj', 'AssistCtr');
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AssistCtr = void 0;
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var PropConst_1 = require("../common/PropConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var AdUtil_1 = require("../server/xmsdk_cocos/AD/AdUtil");
-var util_1 = require("../util/util");
 exports.AssistCtr = {
     cloneObject: function (obj) {
         var cache = [];
@@ -181,13 +178,6 @@ exports.AssistCtr = {
         var random = Math.random();
         var isPlay = false;
         AdUtil_1.AdUtil.inserAdIsPlay["inserAd" + id] = true;
-        if (id == AdPosition_1.AdPosition.SignAwardInsert) {
-            if (id == AdPosition_1.AdPosition.SignAwardInsert && !util_1.default.userData.newUser) {
-                if (random <= 0.5) {
-                    isPlay = true;
-                }
-            }
-        }
         AdUtil_1.AdUtil.inserAdIsPlay["inserAd" + id] = isPlay;
         if (AdUtil_1.AdUtil.inserAdIsPlay["inserAd" + id] == true && isLoad) {
             AdUtil_1.AdUtil.loadAdVideo(id);
@@ -199,7 +189,6 @@ exports.AssistCtr = {
     loadAdInsertVideo: function (adPosition, suc) {
         if (suc === void 0) { suc = function () { }; }
         if (AdUtil_1.AdUtil.inserAdIsPlay["inserAd" + adPosition]) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.SignAwardInsert, suc);
         }
     },
     //特殊图鉴处理

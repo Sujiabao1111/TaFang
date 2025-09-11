@@ -63,13 +63,7 @@ export default class gameTaskReward extends baseTs {
             this.rewardLabel.string = "+" + this.coin + t("main.金币");
         }
         this.initData = data;
-        if (!util.adPreObj[AdPosition.TaskDayDoubleGet]) {
-            util.preloadAd(AdPosition.TaskDayDoubleGet);
-        }
-
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: (this.initData.typeTask == 0 ? "日常任务" : "成就任务") + `红包待领取弹窗`,
-        })
+  
 
 
         console.log(this.initData, 'this.initData')
@@ -93,7 +87,7 @@ export default class gameTaskReward extends baseTs {
             active_ad_hcdg: "激励视频"
         })
         if (this.initData && this.initData.taskTitle) {
-            AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
+            // AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
                 if (this.initData) {
                     util.getdataStr({
                         url: this.initData.url || (this.initData.typeTask == 0 ? UrlConst.task_day_commonGet : UrlConst.achievement_commonGet),
@@ -124,12 +118,12 @@ export default class gameTaskReward extends baseTs {
                         }
                     })
                 }
-                if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
-                    util.preloadAd(AdPosition.TaskDayDoubleGet);
-                }
-            }, () => {
-                AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
-            });
+                // if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
+                //     util.preloadAd(AdPosition.TaskDayDoubleGet);
+                // }
+            // }, () => {
+            //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+            // });
         } else {
             AssistCtr.showToastTip("领取失败");
             this.closeBtn();
@@ -158,20 +152,20 @@ export default class gameTaskReward extends baseTs {
     }
 
     onEnable() {
-        AdController.loadInfoAd(AdPosition.TaskRewardView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
+        // AdController.loadInfoAd(AdPosition.TaskRewardView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
 
-        if (util.adPreObj[AdPosition.TaskRewardView]) {
-            util.preloadAd(AdPosition.TaskRewardView, true);
-        }
+        // if (util.adPreObj[AdPosition.TaskRewardView]) {
+        //     util.preloadAd(AdPosition.TaskRewardView, true);
+        // }
     }
 
 
     onDisable() {
-        AdController.hideInfoAd(AdPosition.TaskRewardView);
-        //预加载金币信息流
-        if (!util.adPreObj[AdPosition.TaskRewardView] && util.getHeavenPool() > 0) {
-            util.preloadAd(AdPosition.TaskRewardView, true);
-        }
+        // AdController.hideInfoAd(AdPosition.TaskRewardView);
+        // //预加载金币信息流
+        // if (!util.adPreObj[AdPosition.TaskRewardView] && util.getHeavenPool() > 0) {
+        //     util.preloadAd(AdPosition.TaskRewardView, true);
+        // }
     }
 
     // update (dt) {}

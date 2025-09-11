@@ -24,8 +24,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -38,13 +36,8 @@ var gameDetention = /** @class */ (function (_super) {
         return _this;
     }
     gameDetention.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.InfoDetentionView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
-        TrackMgr_1.default.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "挽留弹窗"
-        });
     };
     gameDetention.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.InfoDetentionView);
     };
     gameDetention.prototype.start = function () {
     };

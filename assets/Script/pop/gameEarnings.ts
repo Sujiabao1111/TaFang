@@ -65,10 +65,7 @@ export default class gameEarnings extends baseTs {
         // }
         // this.getState(json);
 
-        /**加载双倍收益视频 */
-        // if (!util.adPreObj[AdPosition.Earning]) {
-        //     util.preloadAd(AdPosition.Earning);
-        // }
+      
     }
 
     start() {
@@ -221,7 +218,7 @@ export default class gameEarnings extends baseTs {
             return;
         }
 
-        AdController.loadAd(AdPosition.Earning, () => {
+        // AdController.loadAd(AdPosition.Earning, () => {
             // util.preloadAd(AdPosition.Earning);
             util.post({
                 url: UrlConst.activateEarn,
@@ -251,18 +248,16 @@ export default class gameEarnings extends baseTs {
                     AssistCtr.showToastTip("加速失败");
                 }
             })
-        }, () => {
-            AssistCtr.showToastTip("加载视频失败，请稍后！");
-        });
+        // }, () => {
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // });
     }
 
-    onEnable() {
-        AdController.loadInfoAd(AdPosition.EarningView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
+    onEnable() {//636:feedNode信息流容器节点的宽度
     }
 
 
     onDisable() {
-        AdController.hideInfoAd(AdPosition.EarningView);
     }
 
 

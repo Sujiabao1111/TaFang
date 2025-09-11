@@ -100,10 +100,6 @@ export default class heavenBox extends cc.Component {
         //超过12个就886
         if (this.existCoinNum >= 12) return;
 
-        //预加载金币信息流
-        if (!util.adPreObj[AdPosition.HeavenCoinView]) {
-            util.preloadAd(AdPosition.HeavenCoinView, true);
-        }
 
         let location: number = util.GetHeavenPlace();
         if (!location) {

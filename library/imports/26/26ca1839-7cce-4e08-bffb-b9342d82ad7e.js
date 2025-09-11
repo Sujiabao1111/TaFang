@@ -32,6 +32,7 @@ var monsterHp = /** @class */ (function (_super) {
         // LIFE-CYCLE CALLBACKS:
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.hp = null;
+        _this.coin = null;
         /**目标 */
         _this.targetNode = null;
         /**运动中 */
@@ -56,6 +57,10 @@ var monsterHp = /** @class */ (function (_super) {
         this.setHp(1);
         this.isRuning = true;
         this.initData = data;
+        if (data.isLast) {
+            console.log("当前小关的最后一只怪兽");
+        }
+        this.coin.active = data.isLast;
         this.monsetrName = util_1.default.userData.customs.big + "-" + util_1.default.userData.customs.small + "_Monster_" + this.initData.id;
         this.targetNode = util_1.default.MonsterMap.get(this.monsetrName);
         if (!this.targetNode) {
@@ -107,6 +112,9 @@ var monsterHp = /** @class */ (function (_super) {
     __decorate([
         property({ type: cc.ProgressBar, displayName: "血条" })
     ], monsterHp.prototype, "hp", void 0);
+    __decorate([
+        property({ type: cc.Node, displayName: "币" })
+    ], monsterHp.prototype, "coin", void 0);
     monsterHp = __decorate([
         ccclass
     ], monsterHp);

@@ -240,10 +240,6 @@ var turretFactiory = /** @class */ (function (_super) {
                 cc.tween(this.node).by(.1, { x: -50 }).by(.1, { x: 50 }).call(function () {
                     _this.node.zIndex = 0;
                 }).start();
-                //预加载解锁炮塔信息流
-                // if(!util.adPreObj[AdPosition.UnlcokTurretView]&&util.chekPoolHaveTwo()){
-                //     util.preloadAd(AdPosition.UnlcokTurretView,true);
-                // }
             }
             else { //交换
                 console.log("拖拽交换位置成功");

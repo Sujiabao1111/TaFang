@@ -185,13 +185,7 @@ export const AssistCtr = {
         let isPlay = false;
         AdUtil.inserAdIsPlay[`inserAd${id}`] = true;
 
-        if (id == AdPosition.SignAwardInsert) {
-            if (id == AdPosition.SignAwardInsert && !util.userData.newUser) {
-                if (random <= 0.5) {
-                    isPlay = true;
-                }
-            }
-        }
+     
         AdUtil.inserAdIsPlay[`inserAd${id}`] = isPlay;
 
         if (AdUtil.inserAdIsPlay[`inserAd${id}`] == true && isLoad) {
@@ -204,7 +198,6 @@ export const AssistCtr = {
     //加载插屏视频
     loadAdInsertVideo(adPosition: number, suc = () => { }) {
         if (AdUtil.inserAdIsPlay[`inserAd${adPosition}`]) {
-            AdController.loadAd(AdPosition.SignAwardInsert, suc);
         }
     },
 

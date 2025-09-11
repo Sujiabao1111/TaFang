@@ -40,18 +40,16 @@ var earnProgress = /** @class */ (function (_super) {
         _this.tasklabel1 = null; //任务标题
         _this.tasklabel2 = null; //任务标题
         _this.getTime = null; //可以领多少次
-        _this.hongbao = null; //红包\
+        _this.hongbao = null; //红包
         _this.hand = null; //手势
         _this.coin = 500; //默认500
         _this.initData = null;
         _this.isRuning = false; //是否在东
         _this.isHand = false; //是否在东
-        // private handArr:any[] = [{num:3000,isHand:false},{num:6000,isHand:false},{num:9000,isHand:false}];
         _this.nowGear = null; //默认进度3000
         _this.handNum = 3; //默认次数
         _this.userCoin = null;
         return _this;
-        // update (dt) {}
     }
     earnProgress.prototype.onLoad = function () {
         // cc.game.on(NameTs.Game_Task_Progress, ()=>{
@@ -73,7 +71,7 @@ var earnProgress = /** @class */ (function (_super) {
             _this.checkFill();
             if (_this.handNum > 0) {
                 _this.handNum -= 1;
-                _this.hand.active = true;
+                // this.hand.active = true;
                 util_1.default.setStorage(util_1.default.localDiary.earnProgress, _this.handNum);
             }
             else {
@@ -101,10 +99,6 @@ var earnProgress = /** @class */ (function (_super) {
             console.log("进度已满，重新请求");
             util_1.default.sendCoinData(function () {
                 _this.init();
-            });
-            TrackMgr_1.default.luckybag_task({
-                activity_state: "任务完成",
-                task_level: String(this.initData.nextGear),
             });
         }
     };
@@ -163,7 +157,6 @@ var earnProgress = /** @class */ (function (_super) {
         this.tasklabel1.string = this.userCoin + "";
         this.tasklabel2.string = "/" + this.initData.nextGear;
         this.taskProgress.progress = this.userCoin / this.initData.nextGear;
-        // if(this.hongbao)
         this.getTime.string = this.initData.canReceiveTimes;
         this.getTime.node.parent.active = this.initData.canReceiveTimes > 0;
         // if(this.initData.canReceiveTimes>0){
@@ -174,7 +167,7 @@ var earnProgress = /** @class */ (function (_super) {
         //     this.hongbao.playAnimation("shake",1);
         // }
         // this.checkHand();
-        this.hand.active = this.handNum > 0 && this.initData.canReceiveTimes > 0;
+        // this.hand.active = this.handNum > 0 && this.initData.canReceiveTimes > 0;
         if (this.initData.canReceiveTimes > 0) {
             this.hongbao.playAnimation("shake", 0);
         }
@@ -194,19 +187,6 @@ var earnProgress = /** @class */ (function (_super) {
         //         cc.tween().to(.3,{scale:1.2}).to(.3,{scale:1}).delay(.5)
         //     )
         // ).start();
-    };
-    /**检查手势 */
-    earnProgress.prototype.checkHand = function () {
-        // if(this.isHand)return;
-        // if(this.nowGear==6000||this.nowGear==9000||this.nowGear==12000){
-        //     if(this.initData.canReceiveTimes>0){
-        //         this.isHand = true;
-        //         this.hand.active = true;
-        //     }else{
-        //         this.isHand = false;
-        //         this.hand.active = false;
-        //     }
-        // }
     };
     __decorate([
         property(cc.ProgressBar)

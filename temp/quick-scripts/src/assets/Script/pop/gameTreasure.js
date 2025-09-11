@@ -25,11 +25,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var faceTs_1 = require("../common/faceTs");
 var NameTs_1 = require("../common/NameTs");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -90,10 +88,6 @@ var gameTreasure = /** @class */ (function (_super) {
                 _this.coinLabel.string = "+" + _this.coin + "红包币";
             }
         });
-        //预加载宝箱
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.TreasureBox]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.TreasureBox);
-        }
     };
     /**
      * 点击
@@ -160,40 +154,32 @@ var gameTreasure = /** @class */ (function (_super) {
     gameTreasure.prototype.getBtn = function () {
         var _this = this;
         soundController_1.default.singleton.clickAudio();
-        AdController_1.default.loadAd(AdPosition_1.AdPosition.TreasureBox, function () {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.TreasureBox);
-            // cc.game.emit(NameTs.Game_Treasure_StartTime);
-            util_1.default.getdataStr({
-                url: UrlConst_1.UrlConst.treasureBox_get2,
-                success: function (res) {
-                    if (!_this.isValid) {
-                        return;
-                    }
-                    if (res == null) {
-                        AssistCtr_1.AssistCtr.showToastTip("宝箱还未到时间");
-                        _this.closePage();
-                        return;
-                    }
-                    cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: _this.node, value: _this.coin, num: 10 });
-                    AssistCtr_1.AssistCtr.showToastTip("获得" + _this.coin + "红包币");
-                    util_1.default.addTermCoin(_this.coin);
-                    TrackMgr_1.default.airborne_treasure({
-                        activity_state: "点击「领金币」按钮",
-                        coin: _this.coin
-                    });
-                    cc.game.emit(NameTs_1.default.Game_Treasure_StartTime);
-                    _this.closePage();
+        util_1.default.getdataStr({
+            url: UrlConst_1.UrlConst.treasureBox_get2,
+            success: function (res) {
+                if (!_this.isValid) {
+                    return;
                 }
-            });
-        }, function () {
-            AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+                if (res == null) {
+                    AssistCtr_1.AssistCtr.showToastTip("宝箱还未到时间");
+                    _this.closePage();
+                    return;
+                }
+                cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: _this.node, value: _this.coin, num: 10 });
+                AssistCtr_1.AssistCtr.showToastTip("获得" + _this.coin + "红包币");
+                util_1.default.addTermCoin(_this.coin);
+                TrackMgr_1.default.airborne_treasure({
+                    activity_state: "点击「领金币」按钮",
+                    coin: _this.coin
+                });
+                cc.game.emit(NameTs_1.default.Game_Treasure_StartTime);
+                _this.closePage();
+            }
         });
     };
     gameTreasure.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.TreasureBoxView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
     };
     gameTreasure.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.TreasureBoxView);
     };
     gameTreasure.prototype.update = function (dt) {
         if (this.isStart) {

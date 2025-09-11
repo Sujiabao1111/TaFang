@@ -14,15 +14,10 @@ export default class gameDetention extends baseTs {
     feed_node: cc.Node = null;
 
     onEnable(){
-        AdController.loadInfoAd(AdPosition.InfoDetentionView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
-
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg:"挽留弹窗"
-        })
+       
     }
 
     onDisable(){
-        AdController.hideInfoAd(AdPosition.InfoDetentionView);
     }
 
 

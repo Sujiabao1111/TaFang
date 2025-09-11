@@ -87,8 +87,7 @@ var monsertBox = /** @class */ (function (_super) {
                         cc.game.emit(NameTs_1.default.Game_End, faceTs_1.gamePass.success);
                     }
                     else {
-                        // this.showPage(pageTs.pageName.GameStart);
-                        cc.game.emit(NameTs_1.default.Game_Start);
+                        cc.game.emit(NameTs_1.default.Game_End, faceTs_1.gamePass.smallSuccess);
                     }
                 }
             }
@@ -157,7 +156,8 @@ var monsertBox = /** @class */ (function (_super) {
         for (var i = 0; i < monsterArr.length; i++) {
             var monster = util_1.default.GetMonsterIdData(monsterArr[i]);
             zIndex--;
-            this.createMonster(monster, i, zIndex);
+            var isLast = (i == monsterArr.length - 1);
+            this.createMonster(monster, i, zIndex, isLast);
         }
         this.scheduleOnce(function () {
             _this.isCome = false;
@@ -169,10 +169,10 @@ var monsertBox = /** @class */ (function (_super) {
      * @param id 第几个
      * @param zIndex 层级
      */
-    monsertBox.prototype.createMonster = function (data, id, zIndex) {
+    monsertBox.prototype.createMonster = function (data, id, zIndex, isLast) {
         // this.pool.createEnemy(this.node,{data,walk:this.walkData.data,id});
         var item = cc.instantiate(this.monsertPre);
-        item.getComponent(item.name).init({ data: data, walk: this.walkData.data, id: id });
+        item.getComponent(item.name).init({ data: data, walk: this.walkData.data, id: id, isLast: isLast });
         item.setParent(this.node);
         item.zIndex = zIndex;
     };

@@ -1,4 +1,5 @@
 
+import { AssistCtr } from "../Assist/AssistCtr";
 import UserData from "../data/userData";
 import { t } from "../Language/LanguageData";
 import { Global } from "./Global";
@@ -2264,10 +2265,10 @@ export class ApiService {
    *
    * @param response 错误响应，可以是字符串或ErrorMsg对象
    */
-  // showError(response: ApiMsg) {
-  //   const msg = this.getErrorMessage(response?.response);
-  //   UIManager.ins.showToast(msg);
-  // }
+  showError(response: ApiMsg) {
+    const msg = this.getErrorMessage(response?.response);
+    AssistCtr.showToastTip(msg);
+  }
 
 
   /**

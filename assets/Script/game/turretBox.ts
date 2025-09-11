@@ -10,7 +10,7 @@ import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 import turret from "./turret/turret";
 
-//#region 炮台 炮台 炮台 炮台 炮台
+//#region 炮塔
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -105,11 +105,7 @@ export default class turretBox extends baseTs {
             });
         }
 
-        //预加载解锁炮塔信息流
-        // if(!util.adPreObj[AdPosition.UnlcokTurretView]&&util.chekPoolHaveTwo()){
-        //     util.preloadAd(AdPosition.UnlcokTurretView,true);
-        // }
-
+     
 
     }
 

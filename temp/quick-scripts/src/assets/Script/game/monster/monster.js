@@ -75,6 +75,8 @@ var monster = /** @class */ (function (_super) {
         this.monsterSpine.node.scale = 0;
         //默认变小
         this.id = data.id;
+        //是否最后一只
+        this.isLast = data.isLast;
         //设置血量
         this.monsterHp = Number(this.initData.hp);
         /**储存怪物的node */
@@ -111,7 +113,7 @@ var monster = /** @class */ (function (_super) {
         this.node.stopAllActions();
         this.monsterSpine.node.y = Number(this.monsterData.y);
         cc.tween(this.monsterSpine.node).delay(this.id).to(.3, { scale: Number(this.monsterData.scale) }).call(function () {
-            cc.game.emit(NameTs_1.default.Game_Monster_Hp_Creater, { id: _this.id });
+            cc.game.emit(NameTs_1.default.Game_Monster_Hp_Creater, { id: _this.id, isLast: _this.isLast });
             _this.walk();
             // this.shadowNode.active = true;
             cc.game.emit(NameTs_1.default.Game_Monster_Shadow_Creater, { id: _this.id });

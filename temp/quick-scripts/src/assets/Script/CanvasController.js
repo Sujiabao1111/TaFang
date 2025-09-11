@@ -54,6 +54,7 @@ var CanvasController = /** @class */ (function (_super) {
         // cc.dynamicAtlasManager.enabled = true;
         // cc.dynamicAtlasManager.showDebug(true);
         var _this = this;
+        Tools_1.Tools.updateResolution();
         // 设置语言
         var languageType = Tools_1.Tools.getStorage("LanguageType");
         var index = languageType == undefined || languageType == null ? 1 : languageType;

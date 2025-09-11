@@ -24,13 +24,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var pageTs_1 = require("../common/pageTs");
 var LanguageData_1 = require("../Language/LanguageData");
 var PageManage_1 = require("../PageManage");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -119,37 +117,37 @@ var taskItem = /** @class */ (function (_super) {
             mission_coin: coin
         });
         if (this.initData && this.initData.taskTitle) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.TaskDayDoubleGet, function () {
-                if (_this.initData) {
-                    util_1.default.getdataStr({
-                        url: url,
-                        data: data,
-                        success: function () {
-                            if (!_this.isValid) {
-                                return;
-                            }
-                            cc.game.emit(NameTs_1.default.Game_Task_updata);
-                            console.log(_this.typeTask, 'this.initData.typeTask');
-                            TrackMgr_1.default.finish_task({
-                                mission_name: _this.initData.taskTitle,
-                                mission_type: _this.typeTask == 0 ? "日常任务" : "成就任务",
-                                mission_coin: coin
-                            });
-                            PageManage_1.default.singleton.closePage(pageTs_1.default.pageName.GameTask);
-                            cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: _this.node, value: coin, num: 10 });
-                            AssistCtr_1.AssistCtr.showToastTip("完成" + (_this.typeTask == 0 ? "日常" : "成就") + "任务获得" + coin + "红包币");
-                        },
-                        fail: function () {
-                            AssistCtr_1.AssistCtr.showToastTip("领取失败");
+            // AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
+            if (this.initData) {
+                util_1.default.getdataStr({
+                    url: url,
+                    data: data,
+                    success: function () {
+                        if (!_this.isValid) {
+                            return;
                         }
-                    });
-                }
-                if (util_1.default.adPreObj[AdPosition_1.AdPosition.TaskDayDoubleGet]) {
-                    util_1.default.preloadAd(AdPosition_1.AdPosition.TaskDayDoubleGet);
-                }
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
-            });
+                        cc.game.emit(NameTs_1.default.Game_Task_updata);
+                        console.log(_this.typeTask, 'this.initData.typeTask');
+                        TrackMgr_1.default.finish_task({
+                            mission_name: _this.initData.taskTitle,
+                            mission_type: _this.typeTask == 0 ? "日常任务" : "成就任务",
+                            mission_coin: coin
+                        });
+                        PageManage_1.default.singleton.closePage(pageTs_1.default.pageName.GameTask);
+                        cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: _this.node, value: coin, num: 10 });
+                        AssistCtr_1.AssistCtr.showToastTip("完成" + (_this.typeTask == 0 ? "日常" : "成就") + "任务获得" + coin + "红包币");
+                    },
+                    fail: function () {
+                        AssistCtr_1.AssistCtr.showToastTip("领取失败");
+                    }
+                });
+            }
+            // if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
+            //     util.preloadAd(AdPosition.TaskDayDoubleGet);
+            // }
+            // }, () => {
+            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+            // });
         }
         else {
             AssistCtr_1.AssistCtr.showToastTip("领取失败");
@@ -172,14 +170,14 @@ var taskItem = /** @class */ (function (_super) {
         soundController_1.default.singleton.clickAudio();
         PageManage_1.default.singleton.closePage(pageTs_1.default.pageName.GameTask);
         var successFn = function (call) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.TaskDayDoubleGet, function () {
-                call && call();
-                // cc.game.emit(NameTs.Game_Task_updata);
-                if (util_1.default.adPreObj[AdPosition_1.AdPosition.TaskDayDoubleGet]) {
-                    util_1.default.preloadAd(AdPosition_1.AdPosition.TaskDayDoubleGet);
-                }
-            }, function () {
-            });
+            // AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
+            call && call();
+            // cc.game.emit(NameTs.Game_Task_updata);
+            //     if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
+            //         util.preloadAd(AdPosition.TaskDayDoubleGet);
+            //     }
+            // }, () => {
+            // });
         };
         if (this.isTurntable) {
             PageManage_1.default.singleton.showPage(pageTs_1.default.pageName.GameGoldWheel);

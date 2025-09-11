@@ -1189,7 +1189,7 @@
       "__id__": 27
     },
     "_enabled": true,
-    "key": "home.receive",
+    "key": "main.领取奖励",
     "Insert": "",
     "_id": ""
   },
@@ -1707,7 +1707,7 @@
       "__id__": 42
     },
     "_enabled": true,
-    "key": "home.放弃",
+    "key": "main.放弃",
     "Insert": "",
     "_id": ""
   },

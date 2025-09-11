@@ -29,12 +29,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
-var LanguageData_1 = require("../Language/LanguageData");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -56,28 +52,24 @@ var gameTurretRandomRed = /** @class */ (function (_super) {
         }, 3);
     };
     gameTurretRandomRed.prototype.onLoad = function () {
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.turretRandomRed]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.turretRandomRed);
-        }
     };
     gameTurretRandomRed.prototype.clickDoubleGet = function () {
-        var _this = this;
         TrackMgr_1.default.AppDialogClick_hcdg({
             dialog_name_hcdg: '合成炮塔奖励弹窗',
             ck_module: '领取奖励',
             active_ad_hcdg: "激励视频"
         });
-        AdController_1.default.loadAd(AdPosition_1.AdPosition.turretRandomRed, function (res) {
-            cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: _this.node, value: _this.prizeNum, num: 10 });
-            util_1.default.addTermCoin(_this.prizeNum);
-            _this.closePage();
-            if (util_1.default.adPreObj[AdPosition_1.AdPosition.turretRandomRed]) {
-                util_1.default.preloadAd(AdPosition_1.AdPosition.turretRandomRed);
-            }
-        }, function () {
-            _this.closePage();
-            AssistCtr_1.AssistCtr.showToastTip(LanguageData_1.t("tips.reward_obtain_failed"));
-        });
+        // AdController.loadAd(AdPosition.turretRandomRed, (res) => {
+        cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: this.node, value: this.prizeNum, num: 10 });
+        util_1.default.addTermCoin(this.prizeNum);
+        this.closePage();
+        // if(util.adPreObj[AdPosition.turretRandomRed]){
+        //     util.preloadAd(AdPosition.turretRandomRed);
+        // } 
+        // }, () => {
+        //     this.closePage();
+        //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+        // })
     };
     gameTurretRandomRed.prototype.clickClose = function () {
         this.closePage();
@@ -90,10 +82,10 @@ var gameTurretRandomRed = /** @class */ (function (_super) {
         TrackMgr_1.default.AppBuyProductDialog_hcdg({
             dialog_name_hcdg: "合成炮塔奖励弹窗"
         });
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.turretRandomRedView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
+        // AdController.loadInfoAd(AdPosition.turretRandomRedView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
     };
     gameTurretRandomRed.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.turretRandomRedView);
+        // AdController.hideInfoAd(AdPosition.turretRandomRedView);        
     };
     __decorate([
         property(cc.RichText)

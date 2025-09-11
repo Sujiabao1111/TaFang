@@ -23,10 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AssistCtr_1 = require("../Assist/AssistCtr");
-var AdPosition_1 = require("../common/AdPosition");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
@@ -68,14 +65,14 @@ var NewBigTaskItem = /** @class */ (function (_super) {
             return;
         }
         this.controllerJs.moveChouPos();
-        AdController_1.default.loadAd(AdPosition_1.AdPosition.WheelGetRestTimes, function () {
-            //广告观看完毕，关闭后
-            setTimeout(function () {
-                cc.director.emit("NewBigWheelPrize_againChou", { isNewBigTaskItem: true });
-            }, 10);
-        }, function () {
-            AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
-        });
+        // AdController.loadAd(AdPosition.WheelGetRestTimes, () => {
+        //广告观看完毕，关闭后
+        setTimeout(function () {
+            cc.director.emit("NewBigWheelPrize_againChou", { isNewBigTaskItem: true });
+        }, 10);
+        // }, () => {
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // })
     };
     NewBigTaskItem.prototype.setTaskItem = function (taskItemData) {
         var self = this;

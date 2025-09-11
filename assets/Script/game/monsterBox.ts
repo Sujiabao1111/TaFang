@@ -79,8 +79,7 @@ export default class monsertBox extends baseTs {
                     if (util.saveCustomLevel()) {
                         cc.game.emit(NameTs.Game_End, gamePass.success);
                     } else {
-                        // this.showPage(pageTs.pageName.GameStart);
-                        cc.game.emit(NameTs.Game_Start);
+                        cc.game.emit(NameTs.Game_End, gamePass.smallSuccess);
                     }
                 }
             }
@@ -149,7 +148,6 @@ export default class monsertBox extends baseTs {
         //     }
         // }
         //数组打乱
-
         // monsterArr = [100101,100102,100103,100104,100105,100106,100107,100108,100109,100110,100111,100112,100113,100114,100115,100116]
         // monsterArr = [100102]
 
@@ -160,10 +158,12 @@ export default class monsertBox extends baseTs {
         util.levelMonsterNum = monsterArr.length;
         util.levelState = gameState.start;
         let zIndex: number = monsterArr.length;
+
         for (let i = 0; i < monsterArr.length; i++) {
             let monster: monsterInfo = util.GetMonsterIdData(monsterArr[i]);
             zIndex--;
-            this.createMonster(monster, i, zIndex);
+            let isLast: boolean = (i == monsterArr.length - 1);
+            this.createMonster(monster, i, zIndex, isLast);
         }
 
         this.scheduleOnce(() => {
@@ -177,10 +177,10 @@ export default class monsertBox extends baseTs {
      * @param id 第几个
      * @param zIndex 层级
      */
-    createMonster(data: monsterInfo, id: number, zIndex: number) {
+    createMonster(data: monsterInfo, id: number, zIndex: number, isLast: boolean) {
         // this.pool.createEnemy(this.node,{data,walk:this.walkData.data,id});
         let item: cc.Node = cc.instantiate(this.monsertPre);
-        item.getComponent(item.name).init({ data, walk: this.walkData.data, id });
+        item.getComponent(item.name).init({ data, walk: this.walkData.data, id, isLast });
         item.setParent(this.node);
         item.zIndex = zIndex;
     }

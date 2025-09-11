@@ -24,9 +24,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -78,10 +76,8 @@ var gameEnd = /** @class */ (function (_super) {
         cc.game.emit(NameTs_1.default.Game_Again);
     };
     gameEnd.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.GameFailView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
     };
     gameEnd.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.GameFailView);
     };
     __decorate([
         property({ type: cc.Label, displayName: "关卡" })

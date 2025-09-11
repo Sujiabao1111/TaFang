@@ -25,10 +25,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
 var util_1 = require("../util/util");
@@ -51,15 +49,6 @@ var gameRandomRedPrize = /** @class */ (function (_super) {
         cc.tween(this.multipleNode).repeatForever(cc.tween().to(.3, { angle: 10 }).to(.2, { angle: 0 })).start();
         this.coinItem = util_1.default.GlobalMap.get("RandomRed") || this.node;
         console.log(this.coinItem.x, this.coinItem.y, 'asfasfasf12412=================');
-    };
-    gameRandomRedPrize.prototype.onEnable = function () {
-        TrackMgr_1.default.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "福利红包弹窗展示"
-        });
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.randomRedPrizeView, 636, this.feed_node1); //636:feedNode信息流容器节点的宽度
-    };
-    gameRandomRedPrize.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.randomRedPrizeView);
     };
     gameRandomRedPrize.prototype.init = function (data) {
         var _this = this;
@@ -126,45 +115,45 @@ var gameRandomRedPrize = /** @class */ (function (_super) {
             ck_module: '领取600红包币',
             active_ad_hcdg: "激励视频"
         });
-        AdController_1.default.loadAd(AdPosition_1.AdPosition.randomRedPrize, function (res) {
-            // TrackMgr.AppBuyProductDialog_hcdg({
-            //     dialog_name_hcdg: "福利红包翻倍成功弹窗展示"
-            // })
-            TrackMgr_1.default.welfare_red_envelope({
-                activity_state: "领取成功",
-                collection_completed: "视频领取成功"
-            });
-            XMSDK_1.default.getdataStr({
-                url: UrlConst_1.UrlConst.btnRandomRedGet,
-                onSuccess: function (res) {
-                    if (res.code === 0) {
-                        if (!_this.isValid) {
-                            return;
-                        }
-                        console.log("翻倍领取！");
-                        cc.game.emit(NameTs_1.default.randomRedUpdate);
-                        cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: _this.coinItem, value: _this.redAmountNum * _this.power, num: 10 });
-                        util_1.default.addTermCoin(_this.redAmountNum * _this.power);
-                        AssistCtr_1.AssistCtr.showToastTip("获得" + (_this.redAmountNum * _this.power) + "红包币");
-                        _this.closePage();
+        // AdController.loadAd(AdPosition.randomRedPrize, (res) => {
+        // TrackMgr.AppBuyProductDialog_hcdg({
+        //     dialog_name_hcdg: "福利红包翻倍成功弹窗展示"
+        // })
+        TrackMgr_1.default.welfare_red_envelope({
+            activity_state: "领取成功",
+            collection_completed: "视频领取成功"
+        });
+        XMSDK_1.default.getdataStr({
+            url: UrlConst_1.UrlConst.btnRandomRedGet,
+            onSuccess: function (res) {
+                if (res.code === 0) {
+                    if (!_this.isValid) {
+                        return;
                     }
-                    else {
-                        XMSDK_1.default.toast(res.message || '网络出错~', 2.5, 1);
-                        cc.game.emit(NameTs_1.default.randomRedUpdate);
-                        _this.closePage();
-                    }
-                },
-                onFail: function (res) {
-                    AssistCtr_1.AssistCtr.showToastTip("网络出错~");
+                    console.log("翻倍领取！");
+                    cc.game.emit(NameTs_1.default.randomRedUpdate);
+                    cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: _this.coinItem, value: _this.redAmountNum * _this.power, num: 10 });
+                    util_1.default.addTermCoin(_this.redAmountNum * _this.power);
+                    AssistCtr_1.AssistCtr.showToastTip("获得" + (_this.redAmountNum * _this.power) + "红包币");
+                    _this.closePage();
+                }
+                else {
+                    XMSDK_1.default.toast(res.message || '网络出错~', 2.5, 1);
                     cc.game.emit(NameTs_1.default.randomRedUpdate);
                     _this.closePage();
                 }
-            });
-        }, function () {
-            cc.game.emit(NameTs_1.default.randomRedUpdate);
-            _this.closePage();
-            AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
+            },
+            onFail: function (res) {
+                AssistCtr_1.AssistCtr.showToastTip("网络出错~");
+                cc.game.emit(NameTs_1.default.randomRedUpdate);
+                _this.closePage();
+            }
         });
+        // }, () => {
+        //     cc.game.emit(NameTs.randomRedUpdate);
+        //     this.closePage();
+        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
+        // })
     };
     gameRandomRedPrize.prototype.clickDoubleGet2 = function () {
         var _this = this;

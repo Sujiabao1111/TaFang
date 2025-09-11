@@ -71,7 +71,7 @@ export default class gamePassReward extends baseTs {
                 this.loadAny("texture/prop/prop" + data.type, cc.SpriteFrame, (res) => {
                     this.pic.spriteFrame = res;
                 });
-                this.xinxiliui = AdPosition.UnlcokPropView;
+                // this.xinxiliui = AdPosition.UnlcokPropView;
 
                 TrackMgr.AppBuyProductDialog_hcdg({
                     dialog_name_hcdg: "恭喜获得新道具"
@@ -85,13 +85,13 @@ export default class gamePassReward extends baseTs {
                 text = "";
                 titleNum = 1;
                 this.pic.spriteFrame = this.picSpriteFrame[1];
-                this.xinxiliui = AdPosition.UnlcokPlaceView;
+                // this.xinxiliui = AdPosition.UnlcokPlaceView;
                 break;
             case 2:
                 titleNum = 0;
                 text = "+" + this.initData.rewardValue + "红包币";
                 this.pic.spriteFrame = this.picSpriteFrame[0];
-                this.xinxiliui = AdPosition.GamePassCoinView;
+                // this.xinxiliui = AdPosition.GamePassCoinView;
                 break;
         }
         console.log(this.xinxiliui, 'this.xinxiliui')

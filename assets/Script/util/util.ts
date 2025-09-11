@@ -676,7 +676,6 @@ class util {
     GetMonsterIdData(id: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.monsterIdData);
         return Tools.GetArrData("id", id, data);
-
     }
 
     /**

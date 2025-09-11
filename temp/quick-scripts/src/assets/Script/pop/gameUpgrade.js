@@ -23,13 +23,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var NameTs_1 = require("../common/NameTs");
 var pageTs_1 = require("../common/pageTs");
-var LanguageData_1 = require("../Language/LanguageData");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
@@ -49,7 +45,6 @@ var gameUpgrade = /** @class */ (function (_super) {
         _this.arrBtn = [];
         // @property({type:cc.Node,displayName:"倍数"})
         // private multipleNode:cc.Node = null;
-        _this.feed_node = null;
         _this.multipleNode = null;
         _this.lable_addGold2 = null;
         /**金币 */
@@ -116,9 +111,9 @@ var gameUpgrade = /** @class */ (function (_super) {
         XMSDK_1.default.trackUserProperties({
             top_synthesis: util_1.default.userData.compoundTimes,
         });
-        if (!util_1.default.adPreObj[AdPosition_1.AdPosition.UnlcokTurret]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.UnlcokTurret);
-        }
+        // if (!util.adPreObj[AdPosition.UnlcokTurret]) {
+        //     util.preloadAd(AdPosition.UnlcokTurret);
+        // }
         this.arrBtn[0].active = util_1.default.userData.noviceGuide == 2;
         this.arrBtn[1].active = this.arrBtn[2].active = util_1.default.userData.noviceGuide !== 2;
     };
@@ -143,28 +138,14 @@ var gameUpgrade = /** @class */ (function (_super) {
             cc.game.emit(NameTs_1.default.Game_Effect_turret, { node: _this.node, num: num });
             util_1.default.productTurret(num);
             _this.closePage();
-            // this.showPage(pageTs.pageName.GameGetTurret,{num,name:pageTs.pageName.GameUpgrade}); 
-            if (res == 1) {
-                TrackMgr_1.default.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "解锁新炮塔",
-                    ck_module: "多倍领取",
-                    active_ad_hcdg: "激励视频"
-                });
-            }
-            else {
-                TrackMgr_1.default.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "解锁新炮塔",
-                    ck_module: "普通领取",
-                });
-            }
         };
         if (res == 1) {
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.UnlcokTurret, function () {
-                util_1.default.preloadAd(AdPosition_1.AdPosition.UnlcokTurret);
-                successFn();
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip(LanguageData_1.t("tips.reward_obtain_failed"));
-            });
+            // AdController.loadAd(AdPosition.UnlcokTurret, () => {
+            //     util.preloadAd(AdPosition.UnlcokTurret);
+            successFn();
+            // }, () => {
+            //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+            // });
         }
         else {
             successFn();
@@ -182,13 +163,13 @@ var gameUpgrade = /** @class */ (function (_super) {
         });
     };
     gameUpgrade.prototype.onEnable = function () {
-        AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.UnlcokTurretView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度
+        // AdController.loadInfoAd(AdPosition.UnlcokTurretView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
         // if(util.adPreObj[AdPosition.UnlcokTurretView]){
         //     util.preloadAd(AdPosition.UnlcokTurretView,true);
         // }
     };
     gameUpgrade.prototype.onDisable = function () {
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.UnlcokTurretView);
+        // AdController.hideInfoAd(AdPosition.UnlcokTurretView);
     };
     __decorate([
         property({ type: cc.Label, displayName: "炮塔数量" })
@@ -208,9 +189,6 @@ var gameUpgrade = /** @class */ (function (_super) {
     __decorate([
         property({ type: [cc.Node], displayName: "按钮" })
     ], gameUpgrade.prototype, "arrBtn", void 0);
-    __decorate([
-        property({ type: cc.Node, displayName: "信息流" })
-    ], gameUpgrade.prototype, "feed_node", void 0);
     __decorate([
         property({ type: cc.Node, displayName: "倍数" })
     ], gameUpgrade.prototype, "multipleNode", void 0);

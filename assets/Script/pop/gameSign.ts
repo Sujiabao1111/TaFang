@@ -73,19 +73,19 @@ export default class gameSign extends baseTs {
 
         this.isInsert = Math.random() > .5;
 
-        if (this.isInsert) {
-            if (!util.adPreObj[AdPosition.SignAwardInsert]) {
-                util.preloadAd(AdPosition.SignAwardInsert);
-            }
-        }
-        if (!util.adPreObj[AdPosition.VideoSignDouble]) {
-            util.preloadAd(AdPosition.VideoSignDouble);
-        }
+        // if (this.isInsert) {
+        //     if (!util.adPreObj[AdPosition.SignAwardInsert]) {
+        //         util.preloadAd(AdPosition.SignAwardInsert);
+        //     }
+        // }
+        // if (!util.adPreObj[AdPosition.VideoSignDouble]) {
+        //     util.preloadAd(AdPosition.VideoSignDouble);
+        // }
 
 
-        if (!util.adPreObj[AdPosition.InfoSignRewardView]) {
-            util.preloadAd(AdPosition.InfoSignRewardView, true);
-        }
+        // if (!util.adPreObj[AdPosition.InfoSignRewardView]) {
+        //     util.preloadAd(AdPosition.InfoSignRewardView, true);
+        // }
 
     }
 
@@ -334,10 +334,10 @@ export default class gameSign extends baseTs {
         }
 
         if (this.isInsert) {
-            AdController.loadAd(AdPosition.SignAwardInsert, () => { console.log("关闭签到奖励插屏广告播放完成") });
-            if (util.adPreObj[AdPosition.SignAwardInsert]) {
-                util.preloadAd(AdPosition.SignAwardInsert);
-            }
+            // AdController.loadAd(AdPosition.SignAwardInsert, () => { console.log("关闭签到奖励插屏广告播放完成") });
+            // if (util.adPreObj[AdPosition.SignAwardInsert]) {
+            //     util.preloadAd(AdPosition.SignAwardInsert);
+            // }
         }
 
     }

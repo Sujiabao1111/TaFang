@@ -290,6 +290,84 @@ var Tools = /** @class */ (function () {
         return temp;
     };
     ;
+    /**
+    * 截断字符串函数
+    *
+    * @param str 要截断的字符串
+    * @returns 截断后的字符串，格式为"前5个字符...最后2个字符"
+    */
+    Tools.truncateString = function (str) {
+        return str.slice(0, 5) + "..." + str.slice(-2);
+    };
+    /**
+   * 将文本复制到剪贴板
+   *
+   * @param textToCopy 要复制到剪贴板的文本
+   */
+    Tools.copyToClipboard = function (textToCopy) {
+        if (textToCopy == undefined || textToCopy == '') {
+            return false;
+        }
+        // 创建一个临时的textarea元素，将文本放入其中
+        var textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+        document.body.appendChild(textarea);
+        // 选中文本
+        textarea.select();
+        textarea.setSelectionRange(0, textarea.value.length);
+        try {
+            // 尝试执行复制操作
+            document.execCommand('copy');
+            console.log('Text copied to clipboard:', textToCopy);
+        }
+        catch (err) {
+            console.error('Unable to copy text to clipboard');
+            return false;
+        }
+        // 移除临时元素
+        document.body.removeChild(textarea);
+        return true;
+    };
+    /**
+   * 将数字转换为字符串，并根据指定条件格式化数字。
+   *
+   * @param num 需要转换的数字。
+   * @param minFixed 当小数字于10000时，如果小数部分不足此值，则按此值补足小数部分。默认为0。
+   * @param fixed 小数点后的固定位数。默认为7。
+   * @returns 格式化后的数字字符串。
+   */
+    Tools.getNumStr = function (num, minFixed, fixed) {
+        if (minFixed === void 0) { minFixed = 0; }
+        if (fixed === void 0) { fixed = 7; }
+        if (num == undefined || isNaN(num)) {
+            return '';
+        }
+        if (num < 10000) {
+            // if (minFixed > 0) {
+            // 	const str = num.toString();
+            // 	const [intPart, decPart = ''] = str.split('.');
+            // 	if (decPart.length >= minFixed) {
+            // 		return +num.toFixed(fixed) + ''; // 已有足够小数位，直接返回
+            // 	}
+            // 	num.toFixed(minFixed);
+            // }
+            return +num.toFixed(fixed) + '';
+        }
+        return (num / 1000).toFixed(2) + 'k';
+    };
+    /** 适配 */
+    Tools.updateResolution = function () {
+        var canvas = cc.find('Canvas').getComponent(cc.Canvas);
+        var a = canvas.designResolution.width / canvas.designResolution.height;
+        var b = cc.winSize.width / cc.winSize.height;
+        canvas.fitHeight = a < b;
+        canvas.fitWidth = a >= b;
+        // cc.log(a < b, a >= b)
+        cc.view.setResizeCallback(function () {
+            // cc.log(canvas.designResolution, cc.winSize, canvas)
+            // cc.log(cc.view.getDesignResolutionSize(), cc.view.getVisibleSize())
+        });
+    };
     Tools.storageKey = "_v1.0.0";
     return Tools;
 }());

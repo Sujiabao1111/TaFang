@@ -124,8 +124,9 @@ export const languages: languagesData = {
         '合成奖励': 'Synthesis Reward',
         '快速提现': 'Fast Withdrawal',
         '提现金额': 'Withdrawal Amount',
-        '炮台': 'Turret',
-        '解锁新炮台': 'Unlock New Turret',
+        '炮塔': 'Turret',
+        '解锁新炮塔': 'Unlock New Turret',
+        '获得炮塔': 'Get Turret',
         '等级': 'Level',
         '攻击力': 'Attack Power',
         '领取奖励': 'Claim reward',
@@ -147,11 +148,14 @@ export const languages: languagesData = {
         '立即签到': 'Sign In Now',
         '在线奖励': 'Online Reward',
         '已领取': 'Already Received',
-        '恭喜过关': 'Congratulations',
+        '恭喜过关': 'Congratulations on passing',
         '钱包': 'Wallet',
         '任务': 'Task',
         '抽奖': 'Lottery',
         '签到': 'CheckIn',
+        '自动合成': 'Auto Synthesis',
+        '翻倍': 'Double',
+        '任务完成': 'Task completed',
 
 
 

@@ -24,14 +24,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SignDayRedpack = void 0;
-var AssistCtr_1 = require("../Assist/AssistCtr");
 var baseTs_1 = require("../base/baseTs");
-var AdPosition_1 = require("../common/AdPosition");
 var faceTs_1 = require("../common/faceTs");
 var NameTs_1 = require("../common/NameTs");
 var LanguageData_1 = require("../Language/LanguageData");
 var UrlConst_1 = require("../server/UrlConst");
-var AdController_1 = require("../server/xmsdk_cocos/AD/AdController");
 var XMSDK_1 = require("../server/xmsdk_cocos/XMSDK");
 var soundController_1 = require("../soundController");
 var TrackMgr_1 = require("../TrackMgr/TrackMgr");
@@ -73,25 +70,16 @@ var PannelReward = /** @class */ (function (_super) {
         return _this;
     }
     PannelReward.prototype.onEnable = function () {
-        var _this = this;
         // UIFunc.openUI(ActivityPannelName.PannelTempNode, (node, script) => {
         //     this.tempNode = node;
         // })        
-        AssistCtr_1.AssistCtr.checkIsOpenInserAd(AdPosition_1.AdPosition.SignAwardInsert);
+        var _this = this;
         this.scheduleOnce(function () {
             _this.closeBtnNode.active = true;
         }, faceTs_1.gameNumerical.closeTime);
         cc.tween(this.multipleNode).repeatForever(cc.tween().to(.3, { angle: 10 }).to(.2, { angle: 0 })).start();
     };
     PannelReward.prototype.onDisable = function () {
-        // if (this.tempNode) {
-        //     UIFunc.closeUI(ActivityPannelName.PannelTempNode);
-        //     this.tempNode = null;
-        // }
-        AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.InfoSignRewardView);
-        if (util_1.default.adPreObj[AdPosition_1.AdPosition.InfoSignRewardView]) {
-            util_1.default.preloadAd(AdPosition_1.AdPosition.InfoSignRewardView, true);
-        }
         if (this.data && this.data["callBack"]) {
             this.data["callBack"]();
         }
@@ -107,19 +95,10 @@ var PannelReward = /** @class */ (function (_super) {
         if (gaintype == 1) {
             this.viewport.active = true;
             this.passView.active = false;
-            AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.InfoSignRewardView, 636, this.feed_node); //636:feedNode信息流容器节点的宽度            
         }
         else {
             this.viewport.active = false;
             this.passView.active = true;
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.VideoSignDouble, function (res) {
-                AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.InfoSignRewardView, 636, _this.feed_node); //636:feedNode信息流容器节点的宽度  
-                if (util_1.default.adPreObj[AdPosition_1.AdPosition.VideoSignDouble]) {
-                    util_1.default.preloadAd(AdPosition_1.AdPosition.VideoSignDouble);
-                }
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip("加载视频失败，请稍后！");
-            });
             setTimeout(function () {
                 _this.viewport && (_this.viewport.active = true);
                 _this.passView && (_this.passView.active = false);
@@ -195,7 +174,6 @@ var PannelReward = /** @class */ (function (_super) {
                 //     this.finishAnimation();
                 // });
             }
-            AssistCtr_1.AssistCtr.loadAdInsertVideo(AdPosition_1.AdPosition.SignAwardInsert, function () { console.log("签到奖励插屏广告播放完成"); });
         };
         this.viewport.runAction(cc.sequence(cc.fadeOut(0.3), cc.callFunc(callback)));
     };
@@ -216,7 +194,6 @@ var PannelReward = /** @class */ (function (_super) {
                 onSuccess: function (res) {
                     if (res.code === 0) {
                         _this.closePage();
-                        AssistCtr_1.AssistCtr.loadAdInsertVideo(AdPosition_1.AdPosition.SignAwardInsert, function () { console.log("签到奖励插屏广告播放完成"); });
                         cc.game.emit(NameTs_1.default.Game_Effect_coin, { node: _this.doubleGoldNode, value: coin, num: 10 });
                     }
                     else {
@@ -231,29 +208,22 @@ var PannelReward = /** @class */ (function (_super) {
                 }
             });
             _this.closePage();
-            //AssistCtr.loadAdInsertVideo(AdPosition.SignAwardInsert, ()=>{console.log("签到奖励插屏广告播放完成")});
-            //cc.game.emit(NameTs.Game_Effect_coin, { node: this.doubleGoldNode, value: coin ,num:10});
         };
         if (num == 1 && this.gaintype == 1 && !this.isChange) {
             this.viewport && (this.viewport.active = false);
             this.passView && (this.passView.active = true);
             this.lable_prize.string = "+" + coin + LanguageData_1.t('main.红包');
-            AdController_1.default.loadAd(AdPosition_1.AdPosition.VideoSignDouble, function (res) {
-                // successFn();
-                if (util_1.default.adPreObj[AdPosition_1.AdPosition.VideoSignDouble]) {
-                    util_1.default.preloadAd(AdPosition_1.AdPosition.VideoSignDouble);
-                }
-                console.log("看视频");
-                _this.doubleBtnNode && (_this.doubleBtnNode.active = false);
-                _this.getBtnNode && (_this.getBtnNode.active = true);
-                _this.lable_redAddNum.string = "+" + coin + LanguageData_1.t('main.红包');
-                // this.gaintype = 2;
-                _this.isChange = true;
-                AdController_1.default.loadInfoAd(AdPosition_1.AdPosition.InfoSignRewardView, 636, _this.feed_node); //636:feedNode信息流容器节点的宽度  
-            }, function () {
-                AssistCtr_1.AssistCtr.showToastTip(LanguageData_1.t("tips.reward_obtain_failed"));
-            });
-            AdController_1.default.hideInfoAd(AdPosition_1.AdPosition.InfoSignRewardView);
+            // AdController.loadAd(AdPosition.VideoSignDouble, (res) => {
+            // successFn();
+            console.log("看视频");
+            this.doubleBtnNode && (this.doubleBtnNode.active = false);
+            this.getBtnNode && (this.getBtnNode.active = true);
+            this.lable_redAddNum.string = "+" + coin + LanguageData_1.t('main.红包');
+            // this.gaintype = 2;
+            this.isChange = true; //636:feedNode信息流容器节点的宽度  
+            // }, () => {
+            //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
+            // });
             setTimeout(function () {
                 _this.viewport && (_this.viewport.active = true);
                 _this.passView && (_this.passView.active = false);
