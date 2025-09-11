@@ -1,1 +1,0 @@
-window.frontjsConfig={token:"e47e52dd3205949c5e14",behaviour:15,captureConsoleLog:!1,FPSThreshold:10};

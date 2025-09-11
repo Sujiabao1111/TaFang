@@ -1,9 +1,0 @@
-{
-  "__type__": "cc.ParticleAsset",
-  "_name": "boxcoin",
-  "_objFlags": 0,
-  "_native": ".plist",
-  "spriteFrame": {
-    "__uuid__": "a26f8f54-265a-41e1-8e74-d244e960ded4"
-  }
-}
