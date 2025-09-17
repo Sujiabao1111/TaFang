@@ -3,8 +3,6 @@ import NameTs from "../common/NameTs"
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import { UrlConst } from "../server/UrlConst";
 import util from "../util/util";
-import AdController from "../server/xmsdk_cocos/AD/AdController";
-import { AdPosition } from "../common/AdPosition";
 import { updateType } from "../common/faceTs";
 import baseTs from "../base/baseTs";
 import gameGoldWheelReward from "./gameGoldWheelReward"
@@ -13,16 +11,36 @@ import TrackMgr from "../TrackMgr/TrackMgr";
 import pageTs from "../common/pageTs";
 import RedController from "../controlelr/RedController";
 import { AssistCtr } from "../Assist/AssistCtr";
+import { t } from "../Language/LanguageData";
 
 
 //#region 抽奖 转盘
 const { ccclass, property } = cc._decorator;
-const default_data = { "code": 0, "message": "success", "data": { "times": 20, "state": 2, "rewardList": [{ "id": "101", "value": 1000, "type": 2 }, { "id": "105", "value": 5, "type": 1 }, { "id": "102", "value": 500, "type": 2 }, { "id": "106", "value": 10, "type": 1 }, { "id": "103", "value": 300, "type": 2 }, { "id": "107", "value": 15, "type": 1 }, { "id": "104", "value": 100, "type": 2 }, { "id": "108", "value": 20, "type": 1 }] } }
+
+//默认数据
+const default_data = {
+    "code": 0,
+    "message": "success",
+    "data": {
+        "times": 10,
+        "state": 1,
+        "rewardList": [
+            { "id": "101", "value": 1000, "type": 2 },
+            { "id": "105", "value": 5, "type": 1 },
+            { "id": "102", "value": 500, "type": 2 },
+            { "id": "106", "value": 10, "type": 1 },
+            { "id": "103", "value": 300, "type": 2 },
+            { "id": "107", "value": 15, "type": 1 },
+            { "id": "104", "value": 100, "type": 2 },
+            { "id": "108", "value": 20, "type": 1 }
+        ],
+
+    }
+}
+
 @ccclass
 export default class gameGoldWheel extends baseTs {
 
-    @property(cc.Widget)
-    private walletBtnWidget: cc.Widget = null; //提现按钮
 
     @property(cc.Label)
     private coinLabel: cc.Label = null; //金币
@@ -39,8 +57,6 @@ export default class gameGoldWheel extends baseTs {
     @property(cc.Node)
     private wheel_reward: cc.Node = null;
 
-    @property(cc.Node)
-    private btn_clickGet: cc.Node = null;
 
     @property(cc.Node)
     private btn_clickVideoGet: cc.Node = null;
@@ -50,15 +66,8 @@ export default class gameGoldWheel extends baseTs {
 
     @property(cc.Node)
     private btnCloseNode: cc.Node = null;
+    ;
 
-    @property(cc.Label)
-    private lable_remainNum: cc.Label = null;
-
-    @property(cc.SpriteFrame)
-    private img_gold: cc.SpriteFrame = null;
-
-    @property(cc.SpriteFrame)
-    private img_red: cc.SpriteFrame = null;
 
     @property(cc.Node)
     private gameGoldWheelReward: cc.Node = null;
@@ -66,8 +75,6 @@ export default class gameGoldWheel extends baseTs {
     @property(cc.Node)
     private timeNode1: cc.Node = null; //剩余次数
 
-    @property(cc.Node)
-    private timeNode2: cc.Node = null; //完了几次
 
     private wheelState;//转盘当前阶段
     private curSpeed;  //当前速度
@@ -92,37 +99,28 @@ export default class gameGoldWheel extends baseTs {
     private prizeData: any;
     private playerCurGold: any;
     private showImgGold: any;
-    // LIFE-CYCLE CALLBACKS:
 
-    //进度
-    private data = [
-        {
-            value: 3, //次数
-            num: 1000, //奖励
-            status: 0, //0未领 //1可领 2//已领
-        },
-        {
-            value: 6,
-            num: 6000,
-            status: 0, //0未领 //1可领 2//已领
-        },
-        {
-            value: 10,
-            num: 10000,
-            status: 0, //0未领 //1可领 2//已领
-        },
-    ]
+
+
+
+
+
+    // 奖励进度
+    private userTurntableStageReward = {
+        current: 8,
+        rewardDetailDtoList: [
+            { status: 0, node: 3, reward: 1000 },
+            { status: 0, node: 6, reward: 2000 },
+            { status: 0, node: 10, reward: 5000 }]
+    }
+
 
     //用户进度
-    private turntableProgress: any = null;
+    private turntableProgress: any = default_data.data;
 
     onLoad() {
         this.wheelItems = {}
-        // this.TempNodeController = Global.TempNode.getComponent('TempNodeController')
-        // this.TempNodeController.showNode();
-
         this.isCanClickWheel = true;
-
 
         //数据更新
         cc.game.on(NameTs.Game_View_UserDataUpdata, (res) => {
@@ -133,12 +131,6 @@ export default class gameGoldWheel extends baseTs {
         }, this);
 
         cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.coin);
-
-        // this.walletBtnWidget.top += Number(util.iphoneXTop);
-
-    }
-
-    start() {
 
     }
 
@@ -169,7 +161,7 @@ export default class gameGoldWheel extends baseTs {
             }
         }
 
-        self.updateData2(default_data.data)//策划强烈要求要默认数据，不能有数据切换效果
+        self.updateData2(default_data.data) // 策划强烈要求要默认数据，不能有数据切换效果
 
         self.isClickGetPrize = true;
         self.updateData();
@@ -243,27 +235,12 @@ export default class gameGoldWheel extends baseTs {
             }
         }
     }
-    //'/xxl-account/api/turntable/index'
+
+
     updateData() {
         let self = this;
-        // let data = {
-        //     rewardList:[
-        //         {id:1111,type:1,value:1000},
-        //         {id:2222,type:2,value:5},
-        //         {id:3333,type:1,value:2000},
-        //         {id:4444,type:2,value:6},
-        //         {id:5555,type:1,value:5000},
-        //         {id:6666,type:2,value:7},
-        //         {id:7777,type:1,value:7000},
-        //         {id:7777,type:2,value:10},
-        //     ],
-        //     state:1,
-        //     times:10
-        // }
-        // self.updateData2(data)
-        // return
 
-        if (self.turntableProgress && self.turntableProgress.current && self.turntableProgress.current + 1 > 10) {
+        if (this.userTurntableStageReward.current && this.userTurntableStageReward.current + 1 > 10) {
             this.checkFill();
         }
 
@@ -276,8 +253,6 @@ export default class gameGoldWheel extends baseTs {
                     }
 
                     let data = res.data;
-
-
                     self.formatData(data.userTurntableStageReward);
                     self.updateData2(data);
                 }
@@ -299,48 +274,25 @@ export default class gameGoldWheel extends baseTs {
 
     updateData2(data) {
         let self = this;
-
-
-
         self.godWheelData = data;
         RedController.wheelCount = data.times;
 
         let action = cc.repeatForever(cc.sequence(cc.scaleTo(0.5, 1.2), cc.scaleTo(0.5, 1)));
         self.btn_clickVideoGet.stopAllActions();
-        self.btn_clickGet.stopAllActions();
 
-        // if (data.times <= 0) {
-        //     self.lable_remainNum.string = `今日剩余0次机会,请明日再来`;
-        // }
-        // else {
-        //     self.lable_remainNum.string = `还剩${data.times}次抽奖机会`;
-        // }
+        this.timeNode1.active = true;
+        this.timeNode1.getComponent(cc.Label).string = t("main.剩余机会", data.times);
 
-
-        this.timeNode1.active = data.times <= 0;
-        this.timeNode2.active = data.times > 0;
         this.updateItem();
 
         util.setTempParm("goldWheelRemainNum", data.times)
 
-        // self.btn_clickGet.active =self.btn_clickVideoGet.active = self.btn_clickGrayGet.active = false;
-
-        if (data.state == 1) {
-            self.btn_clickGet.active = true;
-            self.btn_clickVideoGet.active = false;
-            self.btn_clickGrayGet.active = false;
-
-            self.btn_clickGet.runAction(action);
-        }
-        else if (data.state == 2) {
-            self.btn_clickGet.active = false;
+        if (data.state == 1 || data.state == 2) {
             self.btn_clickVideoGet.active = true;
             self.btn_clickGrayGet.active = false;
-
             self.btn_clickVideoGet.runAction(action);
         }
         else if (data.state == 3) {
-            self.btn_clickGet.active = false;
             self.btn_clickVideoGet.active = false;
             self.btn_clickGrayGet.active = true;
         }
@@ -373,10 +325,7 @@ export default class gameGoldWheel extends baseTs {
 
     clickWater() {
         let self = this;
-        if (self.btn_clickGet.active) {
-            self.clickBtnWheel();
-        }
-        else if (self.btn_clickVideoGet.active) {
+        if (self.btn_clickVideoGet.active) {
             self.clickWheelVideo();
         }
         else if (self.btn_clickGrayGet.active) {
@@ -386,27 +335,16 @@ export default class gameGoldWheel extends baseTs {
 
     clickWheel(isVideo = false) {
         let self = this;
-
-
-
         if (!this.checkIsCanClickWheel()) {
             return;
         }
-
         if (self.isCanClickWheel) {
             self.isCanClickWheel = false;
-
             XMSDK.getdataStr({
                 url: UrlConst.goldWheel_action,
                 onSuccess: res => {
                     if (res.code === 0) {
-                        // XMSDK.track({
-                        //     eventName: SAConst.coin_wheels_draw,
-                        //     props: {
-                        //         draw_count: 1,
-                        //         draw_type: isVideo ? "视频抽奖" : "普通抽奖"
-                        //     }
-                        // });
+
 
                         // res.data.reward = {
                         //     id: "106",
@@ -428,12 +366,7 @@ export default class gameGoldWheel extends baseTs {
                             if (self.godWheelData.times <= 0) {
                                 self.godWheelData.times = 0;
                             }
-                            // if (data.times <= 0) {
-                            //     self.lable_remainNum.string = `今日剩余0次机会,请明日再来`;
-                            // }
-                            // else {
-                            //     self.lable_remainNum.string = `还剩${self.godWheelData.times}次抽奖机会`;
-                            // }
+
 
                             // this.updateItem();
                             self.isCanClickWheel = true;
@@ -467,19 +400,13 @@ export default class gameGoldWheel extends baseTs {
             setTimeout(() => {
                 self.isCanClickWheel = true;
             }, 3000);
-            // AdController.loadAd(AdPosition.GoldWheel, () => {
-                XMSDK.toast("感谢观看，额外免费抽奖次数已发放", 1.5);
-                this.isCanClickWheel = true;
-                this.clickWheel(true);
-            // }, () => {
-            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
-            // })
+
+            this.isCanClickWheel = true;
+            this.clickWheel(true);
         }
     }
 
     checkIsCanClickWheel() {
-        let self = this;
-
         if (this.wheelState != 0 || (this.gameGoldWheelReward && this.gameGoldWheelReward.active)) {
             return false;
         }
@@ -492,33 +419,10 @@ export default class gameGoldWheel extends baseTs {
         this.gameGoldWheelReward.active = true;
         let gameGoldWheelRewardTs: gameGoldWheelReward = this.gameGoldWheelReward.getComponent(gameGoldWheelReward);
         if (gameGoldWheelRewardTs) {
-
             gameGoldWheelRewardTs.init(this.prizeData, () => {
                 this.updateData()
             })
         }
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "金币转盘获得奖励弹窗",
-            dialog_enter: this.isMain ? "首页金币转盘" : "限时礼包收下跳转",
-        })
-
-        TrackMgr.big_turntable({
-            activity_state: "抽奖成功",
-            lucky_draw: this.godWheelData.times,
-            lucky_draw_nowly: 1,
-            watch_videos: Boolean(isVideo),
-            prize: this.prizeData.reward.value
-        })
-        // let playerCurGold = util.userData.coin;
-        // let temp = this.TempNodeController.showComp(playerCurGold, 2, 2);
-
-        // XMSDK.track({
-        //     eventName: SAConst.AppBuyProductDialog,
-        //     props: {
-        //         dialog_name2: "金币转盘获得奖励弹窗",
-        //         dialog_enter: this.isMain ? "首页金币转盘" : "限时礼包收下跳转",
-        //     }
-        // });
     }
 
 
@@ -562,8 +466,9 @@ export default class gameGoldWheel extends baseTs {
      */
     updateItem() {
         if (!this.turntableProgress) return;
+
         //玩了几次
-        let playTime: number = this.turntableProgress.current || 0;
+        let playTime: number = this.userTurntableStageReward.current || 0;
         let nowState: number = 0;//当前进度
         if (playTime < 3) {
             nowState = 0;
@@ -573,12 +478,9 @@ export default class gameGoldWheel extends baseTs {
             nowState = 2;
         }
 
-
-        // let item = this.turntableProgress.rewardDetailDtoList[nowState];
-        this.lable_remainNum.string = "第" + 10 + "次";
         this.Progress.progress = playTime / 10;
 
-        this.turntableProgress.rewardDetailDtoList.forEach((value, index) => {
+        this.userTurntableStageReward.rewardDetailDtoList.forEach((value, index) => {
             if (value.status == 0 && playTime >= value.node) {
                 value.status = 1;
             }
@@ -593,7 +495,7 @@ export default class gameGoldWheel extends baseTs {
         soundController.singleton.clickAudio();
         if (!this.turntableProgress) return;
         num = Number(num);
-        let itemData = this.turntableProgress.rewardDetailDtoList[num];
+        let itemData = this.userTurntableStageReward.rewardDetailDtoList[num];
         if (itemData.status !== 1) { return; }
         util.post({
             url: UrlConst.goldWheel_receive,
@@ -603,11 +505,6 @@ export default class gameGoldWheel extends baseTs {
                 this.changeItemState(num, 2);
                 AssistCtr.showToastTip("获取" + itemData.reward + "红包币");
                 cc.game.emit(NameTs.Game_Effect_coin, { node: e.target, value: itemData.reward, num: 10, parent: this.node.getParent() });
-
-                TrackMgr.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "大转盘弹窗",
-                    ck_module: "第" + (num + 1) + "档进度奖励",
-                })
             },
             fail: () => {
                 AssistCtr.showToastTip("领取失败！");
@@ -622,16 +519,10 @@ export default class gameGoldWheel extends baseTs {
      */
     changeItemState(index: number, num: number) {
         let parent: cc.Node = this.coinItemArr[index];
-        let data: any = this.turntableProgress.rewardDetailDtoList[index];
+        let data: any = this.userTurntableStageReward.rewardDetailDtoList[index];
         let light: cc.Node = parent.children[0];
-        let label: cc.Label = parent.children[index == 2 ? 3 : 2].getComponent(cc.Label);
-        //最后一个的字体
-        let label2: cc.Node = null;
-        if (index == 2) {
-            label2 = parent.children[2];
-            label2.active = true;
-            label.node.active = false;
-        }
+        let label: cc.Label = parent.getChildByName("label").getComponent(cc.Label);
+
         light.active = false;
 
         switch (num) {
@@ -643,11 +534,7 @@ export default class gameGoldWheel extends baseTs {
                 label.string = "+" + data.reward;
                 break;
             case 2:
-                if (index == 2) {
-                    label2.active = false;
-                    label.node.active = true;
-                }
-                label.string = "已领";
+                label.string = t("main.已领取");
                 parent.opacity = 200;
                 break;
         }
@@ -658,10 +545,9 @@ export default class gameGoldWheel extends baseTs {
      * 格式化一下数据
      */
     formatData(data) {
-
-        this.turntableProgress = data;
-        let time: number = data.current; //玩的次数
-        this.turntableProgress.rewardDetailDtoList.forEach((value, index) => {
+        // this.turntableProgress = data;
+        let time: number = this.userTurntableStageReward.current; //玩的次数
+        this.userTurntableStageReward.rewardDetailDtoList.forEach((value, index) => {
             if (value.status == 1) {
                 value.status = 2;
             } else {
@@ -672,34 +558,25 @@ export default class gameGoldWheel extends baseTs {
                 }
             }
         });
-
-
-
-
     }
 
 
     /**
      * 检查是否超过11
      */
-
     checkFill() {
         console.log("满了10次");
         let coin: number = 0;//多少金币
-        this.turntableProgress.rewardDetailDtoList.forEach((value, index) => {
+        this.userTurntableStageReward.rewardDetailDtoList.forEach((value, index) => {
             if (value.status == 1) {
                 coin += value.reward;
                 cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItemArr[index], value: value.reward, num: 10, parent: this.node.getParent() });
-                TrackMgr.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "大转盘弹窗",
-                    ck_module: "第" + (index + 1) + "档进度奖励",
-                })
+
             }
         });
         this.turntableProgress = null;
         if (coin > 0) {
             AssistCtr.showToastTip("获取" + coin + "红包币");
         }
-
     }
 }

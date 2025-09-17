@@ -1,6 +1,7 @@
 import { AssistCtr } from "../Assist/AssistCtr";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
+import { t } from "../Language/LanguageData";
 import PageManage from "../PageManage";
 import { withdrawTaskItemVoMap } from "../pop/gameNewPlayerTask";
 import { UrlConst } from "../server/UrlConst";
@@ -34,25 +35,27 @@ export default class NewPlayerTaskModel extends cc.Component {
 
     }
 
+    private taskTitleType: Array<string> = ["炮塔等级达到", "观看视频", "完成日常任务", "累计获得金币"];
+
     initData(data: withdrawTaskItemVoMap) {
         if (data) {
             let self = this;
-            self.lable_title.string = data.taskTitle;
-            self.lable_progress.string = `<color=#D26C41>完成度:</c><color=#669E00>${data.userTaskValue}</c>/<color=#D26C41>${data.taskValue}</c>`;
-            self.lable_addProgress.string = `+${data.progress}`;
+            self.lable_title.string = t("main." + this.taskTitleType[data.taskType], data.taskTitleValue);
+            self.lable_progress.string = `</c><color=#669E00>${data.userTaskValue}</c>/<color=#D26C41>${data.taskValue}</c>`;
+            self.lable_addProgress.string = ` +${data.progress}`;
             self.btn_Node.getComponent(cc.Sprite).spriteFrame = this.btnSprArray[data.buttonType];
 
             let tempColor = new cc.Color();
             if (data.buttonType == 1) {               //按钮类型: 1-进行中, 2-待领取, 3-已领取
-                self.node.getChildByName(`lable_btn`).getComponent(cc.Label).string = `前往`;
+                self.node.getChildByName(`lable_btn`).getComponent(cc.Label).string = t("main.前往");
                 self.node.getChildByName(`lable_btn`).getComponent(cc.LabelOutline).color = tempColor.fromHEX("#D25400");
             }
             else if (data.buttonType == 2) {
-                self.node.getChildByName(`lable_btn`).getComponent(cc.Label).string = `领取`;
+                self.node.getChildByName(`lable_btn`).getComponent(cc.Label).string = t("main.领取");
                 self.node.getChildByName(`lable_btn`).getComponent(cc.LabelOutline).color = tempColor.fromHEX("#4F7A00");
             }
             else if (data.buttonType == 3) {
-                self.node.getChildByName(`lable_btn`).getComponent(cc.Label).string = `已领取`;
+                self.node.getChildByName(`lable_btn`).getComponent(cc.Label).string = t("main.已领取");
                 self.node.getChildByName(`lable_btn`).getComponent(cc.LabelOutline).color = tempColor.fromHEX("#757575");
             }
             self.myData = data;
@@ -61,15 +64,7 @@ export default class NewPlayerTaskModel extends cc.Component {
 
     clickBtn() {
         let data = this.myData;
-        if(data){
-            TrackMgr.newcomer_mission({
-                activity_state: `任务项按钮点击`,
-                days: `第${this.myData.day}天`,
-                task_type: this.myData.taskTitle,
-                button_hcdg: this.node.getChildByName(`lable_btn`).getComponent(cc.Label).string
-            })
-    
-    
+        if (data) {
             if (data.buttonType == 1) {               //按钮类型: 1-进行中, 2-前往, 3-待领取, 4-已领取
                 if (data.type == 3) {
                     cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameTask);
@@ -84,21 +79,15 @@ export default class NewPlayerTaskModel extends cc.Component {
                     },
                     onSuccess: res => {
                         if (res.code === 0) {
-                            if(!this.isValid){
+                            if (!this.isValid) {
                                 return;
                             }
 
-                            if(this.myData){
-                                AssistCtr.showToastTip("领取成功");
+                            if (this.myData) {
+                                AssistCtr.showToastTip(t("tips.receive_success"));
                                 cc.game.emit(NameTs.Game_NewPlayerTaskGet, {
                                     target: this.btn_Node
                                 });
-        
-                                TrackMgr.newcomer_mission({
-                                    activity_state: `任务领取成功`,
-                                    days: this.myData.day + "",
-                                    task_type: this.myData.taskTitle,
-                                })
                             }
                         }
                         else {
@@ -108,14 +97,14 @@ export default class NewPlayerTaskModel extends cc.Component {
                         }
                     },
                     onFail: err => {
-    
+
                     }
                 }
                 )
             }
             else if (data.buttonType == 3) {
-                AssistCtr.showToastTip("已领取");
+                // AssistCtr.showToastTip("已领取");
             }
-        }        
+        }
     }
 }

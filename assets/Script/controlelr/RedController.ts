@@ -125,7 +125,6 @@ class RedController {
             onSuccess: res => {
                 if (res.code === 0) {
                     this.wheelCount = res.data.times;
-
                     if(this.wheelCount > 0){
                         this.checkMainGoldWheelRed(true);
                     }                    

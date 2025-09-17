@@ -185,10 +185,7 @@ export default class gameSign extends baseTs {
     }
 
     clickSingle() {
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: `签到弹窗`,
-            ck_module: "普通领取"
-        })
+
         this.closePage();
         this.openSignReward(1);
 
@@ -197,11 +194,6 @@ export default class gameSign extends baseTs {
     }
 
     clickDouble() {
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: `签到弹窗`,
-            ck_module: "双倍领取",
-            active_ad_hcdg: "激励视频"
-        })
 
         // XMSDK.post({
         //     url: UrlConst.sign_videoGet,
@@ -298,9 +290,7 @@ export default class gameSign extends baseTs {
         // })        
         soundController.singleton.clickAudio();
 
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: "签到成功弹窗"
-        })
+
 
         let data = {
             list: this.data.list[this.currentDay],
@@ -313,21 +303,15 @@ export default class gameSign extends baseTs {
             data[`callBack`] = this.data[`callBack`]
         }
 
-        cc.game.emit(NameTs.Game_Pop_Open, {
-            name: pageTs.pageName.GameSignReward,
-            data: data
-        });
+
+        this.showPage(pageTs.pageName.GameRewardPro, { coin: 1000 });
+
     }
 
     clickClose() {
         soundController.singleton.clickAudio();
 
         this.closePage();
-
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: `签到弹窗`,
-            ck_module: "关闭"
-        })
 
         if (this.data && this.data[`callBack`]) {
             this.data[`callBack`]();

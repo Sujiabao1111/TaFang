@@ -74,7 +74,7 @@ export default class OnPrizeGet extends cc.Component {
         XMSDK.getdataStr({
             url: UrlConst.onPrizeGetRewardMain,
             onSuccess: res => {
-                if(!this.isValid){
+                if (!this.isValid) {
                     return;
                 }
 
@@ -244,15 +244,7 @@ export default class OnPrizeGet extends cc.Component {
                 data: {
                     prizeRedData: this.curOnPrizeRedData
                 },
-            },this);
-        }
-
-        if (this.curOnPrizeRedData) {
-            TrackMgr.Online_rewards({
-                activity_state: "点击主按钮",
-                reward_state: `${this.curOnPrizeRedData.waitTime / 60}分钟`,
-                button_name_hcdg: str
-            })
+            }, this);
         }
     }
 }

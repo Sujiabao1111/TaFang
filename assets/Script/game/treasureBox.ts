@@ -24,13 +24,16 @@ export default class treasureBox extends baseTs {
     private nowId: number = null;
 
     //宝箱时间
-    private time: number = null;
+    private time: number = 120;
 
     //金币
     private coin: number = 0;
 
     //剩余次数
     private treasureNum: number = 20;
+
+    //自动关闭宝箱计时器
+    private _autoCloseTimer = null;
 
     public get _userData(): UserData {
         return util.userData;
@@ -41,7 +44,7 @@ export default class treasureBox extends baseTs {
         cc.game.on(NameTs.Game_Treasure_StartTime, () => {
             this.treasureNum -= 1;
             this.treasure.active = false;
-            this.time = 180;
+            this.time = 120;
         }, this);
 
         util.getdataStr({
@@ -52,7 +55,7 @@ export default class treasureBox extends baseTs {
                 }
                 this.treasureNum = res.times;
                 if (this._userData.noviceGuide == -1) {
-                    this.time = 0;
+                    this.time = 120;
                 }
             }
         });
@@ -71,12 +74,11 @@ export default class treasureBox extends baseTs {
      * 起飞
      */
     flyAni() {
-
         console.log("漂浮宝箱出现")
         this.treasure.active = true;
-
-
     }
+
+
 
 
     /**点击宝箱 */
@@ -86,12 +88,30 @@ export default class treasureBox extends baseTs {
     }
 
 
+
     update(dt) {
-        // if (this.time == null || this.treasureNum <= 0) return;
-        // this.time -= dt;
-        // if (this.time <= 0) {
-        //     this.time = null;
-        //     this.flyAni();
-        // }
+        if (!this.treasure.active) {
+            if (this.time == null || this.treasureNum <= 0) {
+                return;
+            }
+            this.time -= dt;
+            if (this.time <= 0) {
+                this.time = null;
+                this.flyAni();
+                this._autoCloseTimer = 60;
+            }
+
+        }
+
+        // 自动关闭宝箱逻辑
+        if (this.treasure.active && this._autoCloseTimer != null) {
+            this._autoCloseTimer -= dt;
+            if (this._autoCloseTimer <= 0) {
+                console.log("漂浮宝箱关闭")
+                this.treasure.active = false;
+                this._autoCloseTimer = null;
+                this.time = 120; // 重置时间
+            }
+        }
     }
 }

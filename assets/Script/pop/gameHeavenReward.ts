@@ -27,11 +27,8 @@ export default class gameHeavenReward extends baseTs {
     @property({ type: cc.Node, displayName: "放弃领取" })
     private closeBtnNode: cc.Node = null;
 
-    // @property({type:cc.Node,displayName:"视频icon"})
-    // private videoIcon:cc.Node = null;
 
-    @property({ type: cc.Node, displayName: "信息流" })
-    private feed_node: cc.Node = null;
+
 
     @property({ type: cc.Node, displayName: "直接领取B" })
     private get_node: cc.Node = null;
@@ -62,13 +59,11 @@ export default class gameHeavenReward extends baseTs {
         // ).start();
 
         this.scheduleOnce(() => {
-
             if (util.checkTestB(NameTs.heaven_coin_test)) {
                 this.closeBtnNode.active = true;
             } else {
                 this.get_node2.active = true;
             }
-
         }, gameNumerical.closeTime);
 
 
@@ -86,58 +81,30 @@ export default class gameHeavenReward extends baseTs {
         if (data && data.data) {
             this.initData = data.data;
             this.coin = this.initData.point;
-            this.rewardLabel.string = "+" + this.coin + "红包币";
+            this.rewardLabel.string = "+" + this.coin;
 
             this.lable_addGold2.string = this.coin * 10 + "";
 
             this.heavenItem = data.item || this.node;
 
-            // this.isVideo = util.heavenClickNum==3;
 
-            // if(this.isVideo){
-
-            // }
-
-            // this.videoIcon.active = this.isVideo;
 
             this.isVideo = data.isVideo ? true : false;
             this.get_node.active = !this.isVideo;
             this.closeBtnNode.getParent().active = this.isVideo;
 
-
         }
-        // if(!util.adPreObj[AdPosition.HeavenCoin]){
-        //     util.preloadAd(AdPosition.HeavenCoin);
-        // }
-        // TrackMgr.airborne_gold({
-        //     activity_state: "金币奖励弹窗",
-        // })
 
-        // TrackMgr.AppBuyProductDialog_hcdg({
-        //     dialog_name_hcdg: "空降金币"
-        // })
 
-        if (util.checkTestB(NameTs.heaven_coin_test)) {
-            // TrackMgr.AppBuyProductDialog_hcdg({
-            //     dialog_name_hcdg: "空投金币"+(this.isVideo?"":"不")+"需看视频弹窗（B用户）"
-            // })
-        }
+
+
         this.item = data.item;
         this.no = data.no;
         util.heavenTouch = false;
 
-        if (!this.initData.id || this.initData.id == "") {
-            console.error("该空降金币没有id，给予消除");
-            util.saveHeavenPool(this.no, null);
-            cc.game.emit(NameTs.Game_Heaven_killed, this.item);
-        }
-
-
     }
 
-    start() {
 
-    }
 
     /**
      * 获取
@@ -165,61 +132,16 @@ export default class gameHeavenReward extends baseTs {
             util.heavenClickNum++;
             util.saveHeavenPool(this.no, null);
             cc.game.emit(NameTs.Game_Heaven_killed, this.item);
-            this.SendPost();
         }
-        if (util.checkTestB(NameTs.heaven_coin_test)) {
-            TrackMgr.AppBuyProductDialog_hcdg({
-                dialog_name_hcdg: "空投金币" + (num == 1 ? "" : "不") + "需看视频弹窗（B用户）"
-            });
 
-
-        }
         if (num == 1) {
-            // AdController.loadAd(AdPosition.HeavenCoin, () => {
-                successFn();
-                // TrackMgr.airborne_gold({
-                //     activity_state: "点击「视频icon领取金币」按钮",
-                // });
-                // if (util.adPreObj[AdPosition.HeavenCoin]) {
-                //     util.preloadAd(AdPosition.HeavenCoin);
-                // }
-                if (util.checkTestB(NameTs.heaven_coin_test)) {
-                    util.existVideoCoinNum--;
-                }
-            // }, () => {
-            //     AssistCtr.showToastTip("加载视频失败，请稍后！");
-            // });
-            TrackMgr.AppDialogClick_hcdg({
-                dialog_name_hcdg: "空降金币",
-                ck_module: "翻倍领取",
-                active_ad_hcdg: "激励视频"
-            });
-
+            successFn();
             if (util.checkTestB(NameTs.heaven_coin_test)) {
-                TrackMgr.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "空投金币需看视频弹窗（B用户）",
-                    ck_module: "领取",
-                    active_ad_hcdg: "激励视频"
-                });
+                util.existVideoCoinNum--;
             }
-
         } else {
             successFn();
-            TrackMgr.airborne_gold({
-                activity_state: "点击「领取金币」按钮",
-            })
-            TrackMgr.AppDialogClick_hcdg({
-                dialog_name_hcdg: "空降金币",
-                ck_module: "收下",
-            });
-            if (util.checkTestB(NameTs.heaven_coin_test)) {
-                TrackMgr.AppDialogClick_hcdg({
-                    dialog_name_hcdg: "空投金币不需看视频弹窗（B用户）",
-                    ck_module: "直接领取",
-                });
-            }
         }
-
     }
 
     /**
@@ -228,53 +150,6 @@ export default class gameHeavenReward extends baseTs {
     closeBtn() {
         soundController.singleton.clickAudio();
         this.closePage();
-        TrackMgr.airborne_gold({
-            activity_state: "点击「放弃奖励」按钮",
-        })
-
-        if (util.checkTestB(NameTs.heaven_coin_test)) {
-            TrackMgr.AppDialogClick_hcdg({
-                dialog_name_hcdg: "空投金币需看视频弹窗（B用户）",
-                ck_module: "关闭",
-            });
-        }
-        // this.SendPost();
-
     }
 
-    /**发送金币 */
-    SendPost() {
-        if (this.initData) {
-            util.getdataStr({
-                url: UrlConst.heavenCoin_receive,
-                data: { id: this.initData.id },
-                success: () => {
-                    console.log("领取成功," + UrlConst.heavenCoin_receive)
-                },
-                fail: () => {
-                    console.log("失败了," + UrlConst.heavenCoin_receive)
-                }
-            });
-        }
-    }
-
-
-    onEnable() {
-        // AdController.loadInfoAd(AdPosition.HeavenCoinView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
-
-        // if (util.adPreObj[AdPosition.HeavenCoinView]) {
-        //     util.preloadAd(AdPosition.HeavenCoinView, true);
-        // }
-    }
-
-
-    onDisable() {
-        // AdController.hideInfoAd(AdPosition.HeavenCoinView);
-        // //预加载金币信息流
-        // if (!util.adPreObj[AdPosition.HeavenCoinView] && util.getHeavenPool() > 0) {
-        //     util.preloadAd(AdPosition.HeavenCoinView, true);
-        // }
-    }
-
-    // update (dt) {}
 }

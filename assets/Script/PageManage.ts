@@ -31,10 +31,7 @@ export default class PageManage extends cc.Component {
     private nowPage: string = null;
 
     onLoad() {
-        console.log(
-            "1111111111111111111111111111111111"
-        );
-
+      
         if (PageManage.singleton) {
             return;
         } else {

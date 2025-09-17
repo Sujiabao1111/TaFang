@@ -149,17 +149,39 @@ export const languages: languagesData = {
         '在线奖励': 'Online Reward',
         '已领取': 'Already Received',
         '恭喜过关': 'Congratulations on passing',
+        '过关失败': 'Failed to complete',
         '钱包': 'Wallet',
         '任务': 'Task',
         '抽奖': 'Lottery',
-        '签到': 'CheckIn',
+        '签到': 'Check-in',
         '自动合成': 'Auto',
+        '新人福利': 'Benefits',
+        '奖池': 'Prize pool',
         '翻倍': 'Double',
         '任务完成': 'Task completed',
         '累计击杀': 'Kills',
 
+        '限时挑战': 'Time-limited challenge',
+        '倒计时': 'Countdown :',
+        '_天': '${0}days',
+        '第_天': 'Day ${0}',
 
+        '周签到人数': 'Weekly checkIn count :',
+        '提现记录': 'Withdrawal record',
+        '炮王': 'King of turrets',
+        '完成任务获得奖励': 'Complete the task to earn rewards',
+        '提现进度': 'Withdrawal progress',
+        '完成度': 'Completion progress: ',
+        '明天再来': 'Come back tomorrow',
+        '剩余机会': '${0} attempts remaining today',
 
+        '炮塔等级达到': 'Turret level reaches ${0}',
+        '观看视频': 'Watch video ${0} times',
+        '完成日常任务': 'Complete ${0} daily tasks',
+        '累计获得金币': 'Total coins obtained: ${0}',
+
+        '每日登录': 'Daily login',
+        '转盘抽奖': 'Spin the wheel ${0} times',
 
 
 

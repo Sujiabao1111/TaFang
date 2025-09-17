@@ -145,7 +145,7 @@ export default class gameRandomRedPrize extends baseTs {
                     cc.game.emit(NameTs.randomRedUpdate);
                     cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: this.redAmountNum * this.power, num: 10 });
                     util.addTermCoin(this.redAmountNum * this.power);
-                    AssistCtr.showToastTip("获得" + (this.redAmountNum * this.power) + "红包币");
+                    // AssistCtr.showToastTip("获得" + (this.redAmountNum * this.power) + "红包币");
                     this.closePage();
                 } else {
                     XMSDK.toast(res.message || '网络出错~', 2.5, 1);

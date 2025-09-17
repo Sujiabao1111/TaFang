@@ -16,15 +16,15 @@ const { ccclass, property } = cc._decorator;
 export default class BtnRandomRed extends cc.Component {
 
     @property(cc.Label)
-    lable_time: cc.Label = null;
+    private lable_time: cc.Label = null;
 
+    @property({ type: sp.Skeleton })
+    private fudaiNode: sp.Skeleton = null;
     @property(cc.Node)
-    img_closeRed: cc.Node = null;
+    private kelingqu: cc.Node = null;
 
-    @property(dragonBones.ArmatureDisplay)
-    img_openRed: dragonBones.ArmatureDisplay = null;
 
-    onceEnter = true;
+    private onceEnter = true;
 
     onEnable() {
         let self = this;
@@ -45,6 +45,7 @@ export default class BtnRandomRed extends cc.Component {
     }
 
     onLoad() {
+
         cc.game.on(NameTs.randomRedUpdate, this.updateData, this);
 
     }
@@ -67,17 +68,15 @@ export default class BtnRandomRed extends cc.Component {
         if (util.randomRedTimeNum > 0) {
             self.lable_time.string = AssistCtr.formatSeconds(util.randomRedTimeNum);
             self.lable_time.node.active = true;
-            self.img_closeRed.active = true;
-            self.img_openRed.node.active = false
-
+            self.fudaiNode.setAnimation(0, "d", false);
+            self.kelingqu.active = false;
             self.schedule(self.timerFun, 1)
+
         }
         else {
             self.lable_time.node.active = false;
-            self.img_closeRed.active = false;
-            self.img_openRed.node.active = true;
-            self.img_openRed.playAnimation("fulihongbao", 0);
-
+            self.fudaiNode.setAnimation(0, "r", true);
+            self.kelingqu.active = true;
         }
     }
 
@@ -89,9 +88,8 @@ export default class BtnRandomRed extends cc.Component {
         else {
             self.unschedule(self.timerFun);
             self.lable_time.node.active = false;
-            self.img_closeRed.active = false;
-            self.img_openRed.node.active = true;
-            self.img_openRed.playAnimation("fulihongbao", 0);
+            self.fudaiNode.setAnimation(0, "r", true);
+            self.kelingqu.active = true;
             util.randomRedTimeNum = 0;
         }
         util.randomRedTimeNum--;
@@ -110,10 +108,8 @@ export default class BtnRandomRed extends cc.Component {
                     if (res.data.remainingTimes > 0) {
                         if (res.data.remainingTimes == 99) {
                             self.lable_time.node.active = false;
-                            self.img_closeRed.active = false;
-                            self.img_openRed.node.active = true;
-                            self.img_openRed.playAnimation("fulihongbao", 0);
-
+                            self.fudaiNode.setAnimation(0, "r", true);
+                            self.kelingqu.active = true;
                         }
                         else {
                             if (!self.onceEnter) {

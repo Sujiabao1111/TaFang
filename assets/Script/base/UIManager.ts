@@ -1,4 +1,4 @@
-import Loading from "../common/custon/Loading";
+
 import Singleton from "./Singleton";
 
 

@@ -137,13 +137,7 @@ export default class savingPotBtn extends baseTs {
         
     }
 
-    /**
-     * 展现
-     */
-    showPot(){
-        soundController.singleton.clickAudio();
-        this.showPage(pageTs.pageName.GameSavingPot);
-    }
+    
 
     // update (dt) {}
 }

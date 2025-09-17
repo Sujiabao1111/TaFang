@@ -25,8 +25,6 @@ export default class earnProgress extends baseTs {
     @property(cc.Label)
     private getTime: cc.Label = null; //可以领多少次
 
-    @property(dragonBones.ArmatureDisplay)
-    private hongbao: dragonBones.ArmatureDisplay = null; //红包
 
     @property(cc.Node)
     private hand: cc.Node = null; //手势
@@ -41,6 +39,10 @@ export default class earnProgress extends baseTs {
     private nowGear: number = null;//默认进度3000
     private handNum: number = 3;//默认次数
     private userCoin: number = null;
+    private curKillsNum: number = 0;
+    private nextGearNum: number = 100;
+
+
 
     onLoad() {
 
@@ -61,7 +63,10 @@ export default class earnProgress extends baseTs {
         // 监听击杀进度
         cc.game.on(NameTs.Game_Kills_Updata, () => {
             if (!this.initData) return;
-            this.tasklabel1.string = (this.userCoin += 1) + "";
+            this.tasklabel1.string = (this.curKillsNum += 1) + "";
+
+            this.taskProgress.progress = this.curKillsNum / this.nextGearNum;
+
 
             // this.initData.canReceiveTimes -= 1;
             // this.setState(this.initData);
@@ -105,7 +110,6 @@ export default class earnProgress extends baseTs {
         // }, this);
 
 
-        // util.GlobalMap.set("earnProgress", this.hongbao.node);
 
     }
 
@@ -152,7 +156,6 @@ export default class earnProgress extends baseTs {
         this.isHand = false;
         this.hand.active = false;
         this.isRuning = false;
-        this.hongbao.playAnimation("shake", 1);
     }
 
     /**设置状态 */
@@ -178,35 +181,30 @@ export default class earnProgress extends baseTs {
         }
 
 
-        this.tasklabel1.string = this.userCoin + "";
-        this.tasklabel2.string = "/" + this.initData.nextGear;
+        this.tasklabel1.string = this.curKillsNum + "";
+        this.tasklabel2.string = "/" + this.nextGearNum;
 
-        this.taskProgress.progress = this.userCoin / this.initData.nextGear;
+        this.taskProgress.progress = this.curKillsNum / this.nextGearNum;
 
 
+        this.initData.canReceiveTimes = 0
         this.getTime.string = this.initData.canReceiveTimes;
 
         this.getTime.node.parent.active = this.initData.canReceiveTimes > 0;
 
-        // if(this.initData.canReceiveTimes>0){
-        //     this.playAni();
-        //     // this.hongbao.playAnimation("shake",0);
-        // }else{
-        //     this.isRuning = false;
-        //     this.hongbao.playAnimation("shake",1);
-        // }
+        this.getTime.node.parent.active = false;
+
+        if (this.initData.canReceiveTimes > 0) {
+            this.playAni();
+        } else {
+            this.isRuning = false;
+        }
 
         // this.checkHand();
 
 
         // this.hand.active = this.handNum > 0 && this.initData.canReceiveTimes > 0;
 
-        if (this.initData.canReceiveTimes > 0) {
-            this.hongbao.playAnimation("shake", 0);
-        } else {
-            this.isRuning = false;
-            this.hongbao.playAnimation("shake", 1);
-        }
 
 
 
@@ -215,13 +213,7 @@ export default class earnProgress extends baseTs {
     private playAni() {
         if (this.isRuning) return;
         this.isRuning = true;
-        this.hongbao.playAnimation("shake", 0);
-        // cc.tween(this.hongbao).repeatForever(
-        //     cc.tween().parallel(
-        //         cc.tween().by(.1,{angle:-5}).by(.2,{angle:10}).by(.2,{angle:-10}).by(.1,{angle:5}).delay(.5),
-        //         cc.tween().to(.3,{scale:1.2}).to(.3,{scale:1}).delay(.5)
-        //     )
-        // ).start();
+
     }
 
 }

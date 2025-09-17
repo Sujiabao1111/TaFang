@@ -12,7 +12,7 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class gameTask extends baseTs {
 
-    
+
     @property({ type: cc.Prefab, displayName: "item預製體" })
     private dailyPre: cc.Prefab = null;
 
@@ -66,23 +66,13 @@ export default class gameTask extends baseTs {
             this.updataTask(this.selectNum);
         }, this);
 
-        
-        // if(!util.adPreObj[AdPosition.TaskDayDoubleGet]){
-        //     util.preloadAd(AdPosition.TaskDayDoubleGet);
-        // }
 
-        // TrackMgr.AppBuyProductDialog_hcdg({
-        //     dialog_name_hcdg: "任务弹窗",
-        // });
     }
 
-    onDisable(){
+    onDisable() {
         cc.game.emit(NameTs.Game_Main_Task_updata, this.dayRedNum + this.passRedNum);
     }
 
-    start() {
-        
-    }
 
     /**
      * 选择哪个
@@ -96,10 +86,6 @@ export default class gameTask extends baseTs {
         this.selectNum = num;
         this.DailySelect[0].active = this.AchievementSelect[0].active = this.DailyView.active = res == 0;
         this.DailySelect[1].active = this.AchievementSelect[1].active = this.AchievementView.active = res == 1;
-
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: num==0?"任务弹窗":"成就弹窗",
-        });
     }
 
     /**
@@ -107,20 +93,20 @@ export default class gameTask extends baseTs {
      * @param num 0:每日 1：成就
      * @param res 是否有数据
      */
-    updataTask(num: number = 0,data:any=null) {
+    updataTask(num: number = 0, data: any = null) {
         if (num == 0) {
 
-            let successFn = (res)=>{
-                if(!this.isValid){
+            let successFn = (res) => {
+                if (!this.isValid) {
                     return;
                 }
-                this.dayRedNum = 0;   
+                this.dayRedNum = 0;
                 this.DailyData = res.list;
                 this.createDailyItem(num);
 
                 let list = res.list;
-                let DailyContentLen:number = 0;
-                if(this.DailyContent&&this.DailyContent.children){
+                let DailyContentLen: number = 0;
+                if (this.DailyContent && this.DailyContent.children) {
                     DailyContentLen = this.DailyContent.children.length;
                 }
                 let addNum = list.length - DailyContentLen;
@@ -137,41 +123,41 @@ export default class gameTask extends baseTs {
                 }
 
 
-                if(list){
+                if (list) {
                     let okNum = 0;
                     for (let i = 0; i < list.length; i++) {
                         if (list[i].buttonType == 3) {
                             okNum++;
                         }
                     }
-                    if(okNum > 0){
+                    if (okNum > 0) {
                         this.taskRed.active = true;
-                    }                    
-                    else{
+                    }
+                    else {
                         this.taskRed.active = false;
                     }
                     this.dayRedNum = okNum;
                 }
-                else{
+                else {
                     this.taskRed.active = false;
-                }     
+                }
             }
 
-            if(data){
+            if (data) {
                 successFn(data);
-            }else{
+            } else {
                 util.getdataStr({
                     url: UrlConst.task_day_main,
-                    success: (res) => {        
-                        successFn(res);          
+                    success: (res) => {
+                        successFn(res);
                     }
                 });
             }
 
-            
+
         } else {
-            let successFn = (res)=>{
-                if(!this.isValid){
+            let successFn = (res) => {
+                if (!this.isValid) {
                     return;
                 }
 
@@ -180,11 +166,11 @@ export default class gameTask extends baseTs {
                 this.passRedNum = 0;
 
                 let list = res.list;
-                if(!this.AchievementContent){
+                if (!this.AchievementContent) {
                     return;
                 }
-                let AchievementContentLen:number = 0;
-                if(this.AchievementContent&&this.AchievementContent.children){
+                let AchievementContentLen: number = 0;
+                if (this.AchievementContent && this.AchievementContent.children) {
                     AchievementContentLen = this.AchievementContent.children.length;
                 }
                 let addNum = list.length - AchievementContentLen;
@@ -199,7 +185,7 @@ export default class gameTask extends baseTs {
                         childArray[i].getComponent(taskItem).init(list[i], num);
                     }
                 }
-                
+
                 if (list) {
                     let okNum = 0;
                     for (let i = 0; i < list.length; i++) {
@@ -222,9 +208,9 @@ export default class gameTask extends baseTs {
 
             }
 
-            if(data){
+            if (data) {
                 successFn(data);
-            }else{
+            } else {
 
                 util.getdataStr({
                     url: UrlConst.achievement_main,
@@ -234,33 +220,16 @@ export default class gameTask extends baseTs {
                 });
 
             }
-            
+
         }
-
-
-
-
-
     }
 
     /**
      * 初始化
      */
     init(data) {
-
-        // if (!this.dailyPre) {
-        //     this.loadAny("prefab/gameTask/taskItem", cc.Prefab, (res) => {
-        //         this.dailyPre = res;
-                this.updataTask(0,data||null);
-                this.updataTask(1);
-        //     });
-        // }
-
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: "任务弹窗",
-            ck_module:"展现",
-        })
-
+        this.updataTask(0, data || null);
+        this.updataTask(1);
     }
 
     /**
@@ -303,6 +272,7 @@ export default class gameTask extends baseTs {
         //释放
         // cc.assetManager.releaseAsset(this.dailyPre);
     }
+    
     /**
      * 关闭
      */

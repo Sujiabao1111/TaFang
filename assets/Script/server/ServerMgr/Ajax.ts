@@ -168,7 +168,15 @@ export default class Ajax {
 
 
 		} else if (config.url == UrlConst.achievement_main) {
-			data = { "code": 0, "message": "success", "data": { "list": [{ "id": "2", "taskTitle": "解锁10级炮塔", "buttonType": 3, "taskValue": 10, "userTaskValue": 0, "reward": { "type": 2, "keyId": 2, "rewardValue": 1000, "rewardFactor": 1 }, "taskType": 1 }, { "id": "25", "taskTitle": "领取漂浮宝箱1次", "buttonType": 3, "taskValue": 1, "userTaskValue": 0, "reward": { "type": 2, "keyId": 2, "rewardValue": 800, "rewardFactor": 1 }, "taskType": 5 }, { "id": "10", "taskTitle": "累计合成炮塔30次", "buttonType": 3, "taskValue": 30, "userTaskValue": 0, "reward": { "type": 2, "keyId": 2, "rewardValue": 900, "rewardFactor": 1 }, "taskType": 3 }, { "id": "33", "taskTitle": "累计观看5次视频", "buttonType": 2, "taskValue": 5, "userTaskValue": 0, "reward": { "type": 2, "keyId": 2, "rewardValue": 2000, "rewardFactor": 1 }, "taskType": 6 }] } }
+			data = {
+				"code": 0, "message": "success", "data": {
+					"list": [
+						{ "id": "2", "taskTitle": "解锁10级炮塔", "buttonType": 3, "taskValue": 10, "userTaskValue": 0, "reward": { "type": 2, "keyId": 2, "rewardValue": 1000, "rewardFactor": 1 }, "taskType": 1 },
+						{ "id": "25", "taskTitle": "领取漂浮宝箱1次", "buttonType": 3, "taskValue": 1, "userTaskValue": 0, "reward": { "type": 2, "keyId": 2, "rewardValue": 800, "rewardFactor": 1 }, "taskType": 5 },
+						{ "id": "10", "taskTitle": "累计合成炮塔30次", "buttonType": 3, "taskValue": 30, "userTaskValue": 0, "reward": { "type": 2, "keyId": 2, "rewardValue": 900, "rewardFactor": 1 }, "taskType": 3 },
+						{ "id": "33", "taskTitle": "累计观看5次视频", "buttonType": 2, "taskValue": 5, "userTaskValue": 0, "reward": { "type": 2, "keyId": 2, "rewardValue": 2000, "rewardFactor": 1 }, "taskType": 6 }]
+				}
+			}
 
 
 			let sts = [2, 2, 2, 2];

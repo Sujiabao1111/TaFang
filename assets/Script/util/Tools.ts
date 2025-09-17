@@ -382,4 +382,44 @@ export class Tools {
     });
   }
 
+
+  /**
+    * 节点的图片置灰色或者默认
+    * @param isGray 是否置灰色
+    */
+  public static setSpriteState(nodeT: cc.Node, isGray: boolean, isAllChild: boolean = false) {
+    this.setSpriteState(nodeT, isGray, isAllChild);
+  };
+
+  /** 图片置灰 或者  恢复 */
+  public setSpriteState(nodeT: cc.Node, isGray: boolean, isAllChild: boolean) {
+    let matUrl = isGray ? cc.Material.getBuiltinMaterial('2d-gray-sprite') : cc.Material.getBuiltinMaterial('2d-sprite');
+    if (isAllChild) {
+      let coms = nodeT.getComponentsInChildren(cc.Sprite);
+      for (let i = 0; i < coms.length; i++) {
+        coms[i].setMaterial(0, matUrl);
+      }
+      return;
+    }
+    nodeT.getComponent(cc.Sprite).setMaterial(0, matUrl);
+
+    if (nodeT.getComponent(cc.Button)) {
+      nodeT.getComponent(cc.Button).interactable = !isGray;
+    }
+
+    // ResManager.ins.loadRes("materials/" + matUrl, cc.Material, BUNDLE_TYPE_ENUM.MAIN).then((Material: cc.Material) => {
+    //     if (!nodeT["_components"]) {
+    //         return;
+    //     }
+    //     if (isAllChild) {
+    //         let coms = nodeT.getComponentsInChildren(cc.Sprite);
+    //         for (let i = 0; i < coms.length; i++) {
+    //             coms[i].setMaterial(0, Material);
+    //         }
+    //         return;
+    //     }
+    //     nodeT.getComponent(cc.Sprite).setMaterial(0, Material);
+    // });
+  };
+
 }

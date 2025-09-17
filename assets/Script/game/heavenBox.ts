@@ -1,10 +1,8 @@
-import { AdPosition } from "../common/AdPosition";
+
 import { gameState } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pool from "../common/pool";
 import { UrlConst } from "../server/UrlConst";
-import AdController from "../server/xmsdk_cocos/AD/AdController";
-import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
@@ -23,9 +21,9 @@ export default class heavenBox extends cc.Component {
 
     //天降次数
     private heavenNum: number = 100;//剩余次数
-    // //存在多少个
-    private existCoinNum: number = 0;
 
+    // 存在多少个
+    private existCoinNum: number = 0;
 
 
     //判断是否进行天降金币
@@ -40,7 +38,7 @@ export default class heavenBox extends cc.Component {
 
         //天降金币
         this.HeavenData.time = util.GetHeavenTime();
-        this.HeavenData.ing = false;
+        this.HeavenData.ing = true; // 控制是否要有天降金币
 
         util.getdataStr({
             url: UrlConst.heavenCoin_main,
@@ -95,15 +93,12 @@ export default class heavenBox extends cc.Component {
      * @param data {id:numberm,coin:number}
      */
     createHeaven(data?: { id: number, point: number }) {
-        console.log("1111111111111111111111111111111111111111111111");
-
+        console.log("创建天降金币");
         //超过12个就886
         if (this.existCoinNum >= 12) return;
 
-
         let location: number = util.GetHeavenPlace();
         if (!location) {
-          
             return;
         }
 
@@ -130,10 +125,6 @@ export default class heavenBox extends cc.Component {
                     util.saveHeavenPool(location, null);
                     if (res.id !== null) {
                         successFn(res);
-                        TrackMgr.airborne_gold({
-                            activity_state: "金币下发",
-                            distribution_status: true,
-                        })
                     } else {
                         if (res.id == null && res.distanceTime == null) {
                             this.existCoinNum = 12;
@@ -142,20 +133,12 @@ export default class heavenBox extends cc.Component {
                         }
                         this.HeavenData.time = Math.floor(res.distanceTime / 1000);
                         console.error("未到时间")
-                        TrackMgr.airborne_gold({
-                            activity_state: "金币下发",
-                            distribution_status: false,
-                            failure_reasons: "未到时间"
-                        })
+
                     }
                 },
                 fail: (error) => {
                     util.saveHeavenPool(location, null);
-                    TrackMgr.airborne_gold({
-                        activity_state: "金币下发",
-                        distribution_status: false,
-                        failure_reasons: error
-                    })
+
                     console.error("错误：" + error)
                 }
             })

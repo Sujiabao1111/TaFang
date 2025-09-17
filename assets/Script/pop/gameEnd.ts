@@ -2,6 +2,7 @@ import baseTs from "../base/baseTs";
 import { AdPosition } from "../common/AdPosition";
 import { customsInfo } from "../common/faceTs";
 import NameTs from "../common/NameTs";
+import { t } from "../Language/LanguageData";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
 import soundController from "../soundController";
 import TrackMgr from "../TrackMgr/TrackMgr";
@@ -20,9 +21,6 @@ export default class gameEnd extends baseTs {
     private againLabel: cc.Label = null;
 
 
-    @property({ type: cc.Node, displayName: "信息流" })
-    private feed_node: cc.Node = null;
-
     // onLoad () {}
     //重来时间
     private time: number = 3;
@@ -34,8 +32,8 @@ export default class gameEnd extends baseTs {
     /**初始化 */
     init() {
         let customs: customsInfo = util.userData.customs;
-        this.customLabel.string = "关卡" + customs.big + "-" + customs.small;
-        this.againLabel.string = "重来(" + this.time + ")";
+        // this.customLabel.string = "关卡" + customs.big + "-" + customs.small;
+        this.againLabel.string = t("main.replay") + "(" + this.time + ")";
         this.schedule(() => {
             this.time -= 1;
             if (this.time == 0) {
@@ -44,14 +42,6 @@ export default class gameEnd extends baseTs {
             }
             this.againLabel.string = "重来(" + this.time + ")";
         }, 1);
-
-        TrackMgr.AppGamedate({
-            is_challenge_suc: true,
-            game_level_hcdg: "第" + util.userData.customs.big + "关",
-            level_hcdg: "第" + util.userData.customs.small + "波",
-            game_time: util.gameTime + "s",
-            use_tool: String(util.gamePropNum),
-        });
     }
 
     /**
@@ -64,13 +54,4 @@ export default class gameEnd extends baseTs {
         cc.game.emit(NameTs.Game_Again);
     }
 
-    onEnable() {
-    }
-
-
-    onDisable() {
-    }
-
-
-    // update (dt) {}
 }

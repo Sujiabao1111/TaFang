@@ -10,14 +10,17 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class turret extends turretFactiory {
 
-    // @property(cc.Label)
-    // label: cc.Label = null;
+    @property(cc.Node)
+    private xing: cc.Node = null;
+
+    @property(cc.Node)
+    private xingLayout: cc.Node = null;
 
     @property({ type: sp.Skeleton, displayName: "炮" })
-    paoBody: sp.Skeleton = null;
+    private paoBody: sp.Skeleton = null;
 
     @property({ type: sp.Skeleton, displayName: "口" })
-    paoFoot: sp.Skeleton = null;
+    private paoFoot: sp.Skeleton = null;
 
     // @property({type:cc.Sprite,displayName:"炮身"})
     // paoBody: cc.Sprite = null;
@@ -104,8 +107,15 @@ export default class turret extends turretFactiory {
 
     init(data) {
 
+
+
+
         this.initData = data;
         this.initData.level = Number(this.initData.level);
+
+
+
+
         if (data.no) {
             let pos: cc.Vec2 = cc.Vec2.clone(util.GetPlaceData(data.no).pos);
             this.node.setPosition(pos);
@@ -115,6 +125,17 @@ export default class turret extends turretFactiory {
         this.attackData = null;
     }
 
+
+    private setXingNode() {
+        this.xingLayout.active = this.initData.level >= 39;
+        if (this.xingLayout.active) {
+            let xingData = util.getLevelXing(this.initData.level);
+            for (let i = 0; i < this.xingLayout.children.length; i++) {
+                this.xingLayout.children[i].active = i < xingData.iconCount;
+            }
+        }
+    }
+
     /**
      * 设置属性
      */
@@ -122,6 +143,9 @@ export default class turret extends turretFactiory {
         this.node.zIndex = 0;
         // this.label.string = this.initData.level;
         this.pao.angle = 0;
+
+        this.setXingNode();
+
         //炮塔属性
         this.turretData = util.GetTurretData(this.initData.level);
         this.paoFoot.node.active = this.turretData.mouth ? true : false;
@@ -162,21 +186,13 @@ export default class turret extends turretFactiory {
             console.log("拖拽合成成功111111111111111111");
             cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameUpgrade);
             if (util.userData.noviceGuide == 2) {
-
                 if (util.checkTestB(NameTs.new_hand_test)) {
-                    TrackMgr.rookie_process_2({
-                        activity_state: "拖拽合成成功"
-                    });
+                    ;
                 } else {
-                    TrackMgr.rookie_process({
-                        activity_state: "拖拽合成效果页",
-                        click_event: "点击"
-                    });
                     cc.game.emit(NameTs.Game_Novice_Close);
                 }
 
             }
-
             // cc.game.emit(NameTs.Game_Treasure_create);
         }
         else if (util.userData.turretLevel >= 7 && this.initData.no) {

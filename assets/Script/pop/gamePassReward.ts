@@ -1,14 +1,10 @@
-import { AssistCtr } from "../Assist/AssistCtr";
+
 import baseTs from "../base/baseTs";
-import { AdPosition } from "../common/AdPosition";
 import { gameNumerical, propType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
-import pageTs from "../common/pageTs";
 import { t } from "../Language/LanguageData";
 import { UrlConst } from "../server/UrlConst";
-import AdController from "../server/xmsdk_cocos/AD/AdController";
 import soundController from "../soundController";
-import TrackMgr from "../TrackMgr/TrackMgr";
 import { Tools } from "../util/Tools";
 import util from "../util/util";
 
@@ -47,7 +43,7 @@ export default class gamePassReward extends baseTs {
         //获取用户行为4
         this.coin = Tools.GetArrData("type", 4, util.behaviorRewardVoList).reward || 150;
 
-        this.rewardLabel1.string = "+" + this.coin + t("main.金币");
+        this.rewardLabel1.string = "+" + this.coin;
 
         this.rewardLabel2.string = this.coin * 10 + "";
 

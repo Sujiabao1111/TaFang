@@ -1,0 +1,27 @@
+
+h_fd.png
+size: 218,125
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+gx_l
+  rotate: true
+  xy: 2, 2
+  size: 121, 122
+  orig: 128, 128
+  offset: 3, 4
+  index: -1
+h_dai_d
+  rotate: false
+  xy: 126, 31
+  size: 90, 92
+  orig: 92, 94
+  offset: 1, 1
+  index: -1
+zjh_jb1
+  rotate: true
+  xy: 126, 9
+  size: 20, 30
+  orig: 20, 30
+  offset: 0, 0
+  index: -1

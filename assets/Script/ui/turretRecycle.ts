@@ -13,6 +13,9 @@ export default class turretRecycle extends baseTs {
     @property({ type: sp.Skeleton, displayName: "炮" })
     paoBody: sp.Skeleton = null;
 
+    @property(cc.Node)
+    xingLayout: cc.Node = null;
+
     //是否在接触
     private isTouch: boolean = false;
 
@@ -23,12 +26,12 @@ export default class turretRecycle extends baseTs {
     private turretData: any;
 
     onLoad() {
-
-
         //拿起
         cc.game.on(NameTs.Game_Turret_PickUp, (res) => {
             this.isTouch = true;
+            this.node.opacity = 255;
             this.targetNode = util.GlobalMap.get("turret_" + res.host);
+            this.setXingNode();
             if (this.level !== res.level) {
                 this.level = res.level;
                 this.setLevel();
@@ -42,9 +45,6 @@ export default class turretRecycle extends baseTs {
             this.node.setPosition(cc.winSize.width, 0);
 
         }, this);
-
-
-
     }
 
     update() {
@@ -61,6 +61,17 @@ export default class turretRecycle extends baseTs {
         this.turretData = util.GetTurretData(this.level);
         this.levelLabel.string = String(this.level);
         this.loadSpine(this.paoBody, "pao");
+        this.setXingNode();
+    }
+
+    private setXingNode() {
+        this.xingLayout.active = this.level >= 39;
+        if (this.xingLayout.active) {
+            let xingData = util.getLevelXing(this.level);
+            for (let i = 0; i < this.xingLayout.children.length; i++) {
+                this.xingLayout.children[i].active = i < xingData.iconCount;
+            }
+        }
     }
 
     /**

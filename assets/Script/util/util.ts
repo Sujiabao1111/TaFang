@@ -261,6 +261,7 @@ class util {
         cc.sys.localStorage.setItem(_key, _value.toString())
     }
 
+
     inidata() {
         //金币
         this.userData.version = 548;
@@ -287,7 +288,6 @@ class util {
     }
 
     savedata() {
-
         this.setInt("goldhb", this.userData.coin)
         this.setInt("exchangeRate", this.userData.exchangeRate)
         this.setInt("product", this.userData.product)
@@ -1677,6 +1677,23 @@ class util {
             this.productTurret(time);
         }
         this.setStorage(this.localDiary.offlineTime, null);
+    }
+
+    getLevelXing(level: number) {
+        // 星/月亮/太阳显示逻辑
+        let iconType = 0;
+        let iconCount = 0;
+        if (level >= 39 && level <= 41) {
+            iconType = 0; // 星
+            iconCount = level - 38;
+        } else if (level >= 42 && level <= 44) {
+            iconType = 1; // 月亮
+            iconCount = level - 41;
+        } else if (level >= 45 && level <= 47) {
+            iconType = 2; // 太阳
+            iconCount = level - 44;
+        }
+        return { iconType, iconCount }
     }
 
 

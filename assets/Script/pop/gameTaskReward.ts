@@ -29,8 +29,6 @@ export default class gameTaskReward extends baseTs {
     // @property({type:cc.Node,displayName:"视频icon"})
     // private videoIcon:cc.Node = null;
 
-    @property({ type: cc.Node, displayName: "信息流" })
-    private feed_node: cc.Node = null;
 
     //多少个金币
     private coin: number = null;
@@ -63,7 +61,7 @@ export default class gameTaskReward extends baseTs {
             this.rewardLabel.string = "+" + this.coin + t("main.金币");
         }
         this.initData = data;
-  
+
 
 
         console.log(this.initData, 'this.initData')
@@ -88,39 +86,39 @@ export default class gameTaskReward extends baseTs {
         })
         if (this.initData && this.initData.taskTitle) {
             // AdController.loadAd(AdPosition.TaskDayDoubleGet, () => {
-                if (this.initData) {
-                    util.getdataStr({
-                        url: this.initData.url || (this.initData.typeTask == 0 ? UrlConst.task_day_commonGet : UrlConst.achievement_commonGet),
-                        data: this.initData.data,
-                        success: () => {
-                            if (!this.isValid) {
-                                return;
-                            }
-
-                            cc.game.emit(NameTs.Game_Task_updata);
-                            TrackMgr.finish_task({
-                                mission_name: this.initData.taskTitle,
-                                mission_type: this.initData.typeTask == 0 ? "日常任务" : "成就任务",
-                                mission_coin: this.coin
-                            });
-                            TrackMgr.AppDialogClick_hcdg({
-                                dialog_name_hcdg: (this.initData.typeTask == 0 ? "日常任务" : "成就任务") + `红包领取成功弹窗`,
-                                ck_module: "领取",
-                            })
-                            TrackMgr.AppBuyProductDialog_hcdg({
-                                dialog_name_hcdg: (this.initData.typeTask == 0 ? "日常任务" : "成就任务") + `红包领取成功弹窗`,
-                            })
-                            PageManage.singleton.showPage(pageTs.pageName.GameCoinReward, { coin: this.coin });
-                            this.closePage();
-                        },
-                        fail: () => {
-                            AssistCtr.showToastTip("领取失败");
+            if (this.initData) {
+                util.getdataStr({
+                    url: this.initData.url || (this.initData.typeTask == 0 ? UrlConst.task_day_commonGet : UrlConst.achievement_commonGet),
+                    data: this.initData.data,
+                    success: () => {
+                        if (!this.isValid) {
+                            return;
                         }
-                    })
-                }
-                // if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
-                //     util.preloadAd(AdPosition.TaskDayDoubleGet);
-                // }
+
+                        cc.game.emit(NameTs.Game_Task_updata);
+                        TrackMgr.finish_task({
+                            mission_name: this.initData.taskTitle,
+                            mission_type: this.initData.typeTask == 0 ? "日常任务" : "成就任务",
+                            mission_coin: this.coin
+                        });
+                        TrackMgr.AppDialogClick_hcdg({
+                            dialog_name_hcdg: (this.initData.typeTask == 0 ? "日常任务" : "成就任务") + `红包领取成功弹窗`,
+                            ck_module: "领取",
+                        })
+                        TrackMgr.AppBuyProductDialog_hcdg({
+                            dialog_name_hcdg: (this.initData.typeTask == 0 ? "日常任务" : "成就任务") + `红包领取成功弹窗`,
+                        })
+                        PageManage.singleton.showPage(pageTs.pageName.GameCoinReward, { coin: this.coin });
+                        this.closePage();
+                    },
+                    fail: () => {
+                        AssistCtr.showToastTip("领取失败");
+                    }
+                })
+            }
+            // if (util.adPreObj[AdPosition.TaskDayDoubleGet]) {
+            //     util.preloadAd(AdPosition.TaskDayDoubleGet);
+            // }
             // }, () => {
             //     AssistCtr.showToastTip(t("tips.reward_obtain_failed"));
             // });

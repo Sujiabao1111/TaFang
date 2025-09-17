@@ -260,7 +260,7 @@ export default class turretFactiory extends cc.Component {
                     this.node.zIndex = 0;
                 }).start();
 
-             
+
 
             } else { //交换
                 console.log("拖拽交换位置成功");
@@ -351,23 +351,15 @@ export default class turretFactiory extends cc.Component {
      * 回收
      */
     recycleFn() {
-
         util.savePool(this.initData.no, null);
         util.GlobalMap.delete("turret_" + this.initData.no);
         cc.game.emit(NameTs.Game_Turret_Killed, { node: this.node, no: this.initData.no });
-        TrackMgr.AppClick({
-            app_page_title: "首页",
-            app_ck_module: "回收炮塔",
-            app_exposure_type: "banner",
-        });
     }
 
     /**
      * 拿起
      */
-
     PickUp() {
-
         //相同等级的炮台数据
         // this.sameLevelTurret = util.getPoolSameLevelTurret(this.initData.level)
         this.sameLevelTurret = util.getPoolSameLevelTurret(this.initData.level)
@@ -379,7 +371,6 @@ export default class turretFactiory extends cc.Component {
 
         cc.game.emit(NameTs.Game_Turret_PickUp, { id: this.initData.no, level: this.initData.level, host: this.initData.no });
 
-
     }
 
     /**
@@ -387,11 +378,6 @@ export default class turretFactiory extends cc.Component {
      */
 
     PutDown() {
-
-        // this.sameLevelTurret.forEach((item:any)=>{
-
-
-        // });
 
         if (this.sameLevelTurret) {
             for (let i = 0; i < this.sameLevelTurret.length; i++) {
@@ -424,9 +410,6 @@ export default class turretFactiory extends cc.Component {
         targetPos = this.node.parent.convertToNodeSpaceAR(targetPos);
 
         let angle: number = Tools.GetPosAngle(this.bullet.initPos, targetPos);
-
-
-
         return angle;
     }
 

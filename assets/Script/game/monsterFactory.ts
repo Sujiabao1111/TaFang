@@ -147,7 +147,7 @@ export default class monsterFactory extends cc.Component {
 
         if (this.monsterHp <= 0) {
             this.clearMonster();
-            console.log("怪兽死亡");
+            // console.log("怪兽死亡");
             cc.game.emit(NameTs.Game_Kills_Updata);
             soundController.singleton.playDeadAudio();
             return;

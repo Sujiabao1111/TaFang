@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "gamePassReward2",
+    "_name": "gamePassReward",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -652,7 +652,7 @@
     "_N$string": "恭喜过关",
     "_fontSize": 40,
     "_lineHeight": 40,
-    "_enableWrapText": true,
+    "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
@@ -777,8 +777,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 176,
-      "height": 157
+      "width": 90,
+      "height": 90
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -796,8 +796,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        2.5,
+        2.5,
         1
       ]
     },
@@ -830,7 +830,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "0b2aaf4f-6775-4bcb-9235-961ded4dcb5c"
+      "__uuid__": "2508ae03-b8ff-4926-9547-4fea5a14ce7e"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -884,8 +884,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 205.1,
-      "height": 63
+      "width": 125.01,
+      "height": 75.6
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -897,7 +897,7 @@
       "ctor": "Float64Array",
       "array": [
         -2.669,
-        -109.078,
+        -126.688,
         0,
         0,
         0,
@@ -936,10 +936,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "+300金币",
-    "_N$string": "+300金币",
-    "_fontSize": 48,
-    "_lineHeight": 50,
+    "_string": "+300",
+    "_N$string": "+300",
+    "_fontSize": 55,
+    "_lineHeight": 60,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "1ad7d702-15b8-4e1a-b0b9-4b4dbd91fe7e"
@@ -1255,7 +1255,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 377.1,
+      "width": 351.1,
       "height": 99.6
     },
     "_anchorPoint": {
@@ -1332,7 +1332,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 271.1,
+      "width": 293.1,
       "height": 100
     },
     "_anchorPoint": {
@@ -1344,7 +1344,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -33,
+        -9,
         0.574,
         0,
         0,
@@ -1408,7 +1408,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -108.05000000000001,
+        -119.05000000000001,
         3,
         0,
         0,
@@ -1521,7 +1521,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -38.55000000000001,
+        -49.55000000000001,
         3,
         0,
         0,
@@ -1662,7 +1662,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        49.499999999999986,
+        38.499999999999986,
         3,
         0,
         0,
@@ -1778,8 +1778,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 42,
-      "height": 52
+      "width": 64,
+      "height": 64
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1831,7 +1831,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "7fa48d75-d9bf-4041-8d7a-9c1bb20b2ba3"
+      "__uuid__": "2508ae03-b8ff-4926-9547-4fea5a14ce7e"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1868,7 +1868,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 271.1,
+      "width": 293.1,
       "height": 100
     },
     "_resize": 1,
@@ -1944,7 +1944,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        121.35000000000001,
+        156.35000000000002,
         46.508,
         0,
         0,
@@ -2257,7 +2257,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 377.1,
+      "width": 351.1,
       "height": 99.6
     },
     "_resize": 1,
@@ -2269,7 +2269,7 @@
     },
     "_N$startAxis": 0,
     "_N$paddingLeft": 20,
-    "_N$paddingRight": 0,
+    "_N$paddingRight": -48,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
     "_N$spacingX": 2,

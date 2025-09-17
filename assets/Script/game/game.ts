@@ -24,11 +24,8 @@ export default class game extends baseTs {
     @property(cc.Node)
     private ske_hudun: cc.Node = null;   //护盾
 
-    @property(cc.Sprite)
-    private image_bg: cc.Sprite = null;  //背景图
-
-    @property(cc.SpriteFrame)
-    private image_bgArray: Array<cc.SpriteFrame> = [];  //背景图集
+    @property(cc.Node)
+    private bgNode: cc.Node = null;  // 背景
 
     private onceOpenGame = true;    //是否第一次开始游戏
 
@@ -40,6 +37,8 @@ export default class game extends baseTs {
     onLoad() {
         util.offlineTurretProduct();
 
+
+
         // 设置语言
         let languageType = Tools.getStorage("LanguageType");
         let index = languageType == undefined || languageType == null ? 1 : languageType;
@@ -47,6 +46,8 @@ export default class game extends baseTs {
 
         soundController.singleton.initIsPlayMusic();
         soundController.singleton.playBGM();
+
+        this.checkBgImage();
 
         cc.game.on(NameTs.Game_End, (res) => {
             switch (res) {
@@ -67,9 +68,7 @@ export default class game extends baseTs {
                     break;
                 case gamePass.smallSuccess:
                     console.log("==========小关结束===========");
-
                     this.showPage(pageTs.pageName.GamePassReward);
-
                     break;
             }
         }, this);
@@ -129,9 +128,7 @@ export default class game extends baseTs {
                 case pageTs.pageName.GameSign:
                     this.showSign(res.data);
                     break;
-                case pageTs.pageName.GameSignReward:
-                    this.showSignReward(res.data);
-                    break;
+
                 case pageTs.pageName.GameWallet:
                     this.showWallet();
                     break;
@@ -144,16 +141,11 @@ export default class game extends baseTs {
                 case pageTs.pageName.GameTuJian:
                     this.showTuJian();
                     break;
-                case pageTs.pageName.GameEarnings:
-                    this.showEarnings();
-                    break;
 
                 case pageTs.pageName.GameTask:
                     this.showTask();
                     break;
-                case pageTs.pageName.GameDetention:
-                    this.showDetention();
-                    break;
+
 
                 case pageTs.pageName.GameAdLoading:
                     this.showAdLoading();
@@ -266,7 +258,6 @@ export default class game extends baseTs {
         } else {
             if (this._userData.newUser) {
                 if (this._userData.offlineIncome && this._userData.offlineIncome.reward > 0) {
-                    this.showPage(pageTs.pageName.GameOffline);
                 } else {
                     // this.showPage(pageTs.pageName.GameStart);
                     this.FistGameStart(1);
@@ -279,7 +270,7 @@ export default class game extends baseTs {
         }
         this.openOnlineTime();
         // this.openOnLinePrizeTimer();
-        this.checkBgImage();
+
 
         cc.game.on(cc.game.EVENT_HIDE, () => {
             console.log("cocos游戏进入后台时触发的事件。")
@@ -328,17 +319,10 @@ export default class game extends baseTs {
     checkBgImage() {
         let bgImageData = AssistCtr.checkLvBg(this._userData.customs.big);
         let bgIndex = bgImageData.mapId - 1;
-
-        if (this.image_bg && this.image_bgArray) {
-            if (this.image_bgArray[bgIndex]) {
-                this.image_bg.spriteFrame = this.image_bgArray[bgIndex];
-            }
-            else {
-                this.image_bg.spriteFrame = this.image_bgArray[0];
-            }
+        bgIndex = bgIndex < 0 || bgIndex > 2 ? 0 : bgIndex;
+        for (let i = 0; i < this.bgNode.children.length; i++) {
+            this.bgNode.children[i].active = bgIndex == i;
         }
-        // let tempColor = new cc.Color();
-        // this.customsLabel.node.color = tempColor.fromHEX(bgImageData.color);
     }
 
 
@@ -476,12 +460,6 @@ export default class game extends baseTs {
         )
     }
 
-    /**     
-     * 签到奖励
-     */
-    showSignReward(data = null) {
-        this.showPage(pageTs.pageName.GameSignReward, data);
-    }
 
     /**
     * 提现
@@ -529,12 +507,6 @@ export default class game extends baseTs {
         this.showPage(pageTs.pageName.GameTuJian);
     }
 
-    /**
-     * 收益翻倍
-     */
-    showEarnings() {
-        this.showPage(pageTs.pageName.GameEarnings);
-    }
 
     /**
      * 任务
@@ -578,32 +550,13 @@ export default class game extends baseTs {
     }
 
 
-    /**
-   * 挽留
-   */
-    showDetention() {
-        this.showPage(pageTs.pageName.GameDetention);
-    }
+
 
     /**
      * 开启新手任务
      */
     showNewPlayerTask() {
-        XMSDK.getdataStr({
-            url: UrlConst.newPlayerTaskData,
-            onSuccess: res => {
-                if (res.code === 0 && res.data) {
-                    this.showPage(pageTs.pageName.GameNewPlayerTask, res.data);
-                }
-                else {
-
-                }
-            },
-            onFail: err => {
-
-            }
-        }
-        )
+        this.showPage(pageTs.pageName.GameNewPlayerTask, null);
     }
 
 

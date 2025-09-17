@@ -166,8 +166,6 @@ export default class CanvasController extends baseTs {
             item.setParent(this.UiBox);
         });
 
-
-
         //初始化弹窗
         PageManage.singleton = new PageManage();
         PageManage.singleton.parent = this.PopBox;
@@ -198,5 +196,4 @@ export default class CanvasController extends baseTs {
         cc.director.loadScene("game");
     }
 
-    // update (dt) {}
 }

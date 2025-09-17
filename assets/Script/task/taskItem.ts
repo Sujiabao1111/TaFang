@@ -219,10 +219,7 @@ export default class taskItem extends cc.Component {
             mission_type: this.typeTask == 0 ? "日常任务" : "成就任务",
             mission_button: "前往",
         })
-
-
     }
+    
 
-
-    // update (dt) {}
 }

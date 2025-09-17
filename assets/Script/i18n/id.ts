@@ -147,17 +147,38 @@ export const languages: languagesData = {
         '在线奖励': 'Hadiah Online',
         '已领取': 'Sudah Diterima',
         '恭喜过关': 'Selamat Lulus Level',
+        '过关失败': 'Gagal menyelesaikan',
         '钱包': 'Dompet Digital',
         '任务': 'Tugas',
         '抽奖': 'Pengundian',
         '签到': 'CheckIn',
         '自动合成': 'Otomatis',
+        '新人福利': 'Keuntungan',
+        '奖池': 'Hadiah',
         '翻倍': 'Dua Kali',
         '任务完成': 'Tugas selesai',
         '累计击杀': 'Penghancuran',
 
+        '限时挑战': 'Tantangan waktu terbatas',
+        '倒计时': 'Hitung mundur :',
+        '_天': '${0}hari',
+        '第_天': 'Hari ke-${0}',
+        '周签到人数': 'Jumlah checkIn mingguan :',
+        '提现记录': 'Riwayat penarikan',
+        '炮王': 'Raja menara',
+        '完成任务获得奖励': 'Mendapatkan hadiah dari penyelesaian tugas',
+        '提现进度': 'Progres penarikan',
+        '完成度': 'Progres penyelesaian: ',
+        '明天再来': 'Kembali besok',
+        '剩余机会': 'Hari ini tersisa ${0} kesempatan',
 
+        '炮塔等级达到': 'Level turret mencapai ${0}',
+        '观看视频': 'Menonton video sebanyak ${0}',
+        '完成日常任务': 'Selesaikan tugas harian ${0}',
+        '累计获得金币': 'Total mendapatkan koin ${0}',
 
+        '每日登录': 'Login harian',
+        '转盘抽奖': 'Putar undian ${0} kali',
 
 
 

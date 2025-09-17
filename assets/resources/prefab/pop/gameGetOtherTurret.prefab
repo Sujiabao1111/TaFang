@@ -705,7 +705,7 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -1274,7 +1274,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 203.88,
+      "width": 218.88,
       "height": 50
     },
     "_anchorPoint": {
@@ -1350,7 +1350,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -79.44,
+        -86.94,
         0,
         0,
         0,
@@ -1463,7 +1463,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -9.939999999999998,
+        -12.439999999999998,
         5.4,
         0,
         0,
@@ -1606,7 +1606,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        52.5,
+        55,
         1.682,
         0,
         0,
@@ -1734,7 +1734,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        84.94,
+        92.44,
         1.024,
         0,
         0,
@@ -1812,7 +1812,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 203.88,
+      "width": 218.88,
       "height": 50
     },
     "_resize": 1,
@@ -1827,7 +1827,7 @@
     "_N$paddingRight": 0,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
-    "_N$spacingX": 0,
+    "_N$spacingX": 5,
     "_N$spacingY": 0,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,

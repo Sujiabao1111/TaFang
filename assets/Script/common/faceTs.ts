@@ -169,21 +169,16 @@ export enum gameNumerical {
 
     //产能最大值
     ProductMax = 20,
-
-
     //产能时间
     ProductTime = 30,
-
     //关闭时间
     closeTime = 2,
 }
 
 /**游戏更新类别 */
 export enum updateType {
-
     //金币
     coin = 0,
-
     //红包
     hongbao,
     //产能
@@ -192,12 +187,10 @@ export enum updateType {
 
 /**音效配置 */
 export interface soundInfo {
-
     /**背景音效*/
     bgm: number,
     /**普通音效 */
     sound: number,
-
 }
 
 
@@ -213,9 +206,9 @@ export interface propInfo {
     /**使用*/
     use: number,
 }
+
 /**道具状态 */
 export enum propState {
-
     //结束
     end = 0,
     //开始
