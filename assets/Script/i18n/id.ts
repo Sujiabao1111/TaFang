@@ -117,6 +117,18 @@ export const languages: languagesData = {
         'PassUnlock': 'Terbuka setelah melewati level ${0}',
     },
     'main': {
+        '欢迎您来到': 'Selamat datang',
+        '在这里合成拿': 'Gabungkan dan ambil di sini',
+        '怪物也会送': 'Monster juga memberi hadiah',
+        '打倒怪兽分': 'Kalahkan monster untuk poin',
+        '准备好了吗': 'Sudah siap?',
+        '手快的人已经住上别墅了': 'Yang cepat sudah tinggal di vil',
+        '开始赚钱': 'Mulai menghasilkan uang',
+        '点击使用免费炮塔': 'Klik untuk menggunakan menara gratis',
+        '同等级炮塔可以合成': 'Menembak dengan menembak yang levelnya sama dapat disintesis',
+        '可提现':'Dapat ditarik ',
+
+
         'level': 'tingkat',
         'Got_turrets': 'Mendapatkan ${0} menara!',
         '暴击': 'Serangan kritis',
@@ -312,7 +324,6 @@ export const languages: languagesData = {
         'btn_1': 'Buka Sekarang',
         'tips_2': 'Klik peti untuk dapatkan hadiah! Hubungkan dompet untuk penarikan!',
         'btn_2': 'Mengerti',
-        "gameGuide": "Klik kendaraan warna yang sama berdasarkan warna berlian",
     },
 };
 

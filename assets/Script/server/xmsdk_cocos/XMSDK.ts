@@ -150,30 +150,15 @@ export default class XMSDK {
         PlatformFactory.Ins.finishCocosLaunch();
     }
 
-    /**
-     * 获取刘海高度
-     */
-    static getLiuHaiHeight() {
-        return PlatformFactory.Ins.getLiuHaiHeight();
-    }
-    /**
-     * 获取导航栏高度
-     */
-    static getNavigationBarHeight() {
-        return PlatformFactory.Ins.getNavigationBarHeight();
-    }
+    
+    
     /**
      * 获取网页host
      */
     static getHost() {
         return AppInfo.host;
     }
-    /**
-     * 退出APP
-     */
-    static exitGame() {
-        PlatformFactory.Ins.exitGame();
-    }
+  
     /**
      * 启动/关闭 前后台监听
      */
@@ -181,69 +166,8 @@ export default class XMSDK {
         console.log("启动后台监听1", enable)
         PlatformFactory.Ins.enableOnResumeOnPause({ enable: enable })
     }
-    /**
-     * 获取网络状态
-     * @returns {boolean} false无网络
-     */
-    static isNetworkConnected() {
-        return PlatformFactory.Ins.isNetworkConnected();
-    }
-    /**
-     * 通知刷新客户端token
-     */
-    static retryToken() {
-        PlatformFactory.Ins.retryToken();
-    }
-    /**
-    * 微信授权
-    */
-    static authWechat() {
-        PlatformFactory.Ins.authWechat();
-    }
-    /**
-    * 支付宝授权
-    */
-    static requestAlipayAuth() {
-        PlatformFactory.Ins.requestAlipayAuth();
-    }
-
-    /**
-   * 反馈界面
-   */
-    static showCustomerService() {
-        PlatformFactory.Ins.showCustomerService();
-    }
-    static showPrivacyPolicy() {
-        PlatformFactory.Ins.showPrivacyPolicy();
-    }
-    static showUserProtocol() {
-        PlatformFactory.Ins.showUserProtocol();
-    }
-    static cancelAccount() {
-        PlatformFactory.Ins.cancelAccount();
-    }
-
-    /**
-     * 打开链接
-     */
-    static openWebUrl(obj) {
-        PlatformFactory.Ins.openWebUrl(obj);
-    }
-    /**
-     * 获取原生的尺寸
-     */
-    static getScreenWidth() {
-        return PlatformFactory.Ins.getScreenWidth()
-    }
-    static getScreenHeight() {
-        return PlatformFactory.Ins.getScreenHeight()
-    }
-    /**
-    * 获取非强制更新版本
-    */
-    static getNewVersionName() {
-        return PlatformFactory.Ins.getNewVersionName();
-    }
+  
+  
 
     /**
      * 添加游戏恢复监听

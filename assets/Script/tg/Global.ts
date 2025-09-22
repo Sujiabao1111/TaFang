@@ -1,5 +1,7 @@
 
 import Singleton from "../base/Singleton";
+import { Tools } from "../util/Tools";
+import util from "../util/util";
 import { ApiService } from "./ApiService";
 const Telegram = window["Telegram"]
 
@@ -40,6 +42,8 @@ export class Global extends Singleton {
         revive: false,
     };
 
+    public curPassStageGold = 0;
+
     public show_mine = true;
     public isHaveAdFreeCount = true;
     public proplist = [];
@@ -49,10 +53,13 @@ export class Global extends Singleton {
     public uid: number = 5190946;
 
     public user: User;
-    public userData: UserData;
+    public userData: NewUserData;
     /** 游戏配置信息 */
     gameConfig: GameConfig;
     cardPackConfig: CardPackConfigInfo[];
+
+
+
 
     private _userName = "";
     public get user_Name(): string {
@@ -63,11 +70,10 @@ export class Global extends Singleton {
     }
 
     public avatar_url: string;
-    public initPlayer(user: User, userdata: UserData) {
+    public initPlayer(user: User, userdata: NewUserData) {
         this.user = user;
         this.user_Name = user.name;
         this.setUserData(userdata);
-
         if (user.avatar != null && user.avatar != '' && this.avatar_url == null) {
             this.avatar_url = user.avatar;
         }
@@ -138,9 +144,6 @@ export class Global extends Singleton {
     }
 
 
-
-
-
     /** 当前获取的的金币(螺丝) */
     cur_got_coins = 0;
     /** 当前获取的箱子 */
@@ -151,55 +154,34 @@ export class Global extends Singleton {
         Global.ins.cur_got_box = 0;
     }
 
-
-    /**
-    * 获取当前用户已经通过的关卡
-    *
-    * @returns 当前用户的阶段信息。如果reback_stage大于-1，则返回reback_stage；否则返回stage。
-    */
-    get stage(): number {
-        if (this.userData.reback_stage > -1) {
-            return this.userData.reback_stage;
-        }
-        else {
-            return this.userData.stage;
-        }
-    }
-
-    set stage(userData: UserData) {
-        if (userData.reback_stage > -1) {
-            this.game_lvl = userData.reback_stage;
-        }
-        else {
-            this.game_lvl = userData.stage;
-        }
-    }
-
-    /** 上一次的等级 */
-    after_lvl = 0;
     /**
      * 通过的等级
      */
-    game_lvl: number = 0;
-    setUserData(userData: UserData, is_update_user: boolean = true) {
+    setUserData(userData: NewUserData, is_update_user: boolean = true) {
         this.userData = userData;
-        this.game_coin = this.userData.game_coin;
-        this.stage = userData;
-        // if (this.userData.reback_stage > -1) {
-        //     GlobalData.cur_lvl = this.userData.reback_stage + 1;
-        //     console.log("this.userData.reback_stage========", this.userData.reback_stage);
-        // } else {
-        //     if (!Global.ins.userData.pass_guide_stage) {
-        //         GlobalData.cur_lvl = 0;
-        //     } else {
-        //         GlobalData.cur_lvl = this.userData.stage + 1;
-        //     }
-        // }
-        // console.log("GlobalData.cur_lvl===========", GlobalData.cur_lvl);
-        // if (is_update_user) {
-        //     EventManager.ins.emit(EVENT_NAME_ENUM.UPDATE_USER);
-        // }
+        util.userData.coin = this.userData.game_coin;
+        this.setCurLevel();
     }
+
+    setCurLevel() {
+        if (this.userData.stage == 0) {
+            util.userData.customs.big = 1;
+            util.userData.customs.small = 1;
+        } else {
+            let level = Tools.getBigSmall(this.userData.stage)
+            util.mapConfig = util.getMapdata(level.big);
+            if (util.mapConfig.length < level.small + 1) {
+                util.userData.customs.big = level.big + 1;
+                util.userData.customs.small = 1;
+            } else {
+                util.userData.customs.big = level.big;
+                util.userData.customs.small = level.small + 1;
+            }
+        }
+        console.log("当前关卡等级", util.userData.customs.big + "-" + util.userData.customs.small);
+    }
+
+
 
 
     /** 获取今日已通过关卡数 */
@@ -254,8 +236,8 @@ export class Global extends Singleton {
     }
 
     /**
-   * 是否有周卡
-   */
+    * 是否有周卡
+    */
     isHaveWeekCard() {
         let isWeek = (Global.ins.userData.card_type & Math.pow(2, 1)) !== 0
         return isWeek

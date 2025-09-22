@@ -10,6 +10,7 @@ import { setLanguage } from "../Language/LanguageData";
 import { UrlConst } from "../server/UrlConst";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
+import { Global } from "../tg/Global";
 import { Tools } from "../util/Tools";
 import util from "../util/util";
 
@@ -53,7 +54,8 @@ export default class game extends baseTs {
             switch (res) {
                 case gamePass.success:
                     console.log("==========大关结束===========");
-                    this.showPass();
+                    util.Opening_times_level = 0;
+                    this.showPage(pageTs.pageName.GamePassReward);
                     this.checkBgImage();
                     break;
                 case gamePass.fail:
@@ -62,7 +64,6 @@ export default class game extends baseTs {
                     this.scheduleOnce(() => {
                         this.crystal.playAnimation("paota_piaofu", -1);
                         cc.game.emit(NameTs.Game_Again);
-                        console.log("送一个空降宝箱Game_End");
                         util.showEmptyBox();   //送一个空降宝箱
                     }, 1);
                     break;
@@ -156,20 +157,17 @@ export default class game extends baseTs {
                     console.log(time, 'time')
                     this._userData.unlocking_time = nowTime;
                     this._userData.synthesis_times = 0;
-                    console.log(this._userData.noviceGuide, 'this._userData.noviceGuide')
 
                     if (this._userData.turretLevel == 5) {
-                        //等级5级时候主动弹出
+                        // 等级5级时候主动弹出
                         this.showPage(pageTs.pageName.GameGoldWheel);
                     }
 
-                    if (util.checkTestB(NameTs.new_hand_test) && this._userData.noviceGuide == 3) {
+                    if (this._userData.noviceGuide == 3) {
                         cc.game.emit(NameTs.Game_Novice_Open, 4);
-                        util.sendTurretData();
                     } else {
-                        if (util.checkTestB(NameTs.lock_turret_test) && (this._userData.turretLevel > 2 && this._userData.turretLevel < 8)) {
+                        if (this._userData.turretLevel > 2 && this._userData.turretLevel < 8) {
                             console.log("B用户3-7级，不触发弹窗")
-                            util.sendTurretData();
                         } else {
                             this.showUpgrade();
                         }
@@ -230,16 +228,11 @@ export default class game extends baseTs {
             this.closeShield();
         }, this);
 
-        console.log("新手引导是否过了:", 'this._userData.noviceGuide')
-        if (this._userData.noviceGuide !== -1 && this._userData.turretLevel < 2) {
+        console.log("新手引导是否过了:", Global.ins.userData.pass_guide_stage)
+        if (!Global.ins.userData.pass_guide_stage && this._userData.turretLevel < 2) {
             this._userData.noviceGuide = 1;
-            if (util.checkTestB(NameTs.new_hand_test)) {
-                this.showPage(pageTs.pageName.GameGuide);
-            } else {
-                this.showPage(pageTs.pageName.GameGuide2);
-            }
-
-            util.sendTurretData();
+            Global.ins.userData.pass_guide_stage = 1;
+            this.showPage(pageTs.pageName.GameGuide);
 
             XMSDK.getdataStr({
                 url: UrlConst.sign_main,
@@ -412,15 +405,6 @@ export default class game extends baseTs {
         this.showPage(pageTs.pageName.GameEnd);
     }
 
-    /**
-     * 通关成功
-     */
-
-    showPass() {
-        util.Opening_times_level = 0;
-        this.showPage(pageTs.pageName.GamePassReward);
-    }
-
 
     /**
      * 设置
@@ -465,25 +449,21 @@ export default class game extends baseTs {
     * 提现
      */
     showWallet() {
-        util.sendTurretData(() => {
-            //fix bug
-
-            XMSDK.getdataStr({
-                url: UrlConst.wallet_main2,
-                onSuccess: res => {
-                    if (res.code === 0 && res.data) {
-                        this.showPage(pageTs.pageName.GameWallet, res.data);
-                    }
-                    else {
-
-                    }
-                },
-                onFail: err => {
+        XMSDK.getdataStr({
+            url: UrlConst.wallet_main2,
+            onSuccess: res => {
+                if (res.code === 0 && res.data) {
+                    this.showPage(pageTs.pageName.GameWallet, res.data);
+                }
+                else {
 
                 }
+            },
+            onFail: err => {
+
             }
-            )
-        });
+        }
+        )
     }
 
     /**

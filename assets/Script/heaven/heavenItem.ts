@@ -38,8 +38,6 @@ export default class heavenItem extends baseTs {
 
         this.checkTwoHeaven();
 
-        console.log("位置：" + this.no, "," + (this.isVideo ? "" : "不") + "看视频红包");
-
     }
 
     start() {
@@ -75,6 +73,4 @@ export default class heavenItem extends baseTs {
         }
 
     }
-
-    // update (dt) {}
 }

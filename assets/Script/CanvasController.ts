@@ -5,9 +5,12 @@ import NameTs from "./common/NameTs";
 import { setLanguage } from "./Language/LanguageData";
 import PageManage from "./PageManage";
 import soundController from "./soundController";
+import { ApiService } from "./tg/ApiService";
+import { Global } from "./tg/Global";
 import { Tools } from "./util/Tools";
 import util from "./util/util";
 
+const Telegram = window["Telegram"]
 
 const { ccclass, property } = cc._decorator;
 
@@ -35,6 +38,8 @@ export default class CanvasController extends baseTs {
 
     @property({ type: cc.Node, displayName: "加载页" })
     private loadPage: cc.Node = null;
+    @property({ type: cc.Node })
+    private loadIcon: cc.Node = null;
 
     @property({ type: cc.Node, displayName: "网络失败" })
     private noLine: cc.Node = null;
@@ -43,93 +48,103 @@ export default class CanvasController extends baseTs {
     private mapdata: cc.JsonAsset = null;
 
 
-    private jinqule: boolean = false;
+    private isLogined = false;
 
     onLoad() {
-
-        // cc.macro.CLEANUP_IMAGE_CACHE = false;
-        // cc.dynamicAtlasManager.enabled = true;
-        // cc.dynamicAtlasManager.showDebug(true);
-
+        console.log("开始加载");
+        this.isLogined = false;
+        /** 适配 */
         Tools.updateResolution();
-
         // 设置语言
         let languageType = Tools.getStorage("LanguageType");
         let index = languageType == undefined || languageType == null ? 1 : languageType;
         setLanguage(Number(index));
-
-
         // 关掉load页面
         cc.game.on(NameTs.Close_LoadPage, res => {
             this.loadPage.active = false;
+            cc.Tween.stopAllByTarget(this.loadIcon);
         }, this);
 
-        // XMSDK.initialize();
-        util.inidata()
-        this.loadingJson();
-        jsonSingleton.singleton.jsonData[NameTs.gkData] = this.mapdata.json;
-        this.getAllLocalStorage();
+        cc.tween(this.loadIcon)
+            .to(0.5, { scaleX: 0 })
+            .to(0.5, { scaleX: -1 })
+            .to(0.5, { scaleX: 0 })
+            .to(0.5, { scaleX: 1 })
+            .union()
+            .repeatForever()
+            .start();
 
+        this.loadRes();
+    }
+
+    async loadRes() {
+        jsonSingleton.singleton.jsonData[NameTs.gkData] = this.mapdata.json;
+        let rsp = await this.login();
+        this.isLogined = rsp?.success;
+        if (!this.isLogined) {
+            return;
+        }
+
+        this.loadingJson();
+        util.inidata()
+        this.getAllLocalStorage();
         util.userData.offlineIncome = {
             reward: 0,
             multipleReward: 0
         }
-
         let dds = []
         dds.forEach(element => {
             util.userData.prop[element.propId - 1].num = element.propNum;
         });
-        // util.userData.prop = res;
-
-        //进度数据
-        let propdata = [{ "type": "1", "name": "冰冻", "explain": "冰冻怪物\n10s", "time": "10", "level": "1" }, { "type": "2", "name": "电击", "explain": "怪物接受额外伤害+20", "time": "3", "level": "1" }, { "type": "3", "name": "护罩", "explain": "保护水晶塔\n30s", "time": "30", "level": "25" }, { "type": "4", "name": "清屏", "explain": "消灭所有怪兽", "time": "0", "level": "45" }, { "type": "5", "name": "自动合成", "explain": "炮塔自动合成\n30s", "time": "30", "level": "5" }, { "type": "6", "name": "增能", "explain": "炮塔攻击力X2\n20s", "time": "20", "level": "1" }];
-
-        let ab_test = [{ "lock_turret_test": { "A": "true", "B": "true" } }, { "heaven_coin_test": { "A": "true", "B": "true" } }, { "new_hand_test": { "A": "true", "B": "true" } }]
-
-        if (propdata) {
-            util.propConfig = propdata;
-            //console.log("道具详细说明",util.propConfig);
-        }
-
         util.online_time = 10 * 60;
-        if (ab_test) {
-            let test = ab_test;
-            for (let i = 0; i < test.length; i++) {
-                let key: string = Object.keys(test[i])[0];
-                util.AB_Test[key] = test[i][key];
-            }
-        }
-
-
         //初始化一些数据
         util.userData.airborneCount = 15;
-
         if (util.userData.noviceGuide == 1 && util.userData.newUser == true) {
             util.userData.product = 40;
         }
+        util.behaviorRewardVoList = [{ "type": 1, "reward": 50 }, { "type": 2, "reward": 4 }, { "type": 4, "reward": 75 }, { "type": 5, "reward": 50 }];
+        util.mapConfig = util.getMapdata(util.userData.customs.big);
+        util.propConfig = null
+    }
 
-        if (util.userData.turretLevel > 1) {
-            util.userData.noviceGuide = -1;
-            util.setStorage(util.localDiary.noviceGuide, -1);
+
+    async login() {
+        let response = null;
+        let openid = "";
+        let iid = 0;
+        let initData = "";
+
+        let user = Telegram?.WebApp.initDataUnsafe.user;
+        let isPlayDeck = false;
+        if (CC_DEBUG || isPlayDeck) {
+            console.log("DEBUG 模式，使用固定数据调用登录接口");
+            openid = user?.id ? String(user?.id) + '' : "7702475601";
+            initData = "query_id=AAEP2xBDAwAAAA_bEEPph7b4&user=%7B%22id%22%3A7567629071%2C%22first_name%22%3A%22Stranger%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22S_tranger1%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2Fd3o2UDwJbAF5Spr7jD-Rfun9wSruxHuxLBDYQc34ajLzB2ZdM4av73Dy3hR41eW2.svg%22%7D&auth_date=1753064517&signature=hv8eHPFLqjo7D4Y8rcztVhozbIHVxPvnDqgIK34zJtTUMujtgJhco53PE2v43kVKN_0GRtxnqjLcFU9gH8z-Bw&hash=d6f9b660ebba6544d8e10292a4bfb8aecb848c3ef7bc522be350c0dc0f9b65e6";
+            // Global.ins.avatar_url = "https://t.me/i/userpic/320/DsIrt15ltA4oHzUNh1JUA5hOGjjfRVlEFTB8sYblY__zrFgKfz2YHgNw0L1MyASs.svg";
+        } else if (user) {
+            console.log("===========", Telegram.WebApp.initDataUnsafe.user);
+            openid = Telegram.WebApp.initDataUnsafe.user.id;
+            iid = Telegram.WebApp.initDataUnsafe?.start_param;
+            initData = Telegram.WebApp.initData;
+            // Global.ins.avatar_url = Telegram.WebApp.initDataUnsafe.user.photo_url;
         }
 
-        util.behaviorRewardVoList = [{ "type": 1, "reward": 50 }, { "type": 2, "reward": 4 }, { "type": 4, "reward": 75 }, { "type": 5, "reward": 50 }];
-
-        util.mapConfig = util.getMapdata(util.userData.customs.big);
-
-        util.propConfig = null
-        this.jinqule = true;
+        // let loginType = ""
+        // if (window?.playdeckIsOpen) {
+        //     loginType = "playdeck";
+        // }
+        response = await ApiService.ins.login(openid, initData, iid);
+        if (response && response?.success) {
+            console.log("====response.data.user=======", response.data.user);
+            console.log("====response.data.userdata=======", response.data.userdata);
+            Global.ins.initPlayer(response.data.user, response.data.userdata);
+            // await ApiService.ins.getConfigs();
+            // await ApiService.ins.getCardPackConfigs();
+            return response;
+        }
+        return response;
     }
 
-
-
-    start() {
-        // this.scheduleOnce(() => {
-        //     if (!this.jinqule && this.noLine) {
-        //         this.noLine.active = true;
-        //     }
-        // }, 30);
-    }
 
     /**
      * 获取本地数据

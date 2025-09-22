@@ -87,16 +87,11 @@ export default class gameHeavenReward extends baseTs {
 
             this.heavenItem = data.item || this.node;
 
-
-
             this.isVideo = data.isVideo ? true : false;
             this.get_node.active = !this.isVideo;
             this.closeBtnNode.getParent().active = this.isVideo;
 
         }
-
-
-
 
         this.item = data.item;
         this.no = data.no;
@@ -134,14 +129,7 @@ export default class gameHeavenReward extends baseTs {
             cc.game.emit(NameTs.Game_Heaven_killed, this.item);
         }
 
-        if (num == 1) {
-            successFn();
-            if (util.checkTestB(NameTs.heaven_coin_test)) {
-                util.existVideoCoinNum--;
-            }
-        } else {
-            successFn();
-        }
+        successFn();
     }
 
     /**

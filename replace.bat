@@ -1,0 +1,2 @@
+python replace.py
+pause

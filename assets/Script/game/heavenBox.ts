@@ -38,7 +38,7 @@ export default class heavenBox extends cc.Component {
 
         //天降金币
         this.HeavenData.time = util.GetHeavenTime();
-        this.HeavenData.ing = true; // 控制是否要有天降金币
+        this.HeavenData.ing = false; // 控制是否要有天降金币
 
         util.getdataStr({
             url: UrlConst.heavenCoin_main,
@@ -80,8 +80,6 @@ export default class heavenBox extends cc.Component {
             this.HeavenData.time -= dt;
             // console.log(this.HeavenData.time,'this.HeavenData.time')
             if (this.HeavenData.time < 0) {
-                console.log("111222222222222222211111111111111111111");
-
                 this.HeavenData.time = util.GetHeavenTime();
                 this.createHeaven();
             }

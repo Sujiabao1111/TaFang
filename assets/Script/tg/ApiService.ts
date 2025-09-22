@@ -1,11 +1,13 @@
 
 import { AssistCtr } from "../Assist/AssistCtr";
-import UserData from "../data/userData";
 import { t } from "../Language/LanguageData";
+import { TimeTools } from "../util/TimeTools";
+import { Tools } from "../util/Tools";
 import { Global } from "./Global";
 import HttpClient from "./HttpClient";
 import { WalletMgr } from "./WalletMgr";
 const Telegram = window["Telegram"]
+
 
 
 //#region 接口定义
@@ -42,12 +44,7 @@ declare global {
       /**
        * 用户游戏数据
        */
-      userdata: UserData;
-
-      /**
-       * 签到天数
-       */
-      receive_day: number;
+      userdata: NewUserData;
     };
     success: boolean;
   }
@@ -56,7 +53,7 @@ declare global {
   interface UserDataResponse extends ApiResponse {
     code?: number;
     data: {
-      userdata: UserData;
+      userdata: NewUserData;
     };
     message?: string;
     success: boolean;
@@ -66,57 +63,196 @@ declare global {
    * 用户基础信息
    */
   interface User {
+    // 用户数据库ID
+    id: number;
+    // 平台方用户ID
+    openid: string;
+    // 邀请
+    inviter: number;
+    // 创建时间(ISO格式)
+    createt: string;
+    // 最后登录时间(ISO格式)
+    last_login: string;
+    // 钱包地址
+    address: string;
+    // 用户名
+    name: string;
+    // 头像URL
+    avatar: string;
+    // 密码占位符(实际应为加密值)
+    password: string;
+    // |用户地区,格式:国家|省|市|区|服务器服务商|,例子:韩国|0|首尔|首尔|亚马逊|
+    lastregion: string;
+    //
+    acc_type: string;
+    //
+    lastip: string;
+    //
+    source: string;
+    //
+    state: number
+  }
+
+
+  /**
+   * 用户游戏数据
+   */
+  interface NewUserData {
     /**
-     * 用户数据库ID
+     * 数据库记录ID
      */
     id: number;
 
     /**
-     * 平台方用户ID
+     * 用户ID
      */
-    openid: string;
+    uid: number;
 
     /**
-     * 邀请
+     * 今日已获得免费金币数
      */
-    inviter: number;
+    today_game_coin: number;
 
     /**
-     * 创建时间(ISO格式)
+     * 今日已通关次数
      */
-    createt: string;
+    today_passed: number;
 
     /**
-     * 最后登录时间(ISO格式)
+     * 上次领取奖励时间(ISO格式)
      */
-    last_login: string;
+    last_receive: string;
 
     /**
-     * 钱包地址
+     * 箱子数据
+     * - 键值说明:
+     *   - 1|2|3表示箱子数量(青铜/白银/黄金)
+     *   - 10000|20000|30000表示钥匙数量(青铜/白银/黄金)
      */
-    address: string;
+    boxdata: {
+      // [key: string]: number;
+      '0': number;
+      '1': number;
+      '2': number;
+      '10000': number;
+      '20000': number;
+      '30000': number;
+    };
 
     /**
-     * 用户名
+     * 卡类型位掩码
+     * - 2^0(无卡)|2^1(周卡)|2^2(月卡)|2^3(年卡)
      */
-    name: string;
+    card_type: number;
 
     /**
-     * 头像URL
+     * 游戏内货币总数
      */
-    avatar: string;
+    game_coin: number;
 
     /**
-     * 密码占位符(实际应为加密值)
+     * 代币货币总数
      */
-    password: string;
+    coin: number;
+
     /**
-     * |用户地区,格式:国家|省|市|区|服务器服务商|,例子:韩国|0|首尔|首尔|亚马逊|
+     * USD金额
      */
-    lastregion: string;
+    usd: number;
+
+    /**
+     * 已观看广告次数
+     */
+    adswatched: number;
+
+    /**
+     * 当前能量值
+     */
+    energy: number;
+
+    /**
+     * 总通过关卡数
+     */
+    stage: number;
+
+    /**
+     * 回退关卡数 >-1取 reback_stage当关卡数，否则取stage当关卡数
+     */
+    reback_stage: number;
+
+    /**
+     * 今日获得的青铜箱子数
+     */
+    today_box1: number;
+
+    /**
+     * 今日获得的白银箱子数
+     */
+    today_box2: number;
+
+    /**
+     * 今日获得的黄金箱子数
+     */
+    today_box3: number;
+
+    /**
+     * 当前循环奖励关卡索引
+     * - 切到下一段时为-1表示未获得
+     */
+    loop_prize: number;
+
+    /**
+     * 周卡过期时间戳
+     */
+    weekcard_expire: number;
+
+    /**
+     * 月卡过期时间戳
+     */
+    monthcard_expire: number;
+
+    /**
+     * 年卡过期时间戳
+     */
+    yearcard_expire: number;
+
+    /**
+     * 总邀请人数
+     */
+    invites?: number;
+
+    /**
+     * 今日已分享次数
+     */
+    today_shared?: number;
+
+    /**
+     * 今日已邀请人数
+     */
+    today_invites?: number;
+    /**
+     * 是否订阅
+     */
+    subscribe: number;
+    /**
+     * 是否加入群组
+     */
+    join_group: number;
+    /**
+     * 是否投票
+     */
+    vote: number;
+    /**
+     * 新手引导是否完成
+     */
+    pass_guide_stage?: number;
+
+    /**
+    * azen代币货币数
+    */
+    azen: number;
+
   }
-
-
   /**
    * 获取游戏配置接口响应数据结构
    */
@@ -267,7 +403,70 @@ declare global {
 
   /** 返回提现数据 */
   interface SubmitWithdrawResponse extends UserDataResponse {
+    data: {
+      userdata: NewUserData;
+    };
+    success: boolean;
   }
+
+  /** 返回提现列表数据 */
+  interface withdrawListResponse extends ApiResponse {
+    success: boolean;
+    data: {
+      list: withdrawListData; //提现记录列表
+      total: number;  //总记录数
+      page: number; //当前页码
+    };
+  }
+  /** 记录列表*/
+  interface withdrawListData {
+    id: number,
+    uid: number,
+    amount: number,
+    created_at: string,
+    status: number,
+    queue: number,
+    order_id: string
+  }
+
+  /** 付费签到数据 */
+  interface paycheckinResponse extends ApiResponse {
+    success: boolean;
+    data: orderData;
+  }
+
+  /* 订单信息 */
+  interface orderData {
+    id: number,
+    uid: number,
+    order_id: string,
+    order_type: number,
+    order_status: number,
+    order_from: string,
+    order_amount: number,
+    order_coin: number,
+    created_at: string,
+    invoice_link?: string
+  }
+
+  /**
+   * 支付成功确认响应数据结构
+   */
+  interface PurchaseDoneResponse extends UserDataResponse {
+    success: boolean;
+  }
+
+  /**
+  * 检查订单状态响应结构
+  */
+  interface CheckOrderResponse extends ApiResponse {
+    success: boolean;
+    data: {
+      order: orderData;
+      userdata: NewUserData;
+    }
+  }
+
 
   /**
    * 箱子数据
@@ -345,10 +544,14 @@ declare global {
   /**
    * 获取关卡奖励返回数据
    */
-  interface LvPrizeResponse extends ApiResponse {
-    code?: number;
-    data: LvPrizeData;
+  interface passstageResponse extends ApiResponse {
+    data: passstageData
     success: boolean;
+  }
+
+  interface passstageData {
+    prize: number,
+    userdata: NewUserData,
   }
 
   /**
@@ -362,7 +565,7 @@ declare global {
     /** 循环奖励 */
     loopPrizeInfo: PrizeInfo[];
     /** 用户数据 */
-    userdata: UserData;
+    userdata: NewUserData;
   }
 
   /**
@@ -384,7 +587,7 @@ declare global {
   /** 领取周卡每日奖励响应类型 */
   interface GetCardDailyResponse extends UserDataResponse {
     data: {
-      userdata: UserData,
+      userdata: NewUserData,
       rewards: RewardData[],
 
       /**
@@ -449,21 +652,40 @@ declare global {
     usd: number;
   }
 
-  /**
-   * 支付成功确认响应数据结构
-   */
-  interface PurchaseDoneResponse extends UserDataResponse {
-  }
+
 
   /**
    * 任务数据接口
    */
   interface TaskData {
     /** 任务id */
-    id: number;
-
+    id: number,
     /** 简体任务描述 */
-    desc: string;
+    desc: string,
+    /** 图标 */
+    icon: string,
+    /** 分栏类型 */
+
+    column_type: number,
+    /** 任务类型(1每日任务 2单次任务) */
+    task_type: string,
+    /** 奖励内容(JSON格式) */
+    rewards,
+    /** 任务完成类型 */
+    target_type: string,
+    /** 任务完成要求 */
+
+    target_value: number,
+    /** 任务进度 */
+    task_progress: number,
+    /** 是否可领取(0不可 1可)  */
+
+    can_receive: number,
+    /** 已领取次数  */
+    getnum: number
+
+
+
     /** 阿拉伯语描述 */
     desc_ar: string;
     /** 英语描述 */
@@ -476,27 +698,6 @@ declare global {
     desc_th: string;
     /** 繁体描述 */
     desc_zhhant: string;
-
-    /** 分栏类型 1每日任务 2社区任务 */
-    column_type: number;
-    /** 任务类型 1每日任务 2一次性任务 */
-    task_type: number;
-    /** 奖励类型  1螺丝 2箱子 3钥匙 */
-    reward_type: number;
-    /** 奖励id 如果reward_type=2或3,表示箱子id和钥匙id */
-    rewardid: number;
-    /** 奖励数量 */
-    rewardnum: number;
-    /** 任务需求类型  */
-    task_require_type: number;
-    /** 任务需求次数 */
-    task_require: number;
-    /** 任务进度 */
-    task_progress: number;
-    /** 是否可领取 1可领取 0不可领取 */
-    can_receive: number;
-    /** 图标 */
-    icon: string;
   }
 
   /**
@@ -512,6 +713,8 @@ declare global {
    * 领取任务奖励响应结构
    */
   interface TaskRewardResponse extends UserDataResponse {
+    success: boolean;
+    data;  // 奖励内容(JSON格式)   "data": "[[1,100]]"
   }
 
   /**
@@ -556,7 +759,7 @@ declare global {
       rewarded: number[];
       /** 获得的奖励数据 [奖励类型,箱子或者钥匙id,数量] 类型：1螺丝 2宝箱 3钥匙 4道具 */
       rewards: number[];
-      userdata: UserData;
+      userdata: NewUserData;
     };
     success: boolean;
   }
@@ -586,7 +789,7 @@ declare global {
   interface ShareRewardResponse extends ApiResponse {
     data: {
       gotcoin: number;
-      // userdata: UserData;
+      // userdata: NewUserData;
     };
     success: boolean;
   }
@@ -664,8 +867,8 @@ declare global {
   }
 
   /**
- * 购买道具响应结构
- */
+  * 购买道具响应结构
+  */
   interface GetUserproplist extends ApiResponse {
     // data: [{
     //   "prop_id": number;
@@ -674,12 +877,7 @@ declare global {
     success: boolean;
   }
 
-  /**
-   * 检查订单状态响应结构
-   */
-  interface CheckOrderResponse extends ApiResponse {
-    success: boolean;
-  }
+
 
   /**
    * 注册活动响应结构
@@ -697,7 +895,7 @@ declare global {
       /** 本次获取的金币数量 */
       gotcoin: number;
       /** 用户数据 */
-      userdata: UserData;
+      userdata: NewUserData;
     };
     success: boolean;
   }
@@ -899,7 +1097,6 @@ declare global {
   * 领取系列奖励响应结构
   */
   interface GetRewardResponse extends ApiResponse {
-    data: CardParkRewardInfo[];
     success: boolean;
   }
 
@@ -996,8 +1193,8 @@ declare global {
   }
 
   /**
- * 卡包系列信息
- */
+  * 卡包系列信息
+  */
   interface CardParkRewardInfo {
     /** 奖励类型，1螺丝，2宝箱，3钥匙 */
     0: number;
@@ -1009,8 +1206,8 @@ declare global {
 
 
   /**
- * 卡包系列信息
- */
+  * 卡包系列信息
+  */
   interface OwnedPacksListInfo {
     /** icon */
     icon: string;
@@ -1111,7 +1308,7 @@ declare global {
   interface ReadMailResponse extends ApiResponse {
     data?: {
       /** 更新后的用户数据（领取奖励时返回） */
-      userdata?: UserData;
+      userdata?: NewUserData;
     };
   }
 
@@ -1286,16 +1483,12 @@ export enum ChannelType {
  */
 export class ApiService {
 
-  // private baseUrl: string = 'https://screwit.vazhenina.com/api';
-  // private baseUrl: string = 'http://192.168.2.25:3559';
-  // private baseUrl: string = 'https://car.vazhenina.com/api';
-
   static readonly TEST = false;
   private get baseUrl() {
     if (ApiService.TEST) { // 测试
-      return 'https://car.vazhenina.com/testapi'
+      return 'https://car.vazhenina.com/towerapi'
     }
-    return 'https://car.vazhenina.com/api';
+    return 'https://car.vazhenina.com/towerapi';
   }
 
   /**
@@ -1322,6 +1515,9 @@ export class ApiService {
   }
 
 
+
+
+
   /** 是否登录 */
   logined: boolean = false;
   /**
@@ -1332,33 +1528,204 @@ export class ApiService {
    * @param iid 邀请者的uid    
    * @returns 返回包含token的对象
    */
-  async login(openId: string, initData: string, iid?: number, loginType?: string): Promise<LoginResponse> {
+  async login(openId: string, initData: string, iid?: number): Promise<LoginResponse> {
     openId = String(openId)
-    // console.log('login:', openId, initData);
-    if (!iid) {
-      iid = 0;
-    }
-    else {
-      iid = Number(iid);
-    }
+    iid = !iid ? 0 : Number(iid);
     const response = await this.http.post<LoginResponse>('/logintg', {
       open_id: openId,
       iid,
       init_data: initData,
-      login_type: loginType,
     });
     if (response && response?.response && response.response?.success) {
       this.http.setAuthToken(response.response.data.jwt);
-      Global.ins.receive_day = response.response?.data?.receive_day;
       // Global.ins.initPlayer(response.data.user, response.data.userdata);
       console.log("登录成功", response);
-      this.logined = true;
     }
     else {
       console.log("登录失败", response);
-      this.logined = false;
     }
     return response.response;
+  }
+
+
+
+  /**
+   * 通关关卡
+   * @param stage 关卡数
+   * @param ts 时间戳
+   * @param nonce 随机字符串
+   * @returns 
+   */
+  async passstage(stage: number) {
+    let ts = TimeTools._ins.getNowTime()
+    let nonce = Tools.getSuiJiNonce();
+    let data = { stage, ts, nonce }
+    let result = Tools.sortAndStringify(data)
+    let signature = Tools.generateLocalSignature(result)
+    let headers = { "X-Signature": signature }
+
+    const response = await this.http.post<passstageResponse>('/passstage', data, { headers, auth: true });
+    if (response.status == 200 && response.response?.success) {
+      Global.ins.setUserData(response.response.data.userdata);
+    }
+
+    return response;
+  }
+
+
+  /**
+  * 获取任务
+  * @returns 任务数据数组
+  */
+  async getTask(): Promise<ApiMsg<TaskListResponse>> {
+    const response = await this.http.post<TaskListResponse>(
+      '/gettask',
+      {},
+      { auth: true }
+    );
+
+    if (response.response?.success) {
+      console.log('任务列表获取成功:', response.response.data);
+    }
+    return response;
+  }
+
+  /**
+  * 领取任务奖励
+  * @param task_id 任务ID
+  * @returns 更新后的用户数据
+  */
+  async claimTaskReward(task_id: number): Promise<ApiMsg<TaskRewardResponse>> {
+    const response = await this.http.post<TaskRewardResponse>(
+      '/gettaskreward',
+      { task_id },
+      { auth: true }
+    );
+
+    if (response.response?.success) {
+      console.log('任务奖励领取成功:', response.response.data.userdata);
+      // // 可在此处添加用户数据更新逻辑
+      // Global.ins.setUserData(response.response.data.userdata, false);
+    }
+    return response;
+  }
+
+  /**
+   * 
+   *
+   * @returns 返回用户信息的响应数据
+   */
+
+  /**
+  * 领取各种奖励
+  * @param reward_key 奖励键
+  * @param reward_type 奖励类型
+  * @param reward_num 奖励数量
+  * @param ts 时间戳
+  * @param nonce 随机字符串
+  * @returns 
+  */
+  async getReward(reward_key: number, reward_type: number, reward_num: number) {
+    let ts = TimeTools._ins.getNowTime()
+    let nonce = Tools.getSuiJiNonce();
+    let data = { reward_key, reward_type, reward_num, ts, nonce }
+    let result = Tools.sortAndStringify(data)
+    let signature = Tools.generateLocalSignature(result)
+    let headers = { "X-Signature": signature }
+
+    const response = await this.http.post<GetRewardResponse>('/getreward', data, { headers, auth: true });
+    return response;
+  }
+
+  /**
+   * 提交提现请求
+   * @param a 提现金额
+   * @param channel 提现渠道，可选参数，渠道,不传或者空字符默认为ton
+   * @param walletAddress 提现地址
+   * @returns 提交结果
+   */
+  async submitWithdraw(a: number, channel?: ChannelType) {
+    let ts = TimeTools._ins.getNowTime()
+    let nonce = Tools.getSuiJiNonce();
+    let addr = WalletMgr.ins.getAddress();
+    channel = ChannelType.ton;
+    let data = { a, addr, channel, ts, nonce }
+    let result = Tools.sortAndStringify(data)
+    let signature = Tools.generateLocalSignature(result)
+    let headers = { "X-Signature": signature }
+
+    let response = await this.http.post<SubmitWithdrawResponse>('/submitwithdraw', data, { headers, auth: true });
+    if (response.status == 200 && response.response?.success) {
+      Global.ins.setUserData(response.response.data.userdata);
+    }
+    return response;
+  }
+
+  /**
+   * 提现记录列表
+   * @param page 页码
+   * @param page_size 每页数量
+   * @returns 提交结果
+   */
+  async withdrawList(page: number, page_size: number) {
+    let data = { page, page_size }
+
+    let response = await this.http.post<withdrawListResponse>('/withdrawlist', data, { auth: true });
+    if (response.status == 200 && response.response?.success) {
+      // Global.ins.setUserData(response.response.data.userdata);
+    }
+    return response;
+  }
+
+  /**
+   * 付费签到
+   * @param skuid 对应的SKU项目ID
+   * @param order_type 订单类型(0或1:买周卡 3:买卡包)
+   * @param num 数量，购买卡包或其他时使用
+   * @param pay_type 支付类型("game_coin", "usd")
+   * @param payment_from  支付来源('playdeck' || '' || 'azen')
+   * @returns 提交结果
+   */
+  async paycheckin(skuid: number, order_type: number, num: number, pay_type: string, payment_from: string) {
+    let data = { skuid, order_type, num, pay_type, payment_from }
+    let response = await this.http.post<paycheckinResponse>('/paycheckin', data, { auth: true });
+    if (response.status == 200 && response.response?.success) {
+      // Global.ins.setUserData(response.response.data.userdata);
+    }
+    return response;
+  }
+
+  /**
+   * 检查订单支付状态
+   * @param order_id 订单ID (创建订单时返回的order.oid)
+   * @returns 订单是否支付成功
+   */
+  async checkOrder(order_id: string): Promise<ApiMsg<CheckOrderResponse>> {
+    const response = await this.http.post<CheckOrderResponse>('/checkorder', { order_id }, { auth: true });
+    if (response.status >= 400 || !response.response?.success) {
+      console.error('订单状态检查失败:', response);
+      // UIManager.ins.showToast(t('tips.orderCheckFailed'));
+    } else {
+      console.log('订单状态检查成功:', response);
+    }
+
+    return response;
+  }
+
+  /**
+   * 确认支付成功
+   * @param id 订单数据库ID
+   * @param order_id 订单字符串ID
+   * @returns 更新后的订单信息及用户数据
+   */
+  async purchaseDone(order_id: string): Promise<ApiMsg<PurchaseDoneResponse>> {
+    let data = { order_id }
+    const response = await this.http.post<PurchaseDoneResponse>('/purchasedone', data, { auth: true });
+    console.log('支付确认', response);
+    if (response.response?.success) {
+      // 如果需要更新本地用户数据可在此处理
+    }
+    return response;
   }
 
 
@@ -1379,6 +1746,7 @@ export class ApiService {
     }
   }
 
+
   /**
    * 获取游戏配置信息
    *
@@ -1394,22 +1762,7 @@ export class ApiService {
     return response.response;
   }
 
-  /**
-   * 提交提现请求
-   *
-   * @param amount 提现金额
-   * @param channel 提现渠道，可选参数，渠道,不传或者空字符默认为ton
-   * @param walletAddress 提现地址
-   * @returns 提交结果
-   */
-  async submitWithdraw(amount: number, channel?: ChannelType) {
-    const response = await this.http.post<SubmitWithdrawResponse>('/submitwithdraw',
-      { a: amount, channel, addr: WalletMgr.ins.getAddress() }, { auth: true });
-    if (response.status == 200 && response.response?.success) {
-      Global.ins.setUserData(response.response.data.userdata);
-    }
-    return response;
-  }
+
 
   /**
     * 返回票据信息
@@ -1439,25 +1792,7 @@ export class ApiService {
 
 
 
-  /**
- * 获取关卡奖励信息
- * @param gid 关卡id
- * 
- * @returns 
- */
-  async getLvPrize(gid: number, check_coin: number) {
-    let ticket = Global.ins.ticket;
-    if (!ticket) {
-      // Global.ins.ticket = ticket = await this.getTicket(GlobalData.cur_lvl);
-      return;
-    }
-    const response = await this.http.post<LvPrizeResponse>('/passstage', { ticket, gid, check_coin }, { auth: true });
-    if (response.status == 200 && response.response?.success) {
-      Global.ins.setUserData(response.response.data.userdata);
-      Global.ins.ticket = undefined;
-    }
-    return response;
-  }
+
 
 
   // /**
@@ -1551,28 +1886,7 @@ export class ApiService {
     return response;
   }
 
-  /**
-   * 确认支付成功
-   * @param id 订单数据库ID
-   * @param orderId 订单字符串ID
-   * @returns 更新后的订单信息及用户数据
-   */
-  async purchaseDone(id: number, orderId: string): Promise<ApiMsg<PurchaseDoneResponse>> {
-    const response = await this.http.post<PurchaseDoneResponse>(
-      '/purchasedone',
-      {
-        id,
-        order_id: orderId
-      },
-      { auth: true }
-    );
 
-    console.log('支付确认', response);
-    if (response.response?.success) {
-      // 如果需要更新本地用户数据可在此处理
-    }
-    return response;
-  }
 
   /**
    * 获取任务列表
@@ -1591,25 +1905,7 @@ export class ApiService {
     return response;
   }
 
-  /**
-   * 领取任务奖励
-   * @param tid 任务ID
-   * @returns 更新后的用户数据
-   */
-  async claimTaskReward(tid: number): Promise<ApiMsg<TaskRewardResponse>> {
-    const response = await this.http.post<TaskRewardResponse>(
-      '/gettaskreward',
-      { tid },
-      { auth: true }
-    );
 
-    if (response.response?.success) {
-      console.log('任务奖励领取成功:', response.response.data.userdata);
-      // 可在此处添加用户数据更新逻辑
-      Global.ins.setUserData(response.response.data.userdata, false);
-    }
-    return response;
-  }
 
   /**
     * 获取邀请信息
@@ -2063,27 +2359,7 @@ export class ApiService {
   //   }
   // }
 
-  /**
-   * 检查订单支付状态
-   * @param orderId 订单ID (创建订单时返回的order.oid)
-   * @returns 订单是否支付成功
-   */
-  async checkOrder(orderId: string): Promise<ApiMsg<CheckOrderResponse>> {
-    const response = await this.http.post<CheckOrderResponse>(
-      '/checkorder',
-      { order_id: orderId },
-      { auth: true } // 需要认证
-    );
 
-    if (response.status >= 400 || !response.response?.success) {
-      console.error('订单状态检查失败:', response);
-      // UIManager.ins.showToast(t('tips.orderCheckFailed'));
-    } else {
-      console.log('订单状态检查成功:', response);
-    }
-
-    return response;
-  }
 
   /**
    * 注册活动（领取奖励）
@@ -2780,23 +3056,7 @@ export class ApiService {
     return response;
   }
 
-  /**
-  * 领取系列奖励
-  * {"series_id": 系列id} //领取系列奖励
-  * @returns 领取系列奖励结果 
-  */
-  async getReward(series_id: number): Promise<ApiMsg<GetRewardResponse>> {
-    let response = await this.http.post<GetRewardResponse>(
-      '/cardpack/getreward',
-      { series_id: series_id },
-      { auth: true }
-    );
 
-    if (response.response?.success) {
-      console.log('领取系列奖励结果:', response.response.data);
-    }
-    return response;
-  }
 
   /**
    * 购买卡包

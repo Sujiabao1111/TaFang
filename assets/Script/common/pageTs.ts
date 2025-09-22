@@ -32,8 +32,6 @@ export default class pageTs {
         GameTreasure: "GameTreasure",
         /**新手弹窗 */
         GameGuide: "GameGuide",
-        /**新手弹窗2 */
-        GameGuide2: "GameGuide2",
         /**升级弹窗 */
         GameUpgrade: "GameUpgrade",
         /**增加炮塔弹窗 */
@@ -115,8 +113,6 @@ export default class pageTs {
         GameTreasure: "prefab/pop/gameTreasure",
         /**新手弹窗 */
         GameGuide: "prefab/pop/gameGuide",
-        /**新手弹窗2 */
-        GameGuide2: "prefab/pop/gameGuide2",
         /**升级弹窗 */
         GameUpgrade: "prefab/pop/gameUpgrade",
 

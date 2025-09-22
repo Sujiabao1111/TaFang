@@ -8,7 +8,6 @@ export class WalletMgr extends Singleton {
         return super.getInstance<WalletMgr>();
     }
 
-
     // 链接钱包
     doInitWalletContext(callbacks?: Function) {
         if (!window["Telegram"]) {

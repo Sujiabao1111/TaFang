@@ -1,6 +1,7 @@
 import { AssistCtr } from "../Assist/AssistCtr";
 import baseTs from "../base/baseTs";
 import { AdPosition } from "../common/AdPosition";
+import { gameNumerical } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import turret from "../game/turret/turret";
 import { UrlConst } from "../server/UrlConst";
@@ -10,19 +11,32 @@ import soundController from "../soundController";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 
+/**
+  * 排行榜条目数据
+  */
+interface rewardData {
+    /** 分数 */
+    score: number;
+    /** 是否加倍 */
+    isDouble: boolean;
+    item: Node;
+}
 
 const { ccclass, property } = cc._decorator;
-
 @ccclass
 export default class gameRewardPro extends baseTs {
 
     @property(cc.Label)
-    private lable_redAddNum: cc.Label = null;
+    private doubleLable: cc.Label = null;
 
     @property(cc.Label)
     private lable_goldNum: cc.Label = null;
-
-
+    @property(cc.Node)
+    private doubleGetBtn: cc.Node = null;
+    @property(cc.Node)
+    private getBtn: cc.Node = null;
+    @property(cc.Node)
+    private btn_closeNode: cc.Node = null;
 
     @property({ type: cc.Node, displayName: "倍数" })
     private multipleNode: cc.Node = null;
@@ -38,16 +52,27 @@ export default class gameRewardPro extends baseTs {
     }
 
 
-    onDisable() {
-    }
 
+    //  data: {
+    //     coin: number,
+    //     isDouble: boolean,
+    //     isVideo: boolean
+    //     item: cc.Node
+    // }
     init(data) {
-
         this.redAmountNum = data.coin;
         this.lable_goldNum.string = "+" + this.redAmountNum;
-        this.lable_redAddNum.string = this.redAmountNum * 3 + "";
 
-        this.coinItem = util.GlobalMap.get("earnProgress") || this.node;
+        this.doubleGetBtn.active = data.isDouble;
+        this.getBtn.active = !data.isDouble;
+        if (data.isDouble) {
+            this.doubleLable.string = this.redAmountNum * 3 + "";
+            this.scheduleOnce(() => {
+                this.btn_closeNode.active = true;
+            }, gameNumerical.closeTime);
+        }
+
+        this.coinItem = data.item || this.node;
 
     }
 
@@ -64,18 +89,14 @@ export default class gameRewardPro extends baseTs {
                     if (isVideo) {
                         util.addTermCoin(this.redAmountNum * 2);
                     }
-                    cc.game.emit(NameTs.Game_EarnProgress_Updata);
                     this.closePage();
                 },
                 fail: res => {
-                    // AssistCtr.showToastTip("网络出错~");
                     this.closePage();
                 }
             })
         }
-
         successFn();
-
     }
 
     clickGet(e, src) {
@@ -85,8 +106,6 @@ export default class gameRewardPro extends baseTs {
                 url: UrlConst.earnProgressReceive,
                 success: res => {
                     cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: this.redAmountNum, num: 10 });
-
-                    cc.game.emit(NameTs.Game_EarnProgress_Updata);
                     this.closePage();
                 },
                 fail: res => {

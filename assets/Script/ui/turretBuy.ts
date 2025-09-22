@@ -69,16 +69,9 @@ export default class turretBuy extends baseTs {
 
         this.node.on(cc.Node.EventType.TOUCH_END, (event) => {
             soundController.singleton.clickAudio();
-
-            if (util.checkTestB(NameTs.new_hand_test)) {
-                if (this._userData.noviceGuide == 2) {
-                    cc.game.emit(NameTs.Game_Turret_Creator);
-                    cc.game.emit(NameTs.Game_Novice_Open, 3);
-                    return;
-                }
-            } else if (this._userData.noviceGuide == 1) {
+            if (this._userData.noviceGuide == 2) {
                 cc.game.emit(NameTs.Game_Turret_Creator);
-                cc.game.emit(NameTs.Game_Novice_Open, 2);
+                cc.game.emit(NameTs.Game_Novice_Open, 3);
                 return;
             }
             if (this._userData.product == 5 && Math.random() < 0.5 && this._userData.airborneCount > 0) {

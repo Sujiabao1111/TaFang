@@ -13,6 +13,11 @@ import TrackMgr from "../TrackMgr/TrackMgr";
 import { AssistCtr } from "../Assist/AssistCtr";
 import { Tools } from "./Tools";
 import UserData from "../data/userData";
+import { ApiService } from "../tg/ApiService";
+import { t } from "../Language/LanguageData";
+import { log } from "console";
+import PageManage from "../PageManage";
+import { Global } from "../tg/Global";
 // import encrypt = require('encryptjs');
 class util {
 
@@ -44,6 +49,8 @@ class util {
         onlineTime: "onlineTime", //在线时间
         randomRedTimeNum: "randomRedTimeNum",//随机红包时间
         earnProgress: "earnProgress",//展现手指次数
+
+        killsValue: "killsValue",//累计击杀数
     }
 
     secretkey: string = 'open_sesame'; // 加密密钥
@@ -65,6 +72,7 @@ class util {
     isCheckTaskRed: boolean = true; //是否检测首页任务红点
 
     adPreObj: any = {}; //预加载广告的
+    maxLevel: number = 50;  //最大 大关卡
 
     /**用户数据 */
     userData: UserData = {
@@ -267,11 +275,10 @@ class util {
         this.userData.version = 548;
         this.doubleEarn.use = 0;
         this.doubleEarn.time = 0;
-        this.userData.coin = this.getInt("goldhb", 0)
+
         this.userData.exchangeRate = this.getInt("exchangeRate", 10000)
         this.userData.product = this.getInt("product", 40)
-        this.userData.customs.big = this.getInt("customsbig", 1)
-        this.userData.customs.small = this.getInt("customssmall", 1)
+
         this.userData.newUser = true //this.getInt("newuser",1)==1?true:false;
         this.userData.turretLevel = this.getInt("turretLevel", 1)
 
@@ -461,16 +468,12 @@ class util {
      * @param type 1-第一次解锁新炮塔，2-消灭怪兽，3-解锁炮塔 4-完成关卡 5.合成
      */
     GetBehaviorRewardVo(type: number) {
-        //console.log("-------123-------behaviorRewardVoList : " + JSON.stringify(this.behaviorRewardVoList) )
         return Tools.GetArrData("type", type, this.behaviorRewardVoList).reward;
-
     }
 
 
     getnowmapdata() {
-
         this.mapConfig = this.getMapdata(this.userData.customs.big);
-
     }
 
 
@@ -553,7 +556,7 @@ class util {
      */
     GetCustomsMonsterInfo() {
 
-        this.userData.customs.big = this.userData.customs.big > 45 ? 45 : this.userData.customs.big;
+        this.userData.customs.big = this.userData.customs.big > this.maxLevel ? this.maxLevel : this.userData.customs.big;
         let mapData = this.getMapdata(this.userData.customs.big);
         //console.log("GetCustomsMonsterInfo : "+ JSON.stringify(mapData))
         // let mapData = jsonSingleton.singleton.getJson(NameTs.mapData);
@@ -810,43 +813,29 @@ class util {
     /**
      * 保存通关信息，并且+1
      */
-
-    saveCustomLevel(): boolean {
-
-
-        // let mapData = this.mapConfig;
-
-        // if(this.mapConfig.length<this.userData.customs.small+1){
-        //     console.log("超过了")
-        //     return;
-        // }
-
+    async saveCustomLevel() {
         let IsUp: boolean = false; //是否升级
-
-        if (this.mapConfig.length < this.userData.customs.small + 1) {
-            this.getdataStr({
-                url: UrlConst.gameLevelCompleted,
-                data: { level: this.userData.customs.big },
-                success: (res) => {
-                    // this.gameLevelPassRewardVoList = [];
-                    // for (let i = 0; i < res.rewardList.length; i++) {
-                    //     this.gameLevelPassRewardVoList.push(res.rewardList[i]);
-                    // }
-                    console.log("完成关卡上报!")
-                }
-            });
-            this.userData.customs.big += 1;
-            this.userData.customs.small = 1;
-            this.setInt("customsbig", this.userData.customs.big)
-            this.setInt("customssmall", this.userData.customs.small)
-            console.log("超过了小关卡的的长度,小关卡变为1，大关卡+1");
-            IsUp = true;
-        } else {
-            this.userData.customs.small += 1;
-            this.setInt("customssmall", this.userData.customs.small)
+        let IsSuccess: boolean = false;
+        let prize: number = 0;
+        let stage = parseInt(`${this.userData.customs.big}${this.userData.customs.small}`)
+        console.log("通关请求");
+        PageManage.singleton.Loading();
+        let res = await ApiService.ins.passstage(stage);
+        PageManage.singleton.hideLoading();
+        console.log("通关请求返回====>", res);
+        if (res.response.success) {
+            IsSuccess = true;
+            Global.ins.curPassStageGold = res.response.data.prize;
+            if (this.mapConfig.length < this.userData.customs.small + 1) {
+                this.userData.customs.big += 1;
+                this.userData.customs.small = 1;
+                IsUp = true;
+            } else {
+                this.userData.customs.small += 1;
+            }
+            return { IsSuccess: IsSuccess, IsUp: IsUp };
         }
-
-        return IsUp;
+        return { IsSuccess: IsSuccess, IsUp: IsUp, prize };
     }
 
 
@@ -1151,105 +1140,6 @@ class util {
         return TextCtr.triggerNumber(cash)
     }
 
-    /**
-     * 发送快照
-     */
-    sendTurretData(call?: Function) {
-
-        if (this.isSendTurretData) {
-            console.error("未到发送快照时间;")
-            return;
-        }
-        this.isSendTurretData = true;
-        let data: any = {};
-
-        if (this.userData.buyCount > 0 || this.userData.compoundTimes) {
-            data.userMapDetail = this.userData.pool;
-            this.userData.buyCount = 0;
-        }
-
-        if (this.lastData.compoundTimes !== this.userData.compoundTimes && this.userData.compoundTimes > 0) {
-            data.compoundTimes = this.userData.compoundTimes;
-            this.userData.compoundTimes = 0;
-        }
-        if (this.lastData.highestBatteryLevel !== this.userData.turretLevel) {
-            data.highestBatteryLevel = this.userData.turretLevel;
-            this.lastData.highestBatteryLevel = this.userData.turretLevel;
-        }
-        if (this.userData.termCoin > 0) {
-            data.point = this.userData.termCoin;
-            this.userData.termCoin = 0;
-        }
-        if (this.lastData.userBatteryNum !== this.userData.product && this.userData.product > 0) {
-            data.userBatteryNum = this.userData.product;
-            this.lastData.userBatteryNum = this.userData.product;
-        }
-
-        if (this.userData.resistAttackTimes > 0) {
-            data.resistAttackTimes = this.userData.resistAttackTimes;
-            this.userData.resistAttackTimes = 0;
-        }
-
-
-        XMSDK.trackUserProperties({
-            coin_balance: this.userData.coin + "金币",
-        });
-
-        this.userData.version += 1;
-        data.version = this.userData.version;
-        if (JSON.stringify(data) == "{}") {
-            return;
-        }
-
-        setTimeout(() => {
-            this.isSendTurretData = false;
-        }, 3000);
-
-        this.getdataStr({
-            url: UrlConst.gameLevelReport,
-            data,
-            success: () => {
-                this.isCheckTaskRed = true;
-                console.log("上传成功")
-                call && call();
-            },
-            fail: () => {
-                console.log("上传失败")
-            }
-        });
-    }
-
-    /**
-     * 金币快照
-     */
-
-    sendCoinData(call?: Function) {
-
-        if (this.isSendCoinData) return;
-        this.isSendCoinData = true;
-        let data: any = {};
-        if (this.userData.termCoin > 0) {
-            data.point = this.userData.termCoin;
-            this.userData.termCoin = 0;
-        }
-        this.userData.version += 1;
-        data.version = this.userData.version;
-        setTimeout(() => {
-            this.isSendCoinData = false;
-        }, 3000);
-        this.getdataStr({
-            url: UrlConst.gameLevelReport,
-            data,
-            success: () => {
-                console.log("上传金币成功")
-                call && call();
-            },
-            fail: () => {
-                console.log("上传金币失败")
-            }
-        });
-
-    }
 
     /**
      * 获取当前等级炮塔的天降金币时间

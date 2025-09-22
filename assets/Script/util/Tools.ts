@@ -1,3 +1,5 @@
+import * as crypto from "crypto";
+
 /**
  * 工具类
  * 黎伟权
@@ -5,6 +7,7 @@
  */
 
 const env = window["wx"] || window["tt"] || window["ks"] || window["qq"];
+
 
 export class Tools {
 
@@ -406,20 +409,50 @@ export class Tools {
     if (nodeT.getComponent(cc.Button)) {
       nodeT.getComponent(cc.Button).interactable = !isGray;
     }
-
-    // ResManager.ins.loadRes("materials/" + matUrl, cc.Material, BUNDLE_TYPE_ENUM.MAIN).then((Material: cc.Material) => {
-    //     if (!nodeT["_components"]) {
-    //         return;
-    //     }
-    //     if (isAllChild) {
-    //         let coms = nodeT.getComponentsInChildren(cc.Sprite);
-    //         for (let i = 0; i < coms.length; i++) {
-    //             coms[i].setMaterial(0, Material);
-    //         }
-    //         return;
-    //     }
-    //     nodeT.getComponent(cc.Sprite).setMaterial(0, Material);
-    // });
   };
+
+
+  //随机字符串
+  public static getSuiJiNonce() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < 16; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  }
+
+  public static sortAndStringify(obj: Record<string, any>): string {
+    // 获取对象的所有键并按升序排序
+    const sortedKeys = Object.keys(obj).sort();
+    // 按照排序后的键拼接字符串
+    const result = sortedKeys.map(key => `${key}=${encodeURIComponent(obj[key])}`).join('&');
+    return result;
+  }
+
+  public static generateLocalSignature(data: string): string {
+    let hmacKey = Buffer.from('MDRhNmdIQmw5eGtYVUFzZ3hadVo5Yk5aeDRMWWhlb2pwcjhIRll1L1BQcz0=', 'base64');
+    const hmac = crypto.createHmac('sha256', hmacKey);
+    hmac.update(data);
+    // 生成签名并确保移除所有可能的空白字符
+    const signature = hmac.digest('base64').trim();
+    console.log('Local signature length:', signature.length);
+    console.log('Local signature first 40 chars:', signature.substring(0, 40));
+    console.log('Local signature last 40 chars:', signature.substring(signature.length - 40));
+    return signature;
+  }
+
+
+
+  // 获取合并关卡结果
+  public static getBigSmall(num: number) {
+    const str = num.toString();
+    let big = str.slice(0, -1);  // 前面的
+    let small = str.slice(-1);   // 最后一
+    return { big: parseInt(big), small: parseInt(small) };
+  }
+
+
+
 
 }

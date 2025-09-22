@@ -26,14 +26,8 @@ export default class treasureBox extends baseTs {
     //宝箱时间
     private time: number = 120;
 
-    //金币
-    private coin: number = 0;
-
-    //剩余次数
-    private treasureNum: number = 20;
-
     //自动关闭宝箱计时器
-    private _autoCloseTimer = null;
+    private _autoCloseTimer: number = 24;
 
     public get _userData(): UserData {
         return util.userData;
@@ -42,23 +36,10 @@ export default class treasureBox extends baseTs {
     onLoad() {
 
         cc.game.on(NameTs.Game_Treasure_StartTime, () => {
-            this.treasureNum -= 1;
             this.treasure.active = false;
             this.time = 120;
         }, this);
 
-        util.getdataStr({
-            url: UrlConst.treasureBox_residual,
-            success: res => {
-                if (!this.isValid) {
-                    return;
-                }
-                this.treasureNum = res.times;
-                if (this._userData.noviceGuide == -1) {
-                    this.time = 120;
-                }
-            }
-        });
 
         cc.game.on(NameTs.Game_Treasure_Show, () => {
             this.time = 0;
@@ -79,28 +60,23 @@ export default class treasureBox extends baseTs {
     }
 
 
-
-
     /**点击宝箱 */
     clickBtn() {
         soundController.singleton.clickAudio();
         this.showPage(pageTs.pageName.GameTreasure);
     }
 
-
-
     update(dt) {
         if (!this.treasure.active) {
-            if (this.time == null || this.treasureNum <= 0) {
+            if (this.time == null) {
                 return;
             }
             this.time -= dt;
             if (this.time <= 0) {
                 this.time = null;
                 this.flyAni();
-                this._autoCloseTimer = 60;
+                this._autoCloseTimer = 24;
             }
-
         }
 
         // 自动关闭宝箱逻辑

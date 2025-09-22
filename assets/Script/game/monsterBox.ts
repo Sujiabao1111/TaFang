@@ -1,3 +1,4 @@
+import { log } from "console";
 import AStar from "../base/AStart";
 import baseTs from "../base/baseTs";
 import { gamePass, gameState, monsterInfo } from "../common/faceTs";
@@ -52,36 +53,16 @@ export default class monsertBox extends baseTs {
         cc.game.on(NameTs.Game_Monster_Killed, res => {
             if (res.node) {
                 util.levelMonsterNum--;
-                if (res.coin > 0) {
-                    cc.game.emit(NameTs.Game_Effect_coin, { node: res.node, value: res.coin, noMusic: true });
-                    util.addTermCoin(res.coin);
-                }
-                // this.pool.onEnemyKilled(res.node);
+                // 击杀怪物加金币
+                // if (res.coin > 0) {
+                //     cc.game.emit(NameTs.Game_Effect_coin, { node: res.node, value: res.coin, noMusic: true });
+                //     util.addTermCoin(res.coin);
+                // }
+
                 res.node.destroy();
                 res.node.removeFromParent();
                 res.node = null;
-                // util.addCoin(res.coin);
-                if (util.levelMonsterNum <= 0 && util.levelState == gameState.start) {
-                    console.log("打完了,准备加载下一关");
-                    util.levelState = gameState.end;
-                    util.sendTurretData();
-                    this._userData.resistAttackTimes = 1;
-                    util.getnowmapdata();
-                    cc.game.emit(NameTs.Game_Task_Progress);
-                    TrackMgr.AppGamedate({
-                        is_challenge_suc: true,
-                        game_level_hcdg: "第" + this._userData.customs.big + "关",
-                        level_hcdg: "第" + this._userData.customs.small + "波",
-                        game_time: util.gameTime.toFixed(1) + "s",
-                        use_tool: String(util.gamePropNum),
-                    });
-
-                    if (util.saveCustomLevel()) {
-                        cc.game.emit(NameTs.Game_End, gamePass.success);
-                    } else {
-                        cc.game.emit(NameTs.Game_End, gamePass.smallSuccess);
-                    }
-                }
+                this.nextLevel();
             }
         }, this);
 
@@ -93,12 +74,30 @@ export default class monsertBox extends baseTs {
         // 重玩
         cc.game.on(NameTs.Game_Again, () => {
             this.clearAllMonster();
-            this._userData.customs.small = (this._userData.customs.small - 1 < 1) ? 1 : (this._userData.customs.small - 1);
-            console.log(this._userData.customs.small, 'this._userData.customs.small')
+            // this._userData.customs.small = (this._userData.customs.small - 1 < 1) ? 1 : (this._userData.customs.small - 1);
+            // console.log(this._userData.customs.small, 'this._userData.customs.small')
             cc.game.emit(NameTs.Game_View_CustomsUpdata);
             this.loadNextMonster();
         }, this);
 
+    }
+
+    private async nextLevel() {
+        if (util.levelMonsterNum <= 0 && util.levelState == gameState.start) {
+            console.log("打完了,准备加载下一关");
+            util.levelState = gameState.end;
+            this._userData.resistAttackTimes = 1;
+            util.getnowmapdata();
+            cc.game.emit(NameTs.Game_Task_Progress);
+            let res = await util.saveCustomLevel();
+            if (res.IsSuccess) {
+                if (res.IsUp) {
+                    cc.game.emit(NameTs.Game_End, gamePass.success);
+                } else {
+                    cc.game.emit(NameTs.Game_End, gamePass.smallSuccess);
+                }
+            }
+        }
     }
 
     /**

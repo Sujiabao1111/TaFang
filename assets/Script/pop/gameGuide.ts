@@ -20,37 +20,18 @@ export default class gameGuide extends baseTs {
     @property({ displayName: "跳过页面", type: cc.Node })
     private skipNode: cc.Node = null;
 
-    // @property({displayName:"等级",type:cc.RichText})
-    // private levelLabel:cc.RichText = null;
-
     @property({ displayName: "app的名字", type: cc.Label })
     private appName: cc.Label = null;
-    // LIFE-CYCLE CALLBACKS:
 
 
     onLoad() {
 
-        if (XMSDK.getAppName) {
-            console.log(XMSDK.getAppName(), 'XMSDK.getAppName()=============')
-        } else {
-            console.log("没有这个方法")
-        }
-
-        let name: string = (XMSDK.getAppName && XMSDK.getAppName()) || "塔防无敌";
-        this.appName.string = "欢迎您来到「" + name + "」";
-
-        util.setStorage(util.localDiary.noviceGuide, -1);
-
         cc.game.on(NameTs.Game_Novice_Open, (res) => {
-
             this.setState(res);
-
         }, this);
 
         cc.game.on(NameTs.Game_Novice_Close, () => {
-
             this.closePage();
-
         }, this);
 
     }
@@ -93,6 +74,7 @@ export default class gameGuide extends baseTs {
                 break;
 
         }
+
         util.userData.noviceGuide = type;
 
         this.skipNode.active = type == 1 || type > 3;
@@ -119,11 +101,6 @@ export default class gameGuide extends baseTs {
         }
 
 
-        //存储本地
-        //util.setStorage(util.localDiary.noviceGuide,type);
-
-
-
         if (type == 2 || type == 3) {
             let hand: cc.Node = this.content.children[type - 1].getChildByName("hand");
             this.handAni(hand, type == 2 ? 0 : 1);
@@ -135,23 +112,14 @@ export default class gameGuide extends baseTs {
      * 跳过
      */
     skipBtn() {
-
         soundController.singleton.clickAudio();
-
-
         if (util.userData.noviceGuide == 5) {
-
             cc.game.emit(NameTs.Game_Treasure_Show);
             this.closePage();
-
-            // this.showPage(pageTs.pageName.GameStart);
             cc.game.emit(NameTs.Game_Start);
             return
         }
-
         let num: number = util.userData.noviceGuide + 1;
-
-
         this.setState(num);
     }
 

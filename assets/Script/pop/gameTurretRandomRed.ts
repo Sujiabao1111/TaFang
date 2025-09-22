@@ -42,11 +42,7 @@ export default class gameTurretRandomRed extends baseTs {
     }
 
     clickDoubleGet() {
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: '合成炮塔奖励弹窗',
-            ck_module: '领取奖励',
-            active_ad_hcdg:"激励视频"
-        })
+       
 
         // AdController.loadAd(AdPosition.turretRandomRed, (res) => {
             cc.game.emit(NameTs.Game_Effect_coin, { node:this.node,value: this.prizeNum,num:10});

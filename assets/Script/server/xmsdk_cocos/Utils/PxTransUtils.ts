@@ -16,10 +16,7 @@ export default class PxTransUtils {
     public static caidanHeght: number = 0;//底部菜单栏高度
     public static UI_SIZE_WIDTH = 720;
     public static initScreen() {
-        this.screenHeight = Number(XMSDK.getScreenHeight()) || cc.view.getFrameSize().height
-        this.screenWidth = Number(XMSDK.getScreenWidth()) || cc.view.getFrameSize().width
-        this.liuhaiHeight = Number(XMSDK.getLiuHaiHeight())
-        this.caidanHeght = Number(XMSDK.getNavigationBarHeight())
+      
     }
 
     /**

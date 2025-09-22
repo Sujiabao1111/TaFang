@@ -226,16 +226,12 @@ export default class turretFactiory extends cc.Component {
                     call();
                     return
                 }
-                // 合成奖励
-                let coin: number = util.GetBehaviorRewardVo(5);
-                if (util.userData.noviceGuide == 2 || (util.userData.noviceGuide == 3 && util.checkTestB(NameTs.new_hand_test))) {
-                    let CoinParent: cc.Node = cc.director.getScene().getChildByName('Canvas');
-                    cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: coin, num: 5, parent: CoinParent });
-                } else {
-                    cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: coin, num: 5 });
-                }
+                
+                // 合成加金币
+                // let coin: number = util.GetBehaviorRewardVo(5);
+                // cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: coin, num: 5 });
+                // util.addTermCoin(coin);
 
-                util.addTermCoin(coin);
                 util.userData.compoundTimes += 1;
                 util.userData.localCompoundTime += 1;
                 cc.game.emit(NameTs.Game_Task_updata);

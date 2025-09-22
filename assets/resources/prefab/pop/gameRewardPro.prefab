@@ -992,7 +992,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "double_get",
+    "_name": "doubleGetBtn",
     "_objFlags": 0,
     "_parent": {
       "__id__": 8
@@ -1045,7 +1045,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        2,
+        0,
         -217,
         0,
         0,
@@ -1400,7 +1400,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "lable",
+    "_name": "doubleLable",
     "_objFlags": 0,
     "_parent": {
       "__id__": 28
@@ -2117,7 +2117,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        2,
+        0,
         -217,
         0,
         0,
@@ -2576,7 +2576,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "e052b4vbOdDKZM0iFd/wFFp",
+    "_componentId": "d92aanUR6lAdKVf0MMm33MZ",
     "handler": "clickGet",
     "customEventData": "0"
   },
@@ -2730,11 +2730,20 @@
     },
     "_enabled": true,
     "isAni": true,
-    "lable_redAddNum": {
-      "__id__": 33
+    "doubleLable": {
+      "__id__": 38
     },
     "lable_goldNum": {
       "__id__": 24
+    },
+    "doubleGetBtn": {
+      "__id__": 27
+    },
+    "getBtn": {
+      "__id__": 58
+    },
+    "btn_closeNode": {
+      "__id__": 69
     },
     "multipleNode": {
       "__id__": 46

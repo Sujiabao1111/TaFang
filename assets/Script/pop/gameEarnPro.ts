@@ -63,7 +63,7 @@ export default class gameEarnPro extends baseTs {
                     if (isVideo) {
                         util.addTermCoin(this.redAmountNum * 2);
                     }
-                    cc.game.emit(NameTs.Game_EarnProgress_Updata);
+                   
                     this.closePage();
                 },
                 fail: res => {

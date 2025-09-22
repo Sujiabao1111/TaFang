@@ -108,7 +108,6 @@ export default class effect extends baseTs {
                         this.createNum(data.value, this.coinParentPos);
                     }
                 }).start();
-
         }
     }
 
@@ -118,7 +117,6 @@ export default class effect extends baseTs {
      * @param num 多少个
      */
     creatorCoin2() {
-
         let data = {
             node: null,
             num: 5,
@@ -203,9 +201,7 @@ export default class effect extends baseTs {
                     cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.product);
                 }
             }).start();
-
         }
-
     }
 
 

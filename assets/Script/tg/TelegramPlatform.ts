@@ -18,7 +18,7 @@ export class TelegramPlatform extends Singleton {
     private videoIdx: number = 0
     private videoAd: any = null
 
-    private eIdx: number = 0
+    private eIdx: any = 0
 
     private onclicka_SpotID: number = 6073808
 

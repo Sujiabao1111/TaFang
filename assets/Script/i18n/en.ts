@@ -118,6 +118,18 @@ export const languages: languagesData = {
 
     },
     'main': {
+        '欢迎您来到': 'Welcome',
+        '在这里合成拿': 'Synthesize and get here',
+        '怪物也会送': 'Monsters also give rewards',
+        '打倒怪兽分': 'Defeat monsters for points',
+        '准备好了吗': 'Are you ready?',
+        '手快的人已经住上别墅了': 'Fast ones already live in a villa',
+        '开始赚钱': 'Start making money',
+        '点击使用免费炮塔': 'Click to use free turret',
+        '同等级炮塔可以合成': 'Turrets of the same level can be synthesized',
+        '可提现':'Can be withdrawn',
+
+
         'level': 'Level',
         'Got_turrets': 'Got ${0} turrets!',
         '暴击': 'Critical hit',
@@ -314,7 +326,6 @@ export const languages: languagesData = {
         'btn_1': 'Go to Open',
         'tips_2': 'Click the box to get rewards!\nYou can withdraw after binding your wallet!',
         'btn_2': 'Knew',
-        "gameGuide": "Click on vehicles of the same color based on the diamond color",
 
     },
 };

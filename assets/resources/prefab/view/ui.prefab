@@ -14387,8 +14387,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 3,
-    "transition": 3,
+    "_N$transition": 0,
+    "transition": 0,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -15083,7 +15083,7 @@
         "__id__": 422
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 425
@@ -15331,8 +15331,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        148.106,
-        -26.612,
+        140,
+        -5,
         0,
         0,
         0,
@@ -15424,9 +15424,6 @@
     },
     "tasklabel2": {
       "__id__": 410
-    },
-    "getTime": {
-      "__id__": 423
     },
     "hand": {
       "__id__": 427

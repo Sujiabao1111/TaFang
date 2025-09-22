@@ -105,7 +105,7 @@ export default class turretBox extends baseTs {
             });
         }
 
-     
+
 
     }
 
@@ -184,9 +184,9 @@ export default class turretBox extends baseTs {
         if (this.isOpenAuto && !this.isTouch && util.levelState == gameState.start) {
             this.autoTime -= dt;
             if (this.autoTime < 0) {
-                this.autoTime = 0.5; // 合成时间
+                this.autoTime = 1; // 合成时间
                 this.openAuto();
-                cc.game.emit(NameTs.Game_Turret_Creator);
+                // cc.game.emit(NameTs.Game_Turret_Creator);
             }
         }
     }

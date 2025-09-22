@@ -124,7 +124,6 @@ export default class gameUpgrade extends baseTs {
             }
         })
 
-        util.sendTurretData();
         cc.game.emit(NameTs.Game_Buy_update);
 
         XMSDK.trackUserProperties({
@@ -134,10 +133,8 @@ export default class gameUpgrade extends baseTs {
         // if (!util.adPreObj[AdPosition.UnlcokTurret]) {
         //     util.preloadAd(AdPosition.UnlcokTurret);
         // }
-
         this.arrBtn[0].active = util.userData.noviceGuide == 2;
         this.arrBtn[1].active = this.arrBtn[2].active = util.userData.noviceGuide !== 2;
-
     }
 
 
@@ -147,12 +144,9 @@ export default class gameUpgrade extends baseTs {
     getBtn(e, res) {
         soundController.singleton.clickAudio();
         if (util.userData.noviceGuide == 2) {
-            if (!util.checkTestB(NameTs.new_hand_test)) {
-                this.showPage(pageTs.pageName.GameGuide2, 3);
-            }
+          
             cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: this.coin, num: 5 });
             util.addTermCoin(this.coin);
-            util.sendTurretData();
             this.closePage();
             return;
         }
