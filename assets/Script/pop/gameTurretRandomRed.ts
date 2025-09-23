@@ -46,7 +46,6 @@ export default class gameTurretRandomRed extends baseTs {
 
         // AdController.loadAd(AdPosition.turretRandomRed, (res) => {
             cc.game.emit(NameTs.Game_Effect_coin, { node:this.node,value: this.prizeNum,num:10});
-            util.addTermCoin(this.prizeNum);
             this.closePage();
             // if(util.adPreObj[AdPosition.turretRandomRed]){
             //     util.preloadAd(AdPosition.turretRandomRed);

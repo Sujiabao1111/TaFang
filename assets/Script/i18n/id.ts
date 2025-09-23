@@ -126,7 +126,7 @@ export const languages: languagesData = {
         '开始赚钱': 'Mulai menghasilkan uang',
         '点击使用免费炮塔': 'Klik untuk menggunakan menara gratis',
         '同等级炮塔可以合成': 'Menembak dengan menembak yang levelnya sama dapat disintesis',
-        '可提现':'Dapat ditarik ',
+        '可提现': 'Dapat ditarik ',
 
 
         'level': 'tingkat',
@@ -191,6 +191,8 @@ export const languages: languagesData = {
 
         '每日登录': 'Login harian',
         '转盘抽奖': 'Putar undian ${0} kali',
+        '狂点砸开宝箱': 'Klik cepat untuk membuka peti',
+        '最多可获得': 'Bisa dapat maksimal',
 
 
 

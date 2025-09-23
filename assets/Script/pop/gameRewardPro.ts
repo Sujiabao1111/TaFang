@@ -87,7 +87,6 @@ export default class gameRewardPro extends baseTs {
                 success: res => {
                     cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: coin, num: 10 });
                     if (isVideo) {
-                        util.addTermCoin(this.redAmountNum * 2);
                     }
                     this.closePage();
                 },

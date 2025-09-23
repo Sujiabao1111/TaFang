@@ -63,7 +63,6 @@ export class Tools {
     let newArr: any[] = [];
     if (arr && arr.length > 0) {
       for (let i = 0; i < arr.length; i++) {
-
         if (arr[i][key] == value) {
           newArr.push(this.deepClone(arr[i]));
           if (num >= newArr.length) {
@@ -72,18 +71,13 @@ export class Tools {
         }
       }
     }
-    //console.log("GetArrData -----------: "+ newArr.length)
-    //console.log("GetArrData ----2-------: "+ newArr)
     if (newArr.length > 0) {
       if (num == 1) {
-        //console.log("GetArrData -----------: 返回 "+ newArr[0])
         return newArr[0];
       } else {
-        //console.log("GetArrData -----------: 返回2")
         return newArr;
       }
     } else {
-      //console.log("GetArrData -----------: 返回空")
       return null;
     }
   }

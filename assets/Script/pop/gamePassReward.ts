@@ -1,10 +1,12 @@
 
+import { log } from "console";
 import baseTs from "../base/baseTs";
 import { gameNumerical, propType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import { t } from "../Language/LanguageData";
 import { UrlConst } from "../server/UrlConst";
 import soundController from "../soundController";
+import { ApiService } from "../tg/ApiService";
 import { Global } from "../tg/Global";
 import { Tools } from "../util/Tools";
 import util from "../util/util";
@@ -49,14 +51,24 @@ export default class gamePassReward extends baseTs {
     /**
      * 获取
      */
-    getBtn(str, e) {
+    async getBtn(str, e) {
         let isVideo: boolean = e == 1;
         soundController.singleton.clickAudio();
         let coin: number = Global.ins.curPassStageGold * (isVideo ? 2 : 1);
-        cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: coin, num: 5 });
-        util.addTermCoin(coin);
-        this.closeBtn();
-        cc.game.emit(NameTs.Game_Start);
+
+        if (isVideo) {
+            let res = await ApiService.ins.getDoubleReward(Global.ins.curPassStageGold, "passstage");
+            if (res.response.success) {
+                console.log("双倍金币领取成功", res.response.data.prize);
+                cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: res.response.data.prize, num: 5 });
+                this.closeBtn();
+                cc.game.emit(NameTs.Game_Start);
+            }
+        } else {
+            cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: Global.ins.curPassStageGold, num: 5 });
+            this.closeBtn();
+            cc.game.emit(NameTs.Game_Start);
+        }
     }
 
     /**

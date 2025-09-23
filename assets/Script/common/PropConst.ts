@@ -94,3 +94,12 @@ export const COST_TYPE = {
     PROP: 1,//道具
     POINT: 2,//点值
 }
+
+
+
+/**奖励类型 */
+export enum RewardType {
+    Fudai = 'fudai', // 福袋
+    Kills = 'Kills', // 击杀
+    Box = 'Box', // 漂浮宝箱
+}

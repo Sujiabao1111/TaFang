@@ -9,6 +9,7 @@ import PageManage from "../PageManage";
 import { UrlConst } from "../server/UrlConst";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
+import { ApiService } from "../tg/ApiService";
 import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
@@ -282,9 +283,9 @@ export default class ui extends cc.Component {
     /**
      * 任务
      */
-    TaskGame() {
-
+    async TaskGame() {
         soundController.singleton.clickAudio();
+        let res = await ApiService.ins.getTask();
         cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameTask);
     }
     /**

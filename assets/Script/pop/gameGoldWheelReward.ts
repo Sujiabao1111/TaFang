@@ -130,7 +130,6 @@ export default class gameGoldWheelReward extends baseTs {
         self.closeCall && self.closeCall();
         self.node.active = false;
         if (this.initData.reward.type == 2) {
-            // util.addTermCoin(this.coin)
             cc.game.emit(NameTs.Game_Effect_coin, { node: this.rewardSprite.node, value: this.coin, num: 10, parent: cc.director.getScene().getChildByName('Canvas') });
             AssistCtr.showToastTip("获取" + this.coin + "红包币");
         } else if (this.initData.reward.type == 1) {

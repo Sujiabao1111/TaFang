@@ -186,11 +186,9 @@ export default class turret extends turretFactiory {
             cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameUpgrade);
             if (util.userData.noviceGuide == 2) {
                 if (util.checkTestB(NameTs.new_hand_test)) {
-
                 } else {
                     cc.game.emit(NameTs.Game_Novice_Close);
                 }
-
             }
             // cc.game.emit(NameTs.Game_Treasure_create);
         } else if (util.userData.turretLevel >= 7 && this.initData.no) {

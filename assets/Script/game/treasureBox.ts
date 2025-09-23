@@ -24,7 +24,7 @@ export default class treasureBox extends baseTs {
     private nowId: number = null;
 
     //宝箱时间
-    private time: number = 120;
+    private time: number = 0;
 
     //自动关闭宝箱计时器
     private _autoCloseTimer: number = 24;
@@ -34,21 +34,13 @@ export default class treasureBox extends baseTs {
     }
 
     onLoad() {
-
         cc.game.on(NameTs.Game_Treasure_StartTime, () => {
             this.treasure.active = false;
             this.time = 120;
         }, this);
-
-
         cc.game.on(NameTs.Game_Treasure_Show, () => {
             this.time = 0;
         }, this);
-
-    }
-
-    start() {
-
     }
 
     /**
@@ -65,6 +57,7 @@ export default class treasureBox extends baseTs {
         soundController.singleton.clickAudio();
         this.showPage(pageTs.pageName.GameTreasure);
     }
+
 
     update(dt) {
         if (!this.treasure.active) {

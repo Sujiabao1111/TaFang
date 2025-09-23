@@ -49,7 +49,6 @@ class util {
         onlineTime: "onlineTime", //在线时间
         randomRedTimeNum: "randomRedTimeNum",//随机红包时间
         earnProgress: "earnProgress",//展现手指次数
-
         killsValue: "killsValue",//累计击杀数
     }
 
@@ -124,6 +123,9 @@ class util {
         goldWheelCount: null,
         savingPotNum: 0,
     };
+
+
+ 
 
     /**AB测试 */
     AB_Test: any = {
@@ -219,7 +221,7 @@ class util {
     //当前在线时间
     onlineTimeNum = 0;
     //随机红包时间
-    randomRedTimeNum = 60;
+    randomRedTimeNum = 300;
     //天降金币的视频数量
     existVideoCoinNum: number = 0;
 
@@ -276,7 +278,6 @@ class util {
         this.doubleEarn.use = 0;
         this.doubleEarn.time = 0;
 
-        this.userData.exchangeRate = this.getInt("exchangeRate", 10000)
         this.userData.product = this.getInt("product", 40)
 
         this.userData.newUser = true //this.getInt("newuser",1)==1?true:false;
@@ -295,14 +296,10 @@ class util {
     }
 
     savedata() {
-        this.setInt("goldhb", this.userData.coin)
-        this.setInt("exchangeRate", this.userData.exchangeRate)
         this.setInt("product", this.userData.product)
-        this.setInt("customsbig", this.userData.customs.big)
-        this.setInt("customssmall", this.userData.customs.small)
-        this.userData.newUser = true //this.getInt("newuser",1)==1?true:false;
-        this.setInt("turretLevel", this.userData.turretLevel)
+        this.setInt("turretLevel", this.userData.turretLevel)   // 当前最高炮塔的等级
 
+        //  炮塔的池塘数据
         let dds = JSON.stringify(this.userData.pool)
         this.setString("mappool", dds)
     }
@@ -804,10 +801,8 @@ class util {
      * @param level 等级
      */
     getPoolSameLevelTurret(level: number) {
-
         let sameLevel = Tools.GetArrData("level", level, this.userData.pool, -1);
         return sameLevel;
-
     }
 
     /**
@@ -819,9 +814,8 @@ class util {
         let prize: number = 0;
         let stage = parseInt(`${this.userData.customs.big}${this.userData.customs.small}`)
         console.log("通关请求");
-        PageManage.singleton.Loading();
+
         let res = await ApiService.ins.passstage(stage);
-        PageManage.singleton.hideLoading();
         console.log("通关请求返回====>", res);
         if (res.response.success) {
             IsSuccess = true;
@@ -845,7 +839,6 @@ class util {
      * @param type 普通的0（只能增加20如果超过则不增加）
      */
     productTurret(num: number = 1, type: number = 0) {
-
         this.userData.product += num;
         if (type == 0) {
             this.addProduct(0);
@@ -885,7 +878,7 @@ class util {
      * @param num 数量
      */
     addCoin(num) {
-        this.userData.coin += parseInt(num);
+        // this.userData.coin += parseInt(num);
         if (this.userData.coin < 0) {
             this.userData.coin = 0;
         }
@@ -894,12 +887,6 @@ class util {
         cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.coin);
     }
 
-    /**期间加多少金币
-     * @param num 数值
-    */
-    addTermCoin(num: number) {
-        this.userData.termCoin += num;
-    }
 
 
     /**

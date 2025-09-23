@@ -229,11 +229,11 @@ export default class game extends baseTs {
         }, this);
 
         console.log("新手引导是否过了:", Global.ins.userData.pass_guide_stage)
-        if (!Global.ins.userData.pass_guide_stage && this._userData.turretLevel < 2) {
+        let userData = Global.ins.userData;
+        if (!userData.pass_guide_stage && this._userData.turretLevel < 2 && userData.stage == 0) {
             this._userData.noviceGuide = 1;
             Global.ins.userData.pass_guide_stage = 1;
             this.showPage(pageTs.pageName.GameGuide);
-
             XMSDK.getdataStr({
                 url: UrlConst.sign_main,
                 onSuccess: res => {

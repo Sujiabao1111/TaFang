@@ -2,6 +2,7 @@ import { AssistCtr } from "../Assist/AssistCtr";
 import baseTs from "../base/baseTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
+import { RewardType } from "../common/PropConst";
 import { UrlConst } from "../server/UrlConst";
 import soundController from "../soundController";
 import TrackMgr from "../TrackMgr/TrackMgr";
@@ -31,19 +32,23 @@ export default class earnProgress extends baseTs {
 
 
     onLoad() {
-
         this.curKillsNum = util.getStorage(util.localDiary.killsValue)
         if (this.curKillsNum == null) {
             this.curKillsNum = 0;
         }
 
         this.init();
+
+        util.GlobalMap.set("KillsNode", this.node);
+
         // 监听击杀进度
-        cc.game.on(NameTs.Game_Kills_Updata, () => {
+        cc.game.on(NameTs.Game_Kills_Updata, (isadd) => {
             if (this.curKillsNum >= this.nextGearNum) {
                 return;
             }
-            this.curKillsNum = this.curKillsNum + 1;
+            if (isadd) {
+                this.curKillsNum = this.curKillsNum + 1;
+            }
             this.tasklabel1.string = this.curKillsNum + "";
             util.setStorage(util.localDiary.killsValue, this.curKillsNum)
             this.taskProgress.progress = this.curKillsNum / this.nextGearNum;
@@ -56,6 +61,7 @@ export default class earnProgress extends baseTs {
         this.tasklabel1.string = this.curKillsNum + "";
         this.tasklabel2.string = "/" + this.nextGearNum;
         this.taskProgress.progress = this.curKillsNum / this.nextGearNum;
+        this.checkFill();
     }
 
     /**
@@ -76,10 +82,11 @@ export default class earnProgress extends baseTs {
             return;
         }
         soundController.singleton.clickAudio();
-        this.showPage(pageTs.pageName.GameRewardPro, { coin: 500 });
+        cc.game.emit(NameTs.Game_Pop_Open, { name: pageTs.pageName.GameRandomRedPrize, data: RewardType.Kills });
         this.hand.active = false;
         this.curKillsNum = 0;
         util.setStorage(util.localDiary.killsValue, this.curKillsNum)
+
     }
 
 

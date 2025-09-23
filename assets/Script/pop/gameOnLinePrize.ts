@@ -111,7 +111,6 @@ export default class gameOnLinePrize extends baseTs {
         })
 
         cc.game.emit(NameTs.Game_Effect_coin, { node: this.node_gold, value: this.addGold, num: 10 });
-        util.addTermCoin(this.addGold);
         this.closePage();
     }
 

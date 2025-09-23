@@ -178,15 +178,12 @@ export default class NewBigWheelPrize extends cc.Component {
         let spriteFrame = null
         if (this.type == 2) {
             spriteFrame = RewardController.instance.findPointBigSprite(1)
-            // util.addTermCoin(count);
-            // util.addTermCoin(this.doubleData.rewardValue);
             count += this.doubleData.rewardValue;
             cc.game.emit(NameTs.Game_Effect_coin, { value: count });
         } else if (this.type == 4) {
             spriteFrame = RewardController.instance.findPhoneSprite(1)
         } else if (this.type == 5) {
             spriteFrame = RewardController.instance.findPointBigSprite(1)
-            // util.addTermCoin(this.doubleData.rewardValue);
             count += this.doubleData.rewardValue;
             cc.game.emit(NameTs.Game_Effect_coin, { value: count });
         }

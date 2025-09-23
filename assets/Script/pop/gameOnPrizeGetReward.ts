@@ -97,7 +97,6 @@ export default class NewClass extends baseTs {
                 }
                 if (res.code === 0) {
                     cc.game.emit(NameTs.Game_Effect_coin, { value: this.initData.amount, num: 5, parent: cc.director.getScene().getChildByName('Canvas') });
-                    util.addTermCoin(this.initData.amount);
                     this.closePage();
                 } else {
                     this.closePage();
@@ -144,7 +143,6 @@ export default class NewClass extends baseTs {
 
 
                         cc.game.emit(NameTs.Game_Effect_coin, { value: this.initData.doubleAmount, num: 5, parent: cc.director.getScene().getChildByName('Canvas') });
-                        util.addTermCoin(this.initData.doubleAmount);
 
                         this.closePage();
                     } else {

@@ -34,7 +34,6 @@ export default class turretBox extends baseTs {
     }
 
     onLoad() {
-
         // 监听创建炮台
         cc.game.on(NameTs.Game_Turret_Creator, res => {
             this.createTurret(res);

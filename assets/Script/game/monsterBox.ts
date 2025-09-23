@@ -56,9 +56,9 @@ export default class monsertBox extends baseTs {
                 // 击杀怪物加金币
                 // if (res.coin > 0) {
                 //     cc.game.emit(NameTs.Game_Effect_coin, { node: res.node, value: res.coin, noMusic: true });
-                //     util.addTermCoin(res.coin);
                 // }
 
+                util.addCoin(0);
                 res.node.destroy();
                 res.node.removeFromParent();
                 res.node = null;

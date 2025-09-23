@@ -127,7 +127,7 @@ export const languages: languagesData = {
         '开始赚钱': 'Start making money',
         '点击使用免费炮塔': 'Click to use free turret',
         '同等级炮塔可以合成': 'Turrets of the same level can be synthesized',
-        '可提现':'Can be withdrawn',
+        '可提现': 'Can be withdrawn',
 
 
         'level': 'Level',
@@ -194,6 +194,8 @@ export const languages: languagesData = {
 
         '每日登录': 'Daily login',
         '转盘抽奖': 'Spin the wheel ${0} times',
+        '狂点砸开宝箱': 'Tap rapidly to open the chest',
+        '最多可获得': 'Maximum obtainable',
 
 
 

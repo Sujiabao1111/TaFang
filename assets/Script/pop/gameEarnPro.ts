@@ -60,10 +60,7 @@ export default class gameEarnPro extends baseTs {
                 url: UrlConst.earnProgressReceive,
                 success: res => {
                     cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: coin, num: 10 });
-                    if (isVideo) {
-                        util.addTermCoin(this.redAmountNum * 2);
-                    }
-                   
+                 
                     this.closePage();
                 },
                 fail: res => {

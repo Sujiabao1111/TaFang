@@ -99,9 +99,6 @@ export default class CanvasController extends baseTs {
         util.online_time = 10 * 60;
         //初始化一些数据
         util.userData.airborneCount = 15;
-        if (util.userData.noviceGuide == 1 && util.userData.newUser == true) {
-            util.userData.product = 40;
-        }
         util.behaviorRewardVoList = [{ "type": 1, "reward": 50 }, { "type": 2, "reward": 4 }, { "type": 4, "reward": 75 }, { "type": 5, "reward": 50 }];
         util.mapConfig = util.getMapdata(util.userData.customs.big);
         util.propConfig = null

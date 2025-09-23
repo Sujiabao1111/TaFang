@@ -226,11 +226,10 @@ export default class turretFactiory extends cc.Component {
                     call();
                     return
                 }
-                
+
                 // 合成加金币
-                // let coin: number = util.GetBehaviorRewardVo(5);
-                // cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: coin, num: 5 });
-                // util.addTermCoin(coin);
+                util.GetBehaviorRewardVo(5);
+                util.addCoin(0);
 
                 util.userData.compoundTimes += 1;
                 util.userData.localCompoundTime += 1;
@@ -255,9 +254,6 @@ export default class turretFactiory extends cc.Component {
                 cc.tween(this.node).by(.1, { x: -50 }).by(.1, { x: 50 }).call(() => {
                     this.node.zIndex = 0;
                 }).start();
-
-
-
             } else { //交换
                 console.log("拖拽交换位置成功");
                 let selfNo: number = this.initData.no;
@@ -269,7 +265,6 @@ export default class turretFactiory extends cc.Component {
                 //保存数据
                 util.savePool(selfNo, otherData.level);
                 util.savePool(no, this.initData.level);
-
                 //修改位置no
                 otherNode.getComponent("turret").initData.no = selfNo;
                 this.initData.no = no;
@@ -285,8 +280,6 @@ export default class turretFactiory extends cc.Component {
                 cc.game.emit(NameTs.Game_Turret_Killed, { no: selfNo });
                 otherNode.getComponent("turret").createLevelBg(selfNo, this.initData.level);
             }
-
-
         }
     }
 

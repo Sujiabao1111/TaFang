@@ -303,9 +303,7 @@ export default class gameSign extends baseTs {
             data[`callBack`] = this.data[`callBack`]
         }
 
-
         this.showPage(pageTs.pageName.GameRewardPro, { coin: 1000 });
-
     }
 
     clickClose() {

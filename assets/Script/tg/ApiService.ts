@@ -1,6 +1,7 @@
 
 import { AssistCtr } from "../Assist/AssistCtr";
 import { t } from "../Language/LanguageData";
+import PageManage from "../PageManage";
 import { TimeTools } from "../util/TimeTools";
 import { Tools } from "../util/Tools";
 import { Global } from "./Global";
@@ -93,6 +94,8 @@ declare global {
     state: number
   }
 
+
+  
 
   /**
    * 用户游戏数据
@@ -545,6 +548,14 @@ declare global {
    * 获取关卡奖励返回数据
    */
   interface passstageResponse extends ApiResponse {
+    data: passstageData
+    success: boolean;
+  }
+
+  /**
+   * 奖励加倍
+   */
+  interface doubleRewardResponse extends ApiResponse {
     data: passstageData
     success: boolean;
   }
@@ -1094,10 +1105,11 @@ declare global {
     success: boolean;
   }
   /**
-  * 领取系列奖励响应结构
+  * 领取奖励响应结构
   */
   interface GetRewardResponse extends ApiResponse {
     success: boolean;
+    userdata: NewUserData;
   }
 
 
@@ -1563,12 +1575,33 @@ export class ApiService {
     let result = Tools.sortAndStringify(data)
     let signature = Tools.generateLocalSignature(result)
     let headers = { "X-Signature": signature }
-
+    PageManage.singleton.Loading();
     const response = await this.http.post<passstageResponse>('/passstage', data, { headers, auth: true });
+    PageManage.singleton.hideLoading();
+
     if (response.status == 200 && response.response?.success) {
       Global.ins.setUserData(response.response.data.userdata);
     }
+    return response;
+  }
 
+  /**
+   * 用户观看广告后领取翻倍奖励
+   * @param reward_num 奖励数量
+   * @param scene 广告场景
+   * @returns 
+   */
+  async getDoubleReward(reward_num: number, scene: string) {
+    let ts = TimeTools._ins.getNowTime()
+    let nonce = Tools.getSuiJiNonce();
+    let data = { reward_type: 1, reward_num, scene, ts, nonce }
+    let result = Tools.sortAndStringify(data)
+    let signature = Tools.generateLocalSignature(result)
+    let headers = { "X-Signature": signature }
+    const response = await this.http.post<doubleRewardResponse>('/getdoublereward', data, { headers, auth: true });
+    if (response.status == 200 && response.response?.success) {
+      Global.ins.setUserData(response.response.data.userdata);
+    }
     return response;
   }
 
@@ -1578,12 +1611,9 @@ export class ApiService {
   * @returns 任务数据数组
   */
   async getTask(): Promise<ApiMsg<TaskListResponse>> {
-    const response = await this.http.post<TaskListResponse>(
-      '/gettask',
-      {},
-      { auth: true }
-    );
-
+    PageManage.singleton.Loading();
+    const response = await this.http.post<TaskListResponse>('/gettask', {}, { auth: true });
+    PageManage.singleton.hideLoading();
     if (response.response?.success) {
       console.log('任务列表获取成功:', response.response.data);
     }
@@ -1610,11 +1640,6 @@ export class ApiService {
     return response;
   }
 
-  /**
-   * 
-   *
-   * @returns 返回用户信息的响应数据
-   */
 
   /**
   * 领取各种奖励
@@ -1634,6 +1659,9 @@ export class ApiService {
     let headers = { "X-Signature": signature }
 
     const response = await this.http.post<GetRewardResponse>('/getreward', data, { headers, auth: true });
+    if (response.status == 200 && response.response?.success) {
+      Global.ins.setUserData(response.response.data.userdata);
+    }
     return response;
   }
 
@@ -1711,6 +1739,8 @@ export class ApiService {
 
     return response;
   }
+
+
 
   /**
    * 确认支付成功

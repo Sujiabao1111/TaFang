@@ -122,7 +122,6 @@ export default class gameHeavenReward extends baseTs {
 
         let successFn = () => {
             cc.game.emit(NameTs.Game_Effect_coin, { node: this.heavenItem, value: coin, num: 10 });
-            util.addTermCoin(coin);
             this.closePage();
             util.heavenClickNum++;
             util.saveHeavenPool(this.no, null);
