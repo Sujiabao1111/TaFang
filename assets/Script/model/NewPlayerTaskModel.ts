@@ -1,12 +1,13 @@
 import { AssistCtr } from "../Assist/AssistCtr";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
-import { t } from "../Language/LanguageData";
+import { getLanguage, Language, t } from "../Language/LanguageData";
 import PageManage from "../PageManage";
-import { withdrawTaskItemVoMap } from "../pop/gameNewPlayerTask";
 import { UrlConst } from "../server/UrlConst";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
+import { ApiService } from "../tg/ApiService";
 import TrackMgr from "../TrackMgr/TrackMgr";
+import { Tools } from "../util/Tools";
 
 const { ccclass, property } = cc._decorator;
 
@@ -14,97 +15,87 @@ const { ccclass, property } = cc._decorator;
 export default class NewPlayerTaskModel extends cc.Component {
 
     @property(cc.Label)
-    lable_title: cc.Label = null;
+    private lable_title: cc.Label = null;
 
     @property(cc.RichText)
-    lable_progress: cc.RichText = null;
+    private lable_progress: cc.RichText = null;
 
     @property(cc.Label)
-    lable_addProgress: cc.Label = null;
+    private lable_addProgress: cc.Label = null;
 
     @property(cc.Node)
-    btn_Node: cc.Node = null;
-
-    @property(cc.SpriteFrame)
-    btnSprArray: Array<cc.SpriteFrame> = [];
-
-    myData: withdrawTaskItemVoMap = null;
+    private btn_Node: cc.Node = null;
+    @property(cc.Node)
+    private gouNode: cc.Node = null;
 
 
-    start() {
-
-    }
+    private myData: TaskData = null;
 
     private taskTitleType: Array<string> = ["炮塔等级达到", "观看视频", "完成日常任务", "累计获得金币"];
 
-    initData(data: withdrawTaskItemVoMap) {
+    initData(data: TaskData) {
         if (data) {
-            let self = this;
-            self.lable_title.string = t("main." + this.taskTitleType[data.taskType], data.taskTitleValue);
-            self.lable_progress.string = `</c><color=#669E00>${data.userTaskValue}</c>/<color=#D26C41>${data.taskValue}</c>`;
-            self.lable_addProgress.string = ` +${data.progress}`;
-            self.btn_Node.getComponent(cc.Sprite).spriteFrame = this.btnSprArray[data.buttonType];
+            this.myData = data;
 
-            let tempColor = new cc.Color();
-            if (data.buttonType == 1) {               //按钮类型: 1-进行中, 2-待领取, 3-已领取
-                self.node.getChildByName(`lable_btn`).getComponent(cc.Label).string = t("main.前往");
-                self.node.getChildByName(`lable_btn`).getComponent(cc.LabelOutline).color = tempColor.fromHEX("#D25400");
-            }
-            else if (data.buttonType == 2) {
-                self.node.getChildByName(`lable_btn`).getComponent(cc.Label).string = t("main.领取");
-                self.node.getChildByName(`lable_btn`).getComponent(cc.LabelOutline).color = tempColor.fromHEX("#4F7A00");
-            }
-            else if (data.buttonType == 3) {
-                self.node.getChildByName(`lable_btn`).getComponent(cc.Label).string = t("main.已领取");
-                self.node.getChildByName(`lable_btn`).getComponent(cc.LabelOutline).color = tempColor.fromHEX("#757575");
-            }
-            self.myData = data;
+            this.setTaskTitle(data);
+            this.setBtn();
+
+            this.lable_progress.string = `</c><color=#669E00>${data.task_progress}</c>/<color=#D26C41>${data.target_value}</c>`;
+            this.lable_addProgress.string = ` +${data.rewards}`;
+
         }
     }
 
-    clickBtn() {
-        let data = this.myData;
-        if (data) {
-            if (data.buttonType == 1) {               //按钮类型: 1-进行中, 2-前往, 3-待领取, 4-已领取
-                if (data.type == 3) {
-                    cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameTask);
-                }
-                PageManage.singleton.closePage(pageTs.pageName.GameNewPlayerTask);
-            }
-            else if (data.buttonType == 2) {
-                XMSDK.getdataStr({
-                    url: UrlConst.newPlayerTaskGet,
-                    data: {
-                        taskId: this.myData.id
-                    },
-                    onSuccess: res => {
-                        if (res.code === 0) {
-                            if (!this.isValid) {
-                                return;
-                            }
-
-                            if (this.myData) {
-                                AssistCtr.showToastTip(t("tips.receive_success"));
-                                cc.game.emit(NameTs.Game_NewPlayerTaskGet, {
-                                    target: this.btn_Node
-                                });
-                            }
-                        }
-                        else {
-                            if (res) {
-                                AssistCtr.showToastTip(res.message);
-                            }
-                        }
-                    },
-                    onFail: err => {
-
-                    }
-                }
-                )
-            }
-            else if (data.buttonType == 3) {
-                // AssistCtr.showToastTip("已领取");
-            }
+    private setBtn() {
+        if (this.myData.task_progress >= this.myData.target_value && this.myData.can_receive == 0) {
+            this.gouNode.active = true;
+            this.btn_Node.active = false;
+        } else {
+            this.btn_Node.active = true;
+            this.gouNode.active = false;
+            Tools.setSpriteState(this.btn_Node, this.myData.can_receive == 0);
         }
+
+
+    }
+
+    private setTaskTitle(data) {
+        let desc = data.desc;
+        let titleData = {};
+        try {
+            if (typeof desc === "string" && desc) {
+                titleData = JSON.parse(desc);
+            }
+        } catch (e) {
+            titleData = {};
+        }
+        // 默认英文
+        let langKey = "en";
+        switch (getLanguage()) {
+            case Language.zh:
+            case Language.zhHant:
+                langKey = "zh-hant"; break;
+            case Language.en:
+                langKey = "en"; break;
+            case Language.ar:
+                langKey = "ar"; break;
+            case Language.id:
+                langKey = "id"; break;
+            case Language.ru:
+                langKey = "ru"; break;
+            case Language.th:
+                langKey = "th"; break;
+        }
+        this.lable_title.string = titleData[langKey] || titleData["en"] || "";
+    }
+
+    async clickBtn() {
+        let res = await ApiService.ins.getNewbenefitsReward(this.myData.id);
+        if (res.response.success) {
+            this.myData.can_receive = 0;
+            this.setBtn();
+            cc.game.emit(NameTs.UPDATE_NEWPLAYER_TASK, res.response.data.progress);
+        }
+
     }
 }

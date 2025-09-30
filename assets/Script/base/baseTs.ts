@@ -75,7 +75,6 @@ export default class baseTs extends cc.Component {
      */
     showPage(name: string, data = null) {
         console.log("打开页面", name);
-        
         PageManage.singleton.showPage(name, data);
     }
 

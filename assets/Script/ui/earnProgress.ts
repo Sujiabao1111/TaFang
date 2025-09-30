@@ -1,11 +1,9 @@
-import { AssistCtr } from "../Assist/AssistCtr";
+
 import baseTs from "../base/baseTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
-import { RewardType } from "../common/PropConst";
-import { UrlConst } from "../server/UrlConst";
+import { RewardNodeType } from "../common/PropConst";
 import soundController from "../soundController";
-import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
@@ -82,7 +80,7 @@ export default class earnProgress extends baseTs {
             return;
         }
         soundController.singleton.clickAudio();
-        cc.game.emit(NameTs.Game_Pop_Open, { name: pageTs.pageName.GameRandomRedPrize, data: RewardType.Kills });
+        cc.game.emit(NameTs.Game_Pop_Open, { name: pageTs.pageName.GameRandomRedPrize, data: RewardNodeType.Kills });
         this.hand.active = false;
         this.curKillsNum = 0;
         util.setStorage(util.localDiary.killsValue, this.curKillsNum)

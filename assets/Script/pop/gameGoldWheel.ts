@@ -1,50 +1,22 @@
 import soundController from "../soundController";
 import NameTs from "../common/NameTs"
-import XMSDK from "../server/xmsdk_cocos/XMSDK";
-import { UrlConst } from "../server/UrlConst";
 import util from "../util/util";
 import { updateType } from "../common/faceTs";
 import baseTs from "../base/baseTs";
 import gameGoldWheelReward from "./gameGoldWheelReward"
 import RewardController from "../controlelr/RewardController";
-import TrackMgr from "../TrackMgr/TrackMgr";
-import pageTs from "../common/pageTs";
-import RedController from "../controlelr/RedController";
 import { AssistCtr } from "../Assist/AssistCtr";
 import { t } from "../Language/LanguageData";
+import { ApiService } from "../tg/ApiService";
+import { REWARD_TYPE } from "../common/PropConst";
+import { Tools } from "../util/Tools";
 
 
 //#region 抽奖 转盘
 const { ccclass, property } = cc._decorator;
 
-//默认数据
-const default_data = {
-    "code": 0,
-    "message": "success",
-    "data": {
-        "times": 10,
-        "state": 1,
-        "rewardList": [
-            { "id": "101", "value": 1000, "type": 2 },
-            { "id": "105", "value": 5, "type": 1 },
-            { "id": "102", "value": 500, "type": 2 },
-            { "id": "106", "value": 10, "type": 1 },
-            { "id": "103", "value": 300, "type": 2 },
-            { "id": "107", "value": 15, "type": 1 },
-            { "id": "104", "value": 100, "type": 2 },
-            { "id": "108", "value": 20, "type": 1 }
-        ],
-
-    }
-}
-
 @ccclass
 export default class gameGoldWheel extends baseTs {
-
-
-    @property(cc.Label)
-    private coinLabel: cc.Label = null; //金币
-
     @property(cc.ProgressBar)
     private Progress: cc.ProgressBar = null; //进度
 
@@ -57,24 +29,17 @@ export default class gameGoldWheel extends baseTs {
     @property(cc.Node)
     private wheel_reward: cc.Node = null;
 
-
     @property(cc.Node)
     private btn_clickVideoGet: cc.Node = null;
 
     @property(cc.Node)
-    private btn_clickGrayGet: cc.Node = null;
+    private btnCloseNode: cc.Node = null;
 
     @property(cc.Node)
-    private btnCloseNode: cc.Node = null;
-    ;
-
+    private GodWheel_deng2: cc.Node = null;
 
     @property(cc.Node)
     private gameGoldWheelReward: cc.Node = null;
-
-    @property(cc.Node)
-    private timeNode1: cc.Node = null; //剩余次数
-
 
     private wheelState;//转盘当前阶段
     private curSpeed;  //当前速度
@@ -91,63 +56,66 @@ export default class gameGoldWheel extends baseTs {
     private targetId;//转动到目标值
     private wheelItems: any;
     private isCanClickWheel: boolean;
-    private isClickGetPrize: boolean;
-    private isMain: any;
     private closeCall: any;
-    private godWheelData: any;
-    private lable_prizeNum: any;
     private prizeData: any;
-    private playerCurGold: any;
-    private showImgGold: any;
 
+    // 转盘默认数据
+    private default_rewardList = [
+        { id: 0, value: 1000, type: 2 },
+        { id: 1, value: 5, type: 1 },
+        { id: 2, value: 2000, type: 2 },
+        { id: 3, value: 10, type: 1 },
+        { id: 4, value: 5000, type: 2 },
+        { id: 5, value: 15, type: 1 },
+        { id: 6, value: 8000, type: 2 },
+        { id: 7, value: 20, type: 1 }
+    ]
 
-
-
-
-
-    // 奖励进度
-    private userTurntableStageReward = {
-        current: 8,
+    private defaultTurntableStageReward = {
+        current: 0,
+        //status :0:未达到  //1可领 2//已领  
         rewardDetailDtoList: [
             { status: 0, node: 3, reward: 1000 },
             { status: 0, node: 6, reward: 2000 },
-            { status: 0, node: 10, reward: 5000 }]
+            { status: 0, node: 10, reward: 5000 }
+        ]
     }
-
-
-    //用户进度
-    private turntableProgress: any = default_data.data;
+    // 奖励进度
+    private userTurntableStageReward = null;
 
     onLoad() {
         this.wheelItems = {}
         this.isCanClickWheel = true;
 
-        //数据更新
-        cc.game.on(NameTs.Game_View_UserDataUpdata, (res) => {
-            if (res == updateType.coin) {
-                let userData = util.userData;
-                this.coinLabel.string = String(userData.coin);
-            }
-        }, this);
-
-        cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.coin);
-
+        let turntableStageReward = util.getStorage(util.localDiary.TurntableStageReward);
+        if (turntableStageReward == null) {
+            let dds = JSON.stringify(this.defaultTurntableStageReward);
+            util.setStorage(util.localDiary.TurntableStageReward, dds)
+            this.userTurntableStageReward = this.defaultTurntableStageReward;
+        } else {
+            this.userTurntableStageReward = JSON.parse(turntableStageReward)
+        }
+        console.log("userTurntableStageReward=====>", this.userTurntableStageReward);
+        this.initData();
     }
 
-    onEnable() {
-        let self = this;
-        self.wheelState = 0;
-        self.curSpeed = 0;
-        self.spinTime = 0;//减速前旋转时间
-        self.gearNum = 8;
-        self.defaultAngle = 0;//修正默认角度
-        self.gearAngle = 360 / self.gearNum;//每个齿轮的角度
-        self.wheel.angle = self.defaultAngle;
-        self.finalAngle = 0;//最终结果指定的角度
-        self.maxSpeed = 15,
-            self.duration = 1.5;//减速前旋转时间
-        self.acc = 0.6;//加速度
-        self.gameGoldWheelReward.active = false
+    private initData() {
+        this.wheelState = 0;
+        this.curSpeed = 0;
+        this.spinTime = 0;//减速前旋转时间
+        this.gearNum = 8;
+        this.defaultAngle = 0;//修正默认角度
+        this.gearAngle = 360 / this.gearNum;//每个齿轮的角度
+        this.wheel.angle = this.defaultAngle;
+        this.finalAngle = 0;//最终结果指定的角度
+        this.maxSpeed = 15;
+        this.duration = 1.5;//减速前旋转时间
+        this.acc = 0.6;//加速度
+
+        this.gameGoldWheelReward.active = false;
+        this.isCanClickWheel = true;
+        this.btnCloseNode.active = true;
+        this.GodWheel_deng2.active = false;
 
         let reward_list = this.wheel_reward.children
         if (reward_list.length < 8) {
@@ -161,27 +129,16 @@ export default class gameGoldWheel extends baseTs {
             }
         }
 
-        self.updateData2(default_data.data) // 策划强烈要求要默认数据，不能有数据切换效果
-
-        self.isClickGetPrize = true;
-        self.updateData();
-
-        self.isCanClickWheel = true;
-
-        self.btnCloseNode && (self.btnCloseNode.active = false);
-        setTimeout(() => {
-            self.btnCloseNode && (self.btnCloseNode.active = true);
-        }, 2000);
+        // 设置转盘的item 数据
+        this.setInitWheel()// 策划强烈要求要默认数据，不能有数据切换效果
+        this.updateItem();
 
     }
 
     onDisable() {
-        // if (this.TempNodeController) this.TempNodeController.hideNode()
-        // ClientEvent.dispatch("goldWheel_dot_update", LocalData.query(DataItem.goldWheelCount) < 20);
         this.closeCall && this.closeCall()
         this.closeCall = null
     }
-
 
     setCloseCall(callback) {
         this.closeCall = callback
@@ -198,14 +155,32 @@ export default class gameGoldWheel extends baseTs {
         this.spinTime = 0;
         this.endCallBack = endCallBack;
         this.targetId = targetId
+        this.setGodWheelDeng();
         soundController.singleton.playMusic(NameTs.Gold_Wheel)
     }
+
+    private setGodWheelDeng() {
+        this.GodWheel_deng2.active = true;
+        this.GodWheel_deng2.opacity = 0;
+        cc.tween(this.GodWheel_deng2).delay(0.2)
+            .call(() => {
+                this.GodWheel_deng2.opacity = 255;
+            })
+            .delay(0.2)
+            .call(() => {
+                this.GodWheel_deng2.opacity = 0;
+            })
+            .union()
+            .repeatForever()
+            .start();
+
+    }
+
 
     update(dt) {
         if (this.wheelState === 0) {
             return;
         }
-
         if (this.wheelState == 1) {
             this.spinTime += dt;
             this.wheel.angle = this.wheel.angle - this.curSpeed;
@@ -230,159 +205,71 @@ export default class gameGoldWheel extends baseTs {
                 this.wheelState = 0;
                 this.wheel.angle = this.finalAngle;
                 this.endCallBack();
+                cc.Tween.stopAllByTarget(this.GodWheel_deng2);
+                this.GodWheel_deng2.active = false;
                 console.error("this:", this.targetId, this.gearAngle, this.prizeData)
-
             }
         }
     }
 
+    private setInitWheel() {
+        this.btn_clickVideoGet.active = true;
+        cc.Tween.stopAllByTarget(this.btn_clickVideoGet);
+        cc.tween(this.btn_clickVideoGet)
+            .to(0.5, { scale: 1.2 })
+            .to(0.5, { scale: 1 })
+            .union()
+            .repeatForever()
+            .start();
 
-    updateData() {
-        let self = this;
-
-        if (this.userTurntableStageReward.current && this.userTurntableStageReward.current + 1 > 10) {
-            this.checkFill();
-        }
-
-        XMSDK.getdataStr({
-            url: UrlConst.goldWheel_index,
-            onSuccess: res => {
-                if (res.code === 0) {
-                    if (!this.isValid) {
-                        return;
-                    }
-
-                    let data = res.data;
-                    self.formatData(data.userTurntableStageReward);
-                    self.updateData2(data);
-                }
-                else {
-                    XMSDK.toast(res.message || '网络出错~', 2.5, 1);
-                    if (self.godWheelData) {
-                        self.updateData2(self.godWheelData);
-                    }
-                }
-            },
-            onFail: err => {
-                XMSDK.toast('网络出错~', 2.5, 1);
-                if (self.godWheelData) {
-                    self.updateData2(self.godWheelData);
-                }
-            }
-        })
-    }
-
-    updateData2(data) {
-        let self = this;
-        self.godWheelData = data;
-        RedController.wheelCount = data.times;
-
-        let action = cc.repeatForever(cc.sequence(cc.scaleTo(0.5, 1.2), cc.scaleTo(0.5, 1)));
-        self.btn_clickVideoGet.stopAllActions();
-
-        this.timeNode1.active = true;
-        this.timeNode1.getComponent(cc.Label).string = t("main.剩余机会", data.times);
-
-        this.updateItem();
-
-        util.setTempParm("goldWheelRemainNum", data.times)
-
-        if (data.state == 1 || data.state == 2) {
-            self.btn_clickVideoGet.active = true;
-            self.btn_clickGrayGet.active = false;
-            self.btn_clickVideoGet.runAction(action);
-        }
-        else if (data.state == 3) {
-            self.btn_clickVideoGet.active = false;
-            self.btn_clickGrayGet.active = true;
-        }
-
-        let itemData = self.wheel_reward.children;
-        self.wheelItems = {};
-
-        let exchangeRate = util.userData.exchangeRate || 10000;
+        let itemData = this.wheel_reward.children;
+        this.wheelItems = {};
 
         for (let i = 0; i < itemData.length; i++) {
             let prize = itemData[i];
-            let spriteFrame = data.rewardList[i].type == 1 ? RewardController.instance.findPointSprite(2) : RewardController.instance.findPointSprite(1)
-            if (data.rewardList[i].value < 1000 || data.rewardList[i].type == updateType.product) {
+            let spriteFrame = this.default_rewardList[i].type == 1 ? RewardController.instance.findPointSprite(2) : RewardController.instance.findPointSprite(1)
+            if (this.default_rewardList[i].value < 1000 || this.default_rewardList[i].type == updateType.product) {
                 prize.getChildByName("GodWheel_gold").getComponent(cc.Sprite).spriteFrame = spriteFrame
-                prize.getChildByName("goldNum").getComponent(cc.RichText).string = `${data.rewardList[i].value}`;
-                self.wheelItems[`${data.rewardList[i].id}`] = i;
-            }
-            else {
-                prize.getChildByName("GodWheel_gold").getComponent(cc.Sprite).spriteFrame = spriteFrame
-                if (exchangeRate) {
-                    prize.getChildByName("goldNum").getComponent(cc.RichText).string = `${(data.rewardList[i].value / exchangeRate).toFixed(1)}<size = 26>元</size>`;
-                }
-                else {
-                    prize.getChildByName("goldNum").getComponent(cc.RichText).string = `${(data.rewardList[i].value / 10000).toFixed(1)}<size = 26>元</size>`;
-                }
-                self.wheelItems[`${data.rewardList[i].id}`] = i;
+                prize.getChildByName("goldNum").getComponent(cc.RichText).string = `${this.default_rewardList[i].value}`;
+                this.wheelItems[`${this.default_rewardList[i].id}`] = i;
+            } else {
+                prize.getChildByName("GodWheel_gold").getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                this.wheelItems[`${this.default_rewardList[i].id}`] = i;
             }
         }
     }
 
-    clickWater() {
-        let self = this;
-        if (self.btn_clickVideoGet.active) {
-            self.clickWheelVideo();
-        }
-        else if (self.btn_clickGrayGet.active) {
 
-        }
-    }
-
-    clickWheel(isVideo = false) {
-        let self = this;
+    clickWheel() {
         if (!this.checkIsCanClickWheel()) {
             return;
         }
-        if (self.isCanClickWheel) {
-            self.isCanClickWheel = false;
-            XMSDK.getdataStr({
-                url: UrlConst.goldWheel_action,
-                onSuccess: res => {
-                    if (res.code === 0) {
+        if (this.isCanClickWheel) {
+            this.isCanClickWheel = false;
 
-
-                        // res.data.reward = {
-                        //     id: "106",
-                        //     type: 2,
-                        //     value: 10
-                        // }
-
-                        let data = res.data.reward;
-                        if (data && this.wheelItems) {
-                            this.prizeData = res.data;
-                            let prizeId = this.wheelItems[`${data.id}`];
-
-                            console.log("中奖是哪个：", prizeId, data, this.wheelItems);
-
-                            this.startWheel(prizeId, () => {
-                                this.openGetViewNode(null, isVideo);
-                            })
-                            self.godWheelData.times -= 1;
-                            if (self.godWheelData.times <= 0) {
-                                self.godWheelData.times = 0;
-                            }
-
-
-                            // this.updateItem();
-                            self.isCanClickWheel = true;
-                        }
-                    }
-                    else {
-                        XMSDK.toast(res.message || '网络出错~~', 2.5, 1);
-                        self.isCanClickWheel = true;
-                    }
-                },
-                onFail: err => {
-                    XMSDK.toast('网络出错~~~', 2.5, 1);
-                    self.isCanClickWheel = true;
-                }
-            })
+            let rewardKey = Tools.GetRandom(0, this.default_rewardList.length - 1);
+            //转盘结果
+            let res = { "id": "1414895542793797633", "reward": { "id": "6", "value": 8000, "type": 2 }, }
+            let data = this.default_rewardList[rewardKey];
+            if (data && this.wheelItems) {
+                this.prizeData = data;
+                let prizeId = this.wheelItems[`${data.id}`];
+                console.log("中奖是哪个：", prizeId, data, this.wheelItems);
+                this.startWheel(prizeId, () => {
+                    this.userTurntableStageReward.current += 1;
+                    this.updateItem();
+                    console.log("抽奖次数:", this.userTurntableStageReward.current);
+                    this.openGetViewNode();
+                })
+                this.isCanClickWheel = true;
+            }
         }
+    }
+
+    // 本地储存转盘奖励次数;
+    private setTurntableStageReward() {
+        let dds = JSON.stringify(this.userTurntableStageReward);
+        util.setStorage(util.localDiary.TurntableStageReward, dds)
     }
 
     clickBtnWheel() {
@@ -390,19 +277,17 @@ export default class gameGoldWheel extends baseTs {
     }
 
     clickWheelVideo() {
-        let self = this;
         if (!this.checkIsCanClickWheel()) {
             return;
         }
 
-        if (self.isCanClickWheel) {
-            self.isCanClickWheel = false;
+        if (this.isCanClickWheel) {
+            this.isCanClickWheel = false;
             setTimeout(() => {
-                self.isCanClickWheel = true;
+                this.isCanClickWheel = true;
             }, 3000);
-
             this.isCanClickWheel = true;
-            this.clickWheel(true);
+            this.clickWheel();
         }
     }
 
@@ -413,61 +298,35 @@ export default class gameGoldWheel extends baseTs {
         return true;
     }
 
-    openGetViewNode(node, isVideo: boolean) {
+    openGetViewNode() {
         soundController.singleton.playMusic(NameTs.Gola_Wheel_Get)
-        util.userData.goldWheelCount++;
         this.gameGoldWheelReward.active = true;
         let gameGoldWheelRewardTs: gameGoldWheelReward = this.gameGoldWheelReward.getComponent(gameGoldWheelReward);
         if (gameGoldWheelRewardTs) {
             gameGoldWheelRewardTs.init(this.prizeData, () => {
-                this.updateData()
             })
         }
     }
 
 
+
     clickClose() {
-        let self = this;
         if (this.wheelState != 0) {
             return;
         }
         cc.game.emit(NameTs.Game_Task_updata);
         soundController.singleton.clickAudio();
         this.closePage();
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: "金币转盘弹窗",
-            ck_module: "关闭",
-            dialog_enter: this.isMain ? "首页金币转盘" : "限时礼包收下跳转",
-        })
-        // XMSDK.track({
-        //     eventName: SAConst.AppDialogClick,
-        //     props: {
-        //         dialog_name2: "金币转盘弹窗",
-        //         ck_module: "关闭",
-        //         dialog_enter: this.isMain ? "首页金币转盘" : "限时礼包收下跳转",
-        //     }
-        // });
     }
 
-    /**提现 */
-    walletBtn() {
-        TrackMgr.AppClick({
-            app_page_title: "转盘",
-            app_ck_module: "提现",
-            app_exposure_type: "icon",
-        })
-        soundController.singleton.clickAudio();
-        cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameWallet);
-    }
 
 
     /**
      * 更新进度item
      */
     updateItem() {
-        if (!this.turntableProgress) return;
-
-        //玩了几次
+        if (!this.userTurntableStageReward) return;
+        // 玩了几次
         let playTime: number = this.userTurntableStageReward.current || 0;
         let nowState: number = 0;//当前进度
         if (playTime < 3) {
@@ -477,39 +336,39 @@ export default class gameGoldWheel extends baseTs {
         } else {
             nowState = 2;
         }
-
         this.Progress.progress = playTime / 10;
-
         this.userTurntableStageReward.rewardDetailDtoList.forEach((value, index) => {
             if (value.status == 0 && playTime >= value.node) {
                 value.status = 1;
             }
             this.changeItemState(index, value.status);
         });
+
+        this.setTurntableStageReward();
+        console.log("this.userTurntableStageReward====", this.userTurntableStageReward);
     }
 
     /**
      * 领取金币奖励
      */
-    getCoinBtn(e, num) {
-        soundController.singleton.clickAudio();
-        if (!this.turntableProgress) return;
+    async getCoinBtn(e, num) {
+        if (!this.userTurntableStageReward) return;
         num = Number(num);
         let itemData = this.userTurntableStageReward.rewardDetailDtoList[num];
         if (itemData.status !== 1) { return; }
-        util.post({
-            url: UrlConst.goldWheel_receive,
-            data: { node: itemData.node },
-            success: () => {
-                itemData.status = 2;//变成已经状态
-                this.changeItemState(num, 2);
-                AssistCtr.showToastTip("获取" + itemData.reward + "红包币");
-                cc.game.emit(NameTs.Game_Effect_coin, { node: e.target, value: itemData.reward, num: 10, parent: this.node.getParent() });
-            },
-            fail: () => {
-                AssistCtr.showToastTip("领取失败！");
-            }
-        })
+        soundController.singleton.clickAudio();
+        let reward_key = 1001;
+        let res = await ApiService.ins.getReward(reward_key, REWARD_TYPE.gold, itemData.reward);
+        if (res.response.success) {
+            itemData.status = 2;//变成已经状态
+            this.changeItemState(num, 2);
+            AssistCtr.showToastTip(t("tips.receive_success"));
+            cc.game.emit(NameTs.Game_Effect_coin, { node: e.target, value: itemData.reward, num: 5, parent: this.node.getParent() });
+        } else {
+            AssistCtr.showToastTip(t("tips.rewardFail"));
+        }
+        this.setTurntableStageReward();
+        this.isAllGet();
     }
 
     /**
@@ -522,61 +381,29 @@ export default class gameGoldWheel extends baseTs {
         let data: any = this.userTurntableStageReward.rewardDetailDtoList[index];
         let light: cc.Node = parent.children[0];
         let label: cc.Label = parent.getChildByName("label").getComponent(cc.Label);
-
-        light.active = false;
-
-        switch (num) {
-            case 0:
-                label.string = "+" + data.reward;
-                break;
-            case 1:
-                light.active = true;
-                label.string = "+" + data.reward;
-                break;
-            case 2:
-                label.string = t("main.已领取");
-                parent.opacity = 200;
-                break;
-        }
-
+        parent.getComponent(cc.Button).interactable = num == 1;
+        Tools.setSpriteState(parent, num == 2, true)
+        label.string = num == 2 ? t("main.已领取") : "+" + data.reward;
+        light.active = num == 1;
     }
 
-    /**
-     * 格式化一下数据
-     */
-    formatData(data) {
-        // this.turntableProgress = data;
-        let time: number = this.userTurntableStageReward.current; //玩的次数
+    // 是否全部领取了
+    private isAllGet() {
+        let isAll = true;
         this.userTurntableStageReward.rewardDetailDtoList.forEach((value, index) => {
-            if (value.status == 1) {
-                value.status = 2;
-            } else {
-                if (value.node <= time) {
-                    value.status = 1;
-                } else {
-                    value.status = 0;
-                }
+            if (value.status !== 2) {
+                isAll = false;
             }
         });
-    }
 
-
-    /**
-     * 检查是否超过11
-     */
-    checkFill() {
-        console.log("满了10次");
-        let coin: number = 0;//多少金币
-        this.userTurntableStageReward.rewardDetailDtoList.forEach((value, index) => {
-            if (value.status == 1) {
-                coin += value.reward;
-                cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItemArr[index], value: value.reward, num: 10, parent: this.node.getParent() });
-
-            }
-        });
-        this.turntableProgress = null;
-        if (coin > 0) {
-            AssistCtr.showToastTip("获取" + coin + "红包币");
+        if (isAll) {
+            let dds = JSON.stringify(this.defaultTurntableStageReward);
+            util.setStorage(util.localDiary.TurntableStageReward, dds)
+            this.userTurntableStageReward = this.defaultTurntableStageReward;
+            this.updateItem();
         }
     }
+
+
+
 }

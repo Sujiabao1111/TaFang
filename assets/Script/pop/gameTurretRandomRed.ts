@@ -1,18 +1,8 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
 import { AssistCtr } from "../Assist/AssistCtr";
 import baseTs from "../base/baseTs";
-import { AdPosition } from "../common/AdPosition";
 import NameTs from "../common/NameTs";
-import { t } from "../Language/LanguageData";
-import AdController from "../server/xmsdk_cocos/AD/AdController";
 import TrackMgr from "../TrackMgr/TrackMgr";
-import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
 

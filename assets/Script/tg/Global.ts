@@ -24,8 +24,6 @@ export class Global extends Singleton {
         return super.getInstance<Global>();
     }
 
-
-
     our_easing = { easing: 'quadInOut' }; //{ easing: 'quadInOut' };
 
     /** 是否上报过任务通知 */
@@ -47,6 +45,7 @@ export class Global extends Singleton {
     public show_mine = true;
     public isHaveAdFreeCount = true;
     public proplist = [];
+    public newbenefits = 0; // "1":未领取，"2":已领取 
 
     public loading_rate = 0;
     public ticket: string = "";
@@ -105,10 +104,7 @@ export class Global extends Singleton {
         return Global.ins?.userData?.coin;
     }
 
-    /** 游戏金币(Azen) */
-    public get Azen_coin(): number {
-        return Global.ins?.userData?.azen;
-    }
+
 
     /** 显示金额 */
     async usd_coin(): Promise<number> {
@@ -133,33 +129,18 @@ export class Global extends Singleton {
         }
     }
 
-    /** 金币(螺丝) */
-    private _game_coin = 0;
-    /** 金币(螺丝) */
-    public get game_coin(): number {
-        return this._game_coin;
-    }
-    public set game_coin(value: number) {
-        this._game_coin = value;
-    }
 
 
-    /** 当前获取的的金币(螺丝) */
-    cur_got_coins = 0;
-    /** 当前获取的箱子 */
-    cur_got_box = 0;
-    /**  当前获取的的金币 箱子 */
-    resetCur_got() {
-        Global.ins.cur_got_coins = 0;
-        Global.ins.cur_got_box = 0;
-    }
+
+
 
     /**
-     * 通过的等级
+     * 设置用户数据
      */
-    setUserData(userData: NewUserData, is_update_user: boolean = true) {
+    setUserData(userData: NewUserData) {
         this.userData = userData;
         util.userData.coin = this.userData.game_coin;
+        // util.userData.product = this.userData.energy;
         this.setCurLevel();
     }
 
@@ -250,7 +231,6 @@ export class Global extends Singleton {
             Playdeck_requestPayment(amount, "GemJam", order.oid)
             return
         }
-
         this.openInvoice(order.link, cb)
     }
 
@@ -297,23 +277,6 @@ export class Global extends Singleton {
         })
     }
 
-
-    /** 玩家道具列表 */
-    userPropList = {
-        6: 0, // 解锁 6
-        7: 0, // 转换刷新 7
-        8: 0, // 磁铁 8
-        2: 0, // 复活 2
-        5: 0, //回到第一关5
-    }
-
-    public getUserProplist() {
-        let arr = [2, 5, 6, 7, 8]
-        for (let i = 0; i < arr.length; i++) {
-            let prop = this.getPropsNum(arr[i]);
-            this.userPropList[arr[i]] = prop ? prop.num : 0;
-        }
-    }
 
 
 }

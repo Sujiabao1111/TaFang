@@ -12,6 +12,7 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class gameTask extends baseTs {
 
+    public static instance: gameTask = null;
 
     @property({ type: cc.Prefab, displayName: "item預製體" })
     private dailyPre: cc.Prefab = null;
@@ -44,28 +45,29 @@ export default class gameTask extends baseTs {
     private selectNum: number = 0;
 
     //每日数据
-    private DailyData: any = [];
-    //成就数据
-    private AchievementData: any = [];
+    private DailyData: TaskData[] = [];
 
-    // private dailyPre: cc.Prefab = null;
+    //成就数据
+    private AchievementData: TaskData[] = [];
 
     private dayRedNum = 0;
     private passRedNum = 0;
 
     onLoad() {
-
+        gameTask.instance = this;
         cc.game.on(NameTs.Game_Task_updata, () => {
-
-
-            if (this.selectNum == 0) {
-                //this.DailyContent.removeAllChildren();
-            } else {
-                //this.AchievementContent.removeAllChildren();
-            }
             this.updataTask(this.selectNum);
         }, this);
 
+        cc.game.on(NameTs.UPDATE_TASK, () => {
+            this.updataTask(this.selectNum);
+        }, this);
+
+        if (CC_DEBUG) {
+            cc.game.on(NameTs.ACTIVATED, () => {
+                this.updataTask(this.selectNum);
+            }, this);
+        }
 
     }
 
@@ -73,6 +75,22 @@ export default class gameTask extends baseTs {
         cc.game.emit(NameTs.Game_Main_Task_updata, this.dayRedNum + this.passRedNum);
     }
 
+    /**
+    * 初始化
+    */
+    init(taskData: TaskData[]) {
+        for (let i = 0; i < taskData.length; i++) {
+            if (taskData[i].task_type == "1") {
+                this.DailyData.push(taskData[i]);
+            } else {
+                this.AchievementData.push(taskData[i]);
+            }
+        }
+
+        this.updataTask(0);
+        this.updataTask(1);
+        console.log("taskData", taskData);
+    }
 
     /**
      * 选择哪个
@@ -93,144 +111,23 @@ export default class gameTask extends baseTs {
      * @param num 0:每日 1：成就
      * @param res 是否有数据
      */
-    updataTask(num: number = 0, data: any = null) {
-        if (num == 0) {
-
-            let successFn = (res) => {
-                if (!this.isValid) {
-                    return;
-                }
-                this.dayRedNum = 0;
-                this.DailyData = res.list;
-                this.createDailyItem(num);
-
-                let list = res.list;
-                let DailyContentLen: number = 0;
-                if (this.DailyContent && this.DailyContent.children) {
-                    DailyContentLen = this.DailyContent.children.length;
-                }
-                let addNum = list.length - DailyContentLen;
-                for (let i = 0; i < addNum; i++) {                        //生成
-                    let item = cc.instantiate(this.dailyPre);
-                    item.parent = this.DailyContent;
-                }
-
-                let childArray = this.DailyContent.children;      //设置数据
-                for (let i = 0; i < childArray.length; i++) {
-                    if (list[i]) {
-                        childArray[i].getComponent(taskItem).init(list[i], num);
-                    }
-                }
-
-
-                if (list) {
-                    let okNum = 0;
-                    for (let i = 0; i < list.length; i++) {
-                        if (list[i].buttonType == 3) {
-                            okNum++;
-                        }
-                    }
-                    if (okNum > 0) {
-                        this.taskRed.active = true;
-                    }
-                    else {
-                        this.taskRed.active = false;
-                    }
-                    this.dayRedNum = okNum;
-                }
-                else {
-                    this.taskRed.active = false;
-                }
+    updataTask(num: number = 0) {
+        let list = num == 0 ? this.DailyData : this.AchievementData;
+        let parentNode = num == 0 ? this.DailyContent : this.AchievementContent;
+        parentNode.removeAllChildren();
+        for (let i = 0; i < list.length; i++) {                        //生成
+            let item = cc.instantiate(this.dailyPre);
+            item.parent = parentNode;
+        }
+        let childArray = parentNode.children;      //设置数据
+        for (let i = 0; i < childArray.length; i++) {
+            if (list[i]) {
+                childArray[i].getComponent(taskItem).init(list[i], num);
             }
-
-            if (data) {
-                successFn(data);
-            } else {
-                util.getdataStr({
-                    url: UrlConst.task_day_main,
-                    success: (res) => {
-                        successFn(res);
-                    }
-                });
-            }
-
-
-        } else {
-            let successFn = (res) => {
-                if (!this.isValid) {
-                    return;
-                }
-
-                this.AchievementData = res.list;
-                this.createDailyItem(num);
-                this.passRedNum = 0;
-
-                let list = res.list;
-                if (!this.AchievementContent) {
-                    return;
-                }
-                let AchievementContentLen: number = 0;
-                if (this.AchievementContent && this.AchievementContent.children) {
-                    AchievementContentLen = this.AchievementContent.children.length;
-                }
-                let addNum = list.length - AchievementContentLen;
-                for (let i = 0; i < addNum; i++) {                        //生成
-                    let item = cc.instantiate(this.dailyPre);
-                    item.parent = this.AchievementContent;
-                }
-
-                let childArray = this.AchievementContent.children;      //设置数据
-                for (let i = 0; i < childArray.length; i++) {
-                    if (list[i]) {
-                        childArray[i].getComponent(taskItem).init(list[i], num);
-                    }
-                }
-
-                if (list) {
-                    let okNum = 0;
-                    for (let i = 0; i < list.length; i++) {
-                        if (list[i].buttonType == 3) {
-                            okNum++;
-                        }
-                    }
-                    if (okNum > 0) {
-                        this.achievementRed.active = true;
-                    }
-                    else {
-                        this.achievementRed.active = false;
-                    }
-                    this.passRedNum = okNum;
-                }
-                else {
-                    this.achievementRed.active = false;
-                }
-
-
-            }
-
-            if (data) {
-                successFn(data);
-            } else {
-
-                util.getdataStr({
-                    url: UrlConst.achievement_main,
-                    success: (res) => {
-                        successFn(res);
-                    }
-                });
-
-            }
-
         }
     }
 
-    /**
-     * 初始化
-     */
-    init(data) {
-        this.updataTask(0, data || null);
-        this.updataTask(1);
-    }
+
 
     /**
      * 创建任务item
@@ -262,29 +159,16 @@ export default class gameTask extends baseTs {
         //         successFn();
         //     });
         // }
-
-
-
-
     }
 
-    onDestroy() {
-        //释放
-        // cc.assetManager.releaseAsset(this.dailyPre);
-    }
-    
+
     /**
      * 关闭
      */
 
     closeBtn() {
-
         soundController.singleton.clickAudio();
-
         this.closePage();
-
     }
 
-
-    // update (dt) {}
 }

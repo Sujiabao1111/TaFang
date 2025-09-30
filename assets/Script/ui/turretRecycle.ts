@@ -8,13 +8,16 @@ const { ccclass, property } = cc._decorator;
 export default class turretRecycle extends baseTs {
 
     @property({ displayName: "等级", type: cc.Label })
-    levelLabel: cc.Label = null;
+    private levelLabel: cc.Label = null;
 
     @property({ type: sp.Skeleton, displayName: "炮" })
-    paoBody: sp.Skeleton = null;
+    private paoBody: sp.Skeleton = null;
 
     @property(cc.Node)
-    xingLayout: cc.Node = null;
+    private xingLayout: cc.Node = null;
+
+    @property(cc.SpriteFrame)
+    private iconFrame: cc.SpriteFrame[] = [];
 
     //是否在接触
     private isTouch: boolean = false;
@@ -70,6 +73,9 @@ export default class turretRecycle extends baseTs {
             let xingData = util.getLevelXing(this.level);
             for (let i = 0; i < this.xingLayout.children.length; i++) {
                 this.xingLayout.children[i].active = i < xingData.iconCount;
+                if (this.xingLayout.children[i].active) {
+                    this.xingLayout.children[i].getComponent(cc.Sprite).spriteFrame = this.iconFrame[xingData.iconType];
+                }
             }
         }
     }

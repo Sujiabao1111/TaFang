@@ -181,7 +181,7 @@ export enum updateType {
     coin = 0,
     //红包
     hongbao,
-    //产能
+    //产能 炮台
     product
 }
 

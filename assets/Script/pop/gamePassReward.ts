@@ -54,13 +54,11 @@ export default class gamePassReward extends baseTs {
     async getBtn(str, e) {
         let isVideo: boolean = e == 1;
         soundController.singleton.clickAudio();
-        let coin: number = Global.ins.curPassStageGold * (isVideo ? 2 : 1);
-
         if (isVideo) {
             let res = await ApiService.ins.getDoubleReward(Global.ins.curPassStageGold, "passstage");
             if (res.response.success) {
                 console.log("双倍金币领取成功", res.response.data.prize);
-                cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: res.response.data.prize, num: 5 });
+                cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: res.response.data.prize * 2, num: 5 });
                 this.closeBtn();
                 cc.game.emit(NameTs.Game_Start);
             }

@@ -9,8 +9,6 @@ export default class UserData {
     //金币
     coin: number;
 
-    //红包数据
-    hongbao: number;
 
     //关卡
     customs: customsInfo
@@ -24,8 +22,6 @@ export default class UserData {
     //道具
     prop: propInfo[]
 
-    //金币换人民币汇率
-    exchangeRate: number
 
     //是否是新用户
     newUser: boolean
@@ -78,8 +74,6 @@ export default class UserData {
 
     //抽收集每次进入的时间
     dayEnterSignNum: number
-    //金币转盘次数
-    goldWheelCount: number
 
     /**存钱罐*/
     savingPotNum: number

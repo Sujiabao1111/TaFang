@@ -24,7 +24,7 @@ export default class treasureBox extends baseTs {
     private nowId: number = null;
 
     //宝箱时间
-    private time: number = 0;
+    private time: number = 120;
 
     //自动关闭宝箱计时器
     private _autoCloseTimer: number = 24;
@@ -51,11 +51,18 @@ export default class treasureBox extends baseTs {
         this.treasure.active = true;
     }
 
+    private closeTreasure() {
+        console.log("漂浮宝箱关闭")
+        this.treasure.active = false;
+        this._autoCloseTimer = null;
+        this.time = 120; // 重置时间
+    }
 
     /**点击宝箱 */
     clickBtn() {
         soundController.singleton.clickAudio();
         this.showPage(pageTs.pageName.GameTreasure);
+        this.closeTreasure();
     }
 
 
@@ -76,10 +83,7 @@ export default class treasureBox extends baseTs {
         if (this.treasure.active && this._autoCloseTimer != null) {
             this._autoCloseTimer -= dt;
             if (this._autoCloseTimer <= 0) {
-                console.log("漂浮宝箱关闭")
-                this.treasure.active = false;
-                this._autoCloseTimer = null;
-                this.time = 120; // 重置时间
+                this.closeTreasure();
             }
         }
     }

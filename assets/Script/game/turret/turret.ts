@@ -1,6 +1,8 @@
+import { log } from "console";
 import { bulletInfo, gameState } from "../../common/faceTs";
 import NameTs from "../../common/NameTs";
 import pageTs from "../../common/pageTs";
+import { ApiService } from "../../tg/ApiService";
 import TrackMgr from "../../TrackMgr/TrackMgr";
 import util from "../../util/util";
 import turretFactiory from "../turretFactory";
@@ -10,8 +12,6 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class turret extends turretFactiory {
 
-    @property(cc.Node)
-    private xing: cc.Node = null;
 
     @property(cc.Node)
     private xingLayout: cc.Node = null;
@@ -21,6 +21,9 @@ export default class turret extends turretFactiory {
 
     @property({ type: sp.Skeleton, displayName: "口" })
     private paoFoot: sp.Skeleton = null;
+
+    @property(cc.SpriteFrame)
+    private iconFrame: cc.SpriteFrame[] = [];
 
     // @property({type:cc.Sprite,displayName:"炮身"})
     // paoBody: cc.Sprite = null;
@@ -132,6 +135,9 @@ export default class turret extends turretFactiory {
             let xingData = util.getLevelXing(this.initData.level);
             for (let i = 0; i < this.xingLayout.children.length; i++) {
                 this.xingLayout.children[i].active = i < xingData.iconCount;
+                if (this.xingLayout.children[i].active) {
+                    this.xingLayout.children[i].getComponent(cc.Sprite).spriteFrame = this.iconFrame[xingData.iconType];
+                }
             }
         }
     }
@@ -183,14 +189,13 @@ export default class turret extends turretFactiory {
             this.initData.no = no;
         }
         if (util.upLevel(this.initData.level) && this.initData.no) {
+            ApiService.ins.getCraftnewturret(util.userData.turretLevel);
+
             cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameUpgrade);
             if (util.userData.noviceGuide == 2) {
-                if (util.checkTestB(NameTs.new_hand_test)) {
-                } else {
-                    cc.game.emit(NameTs.Game_Novice_Close);
-                }
+                cc.game.emit(NameTs.Game_Novice_Close);
             }
-            // cc.game.emit(NameTs.Game_Treasure_create);
+
         } else if (util.userData.turretLevel >= 7 && this.initData.no) {
             // if (util.upTurretRandomRedTime) {
             //     let curTimer = new Date().getTime();

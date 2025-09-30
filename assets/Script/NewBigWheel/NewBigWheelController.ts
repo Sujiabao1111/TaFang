@@ -488,9 +488,7 @@ export default class NewBigWheelController extends baseTs {
     }
 
     clickClose() {
-        if (util.getTempParm("newBigWheel_wheelIsRunning")) {
-            return;
-        }
+      
         soundController.singleton.clickAudio()
 
         this.closePage()

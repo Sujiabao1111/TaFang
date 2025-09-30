@@ -62,9 +62,6 @@ export default class gameWallet extends baseTs {
         this.lable_myGold.string = String(userData.coin);
         this.lable_myTon.string = "0";
 
-
-
-
         this.walletPool = new pool(cc.instantiate(this.addCoinItem));
         //数据更新
         cc.game.on(NameTs.Game_View_UserDataUpdata, (res) => {
@@ -96,15 +93,9 @@ export default class gameWallet extends baseTs {
         }
     }
 
-
-
-
-
     /**
      * 连接到钱包
-     *
      * 尝试连接到钱包，如果连接成功，则显示绑定钱包成功的提示信息。
-     *
      */
     async connectToWallet() {
         // automaticlly connect wallet
@@ -123,13 +114,11 @@ export default class gameWallet extends baseTs {
         } catch (error) {
             console.warn('Error connecting to wallet:');
             console.log(String(error));
-
         }
     }
 
     /**
      * 断开与钱包的连接
-     *
      */
     async discnnectWallet() {
         try {
@@ -187,25 +176,10 @@ export default class gameWallet extends baseTs {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     clickClose() {
         soundController.singleton.clickAudio();
         this.closePage();
     }
-
-
-
-
-
 
 
 

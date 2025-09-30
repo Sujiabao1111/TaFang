@@ -1,15 +1,14 @@
-import { AssistCtr } from "../Assist/AssistCtr";
+
 import { gameNumerical, gamePass, gameState, propInfo, propState, propType, thingType, updateType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
 import RedController from "../controlelr/RedController";
 import userData from "../data/userData";
-import { t } from "../Language/LanguageData";
 import PageManage from "../PageManage";
 import { UrlConst } from "../server/UrlConst";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
-import { ApiService } from "../tg/ApiService";
+import { Global } from "../tg/Global";
 import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
@@ -74,6 +73,7 @@ export default class ui extends cc.Component {
 
     @property(cc.Node)      //首页大转盘红点
     private wheel_red: cc.Node = null;
+
 
     onLoad() {
 
@@ -167,41 +167,19 @@ export default class ui extends cc.Component {
 
         cc.tween(this.buyEnergy).repeatForever(cc.tween().to(2, { x: 319 / 2 }).to(0, { x: -319 / 2 })).start();
 
+        this.btn_newPlayerTask.active = Global.ins.newbenefits == 1;
+        if (this.btn_newPlayerTask.active) {
+            if (this.btn_newPlayerTask.getChildByName("light")) {
+                let image = this.btn_newPlayerTask.getChildByName("light");
+                image.active = true;
+                image.stopAllActions();
+                cc.tween(image).by(1, { angle: -360 }).repeatForever().start();
+            }
+        }
         cc.game.on(NameTs.Game_CloseNewPlayerTask, () => {
             this.btn_newPlayerTask.active = false;
         }, this);
 
-        //fix bug
-        XMSDK.getdataStr({
-            url: UrlConst.newPlayerTaskData,
-            onSuccess: res => {
-                if (!this.isValid) {
-                    return;
-                }
-                if (!res || res.code != 0 || !res.data || !res.data.withdrawTaskItemVoMap) {
-                    this.btn_newPlayerTask.active = false;
-                }
-                else {
-                    this.btn_newPlayerTask.active = true;
-                    if (this.btn_newPlayerTask.getChildByName("light")) {
-                        let image = this.btn_newPlayerTask.getChildByName("light");
-                        image.stopAllActions();
-                        cc.tween(image).by(1, { angle: -360 }).repeatForever().start();
-                    }
-
-                    if (this.btn_newPlayerTask.getChildByName("image")) {
-                        let image = this.btn_newPlayerTask.getChildByName("image");
-                        cc.tween(image).repeatForever(
-                            cc.tween().to(.3, { angle: 10 }).to(.2, { angle: 0 })
-                        ).start();
-                    }
-                }
-            },
-            onFail: err => {
-
-            }
-        }
-        )
 
         RedController.initGoldWheelData(this.wheel_red);
         RedController.initSignRedData(this.signRed_red);
@@ -285,9 +263,9 @@ export default class ui extends cc.Component {
      */
     async TaskGame() {
         soundController.singleton.clickAudio();
-        let res = await ApiService.ins.getTask();
         cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameTask);
     }
+
     /**
      * 点击物理返回键
      */
@@ -305,9 +283,9 @@ export default class ui extends cc.Component {
     /**
      * 展示炮王任务
      */
-    clickKingPaoTask() {
-
+    async clickKingPaoTask() {
         cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameKingPao);
+
     }
 
     /**
@@ -358,14 +336,10 @@ export default class ui extends cc.Component {
      * @param type 哪个
      */
     updateData(type: number) {
-
         let userData = util.userData;
-
         switch (type) {
             case updateType.coin:
                 this.coinLabel.string = String(userData.coin);
-                break;
-            case updateType.hongbao:
                 break;
             case updateType.product:
                 this.productLabel.string = userData.product + "/" + gameNumerical.ProductMax;

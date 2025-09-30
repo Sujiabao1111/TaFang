@@ -1,5 +1,7 @@
 
 import { AssistCtr } from "../Assist/AssistCtr";
+import NameTs from "../common/NameTs";
+import { BuyType, REWARD_TYPE } from "../common/PropConst";
 import { t } from "../Language/LanguageData";
 import PageManage from "../PageManage";
 import { TimeTools } from "../util/TimeTools";
@@ -95,7 +97,7 @@ declare global {
   }
 
 
-  
+
 
   /**
    * 用户游戏数据
@@ -169,7 +171,7 @@ declare global {
     adswatched: number;
 
     /**
-     * 当前能量值
+     * 当前炮台数量
      */
     energy: number;
 
@@ -432,24 +434,38 @@ declare global {
     order_id: string
   }
 
-  /** 付费签到数据 */
-  interface paycheckinResponse extends ApiResponse {
+  /**
+   * 创建支付订单响应数据结构 //付费签到数据
+   */
+  interface PurchaseCreateResponse extends ApiResponse {
+    code?: number;
+    data: PaymentOrder
+    message?: string;
     success: boolean;
-    data: orderData;
   }
 
-  /* 订单信息 */
-  interface orderData {
-    id: number,
-    uid: number,
-    order_id: string,
-    order_type: number,
-    order_status: number,
-    order_from: string,
-    order_amount: number,
-    order_coin: number,
-    created_at: string,
-    invoice_link?: string
+  /**
+   * 支付订单数据结构
+   */
+  interface PaymentOrder {
+    /** 订单数据库id */
+    id: number;
+    /** 用户id */
+    uid: number;
+    /** 订单id */
+    oid: string;
+    /** 订单行为1-购卡2-其他 */
+    ob: number;
+    /** 订单数据(skuid) */
+    op: string;
+    /** 订单状态1-已发起待充值2-已完成3-已失败在` */
+    os: number;
+    /** 订单支付链接(tgstar) */
+    link: string;
+    /** 订单支付时间 */
+    created_at: string;
+
+    usd: number;
   }
 
   /**
@@ -464,10 +480,7 @@ declare global {
   */
   interface CheckOrderResponse extends ApiResponse {
     success: boolean;
-    data: {
-      order: orderData;
-      userdata: NewUserData;
-    }
+
   }
 
 
@@ -627,43 +640,19 @@ declare global {
   }
 
 
-  /**
-   * 创建支付订单响应数据结构
-   */
-  interface PurchaseCreateResponse extends ApiResponse {
-    code?: number;
-    data: {
-      order: PaymentOrder;
-    };
-    message?: string;
-    success: boolean;
-  }
+
 
   /**
-   * 支付订单数据结构
-   */
-  interface PaymentOrder {
-    /** 订单数据库id */
-    id: number;
-    /** 用户id */
-    uid: number;
-    /** 订单id */
-    oid: string;
-    /** 订单行为1-购卡2-其他 */
-    ob: number;
-    /** 订单数据(skuid) */
-    op: string;
-    /** 订单状态1-已发起待充值2-已完成3-已失败在` */
-    os: number;
-    /** 订单支付链接(tgstar) */
-    link: string;
-    /** 订单支付时间 */
-    created_at: string;
-
-    usd: number;
+* 卡包系列信息
+*/
+  interface RewardInfo {
+    /** 奖励类型，1炮币，2宝箱，3钥匙 */
+    0: number;
+    /** 宝箱或钥匙id  1:青铜  2:白银  3:黄金  */
+    1: number;
+    /** 数量 */
+    2: number;
   }
-
-
 
   /**
    * 任务数据接口
@@ -676,39 +665,43 @@ declare global {
     /** 图标 */
     icon: string,
     /** 分栏类型 */
-
     column_type: number,
     /** 任务类型(1每日任务 2单次任务) */
     task_type: string,
-    /** 奖励内容(JSON格式) */
-    rewards,
+    /** 奖励内容(JSON格式) */ // [[1,0,100]]
+    // rewards: RewardInfo[][],
+    rewards: any,
     /** 任务完成类型 */
     target_type: string,
     /** 任务完成要求 */
-
     target_value: number,
     /** 任务进度 */
     task_progress: number,
     /** 是否可领取(0不可 1可)  */
-
     can_receive: number,
+    /**日子  */
+    day?: string,
+
     /** 已领取次数  */
     getnum: number
 
+  }
 
-
-    /** 阿拉伯语描述 */
-    desc_ar: string;
-    /** 英语描述 */
-    desc_en: string;
-    /** 印尼语描述 */
-    desc_id: string;
-    /** 俄语描述 */
-    desc_ru: string;
-    /** 泰语描述 */
-    desc_th: string;
-    /** 繁体描述 */
-    desc_zhhant: string;
+  /**
+   * 签到奖池
+   */
+  interface CheckInInfoResponse extends ApiResponse {
+    code?: number;
+    data: CheckInInfoData;
+    success: boolean;
+  }
+  /**
+   * 签到奖池
+   */
+  interface CheckInInfoData extends ApiResponse {
+    pool: number;//奖池金额
+    cd: number;//剩余时间(秒)
+    signcnt: number; //签到人数
   }
 
   /**
@@ -729,10 +722,40 @@ declare global {
   }
 
   /**
+   * 新人福利任务响应结构
+   */
+  interface NewbenefitsResponse extends ApiResponse {
+    code?: number;
+    data: NewbenefitsData;
+    success: boolean;
+  }
+
+
+  interface NewbenefitsData {
+    curday: number,//当前天数
+    days: number,//总天数
+    limit: number,//进度上限
+    progress: number,//当前进度
+    rewardTon: number,//奖励ton数量
+    list: TaskData[],
+  }
+
+  /**
+  * 新人福利任务领取奖励响应结构
+  */
+  interface NewbenefitsRewardResponse extends ApiResponse {
+    code?: number;
+    data: NewbenefitsRewardData;
+    success: boolean;
+  }
+  interface NewbenefitsRewardData {
+    progress: number,//奖励进度
+  }
+
+  /**
    * 邀请奖励配置
    */
   interface InviteReward {
-
     id: number;
     /** 奖励类型  1螺丝 2箱子 3钥匙 */
     reward_type: number;
@@ -798,10 +821,7 @@ declare global {
    * 分享奖励响应结构
    */
   interface ShareRewardResponse extends ApiResponse {
-    data: {
-      gotcoin: number;
-      // userdata: NewUserData;
-    };
+
     success: boolean;
   }
 
@@ -1559,8 +1579,6 @@ export class ApiService {
     return response.response;
   }
 
-
-
   /**
    * 通关关卡
    * @param stage 关卡数
@@ -1578,8 +1596,33 @@ export class ApiService {
     PageManage.singleton.Loading();
     const response = await this.http.post<passstageResponse>('/passstage', data, { headers, auth: true });
     PageManage.singleton.hideLoading();
-
     if (response.status == 200 && response.response?.success) {
+      Global.ins.setUserData(response.response.data.userdata);
+    }
+    return response;
+  }
+
+  /**
+   * 领取各种奖励
+   * @param reward_key 奖励键
+   * @param reward_type 奖励类型
+   * @param reward_num 奖励数量
+   * @param ts 时间戳
+   * @param nonce 随机字符串
+   * @returns 
+   */
+  async getReward(reward_key: number, reward_type: number, reward_num: number) {
+    let ts = TimeTools._ins.getNowTime()
+    let nonce = Tools.getSuiJiNonce();
+    let data = { reward_key, reward_type, reward_num, ts, nonce }
+    let result = Tools.sortAndStringify(data)
+    let signature = Tools.generateLocalSignature(result)
+    let headers = { "X-Signature": signature }
+    PageManage.singleton.Loading();
+    const response = await this.http.post<GetRewardResponse>('/getreward', data, { headers, auth: true });
+    PageManage.singleton.hideLoading();
+    if (response.status == 200 && response.response?.success) {
+      console.log("奖励领取成功");
       Global.ins.setUserData(response.response.data.userdata);
     }
     return response;
@@ -1594,13 +1637,29 @@ export class ApiService {
   async getDoubleReward(reward_num: number, scene: string) {
     let ts = TimeTools._ins.getNowTime()
     let nonce = Tools.getSuiJiNonce();
-    let data = { reward_type: 1, reward_num, scene, ts, nonce }
+    let data = { reward_type: REWARD_TYPE.gold, reward_num, scene, ts, nonce }
     let result = Tools.sortAndStringify(data)
     let signature = Tools.generateLocalSignature(result)
     let headers = { "X-Signature": signature }
+    PageManage.singleton.Loading();
     const response = await this.http.post<doubleRewardResponse>('/getdoublereward', data, { headers, auth: true });
+    PageManage.singleton.hideLoading();
     if (response.status == 200 && response.response?.success) {
       Global.ins.setUserData(response.response.data.userdata);
+    }
+    return response;
+  }
+
+  /**
+   * 签到奖池
+   * @returns 获取签到奖池的相关信息，包括奖池金额、剩余时间和签到人数
+   */
+  async getCheckInInfo(): Promise<ApiMsg<CheckInInfoResponse>> {
+    PageManage.singleton.Loading();
+    const response = await this.http.post<CheckInInfoResponse>('/checkininfo', {}, { auth: true });
+    PageManage.singleton.hideLoading();
+    if (response.response?.success) {
+      console.log('签到奖池获取成功:', response.response.data);
     }
     return response;
   }
@@ -1640,30 +1699,6 @@ export class ApiService {
     return response;
   }
 
-
-  /**
-  * 领取各种奖励
-  * @param reward_key 奖励键
-  * @param reward_type 奖励类型
-  * @param reward_num 奖励数量
-  * @param ts 时间戳
-  * @param nonce 随机字符串
-  * @returns 
-  */
-  async getReward(reward_key: number, reward_type: number, reward_num: number) {
-    let ts = TimeTools._ins.getNowTime()
-    let nonce = Tools.getSuiJiNonce();
-    let data = { reward_key, reward_type, reward_num, ts, nonce }
-    let result = Tools.sortAndStringify(data)
-    let signature = Tools.generateLocalSignature(result)
-    let headers = { "X-Signature": signature }
-
-    const response = await this.http.post<GetRewardResponse>('/getreward', data, { headers, auth: true });
-    if (response.status == 200 && response.response?.success) {
-      Global.ins.setUserData(response.response.data.userdata);
-    }
-    return response;
-  }
 
   /**
    * 提交提现请求
@@ -1714,11 +1749,12 @@ export class ApiService {
    * @param payment_from  支付来源('playdeck' || '' || 'azen')
    * @returns 提交结果
    */
-  async paycheckin(skuid: number, order_type: number, num: number, pay_type: string, payment_from: string) {
-    let data = { skuid, order_type, num, pay_type, payment_from }
-    let response = await this.http.post<paycheckinResponse>('/paycheckin', data, { auth: true });
+  async paycheckin() {
+    let data = { skuid: 1001, order_type: BuyType.week, num: 1, pay_type: "usd", payment_from: "" }
+    let response = await this.http.post<PurchaseCreateResponse>('/paycheckin', data, { auth: true });
     if (response.status == 200 && response.response?.success) {
-      // Global.ins.setUserData(response.response.data.userdata);
+      console.log('订单创建成功:', response.response.data);
+
     }
     return response;
   }
@@ -1741,7 +1777,6 @@ export class ApiService {
   }
 
 
-
   /**
    * 确认支付成功
    * @param id 订单数据库ID
@@ -1760,6 +1795,111 @@ export class ApiService {
 
 
   /**
+   * 新人福利任务
+   * @returns 获取新玩家福利任务列表及其完成状态
+   */
+  async getNewbenefits(): Promise<ApiMsg<NewbenefitsResponse>> {
+    PageManage.singleton.Loading();
+    const response = await this.http.post<NewbenefitsResponse>('/newbenefits', {}, { auth: true });
+    PageManage.singleton.hideLoading();
+    if (response.response?.success) {
+      console.log('签新人福利任务取成功:', response.response.data);
+    }
+    return response;
+  }
+  /**
+   * 领取新人任务福利奖励
+   * @param task_id 订单数据库ID
+   * @returns 领取指定的新人福利任务奖励
+   */
+  async getNewbenefitsReward(task_id): Promise<ApiMsg<NewbenefitsRewardResponse>> {
+    PageManage.singleton.Loading();
+    const response = await this.http.post<NewbenefitsRewardResponse>('/getnewbenefits', { task_id }, { auth: true });
+    PageManage.singleton.hideLoading();
+    if (response.response?.success) {
+      console.log('领取新人任务福利奖励:', response.response.data);
+    }
+    return response;
+  }
+
+  /**
+   * 新人福利TON领取
+   * @returns 新人福利进度达到要求后进行领取ton操作
+   */
+  async getNewbenefitston(): Promise<ApiMsg<ApiResponse>> {
+    PageManage.singleton.Loading();
+    const response = await this.http.post<ApiResponse>('/getnewbenefitston', {}, { auth: true });
+    PageManage.singleton.hideLoading();
+    if (response.response?.success) {
+      console.log('新人福利TON领取成功:');
+    }
+    return response;
+  }
+
+
+  /**
+   * 合成新炮塔上报
+   * @param level 合成的炮塔等级
+   * @param ts 时间戳
+   * @param nonce 随机字符串
+   * @returns 上报用户合成新炮塔的信息
+   */
+  async getCraftnewturret(level): Promise<ApiMsg<ApiResponse>> {
+    let ts = TimeTools._ins.getNowTime()
+    let nonce = Tools.getSuiJiNonce();
+    let data = { level, ts, nonce }
+    let result = Tools.sortAndStringify(data)
+    let signature = Tools.generateLocalSignature(result)
+    let headers = { "X-Signature": signature }
+    let response = await this.http.post<ApiResponse>('/craftnewturret', data, { headers, auth: true });
+    if (response.status == 200 && response.response?.success) {
+      console.log("合成新炮塔上报成功:" + level);
+    }
+    return response;
+  }
+
+  /**
+   * 事件上报 上报用户行为事件，如观看广告、分享等
+   * @param type   ads:广告, share:分享
+   * @param ts 时间戳
+   * @param nonce 随机字符串
+   * @returns 上报用户合成新炮塔的信息
+   */
+  async Reportaction(type): Promise<ApiMsg<ApiResponse>> {
+    let ts = TimeTools._ins.getNowTime()
+    let nonce = Tools.getSuiJiNonce();
+    let data = { type, ts, nonce }
+    let result = Tools.sortAndStringify(data)
+    let signature = Tools.generateLocalSignature(result)
+    let headers = { "X-Signature": signature }
+    let response = await this.http.post<ApiResponse>('/reportaction', data, { headers, auth: true });
+    if (response.status == 200 && response.response?.success) {
+      console.log("事件上报成功:" + type);
+    }
+    return response;
+  }
+
+  /**
+   * 分享游戏
+   */
+  async shareGame(_gid?: number): Promise<ApiMsg<ShareRewardResponse>> {
+    const response = await ApiService.ins.Reportaction("share");
+    if (CC_DEBUG) {
+      console.log("shareGame");
+      cc.game.emit(NameTs.ACTIVATED);
+    } else {
+      let shareText = '🚙 You’re no hero.\nYou’re a thief—on your first mission.\nNo weapons. Just speed and brains.\n💎 Get in. Grab the loot. Get out alive.\nBut this is just the beginning…';
+      const encodedText = encodeURIComponent(shareText);
+      let url = "https://t.me/share/url?url=https://t.me/GemJam_bot/gemjam?startapp=" + Global.ins.user.id + '&text=' + encodedText;
+      Global.ins.openTelegramLink(url);
+    }
+    return response;
+  }
+
+  //=========================================================================================================
+
+  //#region 下面是旧的接口
+  /**
    * 获取用户信息
    *
    * @returns 返回用户信息的响应数据
@@ -1768,7 +1908,7 @@ export class ApiService {
     const response = await this.http.post<UserDataResponse>('/getuserinfo', null, { auth: true });
     if (response && response?.response && response.response?.success) {
       console.log("获取用户信息", response);
-      Global.ins.setUserData(response.response.data?.userdata, is_update_user);
+      Global.ins.setUserData(response.response.data?.userdata);
       return response?.response;
     }
     else {
@@ -1911,7 +2051,7 @@ export class ApiService {
     );
 
     if (response.response?.success) {
-      console.log('订单创建成功:', response.response.data.order);
+      console.log('订单创建成功:', response.response.data);
     }
     return response;
   }
@@ -2419,59 +2559,44 @@ export class ApiService {
   /**
    * 加入频道
    */
-  // joinChannel() {
-  //   if (CC_DEBUG) {
-  //     console.log("joinChannel");
-  //     EventManager.ins.emit(EVENT_NAME_ENUM.ACTIVATED);
-  //     return;
-  //   }
-  //   let url = "https://t.me/GemJamChannel";
-  //   Global.ins.openTelegramLink(url);
-  // }
+  joinChannel() {
+    if (CC_DEBUG) {
+      console.log("joinChannel");
+      cc.game.emit(NameTs.ACTIVATED);
+      return;
+    }
+    let url = "https://t.me/GemJamChannel";
+    Global.ins.openTelegramLink(url);
+  }
 
   /**
    * 加入群组
    */
-  // joinGroup() {
-  //   if (CC_DEBUG) {
-  //     console.log("joinGroup");
-  //     EventManager.ins.emit(EVENT_NAME_ENUM.ACTIVATED);
-  //     return;
-  //   }
-  //   let url = "https://t.me/GemJamOffcialCommunity";
-  //   Global.ins.openTelegramLink(url);
-  // }
+  joinGroup() {
+    if (CC_DEBUG) {
+      console.log("joinGroup");
+      cc.game.emit(NameTs.ACTIVATED);
+      return;
+    }
+    let url = "https://t.me/GemJamOffcialCommunity";
+    Global.ins.openTelegramLink(url);
+  }
 
   /**
    * 去投票
    */
-  // async toVote() {
-  //   if (CC_DEBUG) {
-  //     console.log("toVote");
-  //     EventManager.ins.emit(EVENT_NAME_ENUM.ACTIVATED);
-  //     return;
-  //   }
-  //   await ApiService.ins.reportTaskNotify(TaskNotifyType.Vote);
-  //   let url = "https://t.me/tapps_bot/center?startapp=app_gemjam";
-  //   Global.ins.openTelegramLink(url);
-  // }
+  async toVote() {
+    if (CC_DEBUG) {
+      console.log("toVote");
+      cc.game.emit(NameTs.ACTIVATED);
+      return;
+    }
+    await ApiService.ins.reportTaskNotify(TaskNotifyType.Vote);
+    let url = "https://t.me/tapps_bot/center?startapp=app_gemjam";
+    Global.ins.openTelegramLink(url);
+  }
 
-  /**
-  * 分享游戏
-  */
-  // async shareGame(_gid?: number): Promise<ApiMsg<ShareRewardResponse>> {
-  //   const response = await ApiService.ins.reportShare(_gid);
-  //   if (CC_DEBUG) {
-  //     console.log("shareGame");
-  //     EventManager.ins.emit(EVENT_NAME_ENUM.ACTIVATED);
-  //   } else {
-  //     let shareText = '🚙 You’re no hero.\nYou’re a thief—on your first mission.\nNo weapons. Just speed and brains.\n💎 Get in. Grab the loot. Get out alive.\nBut this is just the beginning…';
-  //     const encodedText = encodeURIComponent(shareText);
-  //     let url = "https://t.me/share/url?url=https://t.me/GemJam_bot/gemjam?startapp=" + Global.ins.user.id + '&text=' + encodedText;
-  //     Global.ins.openTelegramLink(url);
-  //   }
-  //   return response;
-  // }
+
 
   /**
   * 分享游戏到X
@@ -2548,11 +2673,11 @@ export class ApiService {
 
 
   /**
- * 获取错误信息
- *
- * @param code 错误响应，可以是字符串或ErrorMsg对象
- * @returns 返回对应的错误提示信息，如果未找到则返回"未知错误"
- */
+  * 获取错误信息
+  *
+  * @param code 错误响应，可以是字符串或ErrorMsg对象
+  * @returns 返回对应的错误提示信息，如果未找到则返回"未知错误"
+  */
   getErrorMessage(response?: ApiResponse, defaultMsg: string = t('tips.networkError')) {
     if (!response || response.code == undefined) {
       return defaultMsg;

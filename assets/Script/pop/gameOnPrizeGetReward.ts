@@ -1,20 +1,10 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import { AssistCtr } from "../Assist/AssistCtr";
 import baseTs from "../base/baseTs";
-import { AdPosition } from "../common/AdPosition";
 import NameTs from "../common/NameTs";
 import { onPrizeRedItemData } from "../onPrizeGet/OnPrizeGet";
 import { UrlConst } from "../server/UrlConst";
-import AdController from "../server/xmsdk_cocos/AD/AdController";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import TrackMgr from "../TrackMgr/TrackMgr";
-import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
 
@@ -60,10 +50,7 @@ export default class NewClass extends baseTs {
                 this.btn_closeNode.active = true;
             }, 3)
 
-            TrackMgr.Online_rewards({
-                activity_state: "奖励弹窗展示",
-                reward_state: `${this.initData.waitTime / 60}分钟`,
-            })
+           
         }
         
         cc.tween(this.multipleNode).repeatForever(
@@ -80,15 +67,6 @@ export default class NewClass extends baseTs {
         }
         this.isClick = true;
 
-        TrackMgr.Online_rewards({
-            activity_state: "奖励弹窗点击",
-            button_name_hcdg: `直接领取`,
-            reward_state: `${this.initData.waitTime / 60}分钟`,
-        })
-        TrackMgr.Online_rewards({
-            activity_state: "领取完毕",
-            collection_completed: `直接领取成功`,
-        })
         XMSDK.getdataStr({
             url: UrlConst.onPrizeGetRewardGet,
             onSuccess: res => {

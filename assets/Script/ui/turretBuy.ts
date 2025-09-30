@@ -77,8 +77,6 @@ export default class turretBuy extends baseTs {
             if (this._userData.product == 5 && Math.random() < 0.5 && this._userData.airborneCount > 0) {
                 this.showPage(pageTs.pageName.GameGetOtherTurret, this.level);
                 return;
-            } else {
-                // console.log("不出现天降炮塔!")
             }
 
             if (this._userData.product == 1) {

@@ -1,7 +1,7 @@
 import { AssistCtr } from "../Assist/AssistCtr";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
-import { RewardType } from "../common/PropConst";
+import { RewardNodeType } from "../common/PropConst";
 import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
@@ -45,7 +45,7 @@ export default class BtnRandomRed extends cc.Component {
 
         }
         else {
-            cc.game.emit(NameTs.Game_Pop_Open, { name: pageTs.pageName.GameRandomRedPrize, data: RewardType.Fudai });
+            cc.game.emit(NameTs.Game_Pop_Open, { name: pageTs.pageName.GameRandomRedPrize, data: RewardNodeType.Fudai });
         }
     }
 

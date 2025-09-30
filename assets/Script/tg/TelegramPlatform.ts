@@ -158,45 +158,44 @@ export class TelegramPlatform extends Singleton {
 
         this.isVideoCb = false;
 
-        PageManage.singleton.Loading()
-        const msg = await ApiService.ins.getAgentAdConfig(Global.ins?.user?.inviter);
-        const rsp = msg?.response;
-        if (msg.status === 200 && rsp.success && rsp?.data.length > 0) {
-            const agent_ad_config = rsp.data;
+        PageManage.singleton.Loading();
+        // const msg = await ApiService.ins.getAgentAdConfig(Global.ins?.user?.inviter);
+        // const rsp = msg?.response;
+        // if (msg.status === 200 && rsp.success && rsp?.data.length > 0) {
+        //     const agent_ad_config = rsp.data;
+        //     // 过滤可用的广告配置（state=1）
+        //     const availableAds = agent_ad_config.filter(ad => ad.state === 1);
 
-            // 过滤可用的广告配置（state=1）
-            const availableAds = agent_ad_config.filter(ad => ad.state === 1);
+        //     if (availableAds.length > 0) {
+        //         // 计算总权重
+        //         const totalWeight = availableAds.reduce((sum, ad) => sum + ad.weight, 0);
 
-            if (availableAds.length > 0) {
-                // 计算总权重
-                const totalWeight = availableAds.reduce((sum, ad) => sum + ad.weight, 0);
+        //         // 生成随机数（0到总权重之间）
+        //         const random = Math.random() * totalWeight;
 
-                // 生成随机数（0到总权重之间）
-                const random = Math.random() * totalWeight;
+        //         // 根据权重选择广告
+        //         let cumulativeWeight = 0;
+        //         let selectedAd: AgentAdConfigItem = null;
 
-                // 根据权重选择广告
-                let cumulativeWeight = 0;
-                let selectedAd: AgentAdConfigItem = null;
+        //         for (const ad of availableAds) {
+        //             cumulativeWeight += ad.weight;
+        //             if (random <= cumulativeWeight) {
+        //                 selectedAd = ad;
+        //                 break;
+        //             }
+        //         }
 
-                for (const ad of availableAds) {
-                    cumulativeWeight += ad.weight;
-                    if (random <= cumulativeWeight) {
-                        selectedAd = ad;
-                        break;
-                    }
-                }
-
-                if (selectedAd) {
-                    console.log('根据权重选择的广告配置:', selectedAd);
-                    // 这里添加使用 selectedAd 的逻辑
-                    // 例如：根据 ad_type 选择不同的广告平台展示
-                    if (selectedAd.ad_type === 'adsgram') {
-                        this._showAdsgramAd();
-                        return;
-                    }
-                }
-            }
-        }
+        //         if (selectedAd) {
+        //             console.log('根据权重选择的广告配置:', selectedAd);
+        //             // 这里添加使用 selectedAd 的逻辑
+        //             // 例如：根据 ad_type 选择不同的广告平台展示
+        //             if (selectedAd.ad_type === 'adsgram') {
+        //                 this._showAdsgramAd();
+        //                 return;
+        //             }
+        //         }
+        //     }
+        // }
 
         if (window?.playdeckIsOpen) {
             this.set_playdeck_showAd_cb(call) //设置playdeck回调函数
@@ -268,6 +267,7 @@ export class TelegramPlatform extends Singleton {
         let self = this
         this.videoAd.show().then(() => {
             console.log("Adsgram 广告播放完成")
+            ApiService.ins.Reportaction("ads");
             PageManage.singleton.hideLoading()
         }).catch((e) => {
             console.log("Adsgram 广告播放失败，错误原因:", e)
@@ -308,6 +308,7 @@ export class TelegramPlatform extends Singleton {
         // @ts-ignore
         show_9547267().then(() => {
             console.log("Monetag广告成功")
+            ApiService.ins.Reportaction("ads");
             // GameApp.showTip('You have seen an ad!');
             this.onVideoCallBack()
             // You need to add your user reward function here, which will be executed after the user watches the ad.

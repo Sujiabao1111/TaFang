@@ -35,35 +35,28 @@ const { ccclass, property } = cc._decorator;
 export default class gameSign extends baseTs {
 
     @property({ type: cc.Node, tooltip: "" })
-    layoutSignItem: cc.Node = null;
+    private layoutSignItem: cc.Node = null;
 
     @property(cc.Node)
-    btnsNode: cc.Node = null;
+    private btnsNode: cc.Node = null;
 
     @property(cc.Node)
-    btn_close: cc.Node = null;
+    private btn_close: cc.Node = null;
 
     @property(cc.Toggle)
-    check_toggle: cc.Toggle = null;
+    private check_toggle: cc.Toggle = null;
 
     @property(cc.Label)
-    label_check: cc.Label = null;
+    private label_check: cc.Label = null;
 
-    @property(cc.Node)
-    feed_node: cc.Node = null;
 
-    data: signData = null;
-    currentDay: number = null;
+
+    private data: signData = null;
+    private currentDay: number = null;
 
     private isInsert: boolean = false;
 
-    onEnable() {
 
-        TrackMgr.AppBuyProductDialog_hcdg({
-            dialog_name_hcdg: `签到弹窗`,
-        })
-
-    }
 
     init(data) {
 

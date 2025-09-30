@@ -56,6 +56,7 @@ export default class turretBox extends baseTs {
 
         // 监听自动合成
         cc.game.on(NameTs.Tool_Effect_Name.Game_Prop_Atuo, () => {
+            console.log("开启自动合成");
             this.isOpenAuto = true;
         }, this);
 
@@ -81,12 +82,6 @@ export default class turretBox extends baseTs {
         }, this);
 
 
-        // this.loadAny("prefab/turret/turret",cc.Prefab,(res)=>{            
-        // this.turretPool = new pool(res,16);
-        // console.log(this.turretPool,'turretPool')
-
-        // });
-
         this.initTurret();
 
     }
@@ -103,9 +98,6 @@ export default class turretBox extends baseTs {
                 }
             });
         }
-
-
-
     }
 
     /**
@@ -147,12 +139,12 @@ export default class turretBox extends baseTs {
         if (isClickEmptyBox) {
             item.scale = 0.6;
             cc.tween(item).to(0.08, { scale: 1.1 }).to(0.04, { scale: 1 }).start();
-
         }
     }
 
 
-    /**开启自动合成 */
+
+
     /***************自动合成炮台*********** */
     openAuto() {
 
@@ -171,8 +163,8 @@ export default class turretBox extends baseTs {
         if (node2.getPosition) {
             node2Pos = node2.getPosition();
         }
-        node1.zIndex = 99;
 
+        node1.zIndex = 99;
         cc.tween(node1).to(.2, { x: node2Pos.x, y: node2Pos.y }).call(() => {
             node1.getComponent(turret).GetType(arr[1].no);
         }).start();
@@ -189,6 +181,5 @@ export default class turretBox extends baseTs {
             }
         }
     }
-
 
 }

@@ -20,13 +20,7 @@ export default class shopItem2 extends cc.Component {
 
     onLoad(){
 
-        cc.game.on(NameTs.Game_Shop_MonsterItem,(res)=>{
-            if(res==this.initData.level){
-                this.stateLabel.string = "选中"
-            }else{
-                this.stateLabel.string = "";
-            }
-        },this);
+       
 
     }
 
@@ -43,8 +37,7 @@ export default class shopItem2 extends cc.Component {
      */
     click(){
         soundController.singleton.clickAudio();
-        cc.game.emit(NameTs.Game_Shop_UpData,this.initData.level);
-        cc.game.emit(NameTs.Game_Shop_MonsterItem,this.initData.level);
+     
     }
 
     // update (dt) {}

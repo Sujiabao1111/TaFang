@@ -283,4 +283,10 @@ export default class NameTs {
     static Game_SavingPost_AddCoin = "Game_SavingPost_Add";
     static Game_SavingPost_Icon = "Game_SavingPost_Icon";
     static Game_SavingPost_Lock = "Game_SavingPost_Lock";
+
+    static ACTIVATED = "ACTIVATED";
+    static UPDATE_TASK = "UPDATE_TASK";
+
+    /**更新新人任务的进度 */
+    static UPDATE_NEWPLAYER_TASK = "UPDATE_NEWPLAYER_TASK";
 }

@@ -369,9 +369,7 @@ export default class NewBigWheelChou extends cc.Component {
                         item.getChildByName("num").getComponent(cc.Label).string = "手机";
                     }
                     else if (chouItemData.type == 2) {
-                        if (chouItemData.keyId == updateType.hongbao) {
-                            item.getChildByName("num").getComponent(cc.Label).string = "红包币";
-                        } else if (chouItemData.keyId == updateType.product) {
+                       if (chouItemData.keyId == updateType.product) {
                             item.getChildByName("num").getComponent(cc.Label).string = "炮塔";
                         }
 

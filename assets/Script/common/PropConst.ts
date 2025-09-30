@@ -11,13 +11,16 @@
 // 11  horizontal_clear  横排消除
 // 12  vertical_clear  竖排消除
 
+
 /**
- * @description PROPS 道具类型
+ * @description PROPS 奖励类型
  */
-export let REWARD_TYPE = {
+export let REWARD_TYPE1 = {
     PROPS: 1,//道具
     POINT: 2//货币
 }
+
+
 export let PROPS = {
     "1": {
         id: 1,
@@ -95,11 +98,36 @@ export const COST_TYPE = {
     POINT: 2,//点值
 }
 
+// 奖励类型
+export const REWARD_TYPE = {
+    gold: 1, //金币
+    turret: 2, //炮台
+}
+// 购买的类型
+export const BuyType = {
+    week: 0, //买周卡
+}
+
 
 
 /**奖励类型 */
-export enum RewardType {
+export enum RewardNodeType {
     Fudai = 'fudai', // 福袋
     Kills = 'Kills', // 击杀
     Box = 'Box', // 漂浮宝箱
+}
+
+/** 发布类型 */
+export enum RELEASE_TYPE_ENUM {
+    /** 本地测试 */
+    local = "local",
+    /** 可发布测试模式 */
+    h5 = "h5",
+
+    /** IOS  appStore */
+    ios = "ios",
+    /** 本地测试 */
+    android = "android",
+
+    Telegram = "Telegram",
 }

@@ -85,10 +85,6 @@ export const UrlConst = {
     watchVideoAddBattery: `/hcdg-account/api/dailyTask/watchVideoAddBattery`,//看视频获得炮塔记录
 
 
-    //新人任务
-    newPlayerTaskData: `/hcdg-account/api/withdrawTask/index`,       //新人任务首页
-    newPlayerTaskGet: `/hcdg-account/api/withdrawTask/receive`,      //新人任务领取
-
     //炮王任务
     kingPaoTaskData: `/hcdg-account/api/turretKingTask/index`,              //炮王任务首页    
     kingPaoOpen: `/hcdg-account/api/turretKingTask/clockIn`,                //炮王任务打开

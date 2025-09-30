@@ -1,13 +1,10 @@
-import { AssistCtr } from "../Assist/AssistCtr";
+
 import baseTs from "../base/baseTs";
 import { gameNumerical } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
-import { RewardType } from "../common/PropConst";
-import { UrlConst } from "../server/UrlConst";
+import { RewardNodeType } from "../common/PropConst";
 import soundController from "../soundController";
-import TrackMgr from "../TrackMgr/TrackMgr";
-import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
 
@@ -76,7 +73,7 @@ export default class gameTreasure extends baseTs {
             this.content1.active = false;
             this.closePage();
             
-            cc.game.emit(NameTs.Game_Pop_Open, { name: pageTs.pageName.GameRandomRedPrize, data: RewardType.Box });
+            cc.game.emit(NameTs.Game_Pop_Open, { name: pageTs.pageName.GameRandomRedPrize, data: RewardNodeType.Box });
 
         }
 

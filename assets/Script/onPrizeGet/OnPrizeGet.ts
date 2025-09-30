@@ -2,6 +2,7 @@ import { AssistCtr } from "../Assist/AssistCtr";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
 import RedController from "../controlelr/RedController";
+import { t } from "../Language/LanguageData";
 import { UrlConst } from "../server/UrlConst";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import TrackMgr from "../TrackMgr/TrackMgr";
@@ -56,9 +57,19 @@ export default class OnPrizeGet extends cc.Component {
     private onceTimer = 0;      //下一个红包所需要时间(秒)
     private curTime = 0;        //当前时间
 
+
+    private prizeData = {
+        onPrizeRedData: [
+            { state: 0, waitTime: 60, amount: 100, doubleAmount: 400 },
+            { state: 0, waitTime: 120, amount: 200, doubleAmount: 1000 },
+            { state: 0, waitTime: 300, amount: 300, doubleAmount: 1500 },
+            { state: 0, waitTime: 600, amount: 500, doubleAmount: 2000 }
+        ]
+    }
+
+
     onLoad() {
         this.maxRectNum = this.img_rect.parent.width;
-
         cc.game.on(NameTs.onPrizeGetUpdate, this.updateData, this);
     }
 
@@ -66,54 +77,38 @@ export default class OnPrizeGet extends cc.Component {
         this.updateData();
     }
 
-    onDisable() {
 
-    }
 
     updateData() {
-        XMSDK.getdataStr({
-            url: UrlConst.onPrizeGetRewardMain,
-            onSuccess: res => {
-                if (!this.isValid) {
-                    return;
-                }
+        this.curTime = util.onlineTimeNum;
 
-                if (res.code === 0 && res.data) {
-                    this.curTime = util.onlineTimeNum;
-                    this.onPrizeData = res.data;
+        this.onPrizeData = this.prizeData;
 
-                    RedController.onPrizeData = this.onPrizeData;
+        RedController.onPrizeData = this.onPrizeData;
 
-                    this.init();
-                } else {
-                    XMSDK.toast(res.message || '网络出错~', 2.5, 1);
-                }
-            },
-            onFail: res => {
-
-            }
-        })
+        this.init();
     }
 
     init() {
-        let self = this;
-        if (self && self.redLayout) {
+        if (this && this.redLayout) {
             let onPrizeData: onPrizeData = this.onPrizeData;
-            let redChild = self.redLayout.children;
+            let redChild = this.redLayout.children;
             let allRedData = onPrizeData.onPrizeRedData;
+
             let isHaveGet = false;  //是否有可领取的红包
             let isWait = false;     //是否要等待
             let getRedNum = 0;      //红包数(未领取+已领取)
             let onceTimer = 0;      //下一个红包所需要时间(秒)
-            let nextRedTime = 0;                //领取下一个红包剩余时间 (秒)
+            let nextRedTime = 0;    //领取下一个红包剩余时间 (秒)
+
             for (let i = 0; i < allRedData.length; i++) {
                 if (allRedData[i] && redChild[i]) {
                     redChild[i].active = true;
-
                     let redData: onPrizeRedItemData = allRedData[i];
                     let targetNode = redChild[i];
                     targetNode.getChildByName("lable_money").getComponent(cc.Label).string = redData.amount + "";
                     targetNode.getChildByName("guangNode").active = false;
+
                     if (redData.waitTime >= this.curTime && redData.state == 0) {
                         targetNode.getChildByName("lable_getTip").getComponent(cc.Label).string = `${redData.waitTime / 60}分钟`;
                         if (!onceTimer) {
@@ -121,10 +116,9 @@ export default class OnPrizeGet extends cc.Component {
                             nextRedTime = redData.waitTime - this.curTime;
                             onceTimer = redData.waitTime;
                         }
-                        targetNode.getChildByName("img_state").getComponent(cc.Sprite).spriteFrame = self.redSprArray[0];
-                    }
-                    else if (redData.state == 0) {
-                        targetNode.getChildByName("img_state").getComponent(cc.Sprite).spriteFrame = self.redSprArray[2];
+                        targetNode.getChildByName("img_state").getComponent(cc.Sprite).spriteFrame = this.redSprArray[0];
+                    } else if (redData.state == 0) {
+                        targetNode.getChildByName("img_state").getComponent(cc.Sprite).spriteFrame = this.redSprArray[2];
                         targetNode.getChildByName("lable_getTip").getComponent(cc.Label).string = `可领`;
                         if (!isHaveGet) {
                             if (targetNode.getChildByName("guangNode") && targetNode.getChildByName("guangNode").getChildByName("saoguang")) {
@@ -138,13 +132,12 @@ export default class OnPrizeGet extends cc.Component {
                                 this.curOnPrizeRedData = redData;
                             }
                         }
-
                         isHaveGet = true;
                         getRedNum++;
                     }
                     else if (redData.state == 1) {
-                        targetNode.getChildByName("img_state").getComponent(cc.Sprite).spriteFrame = self.redSprArray[1];
-                        targetNode.getChildByName("lable_getTip").getComponent(cc.Label).string = `已领取`;
+                        targetNode.getChildByName("img_state").getComponent(cc.Sprite).spriteFrame = this.redSprArray[1];
+                        targetNode.getChildByName("lable_getTip").getComponent(cc.Label).string = t("main.已领取");
                         getRedNum++;
                     }
                 }
@@ -152,45 +145,43 @@ export default class OnPrizeGet extends cc.Component {
                     redChild[i].active = false;
                 }
             }
-            self.btn_onPrizeGet.stopAllActions();
-            self.btn_onPrizeGet.scale = 1;
-            self.timeNum = nextRedTime;
+            this.btn_onPrizeGet.stopAllActions();
+            this.btn_onPrizeGet.scale = 1;
+            this.timeNum = nextRedTime;
 
             if (isHaveGet) {
                 let tempColor = new cc.Color();
-                self.btn_onPrizeGet.active = true;
-                self.timeNode.active = false;
-                self.btn_onPrizeGet.getComponent(cc.Sprite).spriteFrame = self.btnSprFrame[0];
-                self.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.Label).string = `领取`;
-                self.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.LabelOutline).color = tempColor.fromHEX("#507900");
-                cc.tween(self.btn_onPrizeGet).repeatForever(
+                this.btn_onPrizeGet.active = true;
+                this.timeNode.active = false;
+                this.btn_onPrizeGet.getComponent(cc.Sprite).spriteFrame = this.btnSprFrame[0];
+                this.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.Label).string = `领取`;
+                this.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.LabelOutline).color = tempColor.fromHEX("#507900");
+                cc.tween(this.btn_onPrizeGet).repeatForever(
                     cc.tween().to(.4, { scale: 1.2 }).to(.4, { scale: 1 })
                 ).start();
             }
             else if (isWait && nextRedTime) {
-                self.btn_onPrizeGet.active = false;
-                self.openTimer();
+                this.btn_onPrizeGet.active = false;
+                this.openTimer();
             }
             else {
                 let tempColor = new cc.Color();
-                self.btn_onPrizeGet.active = true;
-                self.btn_onPrizeGet.getComponent(cc.Sprite).spriteFrame = self.btnSprFrame[1];
-                self.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.Label).string = `明日再来`;
-                self.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.LabelOutline).color = tempColor.fromHEX("#838383");
+                this.btn_onPrizeGet.active = true;
+                this.btn_onPrizeGet.getComponent(cc.Sprite).spriteFrame = this.btnSprFrame[1];
+                this.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.Label).string = `明日再来`;
+                this.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.LabelOutline).color = tempColor.fromHEX("#838383");
             }
-            self.getRedNum = getRedNum;
-            self.onceTimer = onceTimer;
-
-            self.updateRec();
+            this.getRedNum = getRedNum;
+            this.onceTimer = onceTimer;
+            this.updateRec();
         }
     }
 
     openTimer() {
-        let self = this;
-        self.timeNode.active = true;
-        if (self.timeNum > 0) {
-            self.lable_time.string = AssistCtr.formatSeconds(self.timeNum);
-            self.schedule(self.timeFun, 1);
+        this.timeNode.active = true;
+        if (this.timeNum > 0) {
+            this.lable_time.string = AssistCtr.formatSeconds(this.timeNum);
+            this.schedule(this.timeFun, 1);
         }
     }
 
@@ -214,27 +205,26 @@ export default class OnPrizeGet extends cc.Component {
      * @param rab 距离下一个红包所需时间百分比     
      */
     updateRec() {
-        let self = this;
-        let getRedNum = self.getRedNum;
-        let pad = self.maxRectNum / 3;
+        let getRedNum = this.getRedNum;
+        let pad = this.maxRectNum / 3;
         let rab = 0;
-        if (self.onceTimer) {
-            rab = (self.onceTimer - self.timeNum) / self.onceTimer;
+        if (this.onceTimer) {
+            rab = (this.onceTimer - this.timeNum) / this.onceTimer;
         }
 
         let addWidth = (getRedNum - 1) * pad + rab * pad;
-        if (addWidth > self.maxRectNum) {
-            addWidth = self.maxRectNum;
+        if (addWidth > this.maxRectNum) {
+            addWidth = this.maxRectNum;
         }
         else if (!addWidth || addWidth < 0) {
             addWidth = 0;
         }
-        self.img_rect.width = addWidth;
+        this.img_rect.width = addWidth;
     }
 
     clickGet() {
-        let self = this;
-        let str = self.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.Label).string;
+
+        let str = this.btn_onPrizeGet.getChildByName("lable_btn").getComponent(cc.Label).string;
         if (str == "明日再来") {
             AssistCtr.showToastTip("请明日再来")
         }

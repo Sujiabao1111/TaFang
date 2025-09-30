@@ -134,6 +134,7 @@ export default class CanvasController extends baseTs {
         if (response && response?.success) {
             console.log("====response.data.user=======", response.data.user);
             console.log("====response.data.userdata=======", response.data.userdata);
+            Global.ins.newbenefits = response.data.newbenefits;
             Global.ins.initPlayer(response.data.user, response.data.userdata);
             // await ApiService.ins.getConfigs();
             // await ApiService.ins.getCardPackConfigs();

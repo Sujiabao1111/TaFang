@@ -51,7 +51,7 @@ export default class monsterHp extends cc.Component {
         this.initData = data;
 
         if (data.isLast) {
-            console.log("当前小关的最后一只怪兽");
+            // console.log("当前小关的最后一只怪兽");
         }
         this.coin.active = data.isLast;
 

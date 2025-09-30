@@ -94,12 +94,10 @@ export default class PageSignReward extends cc.Component{
                         this.lable_reward.string = this.showDouble ? item.rewardPlusValue : item.rewardValue;
                     }                    
                     else{
-                        let gold = this.showDouble ? item.rewardPlusValue : item.rewardValue; 
-                        // this.lable_reward.string = `${gold/util.userData.exchangeRate}元`;     
+                        let gold = this.showDouble ? item.rewardPlusValue : item.rewardValue;     
                         this.lable_reward.string = gold;     
                     }
                     if(this.isSeven || this.day == 3){
-                        //this.lable_reward.string = `${parseInt(this.lable_reward.string) / GameInfo.getChangeRate()}元`;
                     }                    
                     this.lable_reward.fontSize = 28
                     this.lable_propNum.string = reward_prop_text

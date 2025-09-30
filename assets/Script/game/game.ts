@@ -10,6 +10,8 @@ import { setLanguage } from "../Language/LanguageData";
 import { UrlConst } from "../server/UrlConst";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
+import { AdManager } from "../tg/AdManager";
+import { ApiService } from "../tg/ApiService";
 import { Global } from "../tg/Global";
 import { Tools } from "../util/Tools";
 import util from "../util/util";
@@ -37,7 +39,7 @@ export default class game extends baseTs {
 
     onLoad() {
         util.offlineTurretProduct();
-
+        AdManager.initTgAd();
 
 
         // 设置语言
@@ -276,6 +278,7 @@ export default class game extends baseTs {
 
             util.setStorage(util.localDiary.onlineTime, util.onlineTimeNum);
             util.setStorage(util.localDiary.randomRedTimeNum, util.randomRedTimeNum);
+            util.setStorage(util.localDiary.autoPropTime, util.autoPropTimeNum);
         }, this);
 
         cc.game.on(cc.game.EVENT_SHOW, () => {
@@ -491,13 +494,18 @@ export default class game extends baseTs {
     /**
      * 任务
      */
-    showTask() {
-        util.getdataStr({
-            url: UrlConst.task_day_main,
-            success: (res) => {
-                this.showPage(pageTs.pageName.GameTask, res);
-            }
-        });
+    async showTask() {
+        // util.getdataStr({
+        //     url: UrlConst.task_day_main,
+        //     success: (res) => {
+        //         this.showPage(pageTs.pageName.GameTask, res);
+        //     }
+        // });
+
+        let res = await ApiService.ins.getTask();
+        if (res.response?.success) {
+            this.showPage(pageTs.pageName.GameTask, res.response.data);
+        }
     }
 
 
@@ -529,39 +537,24 @@ export default class game extends baseTs {
         this.showPage(pageTs.pageName.GameOnLinePrize, data);
     }
 
-
-
-
     /**
      * 开启新手任务
      */
-    showNewPlayerTask() {
-        this.showPage(pageTs.pageName.GameNewPlayerTask, null);
+    async showNewPlayerTask() {
+        let res = await ApiService.ins.getNewbenefits();
+        if (res.response.success) {
+            this.showPage(pageTs.pageName.GameNewPlayerTask, res.response.data);
+        }
     }
 
-
     /**
-       * 炮王任务
-       */
-    showKingPao() {
-        //fix bug
-
-        XMSDK.getdataStr({
-            url: UrlConst.kingPaoTaskData,
-            onSuccess: res => {
-                if (res.code === 0 && res.data) {
-                    this.showPage(pageTs.pageName.GameKingPao, res.data);
-                }
-                else {
-                    if (res) {
-                        AssistCtr.showToastTip(res.message);
-                    }
-                }
-            },
-            onFail: err => {
-
-            }
-        })
+     * 炮王任务
+     */
+    async showKingPao() {
+        let res = await ApiService.ins.getCheckInInfo();
+        if (res.response.success) {
+            this.showPage(pageTs.pageName.GameKingPao, res.response.data);
+        }
     }
 
     /**

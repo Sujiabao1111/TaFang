@@ -1,13 +1,9 @@
-import { AssistCtr } from "../Assist/AssistCtr";
+
 import baseTs from "../base/baseTs";
-import { AdPosition } from "../common/AdPosition";
 import NameTs from "../common/NameTs";
-import { RewardType } from "../common/PropConst";
-import turret from "../game/turret/turret";
-import { UrlConst } from "../server/UrlConst";
-import AdController from "../server/xmsdk_cocos/AD/AdController";
-import XMSDK from "../server/xmsdk_cocos/XMSDK";
+import { REWARD_TYPE, RewardNodeType } from "../common/PropConst";
 import soundController from "../soundController";
+import { AdManager } from "../tg/AdManager";
 import { ApiService } from "../tg/ApiService";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import { Tools } from "../util/Tools";
@@ -49,11 +45,11 @@ export default class gameRandomRedPrize extends baseTs {
 
         this._type = type;
         this.redAmountNum = Tools.GetRandom(5000, 8000);
-        if (this._type == RewardType.Fudai) {
+        if (this._type == RewardNodeType.Fudai) {
             this.coinItem = util.GlobalMap.get("RandomRed") || this.node;
-        } else if (this._type == RewardType.Kills) {
+        } else if (this._type == RewardNodeType.Kills) {
             this.coinItem = util.GlobalMap.get("KillsNode") || this.node;
-        } else if (this._type == RewardType.Box) {
+        } else if (this._type == RewardNodeType.Box) {
             this.coinItem = this.node;
             this.redAmountNum = Tools.GetRandom(10000, 18888);
         }
@@ -73,14 +69,20 @@ export default class gameRandomRedPrize extends baseTs {
         let prize = 0
         if (isVideo) {
             let res = await ApiService.ins.getDoubleReward(this.redAmountNum, "fudai");
+            
             if (res.response.success) {
                 console.log("福袋加倍领取成功", res.response.data.prize);
-                prize = res.response.data.prize; cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: res.response.data.prize, num: 5 });
+                AdManager.showVideoAd(() => {
+                    prize = res.response.data.prize * 2;
+                    cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: res.response.data.prize, num: 5 });
+                }, () => {
+
+                });
+
             }
         } else {
             let reward_key = 1001
-            let reward_type = 1
-            let res = await ApiService.ins.getReward(reward_key, reward_type, this.redAmountNum);
+            let res = await ApiService.ins.getReward(reward_key, REWARD_TYPE.gold, this.redAmountNum);
             if (res.response.success) {
                 console.log("福袋领取成功");
                 prize = this.redAmountNum;
@@ -88,11 +90,12 @@ export default class gameRandomRedPrize extends baseTs {
         }
         cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: prize, num: 5 });
         this.closePage();
-        cc.game.emit(NameTs.randomRedUpdate);
         cc.game.emit(NameTs.Game_Task_updata);
 
-        if (this._type == RewardType.Kills) {
+        if (this._type == RewardNodeType.Kills) {
             cc.game.emit(NameTs.Game_Kills_Updata, false);
+        } else if (this._type == RewardNodeType.Fudai) {
+            cc.game.emit(NameTs.randomRedUpdate);
         }
 
     }

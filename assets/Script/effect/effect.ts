@@ -75,7 +75,7 @@ export default class effect extends baseTs {
      * @param num 多少个
      * @param value 需要增加多少值
      */
-    creatorCoin(data: { node: cc.Node, num: number, value: number, parent?: cc.Node }) {
+    creatorCoin(data: { node: cc.Node, num: number, value: number, parent?: cc.Node, isAdd?: boolean }) {
         if (!this.coinParentPos) {
             let coinNode: cc.Node = util.GlobalMap.get("coin");
             this.coinParentPos = coinNode.parent.convertToWorldSpaceAR(coinNode.getPosition());
@@ -104,7 +104,7 @@ export default class effect extends baseTs {
                 .to(.1, { scale: 1.25 }).call(() => {
                     this.killedCoin(item);
                     if (i == len - 1) {
-                        util.addCoin(data.value);
+                        util.addCoin(data.value, data.isAdd);
                         this.createNum(data.value, this.coinParentPos);
                     }
                 }).start();

@@ -50,6 +50,9 @@ class util {
         randomRedTimeNum: "randomRedTimeNum",//随机红包时间
         earnProgress: "earnProgress",//展现手指次数
         killsValue: "killsValue",//累计击杀数
+        autoPropTime: "autoPropTime",//自动道具时间
+        TurntableStageReward: "TurntableStageReward",//转盘次数奖励
+
     }
 
     secretkey: string = 'open_sesame'; // 加密密钥
@@ -77,7 +80,6 @@ class util {
     userData: UserData = {
         pool: [],
         coin: 0,
-        hongbao: 0,
         customs: { big: 1, small: 1 }, // 关卡 大关 小关
         product: 40,
         turretLevel: 1, //炮台等级
@@ -95,7 +97,6 @@ class util {
             /**增能*/
             { type: 6, num: 0, time: null, use: propState.end }
         ],
-        exchangeRate: 10000,
         newUser: true,
         compoundTimes: 0,
         noviceGuide: 1,
@@ -120,12 +121,11 @@ class util {
         resistAttackTimes: 0,
         localCompoundTime: 0,
         dayEnterSignNum: null,
-        goldWheelCount: null,
         savingPotNum: 0,
     };
 
 
- 
+
 
     /**AB测试 */
     AB_Test: any = {
@@ -222,11 +222,14 @@ class util {
     onlineTimeNum = 0;
     //随机红包时间
     randomRedTimeNum = 300;
+    //自动合成时间
+    autoPropTimeNum = 0;
     //天降金币的视频数量
     existVideoCoinNum: number = 0;
 
     //临时变量
     tempParm: object = {};
+
     /**
      * 检查池塘哪个位置是空的
      */
@@ -278,9 +281,18 @@ class util {
         this.doubleEarn.use = 0;
         this.doubleEarn.time = 0;
 
-        this.userData.product = this.getInt("product", 40)
+        this.userData.product = this.getInt("product", 40);
 
-        this.userData.newUser = true //this.getInt("newuser",1)==1?true:false;
+        // 是否是当天
+        let daytime = this.getStorage(this.localDiary.GetDayTime);
+        if (daytime == null) {
+            let day = new Date().getDate();
+            this.setStorage(this.localDiary.GetDayTime, day);
+        } else {
+            this.userData.GetDayTime = daytime;
+        }
+
+        this.userData.newUser = true;
         this.userData.turretLevel = this.getInt("turretLevel", 1)
 
         let psdd = this.getString("mappool")
@@ -296,9 +308,9 @@ class util {
     }
 
     savedata() {
+        // 炮台数量
         this.setInt("product", this.userData.product)
         this.setInt("turretLevel", this.userData.turretLevel)   // 当前最高炮塔的等级
-
         //  炮塔的池塘数据
         let dds = JSON.stringify(this.userData.pool)
         this.setString("mappool", dds)
@@ -382,10 +394,7 @@ class util {
      * 用于新手，初始化用户数据
      */
     initPool() {
-
-
         for (let i = 1; i < 17; i++) {
-
             //初始化池塘
             this.userData.pool.push({
                 no: i, //第几个位置
@@ -393,22 +402,15 @@ class util {
                 state: 1 //默认前8个解锁
             });
         }
-
     }
 
     /**修复旧数据*/
     repairPool() {
-
         for (let i = 0; i < this.userData.pool.length; i++) {
-
             if (this.userData.pool[i].state == 0) {
-
                 this.userData.pool[i].state = 1;
-
             }
-
         }
-
     }
 
     /**
@@ -501,16 +503,13 @@ class util {
      * 获取金币池塘的有多少个
      */
     getHeavenPool() {
-
         let num: number = 0;
-
         for (let i = 0; i < this.userData.heavenPool.length; i++) {
             // let item = this.userData.heavenPool[i];
             if (this.userData.heavenPool[i].id) {
                 num++;
             }
         }
-
         return num;
     }
 
@@ -814,7 +813,6 @@ class util {
         let prize: number = 0;
         let stage = parseInt(`${this.userData.customs.big}${this.userData.customs.small}`)
         console.log("通关请求");
-
         let res = await ApiService.ins.passstage(stage);
         console.log("通关请求返回====>", res);
         if (res.response.success) {
@@ -843,7 +841,6 @@ class util {
         if (type == 0) {
             this.addProduct(0);
         }
-
     }
 
     /**
@@ -877,8 +874,11 @@ class util {
      * 增加多少个金币或者减少
      * @param num 数量
      */
-    addCoin(num) {
-        // this.userData.coin += parseInt(num);
+    addCoin(num, isAdd: boolean = false) {
+        if (isAdd) {
+            this.userData.coin += parseInt(num);
+        }
+
         if (this.userData.coin < 0) {
             this.userData.coin = 0;
         }
@@ -886,6 +886,21 @@ class util {
         cc.game.emit(NameTs.Game_Wallet_AddCoin, num);
         cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.coin);
     }
+    /**
+    * 增加多少个金币或者减少
+    * @param num 数量
+    */
+    addCoin2(num) {
+        this.userData.coin += parseInt(num);
+        if (this.userData.coin < 0) {
+            this.userData.coin = 0;
+        }
+        this.savedata();
+        cc.game.emit(NameTs.Game_Wallet_AddCoin, num);
+        cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.coin);
+    }
+
+
 
 
 
@@ -1077,7 +1092,6 @@ class util {
             cc.game.emit(NameTs.Tool_Effect_Name.Game_Prop_Cls);
         } else if (type == propType.auto) {                  //自动合成
             cc.game.emit(NameTs.Tool_Effect_Name.Game_Prop_Atuo);
-
         }
         else if (type == propType.shock) {                  //电击
             cc.game.emit(NameTs.Tool_Effect_Name.Game_Prop_Shock);
@@ -1120,13 +1134,6 @@ class util {
         pool = null;
         return NewArr.slice(0, 2);
     }
-
-    /**获取用户当前提现金额 */
-    findGoldCash() {
-        let cash = this.userData.coin / this.userData.exchangeRate || 0
-        return TextCtr.triggerNumber(cash)
-    }
-
 
     /**
      * 获取当前等级炮塔的天降金币时间
@@ -1288,7 +1295,6 @@ class util {
      * 解锁新地方
      */
     unlockPlace() {
-
         for (let i = 0; i < this.userData.pool.length; i++) {
             let item = this.userData.pool[i];
             if (item.state == 0) {
@@ -1309,7 +1315,6 @@ class util {
      * @param call 回调
      */
     post(obj: { url: string, data?: any, success?: Function, fail?: Function }) {
-
         XMSDK.post({
             url: obj.url,
             data: obj.data,
@@ -1355,7 +1360,6 @@ class util {
     /**
      * 判断是否当天
      */
-
     chekcToday() {
         let day = new Date().getDate();
         let isDay: boolean = false;
@@ -1365,7 +1369,7 @@ class util {
             isDay = false;
             this.setStorage(this.localDiary.GetDayTime, day);
         }
-
+        log("判断是否当天" + isDay);
         return isDay;
     }
 
@@ -1573,6 +1577,15 @@ class util {
         return { iconType, iconCount }
     }
 
+    /**
+     * 节点的图片置灰色或者默认
+     * @param nodeT 节点
+     * @param isGray 是否置灰色
+     * @param isAllChild 是否所以节点
+     */
+    setSpriteState(nodeT: cc.Node, isGray: boolean, isAllChild: boolean = false) {
+        Tools.setSpriteState(nodeT, isGray, isAllChild)
+    }
 
 
 }

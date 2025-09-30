@@ -19,8 +19,6 @@ export default class gameGetVideoTurret extends baseTs {
     @property({ type: cc.Label, displayName: "数量" })
     private numLabel: cc.Label = null;
 
-    // @property({type:cc.Node,displayName:"光"})
-    // private light:cc.Node = null;
 
     @property({ type: cc.Sprite, displayName: "炮塔身" })
     private turretBody: cc.Sprite = null;
@@ -30,9 +28,6 @@ export default class gameGetVideoTurret extends baseTs {
 
     @property({ type: cc.Node, displayName: "关闭" })
     private closeBtnNode: cc.Node = null;
-
-    @property({ type: cc.Node, displayName: "信息流" })
-    private feed_node: cc.Node = null;
 
     /**金币 */
     private num: number = 0;
@@ -44,24 +39,14 @@ export default class gameGetVideoTurret extends baseTs {
     }
 
     start() {
-
-        // cc.tween(this.light).repeatForever(
-        //     cc.tween().to(1,{scale:1}).to(1,{scale:1.1})
-        // ).start();
-
-
         this.scheduleOnce(() => {
-
             this.closeBtnNode.active = true;
-
         }, gameNumerical.closeTime);
     }
 
     /**初始化 */
     init(data) {
-
         let level: number = util.getBuyRandomLevel();
-
         this.initData = util.GetTurretData(level);
         this.num = data.num || Tools.GetRandom(8, 12);
         this.numLabel.string = "+" + this.num + t("main.炮塔");
@@ -81,9 +66,6 @@ export default class gameGetVideoTurret extends baseTs {
             }
         })
 
-
-
-
     }
 
 
@@ -92,40 +74,18 @@ export default class gameGetVideoTurret extends baseTs {
      */
     getBtn() {
         soundController.singleton.clickAudio();
-
-        // TrackMgr.AppDialogClick_hcdg({
-        //     dialog_name_hcdg: "看视频领取炮塔弹窗",
-        //     ck_module:"领取",
-        //     active_ad_hcdg:"激励视频"
-        // });
-
-
-        // util.sendTurretNum();
         util.productTurret(this.num);
         cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num: this.num });
-
         AssistCtr.showToastTip(t('main.Got_turrets', this.num));
-
-
         this.closePage();
-
         util.userData.GetTurretNum -= 1;
-
         util.setStorage(util.localDiary.GetTurretNum, util.userData.GetTurretNum);
-        // }, () => {
-        //     AssistCtr.showToastTip("加载视频失败，请稍后！");
-        // });
-
     }
 
     /**关闭close */
     closeBtn() {
         soundController.singleton.clickAudio();
         this.closePage();
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: "看视频领取炮塔弹窗",
-            ck_module: "关闭",
-        });
     }
 
 

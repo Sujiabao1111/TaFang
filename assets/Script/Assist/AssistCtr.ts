@@ -1,6 +1,6 @@
 import { AdPosition } from "../common/AdPosition";
 import NameTs from "../common/NameTs";
-import { POINT, PROPS, REWARD_TYPE } from "../common/PropConst";
+import { POINT, PROPS, REWARD_TYPE1 } from "../common/PropConst";
 import turret from "../game/turret/turret";
 import { UrlConst } from "../server/UrlConst";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
@@ -93,7 +93,7 @@ export const AssistCtr = {
     },
 
     findPropSprite(type, keyId, sucCall, errCall?) {
-        if (type == REWARD_TYPE.PROPS) {
+        if (type == REWARD_TYPE1.PROPS) {
             if (PROPS[keyId]) {
                 cc.resources.load(`ActivyResource/Image/Prop/${PROPS[keyId].icon}`, cc.SpriteFrame, function (err, spriteFrame) {
                     if (err) {
@@ -185,7 +185,7 @@ export const AssistCtr = {
         let isPlay = false;
         AdUtil.inserAdIsPlay[`inserAd${id}`] = true;
 
-     
+
         AdUtil.inserAdIsPlay[`inserAd${id}`] = isPlay;
 
         if (AdUtil.inserAdIsPlay[`inserAd${id}`] == true && isLoad) {

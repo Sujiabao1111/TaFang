@@ -380,16 +380,15 @@ export class Tools {
   }
 
 
+
+
   /**
     * 节点的图片置灰色或者默认
+    * @param nodeT 节点
     * @param isGray 是否置灰色
+    * @param isAllChild 是否所以节点
     */
   public static setSpriteState(nodeT: cc.Node, isGray: boolean, isAllChild: boolean = false) {
-    this.setSpriteState(nodeT, isGray, isAllChild);
-  };
-
-  /** 图片置灰 或者  恢复 */
-  public setSpriteState(nodeT: cc.Node, isGray: boolean, isAllChild: boolean) {
     let matUrl = isGray ? cc.Material.getBuiltinMaterial('2d-gray-sprite') : cc.Material.getBuiltinMaterial('2d-sprite');
     if (isAllChild) {
       let coms = nodeT.getComponentsInChildren(cc.Sprite);
@@ -399,7 +398,6 @@ export class Tools {
       return;
     }
     nodeT.getComponent(cc.Sprite).setMaterial(0, matUrl);
-
     if (nodeT.getComponent(cc.Button)) {
       nodeT.getComponent(cc.Button).interactable = !isGray;
     }

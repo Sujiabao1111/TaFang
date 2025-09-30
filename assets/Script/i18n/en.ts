@@ -166,6 +166,7 @@ export const languages: languagesData = {
         '任务': 'Task',
         '抽奖': 'Lottery',
         '签到': 'Check-in',
+        '本周签到7天': 'Check in for 7 days this wee',
         '自动合成': 'Auto',
         '新人福利': 'Benefits',
         '奖池': 'Prize pool',

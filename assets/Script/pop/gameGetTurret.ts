@@ -71,20 +71,7 @@ export default class gameGetTurret extends baseTs {
             }
         })
         this.dataName = data.name;
-        if (this.dataName) {
-
-            if (this.dataName == pageTs.pageName.GameUpgrade) {
-                TrackMgr.AppBuyProductDialog_hcdg({
-                    dialog_name_hcdg: "获得炮塔弹窗（解锁新炮塔）",
-                });
-            } else {
-                TrackMgr.AppBuyProductDialog_hcdg({
-                    dialog_name_hcdg: "获得炮塔弹窗（额外获得炮塔）",
-                });
-            }
-
-        }
-
+      
         // util.preloadAd(AdPosition.GetTurretView);
         // util.preloadAd(AdPosition.GetTurret);
     }
