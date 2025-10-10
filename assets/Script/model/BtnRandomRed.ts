@@ -19,6 +19,7 @@ export default class BtnRandomRed extends cc.Component {
 
     private onceEnter = true;
     private _randomRedTimes = 300;
+    
     onEnable() {
         let self = this;
         if (!util.chekcToday()) {

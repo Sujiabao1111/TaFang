@@ -182,7 +182,7 @@ export default class ui extends cc.Component {
 
 
         RedController.initGoldWheelData(this.wheel_red);
-        RedController.initSignRedData(this.signRed_red);
+        // RedController.initSignRedData(this.signRed_red);
     }
 
     start() {

@@ -10,6 +10,7 @@ import { t } from "../Language/LanguageData";
 import { ApiService } from "../tg/ApiService";
 import { REWARD_TYPE } from "../common/PropConst";
 import { Tools } from "../util/Tools";
+import { AdManager } from "../tg/AdManager";
 
 
 //#region 抽奖 转盘
@@ -282,12 +283,17 @@ export default class gameGoldWheel extends baseTs {
         }
 
         if (this.isCanClickWheel) {
-            this.isCanClickWheel = false;
-            setTimeout(() => {
-                this.isCanClickWheel = true;
-            }, 3000);
-            this.isCanClickWheel = true;
-            this.clickWheel();
+            // this.isCanClickWheel = false;
+            // setTimeout(() => {
+            //     this.isCanClickWheel = true;
+            // }, 3000);
+            // this.isCanClickWheel = true;
+            AdManager.showVideoAd(() => {
+                this.clickWheel();
+            }, () => {
+
+            });
+
         }
     }
 

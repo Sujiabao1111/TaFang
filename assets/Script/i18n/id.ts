@@ -194,6 +194,8 @@ export const languages: languagesData = {
         '转盘抽奖': 'Putar undian ${0} kali',
         '狂点砸开宝箱': 'Klik cepat untuk membuka peti',
         '最多可获得': 'Bisa dapat maksimal',
+        '恭喜': 'Selamat',
+
 
 
 

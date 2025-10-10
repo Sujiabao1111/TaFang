@@ -69,12 +69,12 @@ export default class gameRandomRedPrize extends baseTs {
         let prize = 0
         if (isVideo) {
             let res = await ApiService.ins.getDoubleReward(this.redAmountNum, "fudai");
-            
+
             if (res.response.success) {
                 console.log("福袋加倍领取成功", res.response.data.prize);
                 AdManager.showVideoAd(() => {
                     prize = res.response.data.prize * 2;
-                    cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: res.response.data.prize, num: 5 });
+                    cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: res.response.data.prize, num: 5 });
                 }, () => {
 
                 });
@@ -86,9 +86,10 @@ export default class gameRandomRedPrize extends baseTs {
             if (res.response.success) {
                 console.log("福袋领取成功");
                 prize = this.redAmountNum;
+                cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: prize, num: 5 });
             }
         }
-        cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: prize, num: 5 });
+
         this.closePage();
         cc.game.emit(NameTs.Game_Task_updata);
 

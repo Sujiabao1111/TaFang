@@ -197,6 +197,8 @@ export const languages: languagesData = {
         '转盘抽奖': 'Spin the wheel ${0} times',
         '狂点砸开宝箱': 'Tap rapidly to open the chest',
         '最多可获得': 'Maximum obtainable',
+        '恭喜': 'Congratulations',
+
 
 
 

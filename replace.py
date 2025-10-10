@@ -41,7 +41,7 @@ sx = """<!-- inject window.Telegram.WebApp object ken change here to replace 02 
 <script src="src/settings.{}.js" charset="utf-8"></script>
 <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
 <script src="https://js.onclckvd.com/in-stream-ad-admanager/tma.js"></script>
-<script src='//whephiwums.com/sdk.js' data-zone='9547267' data-sdk='show_9547267'></script>
+<script src='//whephiwums.com/sdk.js' data-zone='9876818' data-sdk='show_9876818'></script>
 <script src="./playdeck-web.{}.js" ></script>
 <script async src="https://tganalytics.xyz/index.js" onload="initAnalytics()" type="text/javascript"></script>
 <script>

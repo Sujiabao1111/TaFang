@@ -429,22 +429,27 @@ export default class game extends baseTs {
     /**
      * 签到
      */
-    showSign(data = null) {
-        XMSDK.getdataStr({
-            url: UrlConst.sign_main,
-            onSuccess: res => {
-                if (res.code === 0 && res.data) {
-                    this.showPage(pageTs.pageName.GameSign, res.data);
-                }
-                else {
-
-                }
-            },
-            onFail: err => {
-
-            }
+    async showSign(data = null) {
+        let res = await ApiService.ins.GetSignInConfig();
+        if (res.response?.success) {
+            this.showPage(pageTs.pageName.GameSign, res.response);
         }
-        )
+
+        // XMSDK.getdataStr({
+        //     url: UrlConst.sign_main,
+        //     onSuccess: res => {
+        //         if (res.code === 0 && res.data) {
+
+        //         }
+        //         else {
+
+        //         }
+        //     },
+        //     onFail: err => {
+
+        //     }
+        // }
+        // )
     }
 
 

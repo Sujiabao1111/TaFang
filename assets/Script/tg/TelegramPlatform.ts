@@ -91,7 +91,7 @@ export class TelegramPlatform extends Singleton {
 
 
     // adsgram广告Id
-    _adUnitIds: string = '12256';
+    _adUnitIds: string = '14293';
 
     initRewardAd() {
         this.videoAd = null;
@@ -304,9 +304,9 @@ export class TelegramPlatform extends Singleton {
     private _showMonetag() {
         // this.addBtnListener(this.getMonetag.bind(this))
         // @ts-ignore
-        // console.log("initMonetagAd===", show_9547267());
+        // console.log("initMonetagAd===", show_9876818());
         // @ts-ignore
-        show_9547267().then(() => {
+        show_9876818().then(() => {
             console.log("Monetag广告成功")
             ApiService.ins.Reportaction("ads");
             // GameApp.showTip('You have seen an ad!');

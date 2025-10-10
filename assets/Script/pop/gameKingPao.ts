@@ -30,6 +30,10 @@ export default class gameKingPao extends baseTs {
 
     @property(Marquee)
     private marquee: Marquee = null;
+    @property(Marquee)
+    private marquee1: Marquee = null;
+    @property(Marquee)
+    private marquee2: Marquee = null;
 
     @property(cc.Label)
     private moneyLabel: cc.Label = null;
@@ -62,11 +66,48 @@ export default class gameKingPao extends baseTs {
         }
 
         let marquee = [
-            { "msg": "恭喜ID7850715成功提现127.75元", "time": "03:20:58" },
-            { "msg": "恭喜ID5587956成功提现127.75元", "time": "07:21:41" }
+            { "msg": `${t('main.恭喜')}${"ID7850715"}${t('main.提现金额')}${"0.2Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID5642387"}${t('main.提现金额')}${"0.4Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID8147527"}${t('main.提现金额')}${"0.2Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID3257111"}${t('main.提现金额')}${"0.5Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID5128893"}${t('main.提现金额')}${"0.3Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID3357471"}${t('main.提现金额')}${"0.2Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID7125100"}${t('main.提现金额')}${"0.3Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID6534822"}${t('main.提现金额')}${"0.4Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID3146387"}${t('main.提现金额')}${"0.5Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID2251581"}${t('main.提现金额')}${"0.2Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID5569318"}${t('main.提现金额')}${"0.4Ton"}`, "time": '' },
+            { "msg": `${t('main.恭喜')}${"ID3358479"}${t('main.提现金额')}${"0.2Ton"}`, "time": '' },
         ]
-        log("marquee===", marquee);
-        this.marquee.updateMarqueeList(marquee);
+
+        let list = [];
+        let list1 = [];
+        let list2 = [];
+
+        // 随机打乱 每个数组分4个 不重复
+
+        // 随机打乱
+        function shuffle<T>(arr: T[]): T[] {
+            let array = arr.slice();
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // 随机打乱
+        let shuffled = shuffle(marquee);
+
+        // 分成3组，每组4个，不重复
+        list = shuffled.slice(0, 4);
+        list1 = shuffled.slice(4, 8);
+        list2 = shuffled.slice(8, 12);
+
+
+        this.marquee.updateMarqueeList(list);
+        this.marquee1.updateMarqueeList(list1);
+        this.marquee2.updateMarqueeList(list2);
     }
 
     /**

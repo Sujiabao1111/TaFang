@@ -752,6 +752,51 @@ declare global {
     progress: number,//奖励进度
   }
 
+
+  /**
+   * 七日签到
+   */
+  interface GetSignInConfigResponse extends ApiResponse {
+    code?: number;
+    configs: SignInConfig[];
+    current_status: SignInCurrenStatus;
+    success: boolean;
+  }
+
+
+
+  /**
+  * 七日签到configs
+  */
+  interface SignInConfig {
+    day: number;
+    title: string;//奖励标题(JSON格式，多语言)
+    desc: string;//奖励描述(JSON格式，多语言)
+    rewards: string; //奖励配置(JSON格式)
+    iconImage: string;// 图标URL
+    isReceived: boolean; //是否已领取
+    isAvailable: boolean;//是否可领取
+  }
+
+  /**
+  * 七日签到configs
+  */
+  interface SignInCurrenStatus {
+    current_day: number; //当前签到天数
+    continue_days: number;//连续签到天数
+    has_signed_today: boolean;//今日是否已签到
+  }
+
+  /**
+   * 七日签到签到
+   */
+  interface SignIn {
+    code?: number;
+    signin_day: number;//签到天数
+    rewards: any; //获得的奖励列表，每项格式为 [类型,子类型,数量]
+    success: boolean;
+  }
+
   /**
    * 邀请奖励配置
    */
@@ -1875,6 +1920,34 @@ export class ApiService {
     let response = await this.http.post<ApiResponse>('/reportaction', data, { headers, auth: true });
     if (response.status == 200 && response.response?.success) {
       console.log("事件上报成功:" + type);
+    }
+    return response;
+  }
+
+  /**
+  * 七日签到配置
+  * @returns 获取七日签到的配置列表及用户签到状态
+  */
+  async GetSignInConfig(): Promise<ApiMsg<GetSignInConfigResponse>> {
+    PageManage.singleton.Loading();
+    let response = await this.http.post<GetSignInConfigResponse>('/getsigninconfig', {}, { auth: true });
+    PageManage.singleton.hideLoading();
+    if (response.status == 200 && response.response?.success) {
+      console.log("七日签到配置:", response.response);
+    }
+    return response;
+  }
+
+  /**
+    * 七日签到签到
+    * @returns 执行用户签到操作，发放签到奖励
+    */
+  async SignIn(): Promise<ApiMsg<SignIn>> {
+    PageManage.singleton.Loading();
+    let response = await this.http.post<SignIn>('/signin', {}, { auth: true });
+    PageManage.singleton.hideLoading();
+    if (response.status == 200 && response.response?.success) {
+      console.log("七日签到签到:", response.response);
     }
     return response;
   }
