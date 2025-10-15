@@ -100,10 +100,11 @@ export default class gameNewPlayerTask extends baseTs {
 
     init(data: NewbenefitsData) {
         this._data = data;
+        this._data.curday = this._data.curday > 6 ? 6 : this._data.curday;
         let toggleItems = this.toggleContent.children;
         for (let i = 0; i < toggleItems.length; i++) {
             toggleItems[i].getChildByName("lable_font").getComponent(cc.Label).string = t('main.第_天', i + 1);
-            toggleItems[i].getChildByName("suo").active = i >= this._data.days;
+            toggleItems[i].getChildByName("suo").active = i > this._data.curday;
             toggleItems[i].getComponent(cc.Button).interactable = !toggleItems[i].getChildByName("suo").active;
         }
 
@@ -113,23 +114,20 @@ export default class gameNewPlayerTask extends baseTs {
         }
 
         this.tonProgress.progress = (data.progress / data.limit);
-
         Tools.setSpriteState(this.btn_green, this.tonProgress.progress < 1);
-
         for (let i = 0; i < data.list.length; i++) {
             let index = parseInt(data.list[i].day) - 1;
             this.TaskItemVoMap[index].push(data.list[i]);
         }
-
         console.log("this.TaskItemVoMap====", this.TaskItemVoMap);
-
         const w_n = toggleItems[0].width;
         const s_l = this.toggleContent.getComponent(cc.Layout).spacingX;
-        this.toggleContent.parent.getComponent(cc.ScrollView).scrollToOffset(cc.v2((w_n + s_l) * this._data.days, 0), 0.001);
+
+        this.toggleContent.parent.getComponent(cc.ScrollView).scrollToOffset(cc.v2((w_n + s_l) * this._data.curday, 0), 0.001);
         this.toggleContent.parent.getComponent(cc.ScrollView).scrollToLeft();
 
         this.showRed(true);
-        this.clickTab(null, this._data.days - 1);
+        this.clickTab(null, this._data.curday);
     }
 
 
@@ -158,7 +156,7 @@ export default class gameNewPlayerTask extends baseTs {
 
         let toggleItems = this.toggleContent.children;
         for (let i = 0; i < toggleItems.length; i++) {
-            toggleItems[i].getChildByName("img_red").active = this.redArr.indexOf(i) != -1;
+            toggleItems[i].getChildByName("img_red").active = this.redArr.indexOf(i) != -1 && !toggleItems[i].getChildByName("suo").active;
         }
     }
 

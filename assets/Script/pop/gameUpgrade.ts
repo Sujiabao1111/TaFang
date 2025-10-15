@@ -7,6 +7,7 @@ import { t } from "../Language/LanguageData";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
+import { AdManager } from "../tg/AdManager";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 
@@ -15,27 +16,16 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class gameUpgrade extends baseTs {
 
-
-
     @property({ type: cc.Sprite, displayName: "炮塔身" })
     private turretBody: cc.Sprite = null;
-
     @property({ type: cc.Sprite, displayName: "炮塔脚" })
     private turretFoot: cc.Sprite = null;
-
-
-
-
-
     @property({ type: [cc.Node], displayName: "按钮" })
     private arrBtn: cc.Node[] = [];
 
 
-
-
     /**原始数量 */
     private num: number = 5;
-
     private initData: any;
 
     onLoad() {
@@ -58,8 +48,6 @@ export default class gameUpgrade extends baseTs {
         // } else {
         //     this.turretNumLabel.string = "+" + this.num + "炮塔";
         // }
-
-
 
         // 存合成次数和时间
         util.setStorage(util.localDiary.unlocking_time, util.userData.unlocking_time);
@@ -97,25 +85,29 @@ export default class gameUpgrade extends baseTs {
             return;
         }
 
-        let successFn = () => {
-            let num: number = this.num * (res == 1 ? 2 : 1);
+        let num: number = this.num * (res == 1 ? 2 : 1);
+
+        let successFunc = () => {
             cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num });
             util.productTurret(num);
             this.closePage();
-
         }
 
         if (res == 1) {
-            successFn();
+            AdManager.showVideoAd(() => {
+                successFunc();
+            }, () => {
+
+            });
         } else {
-            successFn();
+            successFunc();
         }
     }
 
     /**
-      * 加载图片
-      */
-    loadSprite(name: string, call: Function) {
+     * 加载图片
+     */
+    private loadSprite(name: string, call: Function) {
         cc.resources.load(this.initData[name], cc.SpriteFrame, (err, res: cc.SpriteFrame) => {
             if (err) {
                 console.error("找不到该图片", err);
@@ -123,7 +115,4 @@ export default class gameUpgrade extends baseTs {
             call(res);
         });
     }
-
-
-
 }

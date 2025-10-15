@@ -1,7 +1,7 @@
 
 import baseTs from "../base/baseTs";
 import NameTs from "../common/NameTs";
-import { REWARD_TYPE, RewardNodeType } from "../common/PropConst";
+import { ISDOUBLE, REWARD_KEY, REWARD_TYPE, RewardNodeType } from "../common/PropConst";
 import soundController from "../soundController";
 import { AdManager } from "../tg/AdManager";
 import { ApiService } from "../tg/ApiService";
@@ -31,8 +31,6 @@ export default class gameRandomRedPrize extends baseTs {
     private redAmountNum = 200;
     private power = 2;
 
-    private coinItem: cc.Node = null;
-
     start() {
         cc.tween(this.multipleNode).repeatForever(
             cc.tween().to(.3, { angle: 10 }).to(.2, { angle: 0 })
@@ -45,12 +43,7 @@ export default class gameRandomRedPrize extends baseTs {
 
         this._type = type;
         this.redAmountNum = Tools.GetRandom(5000, 8000);
-        if (this._type == RewardNodeType.Fudai) {
-            this.coinItem = util.GlobalMap.get("RandomRed") || this.node;
-        } else if (this._type == RewardNodeType.Kills) {
-            this.coinItem = util.GlobalMap.get("KillsNode") || this.node;
-        } else if (this._type == RewardNodeType.Box) {
-            this.coinItem = this.node;
+        if (this._type == RewardNodeType.Box) {
             this.redAmountNum = Tools.GetRandom(10000, 18888);
         }
 
@@ -65,43 +58,48 @@ export default class gameRandomRedPrize extends baseTs {
     async clickGet(str, e) {
         soundController.singleton.clickAudio();
         let isVideo: boolean = e == 1;
+        let key = 0
+        let coinItem = null;
+        if (this._type == RewardNodeType.Fudai) {
+            key = REWARD_KEY.zaixian
+            coinItem = util.GlobalMap.get("RandomRed") || this.node;
+        } else if (this._type == RewardNodeType.Kills) {
+            key = REWARD_KEY.kills
+            coinItem = util.GlobalMap.get("KillsNode") || this.node;
+        } else if (this._type == RewardNodeType.Box) {
+            key = REWARD_KEY.box
+            coinItem = this.node;
+        }
+        let tempfun = () => {
+            this.closePage();
+            cc.game.emit(NameTs.Game_Task_updata);
+
+            if (this._type == RewardNodeType.Kills) {
+                cc.game.emit(NameTs.Game_Kills_Updata, false);
+            } else if (this._type == RewardNodeType.Fudai) {
+                cc.game.emit(NameTs.randomRedUpdate);
+            }
+        }
 
         let prize = 0
         if (isVideo) {
-            let res = await ApiService.ins.getDoubleReward(this.redAmountNum, "fudai");
-
-            if (res.response.success) {
-                console.log("福袋加倍领取成功", res.response.data.prize);
-                AdManager.showVideoAd(() => {
-                    prize = res.response.data.prize * 2;
-                    cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: res.response.data.prize, num: 5 });
-                }, () => {
-
-                });
-
-            }
+            AdManager.showVideoAd(async () => {
+                let res = await ApiService.ins.getReward(key, REWARD_TYPE.gold, this.redAmountNum, ISDOUBLE.yes);
+                if (res.response.success) {
+                    cc.game.emit(NameTs.Game_Effect_coin, { node: coinItem, value: this.redAmountNum * 2, num: 5 });
+                    tempfun();
+                }
+            }, () => {
+            });
         } else {
-            let reward_key = 1001
-            let res = await ApiService.ins.getReward(reward_key, REWARD_TYPE.gold, this.redAmountNum);
+            let res = await ApiService.ins.getReward(key, REWARD_TYPE.gold, this.redAmountNum, ISDOUBLE.no);
             if (res.response.success) {
                 console.log("福袋领取成功");
-                prize = this.redAmountNum;
-                cc.game.emit(NameTs.Game_Effect_coin, { node: this.coinItem, value: prize, num: 5 });
+                cc.game.emit(NameTs.Game_Effect_coin, { node: coinItem, value: this.redAmountNum, num: 5 });
+                tempfun();
             }
-        }
-
-        this.closePage();
-        cc.game.emit(NameTs.Game_Task_updata);
-
-        if (this._type == RewardNodeType.Kills) {
-            cc.game.emit(NameTs.Game_Kills_Updata, false);
-        } else if (this._type == RewardNodeType.Fudai) {
-            cc.game.emit(NameTs.randomRedUpdate);
         }
 
     }
-
-
-
 
 }

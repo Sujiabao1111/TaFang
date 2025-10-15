@@ -155,7 +155,7 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 tonConnectUI.uiOptions = {
     actionsConfiguration: {
         returnStrategy: 'back',
-        twaReturnUrl: 'https://t.me/GemJam_bot/gemjam',
+        twaReturnUrl: 'https://t.me/TGCoinTower_bot/towergame',
         // modals: ['before', 'success', 'error'],
         notifications: ['before', 'success', 'error']
     }

@@ -150,9 +150,7 @@ export default class game extends baseTs {
                     break;
 
 
-                case pageTs.pageName.GameAdLoading:
-                    this.showAdLoading();
-                    break;
+
                 case pageTs.pageName.GameUpgrade:
                     let nowTime: number = new Date().getTime();
                     let time = Math.floor((nowTime - this._userData.unlocking_time) / 1000);
@@ -187,13 +185,9 @@ export default class game extends baseTs {
                 case pageTs.pageName.GameKingPao:
                     this.showKingPao();
                     break;
-                case pageTs.pageName.GameKingPaoProgress:
-                    this.showKingPaoProgress(res.data);
-                    break;
 
-                case pageTs.pageName.GameOnPrizeGetReward:
-                    this.showOnPrizeGetRewared(res.data);
-                    break;
+
+
                 case pageTs.pageName.GameRandomRedPrize:
                     this.showRandomRedPrize(res.data);
                     break;
@@ -254,7 +248,6 @@ export default class game extends baseTs {
             if (this._userData.newUser) {
                 if (this._userData.offlineIncome && this._userData.offlineIncome.reward > 0) {
                 } else {
-                    // this.showPage(pageTs.pageName.GameStart);
                     this.FistGameStart(1);
                 }
 
@@ -457,21 +450,7 @@ export default class game extends baseTs {
     * 提现
      */
     showWallet() {
-        XMSDK.getdataStr({
-            url: UrlConst.wallet_main2,
-            onSuccess: res => {
-                if (res.code === 0 && res.data) {
-                    this.showPage(pageTs.pageName.GameWallet, res.data);
-                }
-                else {
-
-                }
-            },
-            onFail: err => {
-
-            }
-        }
-        )
+        this.showPage(pageTs.pageName.GameWallet);
     }
 
     /**
@@ -500,13 +479,6 @@ export default class game extends baseTs {
      * 任务
      */
     async showTask() {
-        // util.getdataStr({
-        //     url: UrlConst.task_day_main,
-        //     success: (res) => {
-        //         this.showPage(pageTs.pageName.GameTask, res);
-        //     }
-        // });
-
         let res = await ApiService.ins.getTask();
         if (res.response?.success) {
             this.showPage(pageTs.pageName.GameTask, res.response.data);
@@ -514,12 +486,6 @@ export default class game extends baseTs {
     }
 
 
-    /**
-     * 视频加载loading
-     */
-    showAdLoading() {
-        this.showPage(pageTs.pageName.GameAdLoading);
-    }
 
     /**
      * 升级
@@ -562,51 +528,10 @@ export default class game extends baseTs {
         }
     }
 
-    /**
-     * 炮王任务进度
-     */
-    showKingPaoProgress(clickData) {
-        if (clickData) {
-
-        }
-
-        //fix bug
-
-        XMSDK.getdataStr({
-            url: UrlConst.kingPaoProgress,
-            onSuccess: res => {
-                if (res.code === 0) {
-                    if (res.data && res.data.status == 1 && res.data.sign) {
-                        AssistCtr.showToastTip(`今日打卡成功!明日再来哦~`);
-                    }
-                    else if (res.data && res.data.status == 2 && util.isOkSign) {
-                        AssistCtr.showToastTip(`今日已签到!明日再来哦~`);
-                    }
-                    else {
-                        this.showPage(pageTs.pageName.GameKingPaoProgress, res.data);
-                    }
-                }
-                else {
-                    if (res) {
-                        AssistCtr.showToastTip(res.message);
-                    }
-                }
-            },
-            onFail: err => {
-
-            }
-        })
-    }
 
 
-    /**
-     * 签到处在线奖励红包
-     */
-    showOnPrizeGetRewared(data) {
-        if (data && data.prizeRedData) {
-            this.showPage(pageTs.pageName.GameOnPrizeGetReward, data.prizeRedData);
-        }
-    }
+
+
 
     /**
      * 打开随机红包

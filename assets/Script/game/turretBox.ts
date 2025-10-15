@@ -4,8 +4,10 @@ import { AdPosition } from "../common/AdPosition";
 import { gameState, propType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pool from "../common/pool";
+import { REWARD_KEY, REWARD_TYPE } from "../common/PropConst";
 import UserData from "../data/userData";
 import { t } from "../Language/LanguageData";
+import { ApiService } from "../tg/ApiService";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 import turret from "./turret/turret";
@@ -76,11 +78,11 @@ export default class turretBox extends baseTs {
             this.isTouch = false;
         }, this);
 
-        //点击了空地宝箱
+        //点击空地宝箱
         cc.game.on(NameTs.Click_Empty_Box, (no) => {
+            ApiService.ins.getReward(REWARD_KEY.baoxiang, REWARD_TYPE.turret, 1);
             this.createTurret({ level: null, location: no, isFree: true }, true);
         }, this);
-
 
         this.initTurret();
 

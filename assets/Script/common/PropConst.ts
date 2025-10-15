@@ -1,16 +1,3 @@
-// 1  hp_3  生命值+3
-// 2  hp_5  生命值+5
-// 3  hp_30  生命值+30
-// 4  step_3  步数+3
-// 5  step_5  步数+5
-// 6  TNT  TNT
-// 7  all_powerful_clear  万能消
-// 8  wooden_hammer  小木锤
-// 9  flush  刷新道具
-// 10  rocket  火箭
-// 11  horizontal_clear  横排消除
-// 12  vertical_clear  竖排消除
-
 
 /**
  * @description PROPS 奖励类型
@@ -99,6 +86,16 @@ export const COST_TYPE = {
 }
 
 // 奖励类型
+export const REWARD_KEY = {
+    baoxiang: 1, //空地宝箱
+    zaixian: 2, //在线奖励
+    zhuanpan: 3, //转盘抽奖
+    kills: 4, //累计击杀
+    box: 5, //悬浮宝箱
+    zpljjl: 6, //转盘累计奖励
+}
+
+// 奖励类型
 export const REWARD_TYPE = {
     gold: 1, //金币
     turret: 2, //炮台
@@ -106,6 +103,11 @@ export const REWARD_TYPE = {
 // 购买的类型
 export const BuyType = {
     week: 0, //买周卡
+}
+// 是否加倍
+export const ISDOUBLE = {
+    no: 0,
+    yes: 1,
 }
 
 

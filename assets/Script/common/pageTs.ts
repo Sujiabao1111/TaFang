@@ -3,19 +3,15 @@ export default class pageTs {
     //场景名字
     static pageName = {
 
-        /**游戏开始 */
-        GameStart: "GameStart",
+      
         /**游戏结束 */
         GameEnd: "GameEnd",
-
         /**游戏设置 */
         GameSet: "GameSet",
         /**道具 */
         GameProp: "GameProp",
         /**签到 */
         GameSign: "GameSign",
-        /**视频加载Loading */
-        GameAdLoading: "GameAdLoading",
         /**请求失败框 */
         GameNetworkLost: "GameNetworkLost",
         /**提现框 */
@@ -34,8 +30,6 @@ export default class pageTs {
         GameGuide: "GameGuide",
         /**升级弹窗 */
         GameUpgrade: "GameUpgrade",
-        /**增加炮塔弹窗 */
-        GameGetTurret: "GameGetTurret",
         /**道具获取弹窗 */
         GameToolGet: "GameToolGet",
         /**在线奖励弹窗 */
@@ -46,21 +40,12 @@ export default class pageTs {
         GameNewPlayerTask: "GameNewPlayerTask",
         /**炮王任务 */
         GameKingPao: "GameKingPao",
-        /**炮王任务进度窗口 */
-        GameKingPaoProgress: "GameKingPaoProgress",
         /**任务奖励 */
         GameTaskReward: "GameTaskReward",
         /**金币奖励 */
         GameCoinReward: "GameCoinReward",
-        /**抽手机界面 */
-        NewBigWheelController: "NewBigWheelController",
-        /**抽手机奖励 */
-        NewBigWheelPrize: "NewBigWheelPrize",
-        /**获得奖励 */
-        NewBigWheelPrizeAward: "NewBigWheelPrizeAward",
 
-        /**签到处在线奖励弹出 */
-        GameOnPrizeGetReward: "GameOnPrizeGetReward",
+
         /**随机红包弹出 */
         GameRandomRedPrize: "GameRandomRedPrize",
         /**合成炮塔随机红包 */
@@ -74,8 +59,6 @@ export default class pageTs {
         /**游戏通关奖励 */
         GamePassReward: "GamePassReward",
 
-        /**金币进度 */
-        GameEarnPro: "GameEarnPro",
 
         /**奖励弹窗 */
         GameRewardPro: "GameRewardPro",
@@ -84,8 +67,7 @@ export default class pageTs {
 
     //加载地址
     static pageUrl = {
-        /**游戏开始 */
-        GameStart: "prefab/pop/gameStart",
+      
         /**游戏结束 */
         GameEnd: "prefab/pop/gameEnd",
 
@@ -95,8 +77,7 @@ export default class pageTs {
         GameProp: "prefab/pop/gameProp",
         /**签到 */
         GameSign: "prefab/pop/gameSign",
-        /**视频加载Loading */
-        GameAdLoading: "prefab/pop/gameAdLoading",
+
         /**请求失败框 */
         GameNetworkLost: "prefab/pop/gameNetworkLost",
         /**提现框 */
@@ -116,12 +97,10 @@ export default class pageTs {
         /**升级弹窗 */
         GameUpgrade: "prefab/pop/gameUpgrade",
 
-        /**增加炮塔弹窗 */
-        GameGetTurret: "prefab/pop/gameGetTurret",
+
         /**道具获取弹窗 */
         GameToolGet: "prefab/pop/gameToolGet",
-        /**在线奖励弹窗 */
-        GameOnLinePrize: "prefab/pop/gameOnLinePrize",
+
         /**获取额外炮塔 */
         GameGetOtherTurret: "prefab/pop/gameGetOtherTurret",
         /**任务奖励 */
@@ -132,18 +111,9 @@ export default class pageTs {
         GameNewPlayerTask: "prefab/pop/gameNewPlayerTask",
         /**炮王任务 */
         GameKingPao: "prefab/pop/gameKingPao",
-        /**炮王任务进度窗口 */
-        GameKingPaoProgress: "prefab/pop/gameKingPaoProgress",
-        /**抽手机界面 */
-        NewBigWheelController: "prefab/bigwheel/newBigWheelController",
-        /**抽手机奖励 */
-        NewBigWheelPrize: "prefab/bigwheel/newBigWheelPrize",
-        /**获得奖励 */
-        NewBigWheelPrizeAward: "prefab/bigwheel/newBigWheelPrizeAward",
         /**金币转盘 */
         GameGoldWheel: "prefab/pop/gameGoldWheel",
-        /**签到处在线奖励弹出 */
-        GameOnPrizeGetReward: "prefab/pop/gameOnPrizeGetReward",
+
         /**签到处在线奖励弹出 */
         GameRandomRedPrize: "prefab/pop/gameRandomRedPrize",
         /**合成炮塔随机红包 */
@@ -154,8 +124,7 @@ export default class pageTs {
         /**游戏通关奖励 */
         GamePassReward: "prefab/pop/gamePassReward",
 
-        /**金币进度 */
-        GameEarnPro: "prefab/pop/gameEarnPro",
+     
 
         /**奖励弹窗 */
         GameRewardPro: "prefab/pop/gameRewardPro",
@@ -166,9 +135,9 @@ export default class pageTs {
 
 
     /**需要暂停游戏的页面*/
-    static stopGamePage = [pageTs.pageName.GameKingPao, pageTs.pageName.NewBigWheelController, pageTs.pageName.GameOnLinePrize];
+    static stopGamePage = [pageTs.pageName.GameKingPao, pageTs.pageName.GameOnLinePrize, pageTs.pageName.GameWallet];
     /**允许二级弹窗的 */
-    static twoPopPage = [pageTs.pageName.GameKingPao, pageTs.pageName.NewBigWheelController, pageTs.pageName.GameWalletRecord, pageTs.pageName.GameKingPaoProgress,]
+    static twoPopPage = [pageTs.pageName.GameKingPao, pageTs.pageName.GameWalletRecord,]
     /**最高层级 */
     static topPopPage = [pageTs.pageName.GameWallet, pageTs.pageName.GameGoldWheel];
 

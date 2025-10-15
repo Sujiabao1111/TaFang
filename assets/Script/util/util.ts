@@ -1,23 +1,18 @@
 
 import { gameState, PoolInfo, propInfo, propState, propType, soundInfo, thingType, turretInfo, updateType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
-import userData from "../data/userData";
 import jsonSingleton from "../base/jsonSingleton";
-import { TextCtr } from "../Assist/TextCtr";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import { UrlConst } from "../server/UrlConst";
-import { GameEffect } from "../effect/GameEffect";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
-import { AdPosition } from "../common/AdPosition";
-import TrackMgr from "../TrackMgr/TrackMgr";
 import { AssistCtr } from "../Assist/AssistCtr";
 import { Tools } from "./Tools";
 import UserData from "../data/userData";
 import { ApiService } from "../tg/ApiService";
-import { t } from "../Language/LanguageData";
 import { log } from "console";
 import PageManage from "../PageManage";
 import { Global } from "../tg/Global";
+import pageTs from "../common/pageTs";
 // import encrypt = require('encryptjs');
 class util {
 
@@ -123,9 +118,6 @@ class util {
         dayEnterSignNum: null,
         savingPotNum: 0,
     };
-
-
-
 
     /**AB测试 */
     AB_Test: any = {
@@ -234,9 +226,7 @@ class util {
      * 检查池塘哪个位置是空的
      */
     checkPool(): number {
-
         let loaction: number = null;//位置
-
         for (let i = 0; i < this.levelMap.length; i++) {
             let item = this.levelMap[i];
             let data = this.GetPoolData(item.no);
@@ -274,7 +264,6 @@ class util {
         cc.sys.localStorage.setItem(_key, _value.toString())
     }
 
-
     inidata() {
         //金币
         this.userData.version = 548;
@@ -304,7 +293,6 @@ class util {
             this.userData.pool = JSON.parse(psdd)
             this.repairPool();
         }
-
     }
 
     savedata() {
@@ -315,7 +303,6 @@ class util {
         let dds = JSON.stringify(this.userData.pool)
         this.setString("mappool", dds)
     }
-
 
     //判断是不是签到今天
     canSinge() {
@@ -343,7 +330,6 @@ class util {
             this.setString("singdada", JSON.stringify(dats));
         }
 
-
         var tdstr = d.getFullYear() + "" + d.getMonth() + "" + d.getDate();
         //console.log("sing :  " +tdstr );
         for (var i = 0; i < 7; i++) {
@@ -351,7 +337,6 @@ class util {
                 canget = false;
             }
         }
-
 
         return !canget;
     }
@@ -388,7 +373,6 @@ class util {
         this.setString("singdada", JSON.stringify(dats));
         return index;
     }
-
 
     /**
      * 用于新手，初始化用户数据
@@ -815,19 +799,26 @@ class util {
         console.log("通关请求");
         let res = await ApiService.ins.passstage(stage);
         console.log("通关请求返回====>", res);
-        if (res.response.success) {
-            IsSuccess = true;
-            Global.ins.curPassStageGold = res.response.data.prize;
-            if (this.mapConfig.length < this.userData.customs.small + 1) {
-                this.userData.customs.big += 1;
-                this.userData.customs.small = 1;
-                IsUp = true;
-            } else {
-                this.userData.customs.small += 1;
+        if (res.status == 408) {
+            console.log("请求超时");
+            PageManage.singleton.showPage(pageTs.pageName.GameNetworkLost, () => {
+                this.saveCustomLevel();
+            });
+        } else {
+            if (res.response.success) {
+                IsSuccess = true;
+                Global.ins.curPassStageGold = res.response.data.prize;
+                if (this.mapConfig.length < this.userData.customs.small + 1) {
+                    this.userData.customs.big += 1;
+                    this.userData.customs.small = 1;
+                    IsUp = true;
+                } else {
+                    this.userData.customs.small += 1;
+                }
+                return { IsSuccess: IsSuccess, IsUp: IsUp };
             }
-            return { IsSuccess: IsSuccess, IsUp: IsUp };
+            return { IsSuccess: IsSuccess, IsUp: IsUp, prize };
         }
-        return { IsSuccess: IsSuccess, IsUp: IsUp, prize };
     }
 
 

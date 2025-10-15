@@ -8,7 +8,7 @@ import RewardController from "../controlelr/RewardController";
 import { AssistCtr } from "../Assist/AssistCtr";
 import { t } from "../Language/LanguageData";
 import { ApiService } from "../tg/ApiService";
-import { REWARD_TYPE } from "../common/PropConst";
+import { REWARD_KEY, REWARD_TYPE } from "../common/PropConst";
 import { Tools } from "../util/Tools";
 import { AdManager } from "../tg/AdManager";
 
@@ -363,8 +363,7 @@ export default class gameGoldWheel extends baseTs {
         let itemData = this.userTurntableStageReward.rewardDetailDtoList[num];
         if (itemData.status !== 1) { return; }
         soundController.singleton.clickAudio();
-        let reward_key = 1001;
-        let res = await ApiService.ins.getReward(reward_key, REWARD_TYPE.gold, itemData.reward);
+        let res = await ApiService.ins.getReward(REWARD_KEY.zpljjl, REWARD_TYPE.gold, itemData.reward);
         if (res.response.success) {
             itemData.status = 2;//变成已经状态
             this.changeItemState(num, 2);

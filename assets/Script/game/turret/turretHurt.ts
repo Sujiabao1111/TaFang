@@ -39,9 +39,6 @@ export default class turretHurt extends cc.Component {
         ).call(() => {
             this.destroyhurt();
         }).start();
-
-
-
     }
 
     /**回收自己 */

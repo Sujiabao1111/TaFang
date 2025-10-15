@@ -7,6 +7,7 @@ import pageTs from "../common/pageTs";
 import { t } from "../Language/LanguageData";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
 import soundController from "../soundController";
+import { AdManager } from "../tg/AdManager";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import { Tools } from "../util/Tools";
 import util from "../util/util";
@@ -74,12 +75,16 @@ export default class gameGetVideoTurret extends baseTs {
      */
     getBtn() {
         soundController.singleton.clickAudio();
-        util.productTurret(this.num);
-        cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num: this.num });
-        AssistCtr.showToastTip(t('main.Got_turrets', this.num));
-        this.closePage();
-        util.userData.GetTurretNum -= 1;
-        util.setStorage(util.localDiary.GetTurretNum, util.userData.GetTurretNum);
+        AdManager.showVideoAd(() => {
+            util.productTurret(this.num);
+            cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num: this.num });
+            AssistCtr.showToastTip(t('main.Got_turrets', this.num));
+            this.closePage();
+            util.userData.GetTurretNum -= 1;
+            util.setStorage(util.localDiary.GetTurretNum, util.userData.GetTurretNum);
+        }, () => {
+
+        });
     }
 
     /**关闭close */

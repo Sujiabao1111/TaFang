@@ -1,12 +1,10 @@
-import { onPrizeRedItemData } from "../onPrizeGet/OnPrizeGet";
+
 import { UrlConst } from "../server/UrlConst";
 import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 
-export interface onPrizeData {
-    onPrizeRedData: Array<onPrizeRedItemData>           //全部红包全部信息
-}
+
 
 class RedController {
     //检查任务红点
@@ -79,41 +77,7 @@ class RedController {
 
     //检查首页签到红点
     checkMainSignRed() {
-        let self = this;
-        if (self.signRed && self.onPrizeData) {
-            let allRedData = self.onPrizeData.onPrizeRedData;
-            let isHaveGet = false;  //是否有可领取的红包
-            let curTime = util.onlineTimeNum;
-            let redData: onPrizeRedItemData = null;
-            for (let i = 0; i < allRedData.length; i++) {
-                redData = allRedData[i];
-                if (redData.state == 0 && redData.waitTime <= curTime) {
-                    isHaveGet = true;
-                }
-            }
 
-            if (!util.isOkSign || isHaveGet) {
-                if (!self.signRed.active) {
-                    self.signRed.active = true;
-
-                    TrackMgr.little_red_dots({
-                        activity_state: "小红点展示",
-                        activity_position: "签到",
-                    })
-
-
-                    if (redData) {
-                        TrackMgr.Online_rewards({
-                            activity_state: "在线奖励达成",
-                            reward_state: `${redData.waitTime / 60}分钟`,
-                        })
-                    }
-                }
-            }
-            else if (self.signRed.active) {
-                self.signRed.active = false;
-            }
-        }
     }
 
     wheelRed: cc.Node = null;
@@ -125,9 +89,9 @@ class RedController {
             onSuccess: res => {
                 if (res.code === 0) {
                     this.wheelCount = res.data.times;
-                    if(this.wheelCount > 0){
+                    if (this.wheelCount > 0) {
                         this.checkMainGoldWheelRed(true);
-                    }                    
+                    }
                 }
                 else {
 
@@ -139,14 +103,14 @@ class RedController {
         })
     }
 
-    checkMainGoldWheelRed(state?: boolean) {        
+    checkMainGoldWheelRed(state?: boolean) {
         if (this.wheelRed) {
             if (state != null) {
                 this.wheelRed.active = state;
             }
             else {
                 if (util.userData.product <= 5) {
-                    if(this.wheelCount > 0){
+                    if (this.wheelCount > 0) {
                         if (!this.wheelRed.active) {
                             this.wheelRed.active = true;
                             TrackMgr.little_red_dots({

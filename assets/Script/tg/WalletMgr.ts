@@ -15,7 +15,7 @@ export class WalletMgr extends Singleton {
             return
         }
         console.log("链接钱包");
-        
+
         // @ts-ignore
         doInitWalletContext(() => {
             console.log("链接钱包成功")

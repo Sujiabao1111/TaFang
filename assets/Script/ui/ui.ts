@@ -181,7 +181,7 @@ export default class ui extends cc.Component {
         }, this);
 
 
-        RedController.initGoldWheelData(this.wheel_red);
+        // RedController.initGoldWheelData(this.wheel_red);
         // RedController.initSignRedData(this.signRed_red);
     }
 
@@ -301,7 +301,7 @@ export default class ui extends cc.Component {
     * 抽手机
     */
     clickNewBigWheel() {
-        PageManage.singleton.showPage(pageTs.pageName.NewBigWheelController)
+      
 
     }
 

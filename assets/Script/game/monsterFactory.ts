@@ -119,7 +119,6 @@ export default class monsterFactory extends cc.Component {
      * @param atk 扣多少血
      * @param citr 暴击
      */
-
     monsterBruise(atk: number, crit: number = 1) {
         // if(this.)
         //暴击

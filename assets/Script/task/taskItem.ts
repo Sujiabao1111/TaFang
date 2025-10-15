@@ -103,7 +103,6 @@ export default class taskItem extends cc.Component {
 
         let target_type = parseInt(data.target_type);
         switch (target_type) {
-
             case 1://通关
                 this.setProgress();
                 if (data.target_value <= data.task_progress) {
@@ -131,7 +130,37 @@ export default class taskItem extends cc.Component {
                     }
                 }
                 break;
-
+            case 7://每日登录
+                this.setProgress();
+                if (data.target_value <= data.task_progress) {
+                    this.isCanLingQu()
+                } else {
+                    this._go_task = async () => {
+                        this.closeBtn();
+                    }
+                }
+                break;
+            case 10://观看广告
+                this.setProgress();
+                if (data.target_value <= data.task_progress) {
+                    this.isCanLingQu()
+                } else {
+                    this._go_task = async () => {
+                        this.closeBtn();
+                    }
+                }
+                break;
+            case 11://转盘
+                this.setProgress();
+                if (data.target_value <= data.task_progress) {
+                    this.isCanLingQu()
+                } else {
+                    this._go_task = async () => {
+                        PageManage.singleton.showPage(pageTs.pageName.GameGoldWheel, null);
+                        this.closeBtn();
+                    }
+                }
+                break;
             // case 4://订阅频道
             //     this.progress_label.string = '';
             //     if (task_require <= task_progress) {
@@ -265,9 +294,6 @@ export default class taskItem extends cc.Component {
         this.complete_node.active = complete;
         this.lingqu_node.active = lingqu;
     }
-
-
-
 
     go() {
         if (this._go_task) this._go_task();

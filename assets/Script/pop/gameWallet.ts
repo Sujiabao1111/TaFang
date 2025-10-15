@@ -148,15 +148,12 @@ export default class gameWallet extends baseTs {
     }
 
 
-
-
     /**
-   * 提现功能处理函数
-   *
-   * 当调用该函数时，将尝试从输入框（editBox）中获取数值，并进行一系列校验。
-   * 如果数值有效（非空、非负且为有效数字），则调用ApiService.ins.submitWithdraw方法提交提现请求，
-   * 并处理响应结果。
-   */
+     * 提现功能处理函数
+     * 当调用该函数时，将尝试从输入框（editBox）中获取数值，并进行一系列校验。
+     * 如果数值有效（非空、非负且为有效数字），则调用ApiService.ins.submitWithdraw方法提交提现请求，
+     * 并处理响应结果。
+     */
     onWithdrawal() {
         let num = Number(this.editBox.string);
         if (!num || num < 0 || isNaN(num)) {
@@ -180,8 +177,6 @@ export default class gameWallet extends baseTs {
         soundController.singleton.clickAudio();
         this.closePage();
     }
-
-
 
     /**
      * 

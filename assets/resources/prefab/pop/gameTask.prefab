@@ -339,7 +339,7 @@
         "__id__": 14
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 17
@@ -825,7 +825,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -133.514,
+        0,
         382.402,
         0,
         0,
@@ -1381,8 +1381,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -133.514,
-        391.974,
+        0,
+        375,
         0,
         0,
         0,
@@ -2065,8 +2065,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        276.685,
-        340.919,
+        286.756,
+        354.08900000000006,
         0,
         0,
         0,
@@ -2303,8 +2303,8 @@
     "_target": null,
     "_alignFlags": 33,
     "_left": 0,
-    "_right": -9.185000000000002,
-    "_top": -8.419000000000011,
+    "_right": -19.255999999999972,
+    "_top": -21.589000000000027,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,

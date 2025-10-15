@@ -8,6 +8,7 @@ import { t } from "../Language/LanguageData";
 import { UrlConst } from "../server/UrlConst";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
 import soundController from "../soundController";
+import { AdManager } from "../tg/AdManager";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import { Tools } from "../util/Tools";
 import util from "../util/util";
@@ -38,8 +39,6 @@ export default class gameGetOtherTurret extends baseTs {
     @property({ type: [cc.Node], displayName: "按钮" })
     private ArrBtn: cc.Node[] = [];
 
-    @property({ type: cc.Node, displayName: "信息流" })
-    private feed_node: cc.Node = null;
 
     /**金币 */
     private num: number = 0;
@@ -90,12 +89,8 @@ export default class gameGetOtherTurret extends baseTs {
             }
         });
 
-
-
         this.ArrBtn[0].active = this.ArrBtn[1].active = true;
-
         this.ArrBtn[2].active = false;
-
         this.isVideo = false;
     }
 
@@ -105,25 +100,31 @@ export default class gameGetOtherTurret extends baseTs {
      */
     getBtn(e, res) {
         soundController.singleton.clickAudio();
-
         this.isVideo = res == 1;//是否看视频
-
-        this.successFn();
-
-    }
-
-    /**获取宝塔 */
-    successFn() {
-
         let num: number = this.num * (this.isVideo ? 3 : 1);
-        this.closePage();
-        util.userData.airborneCount -= 1;
 
-        util.productTurret(num);
-        cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num });
+        let successFn = () => {
+            this.closePage();
+            util.userData.airborneCount -= 1;
+            util.productTurret(num);
+            cc.game.emit(NameTs.Game_Effect_turret, { node: this.node, num });
+            AssistCtr.showToastTip(t('main.Got_turrets', num));
 
-        AssistCtr.showToastTip(t('main.Got_turrets', num));
+        }
+
+        if (res == 1) {
+            AdManager.showVideoAd(() => {
+                successFn();
+            }, () => {
+
+            });
+        } else {
+            successFn();
+        }
+
     }
+
+
 
 
     /**看完视频 */

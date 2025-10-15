@@ -34,9 +34,6 @@ export default class RewardController extends cc.Component {
     @property([cc.SpriteFrame])
     propSprite: Array<cc.SpriteFrame> = []
 
-    @property([cc.SpriteFrame])
-    phoneSprite: Array<cc.SpriteFrame> = []
-
     onLoad() {
         RewardController.instance = this
     }
@@ -53,9 +50,6 @@ export default class RewardController extends cc.Component {
         return this.propSprite[propId] || this.propSprite[0]
     }
 
-    findPhoneSprite(propId: number) {
-        return this.phoneSprite[propId] || this.phoneSprite[0]
-    }
 
     findPropName(propId: number) {
         return PropName[propId]

@@ -251,9 +251,9 @@ export class Tools {
 
   public static storageKey: string = "_v1.0.0";
   /**
-      * 存储本地数据
-      * @param {*} isObject 是否是一个对象或者数组
-      */
+   * 存储本地数据
+   * @param {*} isObject 是否是一个对象或者数组
+   */
   public static setStorage(key: string, value: any, isObject = false) {
     key = this.storageKey + key;
     if (env) {
@@ -267,9 +267,9 @@ export class Tools {
   };
 
   /**
-  * 获取存储数据
-  * @param {*} isObject 是否是一个对象或者数组
-  */
+   * 获取存储数据
+   * @param {*} isObject 是否是一个对象或者数组
+   */
   public static getStorage(key: string, isObject = false) {
     key = this.storageKey + key;
     let temp = null;
@@ -378,9 +378,6 @@ export class Tools {
       // cc.log(cc.view.getDesignResolutionSize(), cc.view.getVisibleSize())
     });
   }
-
-
-
 
   /**
     * 节点的图片置灰色或者默认

@@ -72,11 +72,8 @@ export default class gameTreasure extends baseTs {
             this.isStart = false;
             this.content1.active = false;
             this.closePage();
-            
             cc.game.emit(NameTs.Game_Pop_Open, { name: pageTs.pageName.GameRandomRedPrize, data: RewardNodeType.Box });
-
         }
-
     }
 
     /**产金币 */
@@ -84,7 +81,6 @@ export default class gameTreasure extends baseTs {
         let item: cc.Node = cc.instantiate(this.goldNode);
         item.active = true;
         item.setParent(this.goldBox);
-
     }
 
     /**

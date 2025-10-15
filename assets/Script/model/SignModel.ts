@@ -7,8 +7,6 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class PageSignReward extends cc.Component {
 
-
-
     @property(cc.Label)
     private lable_reward: cc.Label = null;
 

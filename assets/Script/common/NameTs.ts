@@ -79,7 +79,7 @@ export default class NameTs {
     /**炮弹json*/
     static bulletData = "bulletData";
     /**购买json*/
-    static buyData = "buyData2";
+    static buyData = "buyData";
     /**天降金币json*/
     static coinData = "coinData";
     /**关卡json*/

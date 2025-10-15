@@ -62,11 +62,11 @@ export default class gameSign extends baseTs {
 
         let res = await ApiService.ins.SignIn();
         if (res.response?.success) {
-            // this.showPage(pageTs.pageName.GameSign, res.response);
-            this.showPage(pageTs.pageName.GameRewardPro, { coin: 1000 });
+            this._current_status.has_signed_today = true;
+            this._current_status.current_day += 1;
+            this.setData();
+            this.showPage(pageTs.pageName.GameRewardPro, { coin: rewardsValue });
         }
-
-
     }
 
 

@@ -1,7 +1,5 @@
 import NameTs from "../common/NameTs";
-import soundController from "../soundController";
-import tool from "../util/tool";
-import util from "../util/util";
+import { Tools } from "../util/Tools";
 
 const {ccclass, property} = cc._decorator;
 
@@ -61,7 +59,7 @@ export default class earningBtn extends cc.Component {
                 this.setState();
                 return;
             }
-            this.timeLabel.string = tool.changeTime(this.time);
+            this.timeLabel.string = Tools.changeTime(this.time);
         },1);
 
     }

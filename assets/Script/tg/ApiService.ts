@@ -1,4 +1,5 @@
 
+import { log } from "console";
 import { AssistCtr } from "../Assist/AssistCtr";
 import NameTs from "../common/NameTs";
 import { BuyType, REWARD_TYPE } from "../common/PropConst";
@@ -1652,18 +1653,25 @@ export class ApiService {
    * @param reward_key 奖励键
    * @param reward_type 奖励类型
    * @param reward_num 奖励数量
+   * @param is_double 0否1是
    * @param ts 时间戳
    * @param nonce 随机字符串
    * @returns 
    */
-  async getReward(reward_key: number, reward_type: number, reward_num: number) {
+  async getReward(reward_key: number, reward_type: number, reward_num: number, is_double: number = 0) {
+    let arr = ['', '空地宝箱', '在线奖励', '转盘抽奖', '累计击杀', '悬浮宝箱', '转盘累计奖励']
+    let arr2 = ['', '金币', '炮台']
+    console.log("领取奖励===>", arr[reward_key], arr2[reward_type], reward_num, is_double ? '翻倍' : '不翻倍');
+
     let ts = TimeTools._ins.getNowTime()
     let nonce = Tools.getSuiJiNonce();
-    let data = { reward_key, reward_type, reward_num, ts, nonce }
+    let data = { reward_key, reward_type, reward_num, is_double, ts, nonce }
     let result = Tools.sortAndStringify(data)
     let signature = Tools.generateLocalSignature(result)
     let headers = { "X-Signature": signature }
-    PageManage.singleton.Loading();
+    if (reward_key != 1) {
+      PageManage.singleton.Loading();
+    }
     const response = await this.http.post<GetRewardResponse>('/getreward', data, { headers, auth: true });
     PageManage.singleton.hideLoading();
     if (response.status == 200 && response.response?.success) {
@@ -1963,7 +1971,7 @@ export class ApiService {
     } else {
       let shareText = '🚙 You’re no hero.\nYou’re a thief—on your first mission.\nNo weapons. Just speed and brains.\n💎 Get in. Grab the loot. Get out alive.\nBut this is just the beginning…';
       const encodedText = encodeURIComponent(shareText);
-      let url = "https://t.me/share/url?url=https://t.me/GemJam_bot/gemjam?startapp=" + Global.ins.user.id + '&text=' + encodedText;
+      let url = "https://t.me/share/url?url=https://t.me/TGCoinTower_bot/towergame?startapp=" + Global.ins.user.id + '&text=' + encodedText;
       Global.ins.openTelegramLink(url);
     }
     return response;
@@ -2638,7 +2646,7 @@ export class ApiService {
       cc.game.emit(NameTs.ACTIVATED);
       return;
     }
-    let url = "https://t.me/GemJamChannel";
+    let url = "https://t.me/TowerGameChannel";
     Global.ins.openTelegramLink(url);
   }
 

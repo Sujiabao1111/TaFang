@@ -137,34 +137,8 @@ export default class gameTaskReward extends baseTs {
         this.closePage();
         // this.SendPost();
         PageManage.singleton.showPage(pageTs.pageName.GameTask);
-        // TrackMgr.MissionPriceClick({
-        //     mission_name: this.initData.taskTitle,
-        //     mission_type: this.initData.typeTask==0?"日常任务":"成就任务",
-        //     mission_button: "放弃领取",
-        //     mission_coin: this.coin
-        // })
-        TrackMgr.AppDialogClick_hcdg({
-            dialog_name_hcdg: (this.initData.typeTask == 0 ? "日常任务" : "成就任务") + `红包待领取弹窗`,
-            ck_module: "关闭"
-        })
+     
+      
     }
-
-    onEnable() {
-        // AdController.loadInfoAd(AdPosition.TaskRewardView, 636, this.feed_node);//636:feedNode信息流容器节点的宽度
-
-        // if (util.adPreObj[AdPosition.TaskRewardView]) {
-        //     util.preloadAd(AdPosition.TaskRewardView, true);
-        // }
-    }
-
-
-    onDisable() {
-        // AdController.hideInfoAd(AdPosition.TaskRewardView);
-        // //预加载金币信息流
-        // if (!util.adPreObj[AdPosition.TaskRewardView] && util.getHeavenPool() > 0) {
-        //     util.preloadAd(AdPosition.TaskRewardView, true);
-        // }
-    }
-
-    // update (dt) {}
+   
 }

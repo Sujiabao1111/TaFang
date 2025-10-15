@@ -91,8 +91,7 @@ export class TelegramPlatform extends Singleton {
 
 
     // adsgram广告Id
-    _adUnitIds: string = '14293';
-
+    _adUnitIds: string = '15970';
     initRewardAd() {
         this.videoAd = null;
         this.videoAd = window["Adsgram"].init({
@@ -131,7 +130,6 @@ export class TelegramPlatform extends Singleton {
         })
     }
 
-
     onVideoErrorCallBack() {
         clearInterval(this.eIdx)
         // GameApp.hideLoading()
@@ -146,7 +144,6 @@ export class TelegramPlatform extends Singleton {
 
 
     async video(call: Function) {
-
         let now = TimeTools._ins.getNowTime()
         let interval = now - this.lastAdTimeMs
         // 点击过于频繁
@@ -252,8 +249,6 @@ export class TelegramPlatform extends Singleton {
         // this.onVideoCallBack()
         // this.adCount++
     }
-
-
 
     //展示adsgram广告
     private _showAdsgramAd() {

@@ -34,10 +34,6 @@ export default class treasureBox extends baseTs {
     }
 
     onLoad() {
-        cc.game.on(NameTs.Game_Treasure_StartTime, () => {
-            this.treasure.active = false;
-            this.time = 120;
-        }, this);
         cc.game.on(NameTs.Game_Treasure_Show, () => {
             this.time = 0;
         }, this);
@@ -47,12 +43,13 @@ export default class treasureBox extends baseTs {
      * 起飞
      */
     flyAni() {
-        console.log("漂浮宝箱出现")
+        // console.log("漂浮宝箱出现")
         this.treasure.active = true;
+        this.treasure.getComponent(cc.Animation).play();
     }
 
     private closeTreasure() {
-        console.log("漂浮宝箱关闭")
+        // console.log("漂浮宝箱关闭")
         this.treasure.active = false;
         this._autoCloseTimer = null;
         this.time = 120; // 重置时间

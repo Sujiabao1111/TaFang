@@ -33,7 +33,7 @@ export default class AdController {
             callback && callback()
             return
         }
-        cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameAdLoading);
+     
         AdUtil.loadAd(position, (res) => {            
             console.log("检查", JSON.stringify(res), position)
             if (AdUtil.isViewFinished(res) && res.position == position) {
@@ -57,7 +57,7 @@ export default class AdController {
             callback && callback()
             return
         }
-        cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameAdLoading);
+   
         AdUtil.loadAd(position, (res) => {
             // console.log("接收loadAd", res)
             setTimeout(() => {
@@ -76,7 +76,7 @@ export default class AdController {
             return
         }
         console.log("调用loadInfoad:" + position)
-        // cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameAdLoading);
+     
         AdviewUtil.loadAd(position, adBoxWidth, adBox, isGdtMinAd)
     }
     static hideInfoAd(position) {

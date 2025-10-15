@@ -1,12 +1,7 @@
-import { AssistCtr } from "../Assist/AssistCtr";
+
 import NameTs from "../common/NameTs";
-import pageTs from "../common/pageTs";
 import { getLanguage, Language, t } from "../Language/LanguageData";
-import PageManage from "../PageManage";
-import { UrlConst } from "../server/UrlConst";
-import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import { ApiService } from "../tg/ApiService";
-import TrackMgr from "../TrackMgr/TrackMgr";
 import { Tools } from "../util/Tools";
 
 const { ccclass, property } = cc._decorator;

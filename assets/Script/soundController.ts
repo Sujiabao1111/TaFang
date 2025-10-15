@@ -64,20 +64,19 @@ export default class soundController extends cc.Component {
         this.playSound(name, false, 1);
     }
 
-
     /**
      * 暂停背景音乐
      */
     public stopBGM() {
         cc.audioEngine.stop(this.bgmId);
     }
+
     /**
      * 恢复背景音乐
      */
     public resumeBGM() {
         cc.audioEngine.resumeMusic();
     }
-
 
     /** 停止播放所有音效 包含音乐 */
     public stopAllAudio() {
@@ -91,11 +90,9 @@ export default class soundController extends cc.Component {
      * @param call 回调
      */
     loadMusic(Url: string, call: Function) {
-
         let successFn = (data: cc.AudioClip) => {
             call(data);
         }
-
         if (this.Map.has(Url)) {
             let data = this.Map.get(Url);
             successFn(data.audio);
@@ -112,8 +109,6 @@ export default class soundController extends cc.Component {
                 successFn(res);
             });
         }
-
-
     }
 
     /**
@@ -134,11 +129,8 @@ export default class soundController extends cc.Component {
      * @param Url 地址
      */
     clearSound(Url: string) {
-
         if (this.Map.has(Url)) {
-
             let audio = this.Map.get(Url);
-
             cc.audioEngine.uncache(audio.audio);
         }
     }

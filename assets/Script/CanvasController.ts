@@ -190,19 +190,6 @@ export default class CanvasController extends baseTs {
 
 
     /**
-     * 拉去用户数据
-     * @param call 回调
-     */
-    initUser(call: Function) {
-
-    }
-
-    initUserData(call: Function) {
-
-    }
-
-
-    /**
      * 重新加载场景
      */
     AgainScene() {

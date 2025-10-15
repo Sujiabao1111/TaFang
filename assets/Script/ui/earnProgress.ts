@@ -10,8 +10,6 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class earnProgress extends baseTs {
-
-
     @property(cc.ProgressBar)
     private taskProgress: cc.ProgressBar = null; //任务进度条
 
@@ -26,8 +24,6 @@ export default class earnProgress extends baseTs {
 
     private curKillsNum: number = 0;
     private nextGearNum: number = 200;
-
-
 
     onLoad() {
         this.curKillsNum = util.getStorage(util.localDiary.killsValue)

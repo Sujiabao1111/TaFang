@@ -87,7 +87,6 @@ export default class turret extends turretFactiory {
                     bulletPos.y += Number(this.turretData.bulletY);
                 }
 
-
                 bulletPos = this.paoBody.node.convertToWorldSpaceAR(bulletPos);
                 bulletPos = nodeParent.convertToNodeSpaceAR(bulletPos);
                 this.bullet.initPos = this.node.getPosition();
@@ -190,7 +189,6 @@ export default class turret extends turretFactiory {
         }
         if (util.upLevel(this.initData.level) && this.initData.no) {
             ApiService.ins.getCraftnewturret(util.userData.turretLevel);
-
             cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameUpgrade);
             if (util.userData.noviceGuide == 2) {
                 cc.game.emit(NameTs.Game_Novice_Close);

@@ -31,7 +31,7 @@ export default class PageManage extends cc.Component {
     private nowPage: string = null;
 
     onLoad() {
-      
+
         if (PageManage.singleton) {
             return;
         } else {
@@ -47,7 +47,6 @@ export default class PageManage extends cc.Component {
             return name == pageName;
         }
         return pageTs.stopGamePage.some(checkAdult)
-
     }
 
     /**
@@ -97,15 +96,15 @@ export default class PageManage extends cc.Component {
                 this.openNum++;
             }
             // if(util.levelState != gameState.stop 
-            //     && name != pageTs.pageName.GameAdLoading
-            //     && name != pageTs.pageName.GameStart
+
+          
             //     && name != pageTs.pageName.GameEnd){
             //     util.levelState = gameState.stop;
             //     cc.game.emit(NameTs.Game_Stop);
             // }
 
-            if (util.levelState != gameState.stop && name != pageTs.pageName.GameAdLoading
-                && name != pageTs.pageName.GameStart
+            if (util.levelState != gameState.stop
+             
                 && name != pageTs.pageName.GameEnd && this.openNum > 0) {
                 util.levelState = gameState.stop;
                 cc.game.emit(NameTs.Game_Stop);
@@ -116,7 +115,7 @@ export default class PageManage extends cc.Component {
         }
 
 
-        if (name != pageTs.pageName.GameAdLoading && !this.checkTwoPopGame(name)) {
+        if (!this.checkTwoPopGame(name)) {
 
             if (this.checkTopPopGame(this.nowPage) && (name !== pageTs.pageName.GameWallet)) {
                 this.pageArr.push({ name, data });
@@ -180,7 +179,7 @@ export default class PageManage extends cc.Component {
      * 关闭哪个页面
      * @param name 哪个
      * @param ani 是否有动画
-    */
+     */
     closePage(name: string, ani: boolean = true) {
         let deleteName = name.replace(name[0], name[0].toUpperCase());
         this.pageOpenArr.delete(deleteName);
@@ -188,7 +187,7 @@ export default class PageManage extends cc.Component {
         let str: string = name.replace(name[0], name[0].toLowerCase());
         let node = this.pageOpen.get(str);
 
-        if (name != pageTs.pageName.GameAdLoading && !this.checkTwoPopGame(name)) {
+        if (!this.checkTwoPopGame(name)) {
             this.delectPageArr(deleteName);
             this.nowPage = null;
         } else {
@@ -209,8 +208,7 @@ export default class PageManage extends cc.Component {
         }
         console.log(this.openNum, 'this.openNum')
         if (util.levelState == gameState.stop && !util.isStop
-            && deleteName != pageTs.pageName.GameAdLoading
-            && deleteName != pageTs.pageName.GameStart
+        
             && deleteName != pageTs.pageName.GameEnd
             && this.openNum == 0) {
             util.levelState = gameState.start;
@@ -245,7 +243,7 @@ export default class PageManage extends cc.Component {
 
     /**开场动画 
      * @param node 节点
-    */
+     */
     showAni(node: cc.Node) {
         if (node.name == `gameWalletRecord`) {
             return;
@@ -273,7 +271,6 @@ export default class PageManage extends cc.Component {
                 this.destroyPage(node);
                 return;
             }
-
             if (node.name != "") {
                 let bg: cc.Node = node.getChildByName("bg");
                 let conetnt: cc.Node = node.getChildByName("content");
