@@ -105,7 +105,6 @@ export class TimeTools {
 
     /**
      * 获取两个时间点之间的时间差，并格式化为时分秒格式
-     *
      * @param endTimestamp 结束时间的时间戳（毫秒）
      * @returns 返回格式为"HH:MM:SS"的字符串，如果时间差为负数或零，则返回"00:00:00"
      */
@@ -125,6 +124,31 @@ export class TimeTools {
         const minutes = Math.floor(diff / (1000 * 60));
         diff %= (1000 * 60);
         const seconds = Math.floor(diff / 1000);
+
+        // 格式化为两位数
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    /**
+    * 获取两个时间点之间的时间差，并格式化为时分秒格式
+    * @param endTimestamp 结束时间的时间戳（秒）
+    * @returns 返回格式为"HH:MM:SS"的字符串，如果时间差为负数或零，则返回"00:00:00"
+    */
+    getTimeHMS2(endTimestamp: number) {
+        // 计算时间差（秒）
+        let diff = endTimestamp;
+
+        // 处理过期情况
+        if (diff <= 0) {
+            return "00:00:00"
+        };
+
+        // 计算时分秒
+        const hours = Math.floor(diff / (60 * 60));
+        diff %= (60 * 60);
+        const minutes = Math.floor(diff / (60));
+        diff %= (60)
+        const seconds = diff;
 
         // 格式化为两位数
         return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;

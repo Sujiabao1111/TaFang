@@ -10759,9 +10759,7 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_atlas": {
-      "__uuid__": "00e86a6c-4f10-49d7-a580-795b82099ecb"
-    },
+    "_atlas": null,
     "_id": ""
   },
   {
