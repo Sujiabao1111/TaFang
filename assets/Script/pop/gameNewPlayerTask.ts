@@ -123,7 +123,14 @@ export default class gameNewPlayerTask extends baseTs {
         const w_n = toggleItems[0].width;
         const s_l = this.toggleContent.getComponent(cc.Layout).spacingX;
 
-        this.toggleContent.parent.getComponent(cc.ScrollView).scrollToOffset(cc.v2((w_n + s_l) * this._data.curday, 0), 0.001);
+        let value = 0;
+        if (this._data.curday == 4) {
+            value = 2;
+        } else if (this._data.curday >= 5) {
+            value = 3;
+        }
+
+        this.toggleContent.parent.getComponent(cc.ScrollView).scrollToOffset(cc.v2((w_n + s_l) * value, 0), 0.001);
         this.toggleContent.parent.getComponent(cc.ScrollView).scrollToLeft();
 
         this.showRed(true);
@@ -160,8 +167,6 @@ export default class gameNewPlayerTask extends baseTs {
         }
     }
 
-
-
     clickTab(e, index) {
         if (this.redArr.indexOf(parseInt(index)) != -1) {
             this.redArr.splice(this.redArr.indexOf(parseInt(index)), 1);
@@ -193,7 +198,6 @@ export default class gameNewPlayerTask extends baseTs {
             pre.parent = this.content;
             pre.getComponent(NewPlayerTaskModel).initData(tabTaskData[i]);
         }
-
     }
 
     updateProGress(progress) {

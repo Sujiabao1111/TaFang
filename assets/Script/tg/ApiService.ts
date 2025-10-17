@@ -1738,12 +1738,13 @@ export class ApiService {
   * @returns 更新后的用户数据
   */
   async claimTaskReward(task_id: number): Promise<ApiMsg<TaskRewardResponse>> {
+    PageManage.singleton.Loading();
     const response = await this.http.post<TaskRewardResponse>(
       '/gettaskreward',
       { task_id },
       { auth: true }
     );
-
+    PageManage.singleton.hideLoading();
     if (response.response?.success) {
       console.log('任务奖励领取成功:', response.response.data.userdata);
       // // 可在此处添加用户数据更新逻辑
@@ -1969,7 +1970,7 @@ export class ApiService {
       console.log("shareGame");
       cc.game.emit(NameTs.ACTIVATED);
     } else {
-      let shareText = '🚙 You’re no hero.\nYou’re a thief—on your first mission.\nNo weapons. Just speed and brains.\n💎 Get in. Grab the loot. Get out alive.\nBut this is just the beginning…';
+      let shareText = 'This is an epic game that combines building upgrades and fusion turrets, offering endless challenges and unique CT currency rewards. Surviving waves of various monsters is your sole mission! Synthesize and upgrade turrets to help you progress through levels more effectively!';
       const encodedText = encodeURIComponent(shareText);
       let url = "https://t.me/share/url?url=https://t.me/TGCoinTower_bot/towergame?startapp=" + Global.ins.user.id + '&text=' + encodedText;
       Global.ins.openTelegramLink(url);

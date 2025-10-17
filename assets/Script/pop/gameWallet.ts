@@ -60,7 +60,7 @@ export default class gameWallet extends baseTs {
 
         let userData = util.userData;
         this.lable_myGold.string = String(userData.coin);
-        this.lable_myTon.string = "0";
+        this.lable_myTon.string = String(Global.ins.ton_coin);
 
         this.walletPool = new pool(cc.instantiate(this.addCoinItem));
         //数据更新

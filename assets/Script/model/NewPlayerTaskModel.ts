@@ -42,7 +42,7 @@ export default class NewPlayerTaskModel extends cc.Component {
     }
 
     private setBtn() {
-        if (this.myData.task_progress >= this.myData.target_value && this.myData.can_receive == 0) {
+        if (this.myData.can_receive == 2) {
             this.gouNode.active = true;
             this.btn_Node.active = false;
         } else {
@@ -50,8 +50,6 @@ export default class NewPlayerTaskModel extends cc.Component {
             this.gouNode.active = false;
             Tools.setSpriteState(this.btn_Node, this.myData.can_receive == 0);
         }
-
-
     }
 
     private setTaskTitle(data) {
@@ -87,7 +85,7 @@ export default class NewPlayerTaskModel extends cc.Component {
     async clickBtn() {
         let res = await ApiService.ins.getNewbenefitsReward(this.myData.id);
         if (res.response.success) {
-            this.myData.can_receive = 0;
+            this.myData.can_receive = 2;
             this.setBtn();
             cc.game.emit(NameTs.UPDATE_NEWPLAYER_TASK, res.response.data.progress);
         }

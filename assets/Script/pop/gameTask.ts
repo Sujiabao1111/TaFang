@@ -127,41 +127,6 @@ export default class gameTask extends baseTs {
         }
     }
 
-
-
-    /**
-     * 创建任务item
-     */
-    createDailyItem(num) {
-
-        // let parent:cc.Node = num==0?this.DailyContent:this.AchievementContent;
-
-
-
-        // let data = num==0?this.DailyData:this.AchievementData;
-        // let successFn = ()=>{
-        //     data.forEach(element => {
-        //         let item:cc.Node = cc.instantiate(this.dailyPre);
-        //         item.setParent(parent);
-        //         let itemTs = item.getComponent(item.name);
-
-        //         itemTs.init(element,num);
-
-        //     });
-        // }
-
-        // if(this.dailyPre){
-        //     successFn();
-
-        // }else{
-        //     this.loadAny("prefab/gameTask/taskItem",cc.Prefab,(res)=>{
-        //         this.dailyPre = res;
-        //         successFn();
-        //     });
-        // }
-    }
-
-
     /**
      * 关闭
      */

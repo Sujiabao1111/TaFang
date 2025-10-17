@@ -168,6 +168,7 @@ export default class ui extends cc.Component {
         cc.tween(this.buyEnergy).repeatForever(cc.tween().to(2, { x: 319 / 2 }).to(0, { x: -319 / 2 })).start();
 
         this.btn_newPlayerTask.active = Global.ins.newbenefits == 1;
+        this.btn_newPlayerTask.active = true;
         if (this.btn_newPlayerTask.active) {
             if (this.btn_newPlayerTask.getChildByName("light")) {
                 let image = this.btn_newPlayerTask.getChildByName("light");
@@ -301,7 +302,7 @@ export default class ui extends cc.Component {
     * 抽手机
     */
     clickNewBigWheel() {
-      
+
 
     }
 
