@@ -39,7 +39,6 @@ export default class monsterHp extends cc.Component {
 
     onLoad() {
 
-
     }
 
     init(data) {
@@ -55,7 +54,6 @@ export default class monsterHp extends cc.Component {
         }
         this.coin.active = data.isLast;
 
-
         this.monsetrName = util.userData.customs.big + "-" + util.userData.customs.small + "_Monster_" + this.initData.id;
         this.targetNode = util.MonsterMap.get(this.monsetrName);
         if (!this.targetNode) {
@@ -69,6 +67,7 @@ export default class monsterHp extends cc.Component {
             this.node.opacity = 255;
         }, .5);
     }
+
     /**判断是否自己 */
     private checkSelf(data) {
         if (data == 0) {
@@ -81,7 +80,6 @@ export default class monsterHp extends cc.Component {
 
 
     update() {
-
         // console.log(this.initData.id,'this.initData.node')
         if (!this.isRuning) return;
         if (!this.targetNode || (this.targetNode && !this.targetNode.getPosition)) {

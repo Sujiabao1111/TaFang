@@ -111,7 +111,6 @@ export const ISDOUBLE = {
 }
 
 
-
 /**奖励类型 */
 export enum RewardNodeType {
     Fudai = 'fudai', // 福袋

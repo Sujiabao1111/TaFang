@@ -104,8 +104,6 @@ export class Global extends Singleton {
         return Global.ins?.userData?.coin;
     }
 
-
-
     /** 显示金额 */
     async usd_coin(): Promise<number> {
         const price = await this.GetTonUsdPrice();
@@ -228,7 +226,7 @@ export class Global extends Singleton {
         if (window?.playdeckIsOpen) {
             this.set_playdeck_invoiceClosed_cb(cb)
             var amount = Math.floor(order.usd / 0.495 * 25)
-            Playdeck_requestPayment(amount, "GemJam", order.oid)
+            Playdeck_requestPayment(amount, "TowerGame", order.oid)
             return
         }
         this.openInvoice(order.link, cb)

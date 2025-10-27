@@ -100,7 +100,6 @@ export default class taskItem extends cc.Component {
     }
 
     private setItemType(data: TaskData) {
-
         let target_type = parseInt(data.target_type);
         switch (target_type) {
             case 1://通关
@@ -123,9 +122,12 @@ export default class taskItem extends cc.Component {
                     this._go_task = async () => {
                         let res = await ApiService.ins.shareGame();
                         if (res.response.success) {
-                            this.initData.can_receive = 1;
-                            this.setBtnState(false, false, true);
-                            // cc.game.emit(NameTs.UPDATE_TASK);
+                            this.scheduleOnce(() => {
+                                this.initData.can_receive = 1;
+                                this.setBtnState(false, false, true);
+                                this.ProgressLabel.string = `${this.initData.target_value}/${this.initData.target_value}`;
+                                this.Progress.progress = this.initData.target_value / this.initData.target_value;
+                            }, 1)
                         }
                     }
                 }

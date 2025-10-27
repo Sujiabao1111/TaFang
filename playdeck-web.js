@@ -11,6 +11,7 @@ window.addEventListener("message", ({ data }) => {
   if (pdData.method === "getUser" || pdData.method === "getUserProfile") {
     window.playdeckUser = pdData.value;
   }
+  
 
   if (pdData.method === "getUserLocale") {
     window.playdeckUserLocale = pdData.value;

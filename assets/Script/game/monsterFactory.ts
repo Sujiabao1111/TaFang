@@ -111,7 +111,6 @@ export default class monsterFactory extends cc.Component {
     GameEnd() {
         util.levelState = gameState.end;
         cc.game.emit(NameTs.Game_End, gamePass.fail);
-
     }
 
     /**

@@ -97,8 +97,6 @@ export default class gameKingPao extends baseTs {
         let list1 = [];
         let list2 = [];
 
-
-
         // 随机打乱
         function shuffle<T>(arr: T[]): T[] {
             let array = arr.slice();

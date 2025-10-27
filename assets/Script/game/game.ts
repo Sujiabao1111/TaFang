@@ -226,6 +226,7 @@ export default class game extends baseTs {
 
         console.log("新手引导是否过了:", Global.ins.userData.pass_guide_stage)
         let userData = Global.ins.userData;
+        // userData.stage = 0
         if (!userData.pass_guide_stage && this._userData.turretLevel < 2 && userData.stage == 0) {
             this._userData.noviceGuide = 1;
             Global.ins.userData.pass_guide_stage = 1;

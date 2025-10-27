@@ -24,7 +24,6 @@ export default class poolBox extends baseTs {
     private endPointPre: cc.Prefab = null;
 
 
-
     private turretNo: number = 0;
 
     onLoad() {
@@ -32,9 +31,6 @@ export default class poolBox extends baseTs {
     }
 
     start() {
-
-
-
     }
 
     public init() {
@@ -48,8 +44,6 @@ export default class poolBox extends baseTs {
             console.error("加载地图失败");
             return;
         }
-
-
 
         //设置地图大小
         util.mapSize.width = cc.winSize.width;
@@ -72,8 +66,6 @@ export default class poolBox extends baseTs {
             }
         }
     }
-
-
 
     /**
      * 加载类型

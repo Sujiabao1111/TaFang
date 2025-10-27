@@ -2,6 +2,7 @@
 import NameTs from "../common/NameTs";
 import { getLanguage, Language, t } from "../Language/LanguageData";
 import { ApiService } from "../tg/ApiService";
+import { Global } from "../tg/Global";
 import { Tools } from "../util/Tools";
 
 const { ccclass, property } = cc._decorator;
@@ -22,26 +23,33 @@ export default class NewPlayerTaskModel extends cc.Component {
     private btn_Node: cc.Node = null;
     @property(cc.Node)
     private gouNode: cc.Node = null;
+    @property(cc.Node)
+    private goBtn: cc.Node = null;
 
 
     private myData: TaskData = null;
+    private curClickTab: number = 0;
+    private index: number = 0;
+    private target_value: number = 0;
 
-    private taskTitleType: Array<string> = ["炮塔等级达到", "观看视频", "完成日常任务", "累计获得金币"];
-
-    initData(data: TaskData) {
+    initData(data: TaskData, curClickTab: number, index: number) {
+        this.curClickTab = curClickTab;
+        this.index = index;
         if (data) {
             this.myData = data;
-
             this.setTaskTitle(data);
             this.setBtn();
+            this.target_value = data.target_value;
 
-            this.lable_progress.string = `</c><color=#669E00>${data.task_progress}</c>/<color=#D26C41>${data.target_value}</c>`;
+            this.lable_progress.string = `</c><color=#669E00>${data.task_progress}</c>/<color=#D26C41>${this.target_value}</c>`;
             this.lable_addProgress.string = ` +${data.rewards}`;
-
         }
     }
 
     private setBtn() {
+
+        this.goBtn.active = this.curClickTab == 5 && this.index == 2 && this.myData.can_receive == 0;
+
         if (this.myData.can_receive == 2) {
             this.gouNode.active = true;
             this.btn_Node.active = false;
@@ -49,6 +57,11 @@ export default class NewPlayerTaskModel extends cc.Component {
             this.btn_Node.active = true;
             this.gouNode.active = false;
             Tools.setSpriteState(this.btn_Node, this.myData.can_receive == 0);
+        }
+
+        if (this.goBtn.active) {
+            this.btn_Node.active = false;
+            this.gouNode.active = false;
         }
     }
 
@@ -86,6 +99,16 @@ export default class NewPlayerTaskModel extends cc.Component {
         let res = await ApiService.ins.getNewbenefitsReward(this.myData.id);
         if (res.response.success) {
             this.myData.can_receive = 2;
+            this.setBtn();
+            cc.game.emit(NameTs.UPDATE_NEWPLAYER_TASK, res.response.data.progress);
+        }
+    }
+
+    private async clickChannel() {
+        ApiService.ins.joinChannel();
+        let res = await ApiService.ins.botnotify(Global.ins.user.openid, "subscribe");
+        if (res.response.success) {
+            this.myData.can_receive = 1;
             this.setBtn();
             cc.game.emit(NameTs.UPDATE_NEWPLAYER_TASK, res.response.data.progress);
         }

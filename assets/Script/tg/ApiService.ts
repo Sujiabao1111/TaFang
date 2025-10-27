@@ -1606,13 +1606,14 @@ export class ApiService {
    * @param iid 邀请者的uid    
    * @returns 返回包含token的对象
    */
-  async login(openId: string, initData: string, iid?: number): Promise<LoginResponse> {
+  async login(openId: string, initData: string, iid?: number, loginType?: string): Promise<LoginResponse> {
     openId = String(openId)
     iid = !iid ? 0 : Number(iid);
     const response = await this.http.post<LoginResponse>('/logintg', {
       open_id: openId,
       iid,
       init_data: initData,
+      login_type: loginType,
     });
     if (response && response?.response && response.response?.success) {
       this.http.setAuthToken(response.response.data.jwt);
@@ -1805,6 +1806,9 @@ export class ApiService {
    */
   async paycheckin() {
     let data = { skuid: 1001, order_type: BuyType.week, num: 1, pay_type: "usd", payment_from: "" }
+    if (window?.playdeckIsOpen) {
+      data["payment_from"] = "playdeck"
+    }
     let response = await this.http.post<PurchaseCreateResponse>('/paycheckin', data, { auth: true });
     if (response.status == 200 && response.response?.success) {
       console.log('订单创建成功:', response.response.data);
@@ -1978,7 +1982,30 @@ export class ApiService {
     return response;
   }
 
+
+  /**
+   * TG机器人发送用户操作通知（如订阅、加群、投票等），用于更新用户任务进度  
+   * @param open_id  用户Telegram ID
+   * @param type 通知类型(subscribe/addgroup/vote)
+   */
+
+  async botnotify(open_id: string, type: string): Promise<ApiMsg<ApiResponse>> {
+    PageManage.singleton.Loading();
+    let data = { open_id, type }
+    let response = await this.http.post<ApiResponse>('/botnotify', data, { auth: true });
+    PageManage.singleton.hideLoading();
+    if (response.status == 200 && response.response?.success) {
+      console.log("订阅、加群、投票通知成功");
+    }
+    return response;
+  }
+
+
+
   //=========================================================================================================
+
+
+
 
   //#region 下面是旧的接口
   /**
@@ -2436,19 +2463,19 @@ export class ApiService {
   //   return response;
   // }
 
-  /**
-  * 获取玩家身上的道具列表
-  * @param order_id 支付订单信息
-  * @returns 
-  */
-  async getPurchasedone(order_id): Promise<ApiMsg<GetUserproplist>> {
-    const response = await this.http.post<GetUserproplist>(
-      '/purchasedone',
-      { order_id: order_id }, // 空请求体
-      { auth: true }
-    );
-    return response;
-  }
+  // /**
+  // * 获取玩家身上的道具列表
+  // * @param order_id 支付订单信息
+  // * @returns 
+  // */
+  // async getPurchasedone(order_id): Promise<ApiMsg<GetUserproplist>> {
+  //   const response = await this.http.post<GetUserproplist>(
+  //     '/purchasedone',
+  //     { order_id: order_id }, // 空请求体
+  //     { auth: true }
+  //   );
+  //   return response;
+  // }
 
 
 

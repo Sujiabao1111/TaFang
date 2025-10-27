@@ -173,6 +173,11 @@ export default class turretFactiory extends cc.Component {
                     if (util.userData.noviceGuide == 2 && num > 2) {
                         call();
                     } else {
+                        // console.log("放下炮台原本位置:", num);
+                        if (util.userData.noviceGuide == 3 && num > 2) {
+                            call();
+                            return;
+                        }
                         this.GetType(num, call);
                     }
                 }
@@ -358,6 +363,7 @@ export default class turretFactiory extends cc.Component {
             }
         }
 
+        // console.log("拿起炮台原本位置:", this.initData.no);
         cc.game.emit(NameTs.Game_Turret_PickUp, { id: this.initData.no, level: this.initData.level, host: this.initData.no });
 
     }
@@ -370,14 +376,12 @@ export default class turretFactiory extends cc.Component {
 
         if (this.sameLevelTurret) {
             for (let i = 0; i < this.sameLevelTurret.length; i++) {
+
                 cc.game.emit(NameTs.Game_Same_Place_PutDown, { id: this.sameLevelTurret[i].no });
             }
         }
-
         cc.game.emit(NameTs.Game_Turret_PutDown, { id: this.initData.no, level: this.initData.level });
-
         this.sameLevelTurret = null;
-
     }
 
     /**两点角度 */

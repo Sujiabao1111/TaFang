@@ -149,7 +149,7 @@ async function connectToWallet(tonConnectUI, call) {
 }
 
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'https://car.vazhenina.com/tg/tonconnect-manifest.json',
+    manifestUrl: 'https://car.vazhenina.com/188Wallet/tonconnect-manifest.json',
     buttonRootId: 'ton-connect'
 });
 tonConnectUI.uiOptions = {

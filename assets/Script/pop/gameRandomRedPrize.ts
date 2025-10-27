@@ -5,7 +5,6 @@ import { ISDOUBLE, REWARD_KEY, REWARD_TYPE, RewardNodeType } from "../common/Pro
 import soundController from "../soundController";
 import { AdManager } from "../tg/AdManager";
 import { ApiService } from "../tg/ApiService";
-import TrackMgr from "../TrackMgr/TrackMgr";
 import { Tools } from "../util/Tools";
 import util from "../util/util";
 

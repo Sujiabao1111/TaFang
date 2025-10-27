@@ -35,8 +35,6 @@ export default class gameNewPlayerTask extends baseTs {
 
     private redArr = [] // 有红点的任务
 
-
-
     // 炮塔等级达到:0  观看视频:1  完成日常任务:2  累计获得金币:3
     private defaultData = {
         userCurrentProgress: 5,
@@ -196,7 +194,7 @@ export default class gameNewPlayerTask extends baseTs {
         for (let i = 0; i < tabTaskData.length; i++) {
             let pre: cc.Node = cc.instantiate(this.newPlayerTaskModel);
             pre.parent = this.content;
-            pre.getComponent(NewPlayerTaskModel).initData(tabTaskData[i]);
+            pre.getComponent(NewPlayerTaskModel).initData(tabTaskData[i], curClickTab, i);
         }
     }
 

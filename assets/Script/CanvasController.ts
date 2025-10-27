@@ -84,6 +84,10 @@ export default class CanvasController extends baseTs {
         if (!this.isLogined) {
             return;
         }
+        if (window?.playdeckIsOpen) {
+            // @ts-ignore
+            Playdeck_loading(100)
+        }
 
         this.loadingJson();
         util.inidata()
@@ -126,18 +130,16 @@ export default class CanvasController extends baseTs {
             // Global.ins.avatar_url = Telegram.WebApp.initDataUnsafe.user.photo_url;
         }
 
-        // let loginType = ""
-        // if (window?.playdeckIsOpen) {
-        //     loginType = "playdeck";
-        // }
+        let loginType = "telegram"
+        if (window?.playdeckIsOpen) {
+            loginType = "playdeck";
+        }
         response = await ApiService.ins.login(openid, initData, iid);
         if (response && response?.success) {
             console.log("====response.data.user=======", response.data.user);
             console.log("====response.data.userdata=======", response.data.userdata);
             Global.ins.newbenefits = response.data.newbenefits;
             Global.ins.initPlayer(response.data.user, response.data.userdata);
-            // await ApiService.ins.getConfigs();
-            // await ApiService.ins.getCardPackConfigs();
             return response;
         }
         return response;
