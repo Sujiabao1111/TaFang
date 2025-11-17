@@ -37,6 +37,7 @@ export default class NewPlayerTaskModel extends cc.Component {
         this.index = index;
         if (data) {
             this.myData = data;
+            // this.myData.can_receive = 0
             this.setTaskTitle(data);
             this.setBtn();
             this.target_value = data.target_value;
@@ -48,7 +49,11 @@ export default class NewPlayerTaskModel extends cc.Component {
 
     private setBtn() {
 
-        this.goBtn.active = this.curClickTab == 5 && this.index == 2 && this.myData.can_receive == 0;
+        this.goBtn.active = false;
+        if ((this.myData.id == 10 || this.myData.id == 25) && this.myData.can_receive == 0) {
+            this.goBtn.active = true
+        }
+        // this.goBtn.active = this.curClickTab == 5 && this.index == 2 && this.myData.can_receive == 0;
 
         if (this.myData.can_receive == 2) {
             this.gouNode.active = true;
@@ -105,13 +110,28 @@ export default class NewPlayerTaskModel extends cc.Component {
     }
 
     private async clickChannel() {
-        ApiService.ins.joinChannel();
-        let res = await ApiService.ins.botnotify(Global.ins.user.openid, "subscribe");
-        if (res.response.success) {
-            this.myData.can_receive = 1;
-            this.setBtn();
-            cc.game.emit(NameTs.UPDATE_NEWPLAYER_TASK, res.response.data.progress);
+        // 订阅
+        if (this.myData.id == 10) {
+            ApiService.ins.joinChannel();
+            let res = await ApiService.ins.botnotify(Global.ins.user.openid, "subscribe");
+            if (res.response.success) {
+                this.scheduleOnce(() => {
+                    this.myData.can_receive = 1;
+                    this.setBtn();
+                    cc.game.emit(NameTs.UPDATE_NEWPLAYER_TASK, res.response.data.progress);
+                }, 2)
+            }
+        } else if (this.myData.id == 25) {
+            // 群组
+            ApiService.ins.joinGroup();
+            let res = await ApiService.ins.botnotify(Global.ins.user.openid, "addgroup");
+            if (res.response.success) {
+                this.scheduleOnce(() => {
+                    this.myData.can_receive = 1;
+                    this.setBtn();
+                    cc.game.emit(NameTs.UPDATE_NEWPLAYER_TASK, res.response.data.progress);
+                }, 2)
+            }
         }
-
     }
 }

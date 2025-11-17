@@ -97,14 +97,14 @@ export default class PageManage extends cc.Component {
             }
             // if(util.levelState != gameState.stop 
 
-          
+
             //     && name != pageTs.pageName.GameEnd){
             //     util.levelState = gameState.stop;
             //     cc.game.emit(NameTs.Game_Stop);
             // }
 
             if (util.levelState != gameState.stop
-             
+
                 && name != pageTs.pageName.GameEnd && this.openNum > 0) {
                 util.levelState = gameState.stop;
                 cc.game.emit(NameTs.Game_Stop);
@@ -208,7 +208,7 @@ export default class PageManage extends cc.Component {
         }
         console.log(this.openNum, 'this.openNum')
         if (util.levelState == gameState.stop && !util.isStop
-        
+
             && deleteName != pageTs.pageName.GameEnd
             && this.openNum == 0) {
             util.levelState = gameState.start;

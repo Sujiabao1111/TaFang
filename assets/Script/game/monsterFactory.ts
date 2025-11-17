@@ -170,10 +170,9 @@ export default class monsterFactory extends cc.Component {
             this.isShield = true;
         } else if (this._userData.prop[propType.shield - 1].use == propState.end && this.isShield) {
             this.isShield = false;
-
         }
     }
-
+2
 
     /**暂停走 */
     stopWalk() {

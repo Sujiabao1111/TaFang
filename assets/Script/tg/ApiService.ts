@@ -1834,7 +1834,6 @@ export class ApiService {
     return response;
   }
 
-
   /**
    * 确认支付成功
    * @param id 订单数据库ID
@@ -2687,7 +2686,7 @@ export class ApiService {
       cc.game.emit(NameTs.ACTIVATED);
       return;
     }
-    let url = "https://t.me/GemJamOffcialCommunity";
+    let url = "https://t.me/TowerGameOffcialCommunity";
     Global.ins.openTelegramLink(url);
   }
 

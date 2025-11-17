@@ -56,7 +56,6 @@ export default class gameTreasure extends baseTs {
 
     init(data) {
         this.isStart = true;
-
     }
 
     /**
@@ -67,6 +66,7 @@ export default class gameTreasure extends baseTs {
         this.progress.progress += .1;
         this.createGold();
         this.boxDragon.playAnimation("shake-red", 1);
+        
         this.clickNum++;
         if (this.progress.progress >= 1) {
             this.isStart = false;

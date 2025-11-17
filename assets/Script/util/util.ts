@@ -521,7 +521,6 @@ class util {
      * 返回是否是新等级
      * @param level 等级
      */
-
     upLevel(level: number): boolean {
         if (level > this.userData.turretLevel) {
             this.userData.turretLevel = level;
@@ -535,7 +534,6 @@ class util {
      * 获取当前关卡怪兽配置
      */
     GetCustomsMonsterInfo() {
-
         this.userData.customs.big = this.userData.customs.big > this.maxLevel ? this.maxLevel : this.userData.customs.big;
         let mapData = this.getMapdata(this.userData.customs.big);
         //console.log("GetCustomsMonsterInfo : "+ JSON.stringify(mapData))
@@ -545,38 +543,26 @@ class util {
         let data = mapData[this.userData.customs.small - 1];
 
         // for(let i = 0;i<mapData.length;i++){
-
         //     if(mapData[i].id==this.userData.customs.big){
-
         //         for(let j = 0;j<mapData[i].customs.length;j++){
-
         //             if(mapData[i].customs[j].level==this.userData.customs.small){
         //                 data = mapData[i].customs[j].monster;
         //                 break;
         //             }
-
         //         }
-
         //     }
         // }
         let Arr = [];
         data = data.levelConfig.split("+");
-
         for (let i = 0; i < data.length; i++) {
-
             let item = data[i].split("-");
-
             let id = item[0];
             let num = item[1];
-
             for (let j = 0; j < num; j++) {
                 Arr.push(id);
             }
-
         }
-
         return Arr;
-
     }
 
     /**
@@ -594,21 +580,19 @@ class util {
      * 通过位置来获取用户数据
      * @param loaction 哪个
      */
-
     GetPoolData(loaction: number) {
         let data = null;
         data = Tools.GetArrData("no", loaction, this.userData.pool);
         return data;
     }
+
     /**
      * 通过位置来获取Map数据
      * @param loaction 哪个
      */
     GetPlaceData(loaction: number) {
         let data = null;
-
         data = Tools.GetArrData("no", loaction, this.levelMap);
-
         return data;
     }
 
@@ -619,17 +603,13 @@ class util {
 
     GetMonsterData(level: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.monsterData);
-
         return Tools.GetArrData("no", level, data);
-
     }
 
     /**检查最高级别的炮塔时是否超过两个 */
     chekPoolHaveTwo() {
-
         let level: number = this.userData.turretLevel;
         let num: number = 0;
-
         for (let i = 0; i < this.userData.pool.length; i++) {
             let item = this.userData.pool[i];
             if (item.level == level) {
@@ -637,14 +617,12 @@ class util {
             }
         }
         return num >= 2;
-
     }
 
     /**
      * 获取怪兽颜色
      * @param level 等级
      */
-
     GetMonsterColor(level: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.monsterData);
         return Tools.GetArrData("no", level, data).color;
@@ -655,7 +633,6 @@ class util {
      * 获取关卡怪兽id
      * @param id id
      */
-
     GetMonsterIdData(id: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.monsterIdData);
         return Tools.GetArrData("id", id, data);
@@ -667,13 +644,10 @@ class util {
      * @param y 竖向
      */
     GetMapPos(x: number, y: number): cc.Vec2 {
-
         let pos: cc.Vec2 = cc.v2();
-
         pos.x = this.mapSize.startGridPos.x + x * this.mapSize.grid;
         pos.y = this.mapSize.startGridPos.y - y * this.mapSize.grid;
         return pos;
-
     }
 
     /**
@@ -682,23 +656,17 @@ class util {
      * @param num 剩余多少步
      */
     setLevelMonsterData(id: number, num: number) {
-
         let isExist: boolean = Tools.setArrData("id", id, "num", num, this.levelMonsterArr);
         if (!isExist) {
             this.levelMonsterArr.push({ id, num });
         }
-
         let sortFn = (a, b) => {
-
             let before: number = a.num - b.num;
-
             if (a.num == b.num) {
                 before = a.id - b.id;
             }
-
             return before;
         }
-
         this.levelMonsterArr.sort(sortFn);
 
     }
@@ -707,19 +675,14 @@ class util {
      * @param id 第几个
      */
     delectLevelMonster(id: number) {
-
         let isSuccess: boolean = false;
-
         for (let i = 0; i < this.levelMonsterArr.length; i++) {
-
             if (this.levelMonsterArr[i].id == id) {
                 this.levelMonsterArr.splice(i, 1);
                 isSuccess = true;
                 break;
             }
-
         }
-
     }
 
     /**
@@ -770,7 +733,6 @@ class util {
      * @param data {pos:自己的位置,id:}
      */
     checkMonsterClose(data: { pos: cc.Vec2, id: number, distanceNum: number }) {
-
         let name: string = this.userData.customs.big + "-" + this.userData.customs.small + "_Monster_" + data.id;
         let target: cc.Node = this.MonsterMap.get(name);
         if (!target) return false;
@@ -843,7 +805,6 @@ class util {
         if (data.length < level) {
             return false;
         }
-
         return true;
     }
 
@@ -861,6 +822,7 @@ class util {
         }
         cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.product);
     }
+
     /**
      * 增加多少个金币或者减少
      * @param num 数量
@@ -869,7 +831,6 @@ class util {
         if (isAdd) {
             this.userData.coin += parseInt(num);
         }
-
         if (this.userData.coin < 0) {
             this.userData.coin = 0;
         }
@@ -877,6 +838,7 @@ class util {
         cc.game.emit(NameTs.Game_Wallet_AddCoin, num);
         cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.coin);
     }
+
     /**
     * 增加多少个金币或者减少
     * @param num 数量
@@ -891,22 +853,14 @@ class util {
         cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.coin);
     }
 
-
-
-
-
     /**
      * 获取购买的等级并返回等级
      */
     getBuyRandomLevel(): number {
-
         let data = jsonSingleton.singleton.getJson(NameTs.buyData);
-
         //单独的等级
         let level: number = null;
-
         let smallData = { num: 0, level: 0 };
-
         let str = Tools.GetArrData("level", this.userData.turretLevel, data);
         let randomLevel: number = null;
         if (!str) {
@@ -951,30 +905,20 @@ class util {
     * 通过权重获取等级
     */
     GetWeigthLevel(data: any[]) {
-
         let arr = Tools.deepClone(data);
-
         let str = [];
-
         for (let i = 0; i < arr.length; i++) {
-
             let item = arr[i];
-
             for (let j = 0; j < item.weigth; j++) {
-
                 str.push(item.id);
-
             }
-
         }
         let random: number = Tools.GetRandom(0, str.length - 1);
         let id: number = str[random];
         if (id == null) {
             id = arr[0].id;
         }
-
         return Number(id);
-
     }
 
     /**
@@ -983,13 +927,10 @@ class util {
      * @param call 回调 
      */
     checkTouchPool(pos: cc.Vec2, call: Function) {
-
         let data: number = null;
-
         for (let i = 0; i < this.levelMap.length; i++) {
             let item = this.levelMap[i];
             //格子的位置
-
             let str = {
                 x: null,
                 y: null,
@@ -1295,12 +1236,9 @@ class util {
                 break;
             }
         }
-
     }
 
-
     /**
-     * 
      * @param url 地址
      * @param data 数据
      * @param call 回调
@@ -1327,7 +1265,6 @@ class util {
 
 
     getdataStr(obj: { url: string, data?: any, success?: Function, fail?: Function }) {
-
         XMSDK.getdataStr({
             url: obj.url,
             data: obj.data,
@@ -1344,7 +1281,6 @@ class util {
                 obj.fail && obj.fail(false);
             }
         });
-
     }
 
 
@@ -1362,29 +1298,6 @@ class util {
         }
         log("判断是否当天" + isDay);
         return isDay;
-    }
-
-    /**
-     * 预加载广告
-     * @param pos 位置
-     * @param isView 是否为信息流
-     */
-
-    preloadAd(pos, isView: boolean = false) {
-        if (!this.adPreObj[pos]) {
-            this.adPreObj[pos] = true;
-            if (isView) {
-                AdController.preViewAd(pos);
-            } else {
-                AdController.preVideoAd(pos);
-            }
-            console.log("加载" + (isView ? "信息流" : "视频") + pos);
-        } else {
-            delete this.adPreObj[pos];
-            console.log("删除" + (isView ? "信息流" : "视频") + pos + "记录");
-        }
-
-
     }
 
     /**
@@ -1414,29 +1327,20 @@ class util {
         let taskType: number = null;
         //符合的任务
         let str = [];
-
         let checkTask = (arr) => {
-
             if (taskType == null) {
                 call(null, taskType);
                 return;
             }
-
             let order = taskType == 0 ? taskOrder1 : taskOrder2;
-
             for (let i = 0; i < order.length; i++) {
-
                 for (let j = 0; j < str.length; j++) {
-
                     if (order[i] == str[j].taskType) {
                         call(str[j], taskType);
                         return;
                     }
-
                 }
-
             }
-
         }
 
         this.getdataStr({

@@ -48,8 +48,8 @@ sx = """<!-- inject window.Telegram.WebApp object ken change here to replace 02 
     function initAnalytics() {{
     console.log('===============init analytics', window.telegramAnalytics);
       window.telegramAnalytics.init({{
-        token: 'eyJhcHBfbmFtZSI6IkdlbUphbSIsImFwcF91cmwiOiJodHRwczovL3QubWUvR2VtSmFtX2JvdCIsImFwcF9kb21haW4iOiJodHRwczovL2Nhci52YXpoZW5pbmEuY29tLzE4Ny9pbmRleC5odG1sIn0=!1V7YRKqC0ntkG72CbLI0Llf+MAvTXH+c9To2JhW2L58=',
-        appName: 'GemJam'
+        token: 'eyJhcHBfbmFtZSI6IlRvd2VyR2FtZSIsImFwcF91cmwiOiJodHRwczovL3QubWUvVEdDb2luVG93ZXJfYm90IiwiYXBwX2RvbWFpbiI6Imh0dHBzOi8vY2FyLnZhemhlbmluYS5jb20vMTg4L2luZGV4Lmh0bWwifQ==!5PJpq/ZOKmodhNFdVAol78xEOpleBPQzxXe6QEwqTyA=',
+        appName: 'TowerGame'
       }});
     }}
 </script>
