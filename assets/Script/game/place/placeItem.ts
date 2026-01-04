@@ -36,25 +36,20 @@ export default class placeItem extends cc.Component {
             if (res.id == this.initData.id) {
                 this.sameNode.active = true;
             }
-
         }, this);
 
         //放下
         cc.game.on(NameTs.Game_Same_Place_PutDown, (res) => {
-
             if (res.id == this.initData.id) {
                 this.sameNode.active = false;
             }
-
         }, this);
 
         cc.game.on(NameTs.Game_Unlock_Place, (res) => {
-
             if (this.initData.id == res) {
                 this.state = 1;
                 this.setState();
             }
-
         }, this);
 
         cc.game.on(NameTs.Show_Empty_Box, () => {
@@ -113,5 +108,4 @@ export default class placeItem extends cc.Component {
         }
     }
 
-    // update (dt) {}
 }

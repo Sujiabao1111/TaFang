@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "752e0d90-5f4d-4d10-a386-78fa523884be",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 200,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "icon-通行证本": {
+      "ver": "1.0.6",
+      "uuid": "1dbdddfd-0c65-4a83-8864-ee6c62c19f3e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "752e0d90-5f4d-4d10-a386-78fa523884be",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": -1.5,
+      "trimX": 5,
+      "trimY": 3,
+      "width": 193,
+      "height": 197,
+      "rawWidth": 200,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

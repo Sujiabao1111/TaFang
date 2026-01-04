@@ -198,7 +198,17 @@ export const languages: languagesData = {
         '狂点砸开宝箱': 'Tap rapidly to open the chest',
         '最多可获得': 'Maximum obtainable',
         '恭喜': 'Congratulations',
-
+        '奖池提示': 'After the countdown ends, the prize pool will be divided equally',
+        '一日会员': 'One-day Membership',
+        '额外获得': 'Extra 10% CT coins',
+        '免广告': 'No ads for 24 hours',
+        '自动合成炮塔': 'Auto synthesize turrets',
+        '随机炮塔': 'Random Turret',
+        '获取随机等级的炮塔': 'Get a random level turret',
+        '通行证': 'Pass',
+        '免费基金': 'Free Fund',
+        '付费基金': 'Free Fund',
+        '根据炮塔的最高等级': 'Based on the highest level of turret',
 
 
 

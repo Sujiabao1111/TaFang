@@ -1,20 +1,14 @@
 import { log } from "console";
 import baseTs from "../base/baseTs";
-import NameTs from "../common/NameTs";
-import pageTs from "../common/pageTs";
 import Marquee from "../model/Marquee";
-import { UrlConst } from "../server/UrlConst";
-import XMSDK from "../server/xmsdk_cocos/XMSDK";
-import TrackMgr from "../TrackMgr/TrackMgr";
 import { TimeTools } from "../util/TimeTools";
 import { ApiService } from "../tg/ApiService";
 import soundController from "../soundController";
-import { BuyType } from "../common/PropConst";
 import { Global } from "../tg/Global";
-import { UIManager } from "../base/UIManager";
 import { t } from "../Language/LanguageData";
 import { AssistCtr } from "../Assist/AssistCtr";
 import PageManage from "../PageManage";
+import { BuyType } from "../common/PropConst";
 export interface marquee {
     msg: string,
     time: number
@@ -30,6 +24,9 @@ export default class gameKingPao extends baseTs {
 
     @property(cc.Node)
     private node2: cc.Node = null;
+
+    @property(cc.Node)
+    private tipsNode: cc.Node = null;
 
     @property(Marquee)
     private marquee: Marquee = null;
@@ -50,12 +47,15 @@ export default class gameKingPao extends baseTs {
 
     private _countdown;
     private _curSeconds;
+    private isFirst = true;
 
     onLoad() {
 
     }
 
     init(data: CheckInInfoData) {
+        this.isFirst = true;
+        this.tipsNode.active = false;
         this.moneyLabel.string = `${data.pool}`;
         this.checkInNumLabel.string = `${data.signcnt}`;
         // let endTimes = data.cd * 1000
@@ -153,7 +153,7 @@ export default class gameKingPao extends baseTs {
         if (this.isClick) return;
         this.isClick = true;
         soundController.singleton.clickAudio();
-        const msg = await ApiService.ins.paycheckin();
+        const msg = await ApiService.ins.paycheckin(BuyType.PayCheckin);
         const rsp = msg?.response;
         if (msg.status === 200 && rsp && rsp.success) {
             try {
@@ -164,6 +164,10 @@ export default class gameKingPao extends baseTs {
                             const m = await ApiService.ins.checkOrder(rsp.data.oid);
                             if (m.status === 200 && m.response?.success) {
                                 AssistCtr.showToastTip(t('tips.buy_success'));
+                                if (this.isFirst) {
+                                    this.tipsNode.active = true;
+                                    this.isFirst = false;
+                                }
                             } else {
                                 if (--count > 0) {
                                     console.log('checkOrder again', count);
@@ -195,6 +199,10 @@ export default class gameKingPao extends baseTs {
         if (this.node) {
             PageManage.singleton.closePage(this.node.name);
         }
+    }
+
+    clickCloseTips() {
+        this.tipsNode.active = false;
     }
 
     clickCloseRule() {

@@ -155,7 +155,7 @@ export class TelegramPlatform extends Singleton {
 
         this.isVideoCb = false;
 
-        PageManage.singleton.Loading();
+        // PageManage.singleton.Loading();
         // const msg = await ApiService.ins.getAgentAdConfig(Global.ins?.user?.inviter);
         // const rsp = msg?.response;
         // if (msg.status === 200 && rsp.success && rsp?.data.length > 0) {
@@ -194,15 +194,16 @@ export class TelegramPlatform extends Singleton {
         //     }
         // }
 
+        console.log("进入playdeckIsOpen===>", window?.playdeckIsOpen);
         if (window?.playdeckIsOpen) {
             this.set_playdeck_showAd_cb(call) //设置playdeck回调函数
             Playdeck_showAd()
             PageManage.singleton.hideLoading()
-            return
+            return;
         }
 
 
-        PageManage.singleton.Loading()
+        PageManage.singleton.Loading();
         let Ad = "monetag";
         if (this.adCount >= 2) {
             Ad = "adsgram"

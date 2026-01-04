@@ -88,8 +88,6 @@ export default class monster extends monsterFactory {
 
     }
 
-
-
     /**
      * 出厂动画
      */

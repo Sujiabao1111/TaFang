@@ -195,6 +195,18 @@ export const languages: languagesData = {
         '狂点砸开宝箱': 'Klik cepat untuk membuka peti',
         '最多可获得': 'Bisa dapat maksimal',
         '恭喜': 'Selamat',
+        '奖池提示': 'Setelah hitung mundur berakhir, hadiah akan dibagi rata',
+        '一日会员': 'Keanggotaan Harian',
+        '额外获得': 'Mendapatkan tambahan 10% koin CT',
+        '免广告': 'Tanpa iklan selama 24 jam',
+        '自动合成炮塔': 'Penggabungan menara otomatis',
+        '随机炮塔': 'Menara acak',
+        '获取随机等级的炮塔': 'Dapatkan menara level acak',
+        '通行证': 'Pass',
+        '免费基金': 'Fond terbatas',
+        '付费基金': 'Fond terbatas',
+        '根据炮塔的最高等级': 'Berdasarkan level tertinggi menara',
+
 
 
 

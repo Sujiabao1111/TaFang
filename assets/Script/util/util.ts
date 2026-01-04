@@ -626,7 +626,6 @@ class util {
     GetMonsterColor(level: number) {
         let data = jsonSingleton.singleton.getJson(NameTs.monsterData);
         return Tools.GetArrData("no", level, data).color;
-
     }
 
     /**
@@ -1023,6 +1022,7 @@ class util {
         if (type == propType.cls) {                         //清屏            
             cc.game.emit(NameTs.Tool_Effect_Name.Game_Prop_Cls);
         } else if (type == propType.auto) {                  //自动合成
+            console.log("自动合成自动合成自动合成自动合成");
             cc.game.emit(NameTs.Tool_Effect_Name.Game_Prop_Atuo);
         }
         else if (type == propType.shock) {                  //电击
@@ -1296,7 +1296,7 @@ class util {
             isDay = false;
             this.setStorage(this.localDiary.GetDayTime, day);
         }
-        log("判断是否当天" + isDay);
+        // log("判断是否当天" + isDay);
         return isDay;
     }
 

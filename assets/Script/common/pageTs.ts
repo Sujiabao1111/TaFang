@@ -3,7 +3,7 @@ export default class pageTs {
     //场景名字
     static pageName = {
 
-      
+
         /**游戏结束 */
         GameEnd: "GameEnd",
         /**游戏设置 */
@@ -20,6 +20,13 @@ export default class pageTs {
         GameWalletRecord: "GameWalletRecord",
         /**任务 */
         GameTask: "GameTask",
+        /**一日会员 */
+        GameOneDayMembership: "GameOneDayMembership",
+        /**随机炮塔 */
+        GameRandomTurret: "GameRandomTurret",
+        /**通行证 */
+        GamePass: "GamePass",
+        
         /**图鉴 */
         GameTuJian: "GameTuJian",
         /**天降金币奖励弹窗 */
@@ -67,7 +74,7 @@ export default class pageTs {
 
     //加载地址
     static pageUrl = {
-      
+
         /**游戏结束 */
         GameEnd: "prefab/pop/gameEnd",
 
@@ -124,10 +131,16 @@ export default class pageTs {
         /**游戏通关奖励 */
         GamePassReward: "prefab/pop/gamePassReward",
 
-     
+
 
         /**奖励弹窗 */
         GameRewardPro: "prefab/pop/gameRewardPro",
+        /**一日会员 */
+        GameOneDayMembership: "prefab/pop/gameOneDayMembership",
+        /**随机炮塔 */
+        GameRandomTurret: "prefab/pop/gameRandomTurret",
+        /**通行证 */
+        GamePass: "prefab/pop/gamePass",
 
     }
 

@@ -386,17 +386,32 @@ export class Tools {
     * @param isAllChild 是否所以节点
     */
   public static setSpriteState(nodeT: cc.Node, isGray: boolean, isAllChild: boolean = false) {
-    let matUrl = isGray ? cc.Material.getBuiltinMaterial('2d-gray-sprite') : cc.Material.getBuiltinMaterial('2d-sprite');
+    if (!nodeT) return;
+    const mat = isGray ? cc.Material.getBuiltinMaterial('2d-gray-sprite') : cc.Material.getBuiltinMaterial('2d-sprite');
+    // 设置按钮交互状态（如果存在）
+    const btn = nodeT.getComponent(cc.Button);
+    if (btn) btn.interactable = !isGray;
+    // 如果要求全部子节点一起设置
     if (isAllChild) {
-      let coms = nodeT.getComponentsInChildren(cc.Sprite);
-      for (let i = 0; i < coms.length; i++) {
-        coms[i].setMaterial(0, matUrl);
+      const coms = nodeT.getComponentsInChildren(cc.Sprite);
+      if (coms && coms.length > 0) {
+        for (let i = 0; i < coms.length; i++) {
+          if (coms[i] && coms[i].setMaterial) coms[i].setMaterial(0, mat);
+        }
       }
       return;
     }
-    nodeT.getComponent(cc.Sprite).setMaterial(0, matUrl);
-    if (nodeT.getComponent(cc.Button)) {
-      nodeT.getComponent(cc.Button).interactable = !isGray;
+    // 单节点模式：优先设置本节点的 Sprite，若没有则尝试第一个子 Sprite
+    const sp = nodeT.getComponent(cc.Sprite);
+    if (sp && sp.setMaterial) {
+      sp.setMaterial(0, mat);
+    } else {
+      const childSp = nodeT.getComponentInChildren ? nodeT.getComponentInChildren(cc.Sprite) : null;
+      if (childSp && childSp.setMaterial) {
+        childSp.setMaterial(0, mat);
+      } else {
+        // 无 Sprite 可设置，安全返回
+      }
     }
   };
 

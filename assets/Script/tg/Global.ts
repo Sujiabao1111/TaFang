@@ -41,11 +41,13 @@ export class Global extends Singleton {
     };
 
     public curPassStageGold = 0;
+    public isOpenAuto = false;
 
     public show_mine = true;
     public isHaveAdFreeCount = true;
     public proplist = [];
     public newbenefits = 0; // "1":未领取，"2":已领取 
+    public ondayvipcd = 0; // 一日会员 时间 
 
     public loading_rate = 0;
     public ticket: string = "";
@@ -126,9 +128,6 @@ export class Global extends Singleton {
             return 0
         }
     }
-
-
-
 
 
 

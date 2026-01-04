@@ -4,6 +4,7 @@ import NameTs from "../common/NameTs";
 import { UrlConst } from "../server/UrlConst";
 import soundController from "../soundController";
 import taskItem from "../task/taskItem";
+import { ApiService } from "../tg/ApiService";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 
@@ -35,23 +36,18 @@ export default class gameTask extends baseTs {
     @property({ type: cc.Node, displayName: "成就Content" })
     private AchievementContent: cc.Node = null;
 
-    @property({ type: cc.Node, displayName: "每日任务红点" })
-    private taskRed: cc.Node = null;
-
-    @property({ type: cc.Node, displayName: "成就任务红点" })
-    private achievementRed: cc.Node = null;
-
     //当前第几个
     private selectNum: number = 0;
 
     //每日数据
     private DailyData: TaskData[] = [];
 
-    //成就数据
+    //换量数据
     private AchievementData: TaskData[] = [];
 
     private dayRedNum = 0;
     private passRedNum = 0;
+
 
     onLoad() {
         gameTask.instance = this;
@@ -78,18 +74,30 @@ export default class gameTask extends baseTs {
     /**
     * 初始化
     */
-    init(taskData: TaskData[]) {
+    async init(taskData: TaskData[]) {
         for (let i = 0; i < taskData.length; i++) {
             if (taskData[i].task_type == "1") {
                 this.DailyData.push(taskData[i]);
-            } else {
-                this.AchievementData.push(taskData[i]);
             }
+
+
+            // else {
+            //     this.AchievementData.push(taskData[i]);
+            // }
+        }
+        console.log("taskData", taskData);
+        this.selectNum = 0;
+
+        const msg2 = await ApiService.ins.getExchangeTaskList();
+        const rsp2 = msg2?.response;
+        console.log("换量任务====", rsp2);
+        if (rsp2 && rsp2.success) {
+            this.AchievementData = rsp2.data;
         }
 
         this.updataTask(0);
         this.updataTask(1);
-        console.log("taskData", taskData);
+        
     }
 
     /**
@@ -119,6 +127,7 @@ export default class gameTask extends baseTs {
             let item = cc.instantiate(this.dailyPre);
             item.parent = parentNode;
         }
+
         let childArray = parentNode.children;      //设置数据
         for (let i = 0; i < childArray.length; i++) {
             if (list[i]) {
@@ -126,6 +135,8 @@ export default class gameTask extends baseTs {
             }
         }
     }
+
+
 
     /**
      * 关闭

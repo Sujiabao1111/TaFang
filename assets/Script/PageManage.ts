@@ -96,8 +96,6 @@ export default class PageManage extends cc.Component {
                 this.openNum++;
             }
             // if(util.levelState != gameState.stop 
-
-
             //     && name != pageTs.pageName.GameEnd){
             //     util.levelState = gameState.stop;
             //     cc.game.emit(NameTs.Game_Stop);
@@ -116,7 +114,6 @@ export default class PageManage extends cc.Component {
 
 
         if (!this.checkTwoPopGame(name)) {
-
             if (this.checkTopPopGame(this.nowPage) && (name !== pageTs.pageName.GameWallet)) {
                 this.pageArr.push({ name, data });
                 return;

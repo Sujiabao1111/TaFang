@@ -102,7 +102,10 @@ export const REWARD_TYPE = {
 }
 // 购买的类型
 export const BuyType = {
-    week: 0, //买周卡
+    PayCheckin: 0, //付费签到
+    OneDayVIP: 2, //一日VIP
+    RandomTurret: 3, //随机炮塔
+    PassVIP: 4, //通行证
 }
 // 是否加倍
 export const ISDOUBLE = {

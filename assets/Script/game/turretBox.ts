@@ -8,6 +8,7 @@ import { REWARD_KEY, REWARD_TYPE } from "../common/PropConst";
 import UserData from "../data/userData";
 import { t } from "../Language/LanguageData";
 import { ApiService } from "../tg/ApiService";
+import { Global } from "../tg/Global";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 import turret from "./turret/turret";
@@ -60,12 +61,14 @@ export default class turretBox extends baseTs {
         cc.game.on(NameTs.Tool_Effect_Name.Game_Prop_Atuo, () => {
             console.log("开启自动合成");
             this.isOpenAuto = true;
+            Global.ins.isOpenAuto = true; //开启自动合成
         }, this);
 
         // 监听关闭自动合成
         cc.game.on(NameTs.Close_Prop_Atuo, () => {
             console.log("关闭自动合成");
             this.isOpenAuto = false;
+            Global.ins.isOpenAuto = false; //关闭自动合成   
         }, this);
 
         // 拿起
@@ -109,6 +112,13 @@ export default class turretBox extends baseTs {
      */
     createTurret(data: { level: number, location: number, isFree: boolean } = { level: null, location: null, isFree: false }, isClickEmptyBox = false) {
         let level: number = data.level;
+
+        if (level > util.userData.turretLevel) {
+            util.userData.turretLevel = level;
+            ApiService.ins.getCraftnewturret(util.userData.turretLevel);
+            cc.game.emit(NameTs.UPDATE_MAX_Turret_Level);
+        }
+
         let location: number = data.location;
 
         if (this._userData.product <= 0 && !data.isFree) {

@@ -57,6 +57,7 @@ declare global {
   interface UserDataResponse extends ApiResponse {
     code?: number;
     data: {
+      ondayvipcd: number;
       userdata: NewUserData;
     };
     message?: string;
@@ -257,6 +258,18 @@ declare global {
     * azen代币货币数
     */
     azen: number;
+    /**
+    * 是否有一日vip  vip_type=1就是有一日vip
+    */
+    vip_type: number;
+    /**
+    * 随机宝箱次数
+    */
+    random_box: number;
+    /**
+    * 炮台最高等级
+    */
+    turret_level: number;
 
   }
   /**
@@ -313,6 +326,40 @@ declare global {
      * 排行榜配置
      */
     RankRewardCfg: rankCfgData[];
+  }
+
+  /** 返回通行证数据 */
+  interface UserGrowthResponse extends ApiResponse {
+    code?: number;
+    data: UserGrowtData[];
+    message?: string;
+    success: boolean;
+  }
+
+  /** 返回通行证数据 */
+  interface UserGrowtData {
+    level: number; // 解锁等级
+    coin: number; // 奖励金币
+    vip_coin: number; // 奖励vip金币
+    id: number;
+    normal_get: number; // 普通领取
+    vip_get: number; // vip领取
+  }
+
+  /** 领取通行证数据 */
+  interface GetGrowthRewardResponse extends ApiResponse {
+    code?: number;
+    data: {
+      userdata: {
+        uid: number,
+        game_coin: number,
+        today_game_coin: number,
+        total_game_coin: number
+      },
+      coin: number
+    };
+    message?: string;
+    success: boolean;
   }
 
   /**
@@ -410,6 +457,7 @@ declare global {
   /** 返回提现数据 */
   interface SubmitWithdrawResponse extends UserDataResponse {
     data: {
+      ondayvipcd: number;
       userdata: NewUserData;
     };
     success: boolean;
@@ -609,18 +657,7 @@ declare global {
   interface OpenBoxResponse extends UserDataResponse {
   }
 
-  /** 领取周卡每日奖励响应类型 */
-  interface GetCardDailyResponse extends UserDataResponse {
-    data: {
-      userdata: NewUserData,
-      rewards: RewardData[],
 
-      /**
-       * 签到天数
-       */
-      receive_day: number;
-    }
-  }
 
   /**
    * 奖励数据结构
@@ -685,6 +722,8 @@ declare global {
 
     /** 已领取次数  */
     getnum: number
+    task_require: number
+    jump_url: string
 
   }
 
@@ -1395,7 +1434,7 @@ declare global {
    */
   interface ExchangeTaskItem extends TaskData {
     /** 跳转链接 */
-    jump_url?: string;
+
 
     updatet?: string;
     complete?: number;
@@ -1804,8 +1843,8 @@ export class ApiService {
    * @param payment_from  支付来源('playdeck' || '' || 'azen')
    * @returns 提交结果
    */
-  async paycheckin() {
-    let data = { skuid: 1001, order_type: BuyType.week, num: 1, pay_type: "usd", payment_from: "" }
+  async paycheckin(type: number) {
+    let data = { skuid: 1001, order_type: type, num: 1, pay_type: "usd", payment_from: "" }
     if (window?.playdeckIsOpen) {
       data["payment_from"] = "playdeck"
     }
@@ -1830,7 +1869,6 @@ export class ApiService {
     } else {
       console.log('订单状态检查成功:', response);
     }
-
     return response;
   }
 
@@ -1864,6 +1902,7 @@ export class ApiService {
     }
     return response;
   }
+
   /**
    * 领取新人任务福利奖励
    * @param task_id 订单数据库ID
@@ -1987,7 +2026,6 @@ export class ApiService {
    * @param open_id  用户Telegram ID
    * @param type 通知类型(subscribe/addgroup/vote)
    */
-
   async botnotify(open_id: string, type: string): Promise<ApiMsg<ApiResponse>> {
     PageManage.singleton.Loading();
     let data = { open_id, type }
@@ -1999,21 +2037,13 @@ export class ApiService {
     return response;
   }
 
-
-
-  //=========================================================================================================
-
-
-
-
-  //#region 下面是旧的接口
   /**
-   * 获取用户信息
-   *
-   * @returns 返回用户信息的响应数据
-   */
-  async getUserinfo(is_update_user: boolean = true): Promise<UserDataResponse> {
-    const response = await this.http.post<UserDataResponse>('/getuserinfo', null, { auth: true });
+ * 获取用户信息
+ *
+ * @returns 返回用户信息的响应数据
+ */
+  async getUserinfo(): Promise<UserDataResponse> {
+    const response = await this.http.post<UserDataResponse>('/userinfo ', {}, { auth: true });
     if (response && response?.response && response.response?.success) {
       console.log("获取用户信息", response);
       Global.ins.setUserData(response.response.data?.userdata);
@@ -2023,6 +2053,119 @@ export class ApiService {
       console.log("获取用户信息失败", response);
     }
   }
+
+  /**
+   * 使用随机宝箱次数
+   * @returns 返回用户信息的响应数据
+   */
+  async useRandomBox(): Promise<ApiResponse> {
+    const response = await this.http.post<ApiResponse>('/userandombox ', {}, { auth: true });
+    if (response && response?.response && response.response?.success) {
+      console.log("使用随机宝箱次数成功", response);
+      return response?.response;
+    }
+    else {
+      console.log("使用随机宝箱次数失败", response);
+    }
+  }
+
+  /**
+   * 获取通行证信息
+   * @returns 返回获取通行证信息的响应数据
+   */
+  async getUserGrowth(): Promise<UserGrowthResponse> {
+    const response = await this.http.post<UserGrowthResponse>('/usergrowth ', {}, { auth: true });
+    if (response && response?.response && response.response?.success) {
+      console.log("获取通行证信息成功", response);
+      return response?.response;
+    }
+    else {
+      console.log("获取通行证信息失败", response);
+    }
+  }
+
+  /**
+  * 领取通行证
+  * @returns 返回获取通行证信息的响应数据
+  */
+  async getGrowthReward(id, vip_get): Promise<GetGrowthRewardResponse> {
+    const response = await this.http.post<GetGrowthRewardResponse>('/getgrowthreward ', { id, vip_get }, { auth: true });
+    if (response && response?.response && response.response?.success) {
+      console.log("领取通行证成功", response);
+      return response?.response;
+    }
+    else {
+      console.log("领取通行证失败", response);
+    }
+  }
+
+  /**
+ * 获取换量任务列表
+ * @returns 换量任务列表
+ */
+  async getExchangeTaskList(): Promise<ApiMsg<ExchangeTaskListResponse>> {
+    const response = await this.http.post<ExchangeTaskListResponse>(
+      '/getexchangetasklist',
+      {}, // 空请求体
+      { auth: true } // 需要认证
+    );
+
+    if (response.status === 200 && response.response?.success) {
+      console.log('换量任务列表获取成功:', response.response.data);
+    } else {
+      console.warn('换量任务列表获取失败:', response);
+    }
+    return response;
+  }
+
+  /**
+  * 通知完成换量任务
+  * @param tid 任务ID
+  * @returns 操作结果
+  */
+  async completeExchangeTask(tid: number): Promise<ApiMsg<ApiResponse>> {
+    const response = await this.http.post<ApiResponse>(
+      '/completeexchangetask',
+      { tid },
+      { auth: true } // 需要认证
+    );
+
+    if (response.status === 200 && response.response?.success) {
+      console.log(`任务 ${tid} 完成上报成功`);
+    } else {
+      console.warn(`任务 ${tid} 完成上报失败:`, response);
+    }
+    return response;
+  }
+
+  /**
+   * 领取换量任务奖励
+   * @param tid 任务ID
+   * @returns 更新后的用户数据
+   */
+  async getExchangeTaskReward(tid: number): Promise<ApiMsg<ExchangeTaskRewardResponse>> {
+    const response = await this.http.post<ExchangeTaskRewardResponse>(
+      '/getexchangetaskreward',
+      { tid },
+      { auth: true } // 需要认证
+    );
+
+    if (response.status === 200 && response.response?.success) {
+      console.log(`任务 ${tid} 奖励领取成功`);
+      // 更新全局用户数据
+      Global.ins.setUserData(response.response.data.userdata);
+    }
+    return response;
+  }
+
+
+  //=========================================================================================================
+
+
+
+
+  //#region 下面是旧的接口
+
 
 
   /**
@@ -2123,22 +2266,7 @@ export class ApiService {
     return response;
   }
 
-  // /**
-  //  * 领取卡每日奖励
-  //  * @param type 卡类型 1周卡2月卡3年卡
-  //  */
-  // async carddaily(type: CardType): Promise<ApiMsg<GetCardDailyResponse>> {
-  //   const response = await this.http.post<GetCardDailyResponse>(
-  //     '/carddaily',
-  //     { t: type },
-  //     { auth: true }
-  //   );
-  //   if (response.status == 200 && response.response?.success) {
-  //     Global.ins.receive_day = response.response.data.receive_day;
-  //     Global.ins.setUserData(response.response.data.userdata);
-  //   }
-  //   return response;
-  // }
+
 
   /**
    * 创建支付订单
@@ -3011,64 +3139,9 @@ export class ApiService {
   //   return response;
   // }
 
-  /**
-  * 获取换量任务列表
-  * @returns 换量任务列表
-  */
-  async getExchangeTaskList(): Promise<ApiMsg<ExchangeTaskListResponse>> {
-    const response = await this.http.post<ExchangeTaskListResponse>(
-      '/getexchangetasklist',
-      {}, // 空请求体
-      { auth: true } // 需要认证
-    );
 
-    if (response.status === 200 && response.response?.success) {
-      console.log('换量任务列表获取成功:', response.response.data);
-    } else {
-      console.warn('换量任务列表获取失败:', response);
-    }
-    return response;
-  }
 
-  /**
-   * 通知完成换量任务
-   * @param tid 任务ID
-   * @returns 操作结果
-   */
-  async completeExchangeTask(tid: number): Promise<ApiMsg<ApiResponse>> {
-    const response = await this.http.post<ApiResponse>(
-      '/completeexchangetask',
-      { tid },
-      { auth: true } // 需要认证
-    );
 
-    if (response.status === 200 && response.response?.success) {
-      console.log(`任务 ${tid} 完成上报成功`);
-    } else {
-      console.warn(`任务 ${tid} 完成上报失败:`, response);
-    }
-    return response;
-  }
-
-  /**
-   * 领取换量任务奖励
-   * @param tid 任务ID
-   * @returns 更新后的用户数据
-   */
-  async getExchangeTaskReward(tid: number): Promise<ApiMsg<ExchangeTaskRewardResponse>> {
-    const response = await this.http.post<ExchangeTaskRewardResponse>(
-      '/getexchangetaskreward',
-      { tid },
-      { auth: true } // 需要认证
-    );
-
-    if (response.status === 200 && response.response?.success) {
-      console.log(`任务 ${tid} 奖励领取成功`);
-      // 更新全局用户数据
-      Global.ins.setUserData(response.response.data.userdata);
-    }
-    return response;
-  }
 
 
   // ===================================卡包================================

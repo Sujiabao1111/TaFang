@@ -16,7 +16,7 @@ export default class baseTs extends cc.Component {
      * @param call 回调
      */
     loadAny(url: string, type: any, call: Function, fail?: Function) {
-        console.log("loadAny : " + url)
+        // console.log("loadAny : " + url)
         cc.resources.load(url, type, (err, res) => {
             if (err) {
                 cc.error("加载资源失败", err);

@@ -149,6 +149,10 @@ export default class game extends baseTs {
                     this.showTask();
                     break;
 
+                case pageTs.pageName.GameOneDayMembership:
+                    this.showOneDayMembership();
+                    break;
+
 
 
                 case pageTs.pageName.GameUpgrade:
@@ -484,6 +488,12 @@ export default class game extends baseTs {
         if (res.response?.success) {
             this.showPage(pageTs.pageName.GameTask, res.response.data);
         }
+    }
+    /**
+     * 一日会员
+     */
+    async showOneDayMembership() {
+        this.showPage(pageTs.pageName.GameOneDayMembership, null);
     }
 
 

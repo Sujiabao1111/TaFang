@@ -140,6 +140,8 @@ export default class NameTs {
 
     //炮塔特效
     static Game_Effect_turret = "Game_Effect_turret";
+    //炮塔特效
+    static Game_Effect_turret2 = "Game_Effect_turret2";
 
     //金币数字
     static Game_Effect_num = "Game_Effect_num";
@@ -289,4 +291,10 @@ export default class NameTs {
 
     /**更新新人任务的进度 */
     static UPDATE_NEWPLAYER_TASK = "UPDATE_NEWPLAYER_TASK";
+
+    //更新最高等级炮塔
+    static UPDATE_MAX_Turret_Level = "UPDATE_MAX_Turret_Level";
+
+    //购买一日vip成功
+    static BUY_ONEDAYVIP_SUCCESS = "BUY_ONEDAYVIP_SUCCESS";
 }

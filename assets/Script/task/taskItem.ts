@@ -8,6 +8,7 @@ import { UrlConst } from "../server/UrlConst";
 import AdController from "../server/xmsdk_cocos/AD/AdController";
 import soundController from "../soundController";
 import { ApiService } from "../tg/ApiService";
+import { Global } from "../tg/Global";
 import TrackMgr from "../TrackMgr/TrackMgr";
 import util from "../util/util";
 
@@ -53,7 +54,16 @@ export default class taskItem extends cc.Component {
         this.initData = data;
         this.typeTask = type;
 
-        this.setTaskTitle(data);
+        if (type == 1) {
+            this.Progress.node.active = false;
+            this.ProgressLabel.node.active = false;
+            this.setTaskTitle2(data);
+        } else {
+            this.setTaskTitle(data);
+
+        }
+
+
         this.setItemType(data);
         let rewards = this.initData.rewards;
         let rewardArr = [];
@@ -79,6 +89,7 @@ export default class taskItem extends cc.Component {
         } catch (e) {
             titleData = {};
         }
+
         // 默认英文
         let langKey = "en";
         switch (getLanguage()) {
@@ -96,10 +107,64 @@ export default class taskItem extends cc.Component {
             case Language.th:
                 langKey = "th"; break;
         }
+
         this.titleLabel.string = titleData[langKey] || titleData["en"] || "";
+
+    }
+
+    private setTaskTitle2(data) {
+        switch (getLanguage()) {
+            case Language.zh:
+                this.titleLabel.string = data.desc_zhhant;
+                break;
+            case Language.en:
+                this.titleLabel.string = data.desc_en;
+                break;
+            case Language.zhHant:
+                this.titleLabel.string = data.desc_zhhant;
+                break;
+            case Language.ar:
+                this.titleLabel.string = data.desc_ar;
+                break;
+            case Language.id:
+                this.titleLabel.string = data.desc_id;
+                break;
+            case Language.ru:
+                this.titleLabel.string = data.desc_ru;
+                break;
+            case Language.th:
+                this.titleLabel.string = data.desc_th;
+                break;
+            default:
+                this.titleLabel.string = data.desc;
+                break;
+        }
+        this.coinLabel.string = data.rewardnum
     }
 
     private setItemType(data: TaskData) {
+        if (this.typeTask == 1) {
+            if (data.task_require <= data.task_progress) {
+                this.isCanLingQu()
+            }
+            else {
+                this.setBtnState(true, false, false);
+                this._go_task = async () => {
+                    await ApiService.ins.completeExchangeTask(data.id);
+                    if (data.jump_url.startsWith('https://t.me')) {
+                        Global.ins.openTelegramLink(data.jump_url);
+                    } else {
+                        Global.ins.openLink(data.jump_url)
+                    };
+
+                    // if (CC_DEBUG) {
+                    //     EventManager.ins.emit(EVENT_NAME_ENUM.ACTIVATED);
+                    // }
+                }
+            }
+            return;
+        }
+
         let target_type = parseInt(data.target_type);
         switch (target_type) {
             case 1://通关
@@ -281,6 +346,7 @@ export default class taskItem extends cc.Component {
         this.Progress.progress = this.initData.task_progress / this.initData.target_value;
     }
 
+    
     private isCanLingQu() {
         if (this.initData.can_receive == 1) {
             this.setBtnState(false, false, true);
@@ -304,12 +370,22 @@ export default class taskItem extends cc.Component {
     /**按钮 */
     async getBtn(event) {
         soundController.singleton.clickAudio();
-        let res = await ApiService.ins.claimTaskReward(this.initData.id);
-        if (res.response.success) {
-            this.initData.can_receive = 0;
-            this.setBtnState(false, true, false);
-            let coin = parseInt(this.coinLabel.string)
-            cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: coin, num: 5, parent: cc.director.getScene().getChildByName('Canvas'), isAdd: true });
+        if (this.typeTask == 0) {
+            let res = await ApiService.ins.claimTaskReward(this.initData.id);
+            if (res.response.success) {
+                this.initData.can_receive = 0;
+                this.setBtnState(false, true, false);
+                let coin = parseInt(this.coinLabel.string)
+                cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: coin, num: 5, parent: cc.director.getScene().getChildByName('Canvas'), isAdd: true });
+            }
+        } else {
+            let res = await ApiService.ins.getExchangeTaskReward(this.initData.id);
+            if (res.response.success) {
+                this.initData.can_receive = 0;
+                this.setBtnState(false, true, false);
+                let coin = parseInt(this.coinLabel.string)
+                cc.game.emit(NameTs.Game_Effect_coin, { node: this.node, value: coin, num: 5, parent: cc.director.getScene().getChildByName('Canvas'), isAdd: true });
+            }
         }
     }
 

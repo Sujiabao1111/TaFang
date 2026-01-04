@@ -138,13 +138,46 @@ export default class CanvasController extends baseTs {
         if (response && response?.success) {
             console.log("====response.data.user=======", response.data.user);
             console.log("====response.data.userdata=======", response.data.userdata);
+
             Global.ins.newbenefits = response.data.newbenefits;
+            Global.ins.ondayvipcd = response.data.ondayvipcd;
             Global.ins.initPlayer(response.data.user, response.data.userdata);
+            console.log("====response.data.userdata.vip_type=======", Global.ins.userData.vip_type, Global.ins.ondayvipcd);
+
+
+            // 发送用户活跃数据
+            // this.sendUserActive(openid);
             return response;
         }
         return response;
     }
 
+    /**
+     * 发送用户活跃数据到外部接口
+     */
+    private async sendUserActive(userId: string) {
+        try {
+            const now = new Date();
+            const loginTime = now.toISOString(); // ISO 格式：2025-01-20T10:30:00.000Z
+            // 或者使用时间戳：const loginTime = now.getTime();
+
+            const response = await fetch("http://82.197.69.147:8000/game/active", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user_id: userId,
+                    last_login: loginTime
+                })
+            });
+
+            const result = await response.json();
+            console.log("用户活跃数据发送成功:", result);
+        } catch (error) {
+            console.error("发送用户活跃数据失败:", error);
+        }
+    }
 
     /**
      * 获取本地数据

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "10223ffb-26b9-4568-984b-6cbcfb0e1c29",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 200,
+  "height": 200,
+  "platformSettings": {},
+  "subMetas": {
+    "icon-会员": {
+      "ver": "1.0.6",
+      "uuid": "19718093-7324-4034-97f1-c5b7368ee136",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "10223ffb-26b9-4568-984b-6cbcfb0e1c29",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": -3.5,
+      "trimX": 6,
+      "trimY": 9,
+      "width": 190,
+      "height": 189,
+      "rawWidth": 200,
+      "rawHeight": 200,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

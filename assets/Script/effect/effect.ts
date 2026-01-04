@@ -57,6 +57,8 @@ export default class effect extends baseTs {
 
         }, this);
 
+
+
         cc.game.on(NameTs.Game_SavingPost_AddCoin, () => {
             if (!util.savingPotLock) return;
             this.creatorCoin2();
@@ -172,7 +174,7 @@ export default class effect extends baseTs {
      * 
      * @param res 数据
      */
-    creatorTurret(data: { node: cc.Node, num: number, parent?: cc.Node }) {
+    creatorTurret(data: { node: cc.Node, num: number, parent?: cc.Node, cloneNode?: cc.Node, callBack?: Function }) {
         if (!this.turretParentPos) {
             let turretNode: cc.Node = util.GlobalMap.get("turretBuy");
             this.turretParentPos = turretNode.parent.convertToWorldSpaceAR(turretNode.getPosition());
@@ -187,8 +189,64 @@ export default class effect extends baseTs {
         pos = this.node.convertToNodeSpaceAR(pos);
         let len: number = data.num || 1;
         let centerPos: cc.Vec2 = cc.Vec2.clone(pos.add(this.turretParentPos).div(2));
+        // 如果传入 cloneNode 就用传入的节点创建实例，否则走对象池
+        const useClone = !!data.cloneNode;
         for (let i = 0; i < len; i++) {
-            let item: cc.Node = this.turretPool.createEnemy(data.parent || this.node);
+            let item: cc.Node;
+            if (useClone) {
+                item = cc.instantiate(data.cloneNode);
+                (data.parent || this.node).addChild(item);
+            } else {
+                item = this.turretPool.createEnemy(data.parent || this.node);
+            }
+
+            item.setPosition(pos);
+            let pos1: cc.Vec2 = cc.v2();
+            pos1.x = centerPos.x + Math.cos(Math.PI * Tools.GetRandom(0, 360) / 180) * Tools.GetRandom(300, 350);
+            pos1.y = centerPos.y + Math.sin(Math.PI * Tools.GetRandom(0, 360) / 180) * Tools.GetRandom(50, 100);
+            item.scale = 0;
+
+            cc.tween(item).delay(i * .1).to(.1, { scale: .4 }).bezierTo(.5, pos, pos1, this.turretParentPos).to(.1, { scale: .45 }).call(() => {
+                // 根据创建方式选择回收或销毁
+                if (useClone) {
+                    // 实例化的 cloneNode，销毁实例
+                    item.destroy();
+                    data.callBack && data.callBack();
+                } else {
+                    // 池里创建的，回收到池中
+                    this.killedCoin(item);
+                }
+
+                if (i == len - 1) {
+                    cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.product);
+                }
+            }).start();
+        }
+    }
+
+    /**
+    * 
+    * @param res 数据
+    */
+    creatorTurret2(data: { node: cc.Node, num: number, cloneNode: cc.Node }) {
+        if (!this.turretParentPos) {
+            let turretNode: cc.Node = util.GlobalMap.get("turretBuy");
+            this.turretParentPos = turretNode.parent.convertToWorldSpaceAR(turretNode.getPosition());
+            this.turretParentPos = this.node.convertToNodeSpaceAR(this.turretParentPos);
+        }
+
+        if (data && (!data.node || !data.node.parent)) {
+            data.node = cc.director.getScene().getChildByName('Canvas');
+        }
+
+        let pos: cc.Vec2 = data.node.parent.convertToWorldSpaceAR(data.node.getPosition());
+        pos = this.node.convertToNodeSpaceAR(pos);
+        let len: number = data.num || 1;
+        let centerPos: cc.Vec2 = cc.Vec2.clone(pos.add(this.turretParentPos).div(2));
+        console.log("==============", this.turretPool);
+
+        for (let i = 0; i < len; i++) {
+            let item: cc.Node = cc.instantiate(data.cloneNode);
             // item.
             item.setPosition(pos);
             let pos1: cc.Vec2 = cc.v2();
@@ -197,13 +255,13 @@ export default class effect extends baseTs {
             item.scale = 0;
             cc.tween(item).delay(i * .1).to(.1, { scale: .4 }).bezierTo(.5, pos, pos1, this.turretParentPos).to(.1, { scale: .45 }).call(() => {
                 this.killedCoin(item);
+                item.destroy();
                 if (i == len - 1) {
                     cc.game.emit(NameTs.Game_View_UserDataUpdata, updateType.product);
                 }
             }).start();
         }
     }
-
 
     /**
      * 删除

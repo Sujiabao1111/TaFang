@@ -1,19 +1,18 @@
 
+import baseTs from "../base/baseTs";
 import { gameNumerical, gamePass, gameState, propInfo, propState, propType, thingType, updateType } from "../common/faceTs";
 import NameTs from "../common/NameTs";
 import pageTs from "../common/pageTs";
 import RedController from "../controlelr/RedController";
 import userData from "../data/userData";
 import PageManage from "../PageManage";
-import { UrlConst } from "../server/UrlConst";
-import XMSDK from "../server/xmsdk_cocos/XMSDK";
 import soundController from "../soundController";
 import { Global } from "../tg/Global";
 import util from "../util/util";
 
 const { ccclass, property } = cc._decorator;
 @ccclass
-export default class ui extends cc.Component {
+export default class ui extends baseTs {
 
     @property(cc.Label)
     private customsLabel: cc.Label = null; //关卡label
@@ -68,14 +67,13 @@ export default class ui extends cc.Component {
     @property(cc.Label)     //首页红点可领取任务数量
     private lable_redNum: cc.Label = null;
 
-    @property(cc.Node)      //首页签到红点
-    private signRed_red: cc.Node = null;
 
-    @property(cc.Node)      //首页大转盘红点
-    private wheel_red: cc.Node = null;
+    @property(cc.Node)      //一日会员
+    private oneDayVip: cc.Node = null;
 
 
     onLoad() {
+
 
         // this.topBar.top += Number(util.iphoneXTop);
 
@@ -227,6 +225,7 @@ export default class ui extends cc.Component {
         soundController.singleton.clickAudio();
         cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameSet);
     }
+    
     /**
      * 图鉴
      */
@@ -243,6 +242,7 @@ export default class ui extends cc.Component {
         this.propBox.active = !this.propBox.active;
         // cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameProp);
     }
+
     /**
      * 签到
      */
@@ -250,6 +250,7 @@ export default class ui extends cc.Component {
         soundController.singleton.clickAudio();
         cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameSign);
     }
+
     /**
      * 提现
      */
@@ -258,13 +259,33 @@ export default class ui extends cc.Component {
         cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameWallet);
     }
 
-
     /**
      * 任务
      */
     async TaskGame() {
         soundController.singleton.clickAudio();
         cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameTask);
+    }
+
+    /**
+     * 一日会员
+     */
+    async clickOneDayVip() {
+        soundController.singleton.clickAudio();
+        cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameOneDayMembership);
+    }
+
+    /**
+    * 随机炮塔
+    */
+    async clickRandomTurret() {
+        soundController.singleton.clickAudio();
+        this.showPage(pageTs.pageName.GameRandomTurret, null);
+    }
+
+    async clickPass() {
+        soundController.singleton.clickAudio();
+        this.showPage(pageTs.pageName.GamePass, null);
     }
 
     /**
@@ -329,7 +350,6 @@ export default class ui extends cc.Component {
             this.updateData(updateType.product);
             return;
         }
-
     }
 
     /**
@@ -351,7 +371,7 @@ export default class ui extends cc.Component {
                     this.videoIcon.active = false;
                     this.productLabel.node.active = true;
                 }
-                RedController.checkMainGoldWheelRed();
+                // RedController.checkMainGoldWheelRed();
                 break;
         }
 
@@ -407,21 +427,11 @@ export default class ui extends cc.Component {
         let userData: userData = util.userData;//用户数据
         let bigLevel: number = userData.customs.big; //大关卡
         let samllLevel: number = userData.customs.small;//小关卡
-        console.log("关卡" + bigLevel + "-" + samllLevel);
+        // console.log("关卡" + bigLevel + "-" + samllLevel);
         this.customsLabel.string = bigLevel + "-" + samllLevel;
     }
 
 
-    /** 
-     * 改变炮塔等级
-    */
-    changeTurretBuy() {
-
-        // let level:number = util.getBuyRandomLevel();
-
-        // this.loadAny()
-
-    }
 
 
 }

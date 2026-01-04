@@ -23,7 +23,10 @@ export default class turretHost extends baseTs {
             if (res == pageTs.pageName.GameUpgrade) {
                 this.updateTurrert();
             }
+        }, this);
 
+        cc.game.on(NameTs.UPDATE_MAX_Turret_Level, () => {
+            this.updateTurrert();
         }, this);
 
     }

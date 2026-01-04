@@ -284,73 +284,7 @@ export default class gameTuJian extends baseTs {
                 })
                 this.image_showImg2.node.x = Number(data.TujianX);
                 this.image_showImg2.node.y = Number(data.TujianY);
-                // if (AssistCtr.checkTuJian(data.level)) {
-                //     this.image_showImg2.node.x = -214.63;
-                //     this.image_showImg2.node.y = 85;
-                //     if (data.level == 5) {
-                //         this.image_showImg2.node.y = 87;
-                //     }
-                //     else if (data.level == 9) {
-                //         // this.image_showImg2.node.x = -215;
-                //         // this.image_showImg2.node.y = 82;
-                //     }
-                //     else if(data.level == 17){                        
-                //         this.image_showImg2.node.y = 82;
-                //     }   
-                //     else if (data.level == 22) {
-                //         this.image_showImg2.node.y = 88;
-                //     }
-                //     else if(data.level == 29){                        
-                //         this.image_showImg2.node.y = 81;
-                //     }  
-                //     else if (data.level == 30) {
-                //         this.image_showImg2.node.x = -212;
-                //         this.image_showImg2.node.y = 86;
-                //     }
-                //     else if(data.level == 38){                        
-                //         this.image_showImg2.node.y = 68;
-                //     }  
-                // }
-                // else {
-                //     this.image_showImg2.node.x = -214;
-                //     this.image_showImg2.node.y = 42;
-                // }
-
-                // if(AssistCtr.checkTuJian(data.level)){
-                //     this.image_icon2.node.x = 0; 
-                //     this.image_icon2.node.y = 0;
-                //     if(data.level == 5){
-                //         this.image_icon2.node.y = -2;
-                //     }
-                //     else if(data.level == 9){
-                //         this.image_icon2.node.x = -1;
-                //         this.image_icon2.node.y = -3;
-                //     }  
-                //     else if(data.level == 17){                        
-                //         this.image_icon2.node.y = -3;
-                //     }       
-                //     else if(data.level == 30){
-                //         this.image_icon2.node.x = 2;
-                //         this.image_icon2.node.y = 1;
-                //     } 
-                //     else if(data.level == 29){                        
-                //         this.image_icon2.node.y = -4;
-                //     }   
-                //     else if(data.level == 38){                        
-                //         this.image_icon2.node.y = -17;
-                //     }                         
-                // }
-                // else{
-                //     this.image_icon2.node.y = -26;
-                // }
-
-                // if(AssistCtr.checkTuJian(data.level)){
-                //     this.image_showImg2.node.y = 85;
-                // }
-                // else{
-                //     this.image_showImg2.node.y = 40;
-                // }
-
+              
 
                 this.image_showImg2.node.active = true;
 

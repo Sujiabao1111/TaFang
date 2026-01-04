@@ -92,7 +92,7 @@ export default class monsterFactory extends cc.Component {
         if (this.walkNo >= this.walkArr.length - 1) {
             if (this.isShield) return;
             this.GameEnd();
-            console.log("走到终点了")
+            // console.log("走到终点了")
             return
         }
         this.walkNo++;

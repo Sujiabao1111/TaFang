@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "26b05674-702f-4aec-ace1-6043fd2adf6b",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 100,
+  "height": 500,
+  "platformSettings": {},
+  "subMetas": {
+    "通行证-分割线.1": {
+      "ver": "1.0.6",
+      "uuid": "78a7b802-e480-44d5-b4fd-890b1ff26e0e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "26b05674-702f-4aec-ace1-6043fd2adf6b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1.5,
+      "offsetY": -1.5,
+      "trimX": 44,
+      "trimY": 7,
+      "width": 15,
+      "height": 489,
+      "rawWidth": 100,
+      "rawHeight": 500,
+      "borderTop": 29.5,
+      "borderBottom": 32.5,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

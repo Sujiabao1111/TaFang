@@ -107,8 +107,8 @@ export default class turretBuy extends baseTs {
 
         }, this);
 
-        cc.game.on(NameTs.Game_Buy_update, () => {
-            this.setLevel();
+        cc.game.on(NameTs.Game_Buy_update, (lv: number = -1) => {
+            this.setLevel(lv);
         }, this);
 
         this.setLevel();
@@ -122,9 +122,13 @@ export default class turretBuy extends baseTs {
     /**
      * 更新炮塔
      */
-    setLevel() {
+    setLevel(lv: number = -1) {
 
-        this.level = util.getBuyRandomLevel();
+        if (lv > 0) {
+            this.level = lv;
+        } else {
+            this.level = util.getBuyRandomLevel();
+        }
         this.levelLabel.string = String(this.level);
 
         //炮塔属性

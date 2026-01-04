@@ -109,19 +109,14 @@ export default class turret extends turretFactiory {
 
     init(data) {
 
-
-
-
         this.initData = data;
         this.initData.level = Number(this.initData.level);
-
-
-
 
         if (data.no) {
             let pos: cc.Vec2 = cc.Vec2.clone(util.GetPlaceData(data.no).pos);
             this.node.setPosition(pos);
         }
+
         this.setName();
         util.GlobalMap.set("turret_" + data.no, this.node);
         this.attackData = null;
@@ -187,38 +182,15 @@ export default class turret extends turretFactiory {
         if (no) {
             this.initData.no = no;
         }
+
         if (util.upLevel(this.initData.level) && this.initData.no) {
             ApiService.ins.getCraftnewturret(util.userData.turretLevel);
             cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameUpgrade);
+           
             if (util.userData.noviceGuide == 2) {
                 cc.game.emit(NameTs.Game_Novice_Close);
             }
-
-        } else if (util.userData.turretLevel >= 7 && this.initData.no) {
-            // if (util.upTurretRandomRedTime) {
-            //     let curTimer = new Date().getTime();
-            //     let padTime = curTimer - util.upTurretRandomRedTime;
-            //     if (padTime >= 60000) {
-            //         util.upTurretRandomRedTime = curTimer;
-            //         console.log("1111111111111111");
-            //         cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameTurretRandomRed);
-            //     }
-            //     else if (padTime >= 30000) {
-            //         let randomNum = Math.random();
-            //         if (randomNum <= 0.2) {
-            //             util.upTurretRandomRedTime = curTimer;
-            //             console.log("12222222222222222222222");
-            //             cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameTurretRandomRed);
-            //         }
-            //     }
-            // }
-            // else {
-            //     util.upTurretRandomRedTime = new Date().getTime();
-            //     console.log("333333333333333333333333");
-            //     cc.game.emit(NameTs.Game_Pop_Open, pageTs.pageName.GameTurretRandomRed);
-            // }
-        }
-
+        } 
 
         if (this.initData.no) {
             util.savePool(no, this.initData.level);
